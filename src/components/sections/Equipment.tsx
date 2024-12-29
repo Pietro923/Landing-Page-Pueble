@@ -7,42 +7,42 @@ import { motion } from "framer-motion"
 export default function Equipment() {
   const machines = [
     {
-      name: 'Retroexcavadora',
+      name: 'Tractores',
       description: 'Ideal para excavaciones y movimientos de tierra',
       icon: Shovel,
       specs: ['Potencia: 120HP', 'Profundidad máx: 4.5m', 'Capacidad: 0.8m³'],
       color: 'red'
     },
     {
-      name: 'Tractor',
+      name: 'Cosechadora',
       description: 'Potente y versátil para diversas tareas agrícolas',
       icon: Tractor,
       specs: ['Potencia: 180HP', 'Tracción 4x4', 'Cabina climatizada'],
       color: 'green'
     },
     {
-      name: 'Cosechadora',
+      name: 'Sembradora',
       description: 'Eficiente para la recolección de cultivos',
       icon: Wheat,
       specs: ['Ancho de corte: 9m', 'Sistema GPS', 'Tolva: 12000L'],
       color: 'yellow'
     },
     {
-      name: 'Sembradora',
+      name: 'Pulverizadoras',
       description: 'Precisión en la siembra para maximizar el rendimiento',
       icon: Sprout,
       specs: ['36 líneas', 'Monitor digital', 'Dosificación variable'],
       color: 'blue'
     },
     {
-      name: 'Fumigadora',
+      name: 'Agricultura de precisión',
       description: 'Aplicación uniforme de productos fitosanitarios',
       icon: Factory,
       specs: ['Tanque: 3000L', 'Botalón: 28m', 'Control automático'],
       color: 'purple'
     },
     {
-      name: 'Empacadora',
+      name: 'Heno y Forraje',
       description: 'Compactación eficiente de forrajes y residuos',
       icon: Package,
       specs: ['Pick-up: 2.2m', 'Atado automático', 'Alta densidad'],

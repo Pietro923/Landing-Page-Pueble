@@ -84,7 +84,7 @@ export default function Hero() {
           >
             <div className="aspect-video rounded-lg overflow-hidden shadow-xl">
               <img 
-                src="/imagen 2.jpg"
+                src="imagenes/imagen 2.jpg"
                 alt="Maquinaria Pueble"
                 className="w-full h-full object-cover"
               />

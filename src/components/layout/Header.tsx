@@ -27,6 +27,7 @@ const Header = () => {
   };
 
   const navItems = [
+    { href: 'hero', label: 'Inicio' },
     { href: 'equipo', label: 'Equipo' },
     { href: 'servicios', label: 'Servicios' },
     { href: 'nosotros', label: 'Nosotros' },
@@ -50,7 +51,7 @@ const Header = () => {
             className="relative z-10"
           >
             <img 
-              src="/grupoPueble2.png" 
+              src="imagenes/grupoPueble2.png" 
               alt="Logo de Pueble S.A." 
               className={`transition-all duration-300 ${
                 isScrolled ? 'h-16 w-24' : 'h-20 w-28'

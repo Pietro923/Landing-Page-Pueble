@@ -71,7 +71,7 @@ export default function Company() {
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-2 text-gray-600">
                   <MapPin className="w-5 h-5" />
-                  <span>Buenos Aires, Argentina</span>
+                  <span>Tucumán, Argentina</span>
                 </div>
                 <p className="text-gray-600 leading-relaxed">
                   Nuestra sede central cuenta con más de 5000m² dedicados a la 
