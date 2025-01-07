@@ -167,12 +167,12 @@ export default function Contact() {
               </div>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="aspect-video rounded-lg overflow-hidden bg-white/10">
-                <MapContainer
-                  center={position}
-                  zoom={16}
-                  style={{ height: "100%", width: "100%" }}
-                >
+            <div className="aspect-video rounded-lg overflow-hidden bg-white/10 relative z-0">
+                  <MapContainer
+                    center={position}
+                    zoom={16}
+                    style={{ height: "100%", width: "100%" }}
+                  >
                   <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

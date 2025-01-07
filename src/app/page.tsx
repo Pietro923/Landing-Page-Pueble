@@ -36,7 +36,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen relative bg-gray-50">
       <Header />
       
-      <main className="flex-grow pt-24">
+      <main className="flex-grow pt-24 z-100">
         <div className="space-y-24">
           <section id="hero"><Hero /></section>
           <section id="equipo" className="scroll-mt-24"><Equipment /></section>

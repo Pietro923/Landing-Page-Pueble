@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { 
@@ -9,7 +10,10 @@ import {
   Facebook,
   Instagram,
   Linkedin,
-  ArrowRight
+  ArrowRight,
+  Briefcase,
+  FileUp,
+  X
 } from "lucide-react";
 
 export default function Footer() {
@@ -26,6 +30,61 @@ export default function Footer() {
     { text: "Equipo", href: "equipo" },
     { text: "Contacto", href: "contacto" }
   ];
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const element = document.getElementById(href);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState<string>("");
+
+// Validación del archivo
+const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const file = e.target.files?.[0];
+  setFileError("");
+
+  if (file) {
+    // Validar tipo de archivo
+    if (file.type !== 'application/pdf') {
+      setFileError("Solo se permiten archivos PDF");
+      setSelectedFile(null);
+      e.target.value = '';
+      return;
+    }
+
+    // Validar tamaño (5MB máximo)
+    if (file.size > 5 * 1024 * 1024) {
+      setFileError("El archivo no debe superar los 5MB");
+      setSelectedFile(null);
+      e.target.value = '';
+      return;
+    }
+
+    setSelectedFile(file);
+  }
+};
+
+// Remover archivo seleccionado
+const removeFile = () => {
+  setSelectedFile(null);
+  setFileError("");
+  // Resetear el input file
+  const fileInput = document.getElementById('cv-upload') as HTMLInputElement;
+  if (fileInput) fileInput.value = '';
+};
+
+// Manejar envío del formulario
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+  // Aquí iría la lógica para enviar el formulario
+  console.log('Archivo seleccionado:', selectedFile);
+};
 
   return (
     <footer className="relative bg-gradient-to-br from-gray-900 to-red-900 text-white">
@@ -66,6 +125,7 @@ export default function Footer() {
                   <a 
                     href={`#${link.href}`}
                     className="text-gray-300 hover:text-white transition-colors"
+                    onClick={(e) => handleScroll(e, link.href)}
                   >
                     {link.text}
                   </a>
@@ -93,24 +153,68 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold">Newsletter</h3>
-            <p className="text-gray-300">
-              Suscríbete para recibir noticias y actualizaciones.
-            </p>
-            <form className="space-y-2">
-              <Input 
-                type="email" 
-                placeholder="Correo Electrónico" 
-                className="bg-white/10 border-white/10 text-white placeholder:text-gray-400"
-              />
-              <Button className="w-full bg-white text-red-900 hover:bg-gray-100">
-                Suscribirse
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </form>
+          {/* Trabaja con nosotros */}
+      <div className="space-y-4">
+        <div className="flex items-center gap-2">
+          <Briefcase className="w-5 h-5" />
+          <h3 className="text-xl font-bold">Trabaja con Nosotros</h3>
+        </div>
+        <p className="text-gray-300">
+          ¿Querés ser parte de nuestro equipo? Dejanos tus datos.
+        </p>
+        <form onSubmit={handleSubmit} className="space-y-2">
+          <Input 
+            type="text" 
+            placeholder="Nombre completo" 
+            required
+            className="bg-white/10 border-white/10 text-white placeholder:text-gray-400"
+          />
+          <Input 
+            type="email" 
+            placeholder="Correo electrónico" 
+            required
+            className="bg-white/10 border-white/10 text-white placeholder:text-gray-400"
+          />
+          <div className="space-y-1">
+            <Input 
+              type="file"
+              accept=".pdf"
+              className="hidden"
+              id="cv-upload"
+              onChange={handleFileChange}
+            />
+            {!selectedFile ? (
+              <label 
+                htmlFor="cv-upload"
+                className="flex items-center justify-center gap-2 w-full p-2 cursor-pointer bg-white/10 border border-white/10 rounded-md text-gray-300 hover:bg-white/20 transition-colors"
+              >
+                <FileUp className="w-4 h-4" />
+                Subir CV (PDF)
+              </label>
+            ) : (
+              <div className="flex items-center justify-between gap-2 w-full p-2 bg-white/10 border border-white/10 rounded-md text-gray-300">
+                <div className="truncate flex-1">
+                  {selectedFile.name}
+                </div>
+                <button 
+                  type="button"
+                  onClick={removeFile}
+                  className="flex-shrink-0 hover:text-white"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            )}
+            {fileError && (
+              <p className="text-red-400 text-sm mt-1">{fileError}</p>
+            )}
           </div>
+          <Button className="w-full bg-white text-red-900 hover:bg-gray-100">
+            Postularme
+            <ArrowRight className="ml-2 w-4 h-4" />
+          </Button>
+        </form>
+      </div>
         </div>
 
         <div className="py-6 border-t border-white/10 text-center text-gray-400 text-sm">
