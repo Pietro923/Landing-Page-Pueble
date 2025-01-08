@@ -1,5 +1,8 @@
+// app/page.tsx
 'use client'
+
 import { useState, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 import Header from "@/components/layout/Header"
 import Footer from "@/components/layout/Footer"
 import Hero from "@/components/sections/Hero"
@@ -7,16 +10,21 @@ import Equipment from "@/components/sections/Equipment"
 import Services from "@/components/sections/Services"
 import About from "@/components/sections/About"
 import Company from "@/components/sections/Company"
-import Contact from "@/components/sections/Contact"
 import { MessageCircle, ArrowUp } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 
+// Importar Contact de forma dinámica con ssr desactivado
+const Contact = dynamic(() => import("@/components/sections/Contact"), {
+  ssr: false,
+});
+
 export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
-  // Detectar cuando mostrar el botón de scroll to top
   useEffect(() => {
+    setIsMounted(true);
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 500);
     };
@@ -24,7 +32,11 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Función para scroll suave hacia arriba
+  // No renderizar nada relacionado con window hasta que el componente esté montado
+  if (!isMounted) {
+    return null;
+  }
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -91,5 +103,5 @@ export default function Home() {
         )}
       </AnimatePresence>
     </div>
-  )
+  );
 }
