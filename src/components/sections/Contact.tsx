@@ -16,16 +16,14 @@ import {
   ArrowRight
 } from "lucide-react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { LatLngTuple } from 'leaflet';
 import L from 'leaflet';
 import "leaflet/dist/leaflet.css";
 import { useEffect } from 'react';
 
-// Función para arreglar el ícono del marcador
 const fixMarkerIcon = () => {
-  // Eliminar la propiedad _getIconUrl con una conversión explícita para evitar el error de TypeScript
   delete (L.Icon.Default.prototype as any)._getIconUrl;
 
-  // Configurar las opciones para los íconos del marcador
   L.Icon.Default.mergeOptions({
     iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
     iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
@@ -33,11 +31,9 @@ const fixMarkerIcon = () => {
   });
 };
 
-// Llama a la función para corregir el ícono
 fixMarkerIcon();
 
 export default function Contact() {
-  // Ejecutar la función de arreglo del ícono cuando el componente se monte
   useEffect(() => {
     fixMarkerIcon();
   }, []);
@@ -61,8 +57,8 @@ export default function Contact() {
     },
   ];
 
-  // Coordenadas actualizadas para el Parque Industrial en San Miguel de Tucumán
-  const position = [-26.810563, -65.168024];
+  // Especificamos explícitamente el tipo LatLngTuple
+  const position: LatLngTuple = [-26.810563, -65.168024];
   const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${position[0]},${position[1]}`;
 
   return (
@@ -167,12 +163,12 @@ export default function Contact() {
               </div>
             </CardHeader>
             <CardContent className="space-y-6">
-            <div className="aspect-video rounded-lg overflow-hidden bg-white/10 relative z-0">
-                  <MapContainer
-                    center={position}
-                    zoom={16}
-                    style={{ height: "100%", width: "100%" }}
-                  >
+              <div className="aspect-video rounded-lg overflow-hidden bg-white/10 relative z-0">
+                <MapContainer
+                  center={position}
+                  zoom={16}
+                  style={{ height: "100%", width: "100%" }}
+                >
                   <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
