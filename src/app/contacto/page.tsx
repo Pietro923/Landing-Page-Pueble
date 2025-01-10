@@ -182,14 +182,15 @@ export default function ContactPage() {
                   </Marker>
                 </MapContainer>
               </div>
-              <Button
-                variant="outline"
-                className="w-full text-white border-white/20 hover:bg-white/10 bg-red-500"
-                onClick={() => window.open(googleMapsLink, "_blank")}
-              >
-                Cómo llegar
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
+              <a 
+              href={googleMapsLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full inline-flex items-center justify-center text-white border-white/20 hover:bg-white/10 bg-red-500 px-4 py-2 rounded-md"
+            >
+              Cómo llegar
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </a>
             </CardContent>
           </Card>
         </motion.div>
