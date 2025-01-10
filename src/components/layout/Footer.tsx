@@ -23,14 +23,6 @@ export default function Footer() {
     { icon: Linkedin, label: "LinkedIn" },
   ];
 
-  const navLinks = [
-    { text: "Inicio", href: "hero" },
-    { text: "Nosotros", href: "nosotros" },
-    { text: "Servicios", href: "servicios" },
-    { text: "Equipo", href: "equipo" },
-    { text: "Contacto", href: "contacto" }
-  ];
-
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const element = document.getElementById(href);
@@ -91,7 +83,7 @@ const handleSubmit = (e: React.FormEvent) => {
       <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:30px_30px]" />
       
       <div className="container mx-auto px-4 relative">
-        <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* About */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold">Sobre Nosotros</h3>
@@ -114,24 +106,6 @@ const handleSubmit = (e: React.FormEvent) => {
                 );
               })}
             </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold">Enlaces Rápidos</h3>
-            <ul className="space-y-2">
-              {navLinks.map((link, index) => (
-                <li key={index}>
-                  <a 
-                    href={`#${link.href}`}
-                    className="text-gray-300 hover:text-white transition-colors"
-                    onClick={(e) => handleScroll(e, link.href)}
-                  >
-                    {link.text}
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Contact */}

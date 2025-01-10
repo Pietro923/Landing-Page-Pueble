@@ -1,63 +1,48 @@
 'use client'
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    // Marcar como cargado inmediatamente después del montaje
-    setIsLoaded(true);
-
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-      
-      // Detectar sección activa
-      const sections = navItems.map(item => item.href);
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string): void => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    element?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
-    setActiveSection(id);
-    setIsMobileMenuOpen(false);
-  };
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   const navItems = [
-    { href: 'hero', label: 'Inicio' },
-    { href: 'equipo', label: 'Equipo' },
-    { href: 'servicios', label: 'Servicios' },
-    { href: 'nosotros', label: 'Nosotros' },
-    { href: 'empresa', label: 'Empresa' },
-    { href: 'contacto', label: 'Contacto' },
-  ];
+    { href: '/', label: 'Inicio' },
+    { href: '/servicios', label: 'Servicios' },
+    { href: '/equipos', label: 'Equipos' },
+    { href: '/nosotros', label: 'Nosotros' },
+    { href: '/empresa', label: 'Empresa' },
+    { href: '/contacto', label: 'Contacto' },
+  ]
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const handleNavigation = () => {
+    setIsMobileMenuOpen(false)
+  }
+
+  const isActivePage = (href: string) => {
+    if (href === '/') {
+      return pathname === href
+    }
+    return pathname.startsWith(href)
+  }
 
   return (
     <motion.header 
-      initial={{ y: 0, backgroundColor: 'rgb(153, 27, 27)' }} // Empezamos con el color rojo
+      initial={{ y: 0, backgroundColor: 'rgb(153, 27, 27)' }}
       animate={{ 
         y: 0,
         backgroundColor: isScrolled ? 'rgba(153, 27, 27, 0.95)' : 'rgb(153, 27, 27)'
@@ -69,21 +54,23 @@ const Header = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          <motion.a 
-            href="#hero" 
-            onClick={(e) => scrollToSection(e, 'hero')} 
+          <Link 
+            href="/"
             className="relative z-10"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
-            <img 
-              src="imagenes/grupoPueble2.png" 
-              alt="Logo de Pueble S.A." 
-              className={`transition-all duration-300 ${
-                isScrolled ? 'h-16 w-24' : 'h-20 w-28'
-              }`}
-            />
-          </motion.a>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <img 
+                src="/imagenes/grupoPueble2.png" 
+                alt="Logo de Pueble S.A." 
+                className={`transition-all duration-300 ${
+                  isScrolled ? 'h-16 w-24' : 'h-20 w-28'
+                }`}
+              />
+            </motion.div>
+          </Link>
 
           {/* Navegación Desktop */}
           <nav className="hidden md:block">
@@ -93,17 +80,17 @@ const Header = () => {
                   key={item.href}
                   whileHover={{ y: -2 }}
                 >
-                  <a 
-                    href={`#${item.href}`}
-                    onClick={(e) => scrollToSection(e, item.href)}
+                  <Link
+                    href={item.href}
+                    onClick={handleNavigation}
                     className={`text-white transition-all duration-300 px-4 py-2 rounded-lg
                               relative overflow-hidden
-                              ${activeSection === item.href 
+                              ${isActivePage(item.href)
                                 ? 'text-red-200 font-semibold' 
                                 : 'hover:text-red-300'}`}
                   >
                     {item.label}
-                    {activeSection === item.href && (
+                    {isActivePage(item.href) && (
                       <motion.div
                         layoutId="activeSection"
                         className="absolute bottom-0 left-0 w-full h-0.5 bg-red-300"
@@ -111,7 +98,7 @@ const Header = () => {
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
-                  </a>
+                  </Link>
                 </motion.li>
               ))}
             </ul>
@@ -123,6 +110,7 @@ const Header = () => {
             size="icon"
             className="md:hidden text-white hover:text-red-300 hover:bg-red-700/50"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </Button>
@@ -158,16 +146,16 @@ const Header = () => {
                       closed: { y: 20, opacity: 0 }
                     }}
                   >
-                    <a 
-                      href={`#${item.href}`}
-                      onClick={(e) => scrollToSection(e, item.href)}
+                    <Link
+                      href={item.href}
+                      onClick={handleNavigation}
                       className={`block transition-all duration-300 py-2 px-4 rounded-lg
-                                ${activeSection === item.href 
+                                ${isActivePage(item.href)
                                   ? 'bg-red-700 text-white font-semibold' 
                                   : 'text-white hover:bg-red-700/50 hover:text-red-300'}`}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </motion.li>
                 ))}
               </motion.ul>
@@ -176,7 +164,7 @@ const Header = () => {
         </AnimatePresence>
       </div>
     </motion.header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

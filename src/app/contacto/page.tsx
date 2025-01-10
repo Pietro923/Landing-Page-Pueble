@@ -33,7 +33,7 @@ const fixMarkerIcon = () => {
 
 fixMarkerIcon();
 
-export default function Contact() {
+export default function ContactPage() {
   useEffect(() => {
     fixMarkerIcon();
   }, []);
