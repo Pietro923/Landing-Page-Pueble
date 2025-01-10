@@ -15,27 +15,42 @@ import {
   MessageSquare,
   ArrowRight
 } from "lucide-react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { LatLngTuple } from 'leaflet';
-import L from 'leaflet';
-import "leaflet/dist/leaflet.css";
 import { useEffect } from 'react';
+import dynamic from 'next/dynamic';
+import 'leaflet/dist/leaflet.css';
+import { LatLngTuple } from "leaflet";
 
-const fixMarkerIcon = () => {
-  delete (L.Icon.Default.prototype as any)._getIconUrl;
+const MapContainer = dynamic(
+  () => import('react-leaflet').then((mod) => mod.MapContainer),
+  { ssr: false }
+);
 
-  L.Icon.Default.mergeOptions({
-    iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-  });
-};
+const TileLayer = dynamic(
+  () => import('react-leaflet').then((mod) => mod.TileLayer),
+  { ssr: false }
+);
 
-fixMarkerIcon();
+const Marker = dynamic(
+  () => import('react-leaflet').then((mod) => mod.Marker),
+  { ssr: false }
+);
+
+const Popup = dynamic(
+  () => import('react-leaflet').then((mod) => mod.Popup),
+  { ssr: false }
+);
 
 export default function ContactPage() {
   useEffect(() => {
-    fixMarkerIcon();
+    // Fix marker icon after component mounts
+    import('leaflet').then((L) => {
+      delete (L.Icon.Default.prototype as any)._getIconUrl;
+      L.Icon.Default.mergeOptions({
+        iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+      });
+    });
   }, []);
 
   const contactInfo = [
@@ -57,8 +72,8 @@ export default function ContactPage() {
     },
   ];
 
-  // Especificamos explícitamente el tipo LatLngTuple
-  const position: LatLngTuple = [-26.810563, -65.168024];
+  
+  const position: LatLngTuple = [-26.810563, -65.168024]; // Definir explícitamente como LatLngTuple
   const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${position[0]},${position[1]}`;
 
   return (
@@ -183,14 +198,14 @@ export default function ContactPage() {
                 </MapContainer>
               </div>
               <a 
-              href={googleMapsLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center text-white border-white/20 hover:bg-white/10 bg-red-500 px-4 py-2 rounded-md"
-            >
-              Cómo llegar
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </a>
+                href={googleMapsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center text-white border-white/20 hover:bg-white/10 bg-red-500 px-4 py-2 rounded-md"
+              >
+                Cómo llegar
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </a>
             </CardContent>
           </Card>
         </motion.div>
