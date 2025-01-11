@@ -49,7 +49,6 @@ const Header = () => {
 
   return (
     <>
-      <TopHeader />
       <motion.header
         initial={{ y: 0, backgroundColor: 'rgb(153, 27, 27)' }}
         animate={{
@@ -57,9 +56,10 @@ const Header = () => {
           backgroundColor: isScrolled ? 'rgba(153, 27, 27, 0.95)' : 'rgb(153, 27, 27)',
         }}
         transition={{ duration: 0.1 }}
-        className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'backdrop-blur-md shadow-lg py-2' : 'py-4'}`}
+        className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'backdrop-blur-md shadow-lg py-2' : ''}`}
       >
-        <div className="container mx-auto px-4">
+        <TopHeader />
+        <div className="container mx-auto px-4 mt-2">
           <div className="flex justify-between items-center">
             <Link href="/" className="relative z-10">
               <motion.div
@@ -67,7 +67,7 @@ const Header = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <img
-                  src="/imagenes/grupoPueble2.png"
+                  src="/imagenes/grupoPueble.png"
                   alt="Logo de Pueble S.A."
                   className={`transition-all duration-300 ${isScrolled ? 'h-16 w-24' : 'h-20 w-28'}`}
                 />
