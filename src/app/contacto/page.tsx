@@ -78,7 +78,7 @@ export default function ContactPage() {
 
   return (
     <section id="contacto" className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-red-50 to-gray-100" />
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100" />
       
       <div className="container mx-auto px-4 relative">
         <motion.div

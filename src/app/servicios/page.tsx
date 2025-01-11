@@ -77,7 +77,7 @@ export default function Service() {
   };
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-red-900 via-red-800 to-red-900 text-white overflow-hidden">
+    <section className="relative py-24 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
       {/* Patrón de fondo */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -93,7 +93,7 @@ export default function Service() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold mb-4">Servicios Post Venta</h2>
-          <p className="text-xl text-gray-200 max-w-2xl mx-auto">
+          <p className="text-xl max-w-2xl mx-auto">
             Respaldamos tu inversión con un servicio técnico de excelencia y soporte continuo 
             para garantizar el máximo rendimiento de tu maquinaria.
           </p>
@@ -114,18 +114,18 @@ export default function Service() {
                   <CardHeader>
                     <div className="flex items-center gap-4 mb-4">
                       <div className="p-3 bg-red-500 rounded-lg">
-                        <Icon className="w-6 h-6 text-white" />
+                        <Icon className="w-6 h-6 " />
                       </div>
-                      <CardTitle className="text-xl text-white">{service.title}</CardTitle>
+                      <CardTitle className="text-xl ">{service.title}</CardTitle>
                     </div>
-                    <CardDescription className="text-gray-200">
+                    <CardDescription className="">
                       {service.description}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-3">
                       {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center gap-2 text-gray-200">
+                        <li key={idx} className="flex items-center gap-2 ">
                           <ChevronRight className="w-4 h-4 text-red-400" />
                           {feature}
                         </li>
@@ -157,7 +157,7 @@ export default function Service() {
                 <Headphones className="w-12 h-12 text-red-400" />
                 <div className="text-left">
                   <h3 className="text-xl font-bold">¿Necesitas asistencia técnica?</h3>
-                  <p className="text-gray-200">Nuestro equipo está disponible 24/7 para ayudarte</p>
+                  <p className="">Nuestro equipo está disponible 24/7 para ayudarte</p>
                 </div>
               </div>
               <Button 

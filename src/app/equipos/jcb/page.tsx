@@ -1,38 +1,111 @@
-// app/equipos/jcb/page.tsx
-import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
+"use client"
+import React from 'react';
+import Link from 'next/link';
+import { Card, CardHeader } from "@/components/ui/card";
 
-const jcbProducts = [
+const categories = [
   {
     id: 1,
-    name: "Retroexcavadora 3CX",
-    category: "Retroexcavadoras",
-    description: "La retroexcavadora 3CX está diseñada para proveer un óptimo retorno de la inversión a través de una amplia gama de aplicaciones.",
-    image: "/imagenes/equipment/jcb/3cx.jpg",
-    specs: {
-      power: "109 HP",
-      weight: "8,070 kg",
-      capacity: "1,000 kg"
-    },
-    pdfUrl: "https://www.semtraco.com.ar/frontend/pdf/semtraco_JCB_general.pdf"
+    name: 'EXCAVADORAS',
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 mb-4" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M4 16v-2a2 2 0 0 1 2-2h12M6 12V8m12 4v-2m-6 2V4m0 8v4m-6 0v2m12-2v2M3 12h18" />
+      </svg>
+    ),
+    href: '/equipos/jcb/excavadoras'
   },
   {
     id: 2,
-    name: "Manipulador Telescópico 540-170",
-    category: "Manipuladores",
-    description: "El manipulador telescópico JCB 540-170 de 4 fases con motor Dieselmax tiene un gran alcance y carga útil para ofrecer una productividad y unos tiempos de ciclo excepcionales.",
-    image: "/imagenes/equipment/jcb/540-170.jpg",
-    specs: {
-      power: "125 HP",
-      weight: "12,060 kg",
-      capacity: "4,000 kg"
-    },
-    pdfUrl: "https://www.semtraco.com.ar/frontend/pdf/semtraco_JCB_general.pdf"
+    name: 'CARGADORES FRONTALES',
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 mb-4" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M3 12h18M7 8v8m10-8v8M12 4v16M4 16v-4h16v4" />
+      </svg>
+    ),
+    href: '/equipos/jcb/cargadores-frontales'
   },
-  // Agrega más productos JCB aquí
+  {
+    id: 3,
+    name: 'MINICARGADORES',
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 mb-4" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M4 16v-4h16v4M6 12V8h12v4M12 4v16" />
+      </svg>
+    ),
+    href: '/equipos/jcb/minicargadores'
+  },
+  {
+    id: 4,
+    name: 'ROLOS COMPACTADORES',
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 mb-4" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M12 4v16m-8-8h16M8 8h8M6 12h12" />
+      </svg>
+    ),
+    href: '/equipos/jcb/rolos-compactadores'
+  },
+  {
+    id: 5,
+    name: 'RETROEXCAVADORAS',
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 mb-4" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M4 16v-4h16v4M6 12V8m12 4V8M3 12h18M12 4v8" />
+      </svg>
+    ),
+    href: '/equipos/jcb/retroexcavadora'
+  },
+  {
+    id: 6,
+    name: 'MANIPULADORES TELESCÓPICOS',
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 mb-4" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M4 16v-4h12l4-4v8M6 12V8m12 4V8M3 12h18" />
+      </svg>
+    ),
+    href: '/equipos/jcb/manipuladores-telescopicos'
+  }
 ];
 
-const JCBPage = () => {
-  return <EquipmentBrandPage brand="JCB" products={jcbProducts} />;
-};
+export default function JCBEquipmentPage() {
+  return (
+    <div className="min-h-screen bg-gray-50 relative py-10 overflow-hidden">
+      {/* Hero Section */}
+      <div className="bg-[#fcb026] py-16">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-center mb-8">
+            <img 
+              src="/imagenes/equipment/jcb/jcb.png" 
+              alt="JCB Logo" 
+              className="h-16"
+            />
+          </div>
+          <p className="text-gray-800 text-center text-lg max-w-3xl mx-auto">
+            Somos distribuidor oficial JCB en Argentina. JCB es líder en retroexcavadoras en el mercado 
+            global, une fuerza, robustez, estabilidad y seguridad en toda su amplia gama de equipos. 
+            Máxima eficiencia con el consumo más bajo y optimizado del mercado.
+          </p>
+        </div>
+      </div>
 
-export default JCBPage;
+      {/* Categories Grid */}
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {categories.map((category) => (
+            <Link href={category.href} key={category.id}>
+              <Card className="hover:shadow-lg transition-shadow duration-300 cursor-pointer group">
+                <CardHeader className="flex flex-col items-center text-center p-8">
+                  <div className="text-[#fcb026] group-hover:text-[#ffc251] transition-colors duration-300">
+                    {category.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-800">
+                    {category.name}
+                  </h3>
+                </CardHeader>
+              </Card>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
