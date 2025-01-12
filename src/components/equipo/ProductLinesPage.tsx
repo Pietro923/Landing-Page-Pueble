@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import React from 'react';
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -23,6 +24,8 @@ const ProductLinesPage: React.FC<ProductLinesPageProps> = ({
   category,
   lines
 }) => {
+  const isEmpty = lines.length === 0;
+
   return (
     <div className="min-h-screen bg-gray-50 relative py-10 overflow-hidden">
       {/* Hero Section */}
@@ -46,40 +49,48 @@ const ProductLinesPage: React.FC<ProductLinesPageProps> = ({
 
       {/* Product Lines Grid */}
       <div className="container mx-auto px-4 py-16">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {lines.map((line) => (
-            <Card key={line.id} className="flex flex-col">
-              <CardHeader>
-                <div className="aspect-video relative overflow-hidden rounded-lg mb-4">
-                  <img
-                    src={line.image}
-                    alt={line.name}
-                    className="object-cover w-full h-full hover:scale-105 transition-transform"
-                  />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-800">Línea {line.name}</h3>
-              </CardHeader>
-              
-              <CardContent className="flex-grow">
-                <p className="text-gray-600">{line.description}</p>
-              </CardContent>
+        {isEmpty ? (
+          <div className="text-center py-16">
+            <p className="text-gray-600 text-xl">
+              Actualmente no hay líneas de {category.toLowerCase()} cargadas.
+            </p>
+          </div>
+        ) : (
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {lines.map((line) => (
+              <Card key={line.id} className="flex flex-col">
+                <CardHeader>
+                  <div className="aspect-video relative overflow-hidden rounded-lg mb-4">
+                    <img
+                      src={line.image}
+                      alt={line.name}
+                      className="object-cover w-full h-full hover:scale-105 transition-transform"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800">Línea {line.name}</h3>
+                </CardHeader>
+                
+                <CardContent className="flex-grow">
+                  <p className="text-gray-600">{line.description}</p>
+                </CardContent>
 
-              <CardFooter>
-                <Link href={line.href} className="w-full">
-                  <Button 
-                    className="w-full"
-                    style={{
-                      backgroundColor: brand === 'Case' ? '#8f131a' : brand === 'JCB' ? '#fcb026' : undefined,
-                      color: brand === 'JCB' ? '#000' : '#fff'
-                    }}
-                  >
-                    Ver Productos
-                  </Button>
-                </Link>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
+                <CardFooter>
+                  <Link href={line.href} className="w-full">
+                    <Button 
+                      className="w-full"
+                      style={{
+                        backgroundColor: brand === 'Case' ? '#8f131a' : brand === 'JCB' ? '#fcb026' : undefined,
+                        color: brand === 'JCB' ? '#000' : '#fff'
+                      }}
+                    >
+                      Ver Productos
+                    </Button>
+                  </Link>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
