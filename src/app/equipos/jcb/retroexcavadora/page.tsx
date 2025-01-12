@@ -1,38 +1,30 @@
 // app/equipos/jcb/retroexcavadoras/page.tsx
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
 
-const jcbProducts = [
+const retroProducts = [
   {
     id: 1,
-    name: "Retroexcavadora 3CX",
+    name: "Retroexcavadora JCB 3CX",
     category: "Retroexcavadoras",
-    description: "La retroexcavadora 3CX está diseñada para proveer un óptimo retorno de la inversión a través de una amplia gama de aplicaciones.",
+    description: "La retroexcavadora JCB 3CX es una máquina versátil y potente, ideal para construcción y obras públicas. Ofrece excelente rendimiento y bajo consumo de combustible.",
     image: "/imagenes/equipment/jcb/3cx.jpg",
     specs: {
-      power: "109 HP",
+      power: "92 HP",
       weight: "8,070 kg",
       capacity: "1,000 kg"
     },
-    pdfUrl: "https://www.semtraco.com.ar/frontend/pdf/semtraco_JCB_general.pdf"
+    pdfUrl: "/docs/jcb/3cx-spec.pdf"
   },
-  {
-    id: 2,
-    name: "Manipulador Telescópico 540-170",
-    category: "Manipuladores",
-    description: "El manipulador telescópico JCB 540-170 de 4 fases con motor Dieselmax tiene un gran alcance y carga útil para ofrecer una productividad y unos tiempos de ciclo excepcionales.",
-    image: "/imagenes/equipment/jcb/540-170.jpg",
-    specs: {
-      power: "125 HP",
-      weight: "12,060 kg",
-      capacity: "4,000 kg"
-    },
-    pdfUrl: "https://www.semtraco.com.ar/frontend/pdf/semtraco_JCB_general.pdf"
-  },
-  // Agrega más productos JCB aquí
+  // Más productos...
 ];
 
-const JCBPage = () => {
-  return <EquipmentBrandPage brand="JCB" products={jcbProducts} />;
+const JCBBackhoesPage = () => {
+  return <EquipmentBrandPage 
+    brand="JCB" 
+    products={retroProducts}
+    categoryTitle="Retroexcavadoras JCB"
+    categoryDescription="Explore nuestra gama de retroexcavadoras JCB, líderes mundiales en su categoría."
+  />;
 };
 
-export default JCBPage;
+export default JCBBackhoesPage;

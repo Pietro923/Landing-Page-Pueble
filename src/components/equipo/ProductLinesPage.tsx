@@ -2,36 +2,26 @@
 import React from 'react';
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { FileDown, Phone } from "lucide-react";
 import Link from "next/link";
 
-interface Product {
-  id: number;
+interface ProductLine {
+  id: string;
   name: string;
-  category: string;
   description: string;
   image: string;
-  specs: {
-    power: string;
-    weight: string;
-    capacity: string;
-  };
-  pdfUrl: string;
+  href: string;
 }
 
-interface EquipmentBrandPageProps {
+interface ProductLinesPageProps {
   brand: string;
-  products: Product[];
-  categoryTitle: string;
-  categoryDescription: string;
+  category: string;
+  lines: ProductLine[];
 }
 
-const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({ 
-  brand, 
-  products, 
-  categoryTitle,
-  categoryDescription 
+const ProductLinesPage: React.FC<ProductLinesPageProps> = ({
+  brand,
+  category,
+  lines
 }) => {
   return (
     <div className="min-h-screen bg-gray-50 relative py-10 overflow-hidden">
@@ -45,54 +35,37 @@ const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({
       }`}>
         <div className="container mx-auto px-4">
           <h1 className={`text-4xl md:text-5xl font-bold ${brand === 'JCB' ? 'text-gray-800' : 'text-white'} text-center mb-4`}>
-            {categoryTitle}
+            {category} {brand}
           </h1>
           <p className={`${brand === 'JCB' ? 'text-gray-800' : 'text-white'} text-center text-lg max-w-2xl mx-auto`}>
-            {categoryDescription}
+            Explore nuestras diferentes líneas de {category.toLowerCase()} y encuentre 
+            el equipo perfecto para sus necesidades.
           </p>
         </div>
       </div>
 
-      {/* Products Grid */}
+      {/* Product Lines Grid */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {products.map((product) => (
-            <Card key={product.id} className="flex flex-col">
+          {lines.map((line) => (
+            <Card key={line.id} className="flex flex-col">
               <CardHeader>
                 <div className="aspect-video relative overflow-hidden rounded-lg mb-4">
                   <img
-                    src={product.image}
-                    alt={product.name}
+                    src={line.image}
+                    alt={line.name}
                     className="object-cover w-full h-full hover:scale-105 transition-transform"
                   />
                 </div>
-                <Badge className="mb-2">{product.category}</Badge>
-                <h3 className="text-xl font-semibold">{product.name}</h3>
+                <h3 className="text-2xl font-bold text-gray-800">Línea {line.name}</h3>
               </CardHeader>
               
               <CardContent className="flex-grow">
-                <p className="text-gray-600 mb-4">{product.description}</p>
-                <div className="space-y-2">
-                  <p><strong>Potencia:</strong> {product.specs.power}</p>
-                  <p><strong>Peso:</strong> {product.specs.weight}</p>
-                  <p><strong>Capacidad:</strong> {product.specs.capacity}</p>
-                </div>
+                <p className="text-gray-600">{line.description}</p>
               </CardContent>
 
-              <CardFooter className="flex gap-4">
-                <Button 
-                  variant="outline" 
-                  className="flex-1"
-                  onClick={() => window.open(product.pdfUrl, '_blank')}
-                >
-                  <FileDown className="w-4 h-4 mr-2" />
-                  Ficha Técnica
-                </Button>
-                <Link 
-                  href={`https://wa.me/+5491112345678?text=Me interesa el ${product.name}`} 
-                  target="_blank"
-                  className="flex-1"
-                >
+              <CardFooter>
+                <Link href={line.href} className="w-full">
                   <Button 
                     className="w-full"
                     style={{
@@ -100,8 +73,7 @@ const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({
                       color: brand === 'JCB' ? '#000' : '#fff'
                     }}
                   >
-                    <Phone className="w-4 h-4 mr-2" />
-                    Consultar
+                    Ver Productos
                   </Button>
                 </Link>
               </CardFooter>
@@ -113,4 +85,4 @@ const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({
   );
 };
 
-export default EquipmentBrandPage;
+export default ProductLinesPage;

@@ -22,7 +22,7 @@ const Header = () => {
   ]
 
   const equiposItems = [
-    { href: '/equipos/case', label: 'Case', icon: '/imagenes/equipment/case/caseih.avif' },
+    { href: '/equipos/case', label: 'Case IH', icon: '/imagenes/equipment/case/caseih.avif' },
     { href: '/equipos/jcb', label: 'JCB', icon: '/imagenes/equipment/jcb/jcb.png' },
   ]
 
