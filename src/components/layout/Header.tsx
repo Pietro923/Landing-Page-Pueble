@@ -56,7 +56,9 @@ const Header = () => {
           backgroundColor: isScrolled ? 'rgba(153, 27, 27, 0.95)' : 'rgb(153, 27, 27)',
         }}
         transition={{ duration: 0.1 }}
-        className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'backdrop-blur-md shadow-lg py-2' : ''}`}
+        className={`fixed w-full z-50 transition-all duration-500 ${
+          isScrolled ? 'backdrop-blur-md shadow-lg py-2' : 'py-0'
+        }`}
       >
         <TopHeader />
         <div className="container mx-auto px-4 mt-2">

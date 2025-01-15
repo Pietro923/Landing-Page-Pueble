@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={inter.className}>
         <Header />
-        <main className="pt-10">
+        <main className="pt-[calc(3rem+3rem)]">
           {children}
         </main>
         <Footer />
