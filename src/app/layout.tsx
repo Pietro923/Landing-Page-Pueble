@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "@/styles/globals.css"
-import Header from "@/components/layout/Header"
+import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import { Phone } from "lucide-react" // Si usas un ícono de Lucide
 
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={inter.className}>
-        <Header />
+        <Navbar />
         <main className="pt-[calc(3rem+3rem)]">
           {children}
         </main>

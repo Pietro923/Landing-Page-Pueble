@@ -5,9 +5,8 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ChevronDown } from "lucide-react"
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import TopHeader from './Topheader'
 
-const Header = () => {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
@@ -49,20 +48,9 @@ const Header = () => {
 
   return (
     <>
-      <motion.header
-        initial={{ y: 0, backgroundColor: 'rgb(153, 27, 27)' }}
-        animate={{
-          y: isScrolled ? '-50%' : 0,
-          backgroundColor: isScrolled ? 'rgba(153, 27, 27, 0.95)' : 'rgb(153, 27, 27)',
-        }}
-        transition={{ duration: 0.1 }}
-        className={`fixed w-full z-50 transition-all duration-500 ${
-          isScrolled ? 'backdrop-blur-md shadow-lg py-2' : 'py-0'
-        }`}
-      >
-        <TopHeader />
-        <div className="container mx-auto px-4 mt-2">
-          <div className="flex justify-between items-center">
+      <div className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/80' : 'bg-black/90'}`}>
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center py-4">
             <Link href="/" className="relative z-10">
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -242,9 +230,9 @@ const Header = () => {
             )}
           </AnimatePresence>
         </div>
-      </motion.header>
+      </div>
     </>
   )
 }
 
-export default Header
+export default Navbar
