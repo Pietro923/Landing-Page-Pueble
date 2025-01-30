@@ -8,7 +8,7 @@ import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
 
 export default function Contact() {
   return (
-    <section id="contacto" className="relative py-24 bg-red-900 text-white overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24 text-white">
       <div className="container mx-auto text-center mb-16">
         <h2 className="text-4xl font-bold mb-4">Contáctanos</h2>
         <p className="text-xl ">Estamos aquí para responder tus consultas y brindarte la mejor atención</p>

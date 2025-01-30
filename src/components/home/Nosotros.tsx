@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Nosotros() {
   return (
-    <section className="py-24 bg-red-900 text-white">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24 text-white">
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
         {/* Imagen Placeholder */}
         <motion.div

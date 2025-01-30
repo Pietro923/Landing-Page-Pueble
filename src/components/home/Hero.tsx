@@ -37,7 +37,7 @@ export default function Hero() {
   return (
     <div className="relative min-h-screen flex flex-col justify-center ">
       {/* Fondo moderno con gradiente */}
-      <div className="absolute inset-0 bg-gradient-to-br from-red-900 via-black to-gray-900 opacity-95 z-0" />
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-red-900 via-black to-gray-900 opacity-95 z-0" /> */}
 
       {/* Contenido principal */}
       <div className="relative z-10 text-center space-y-8 pt-24 pb-12">

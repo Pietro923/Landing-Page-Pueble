@@ -1,8 +1,8 @@
-'use client';
-
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import Link from "next/link";
+'use client'
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import Link from "next/link"
+import { motion } from "framer-motion"
 
 export default function Marcas() {
   const marcas = [
@@ -21,16 +21,40 @@ export default function Marcas() {
   ];
 
   return (
-    <section className="py-24 bg-red-900 text-white">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-4xl font-bold mb-4">Maquinaria Agrícola</h2>
-        <p className="text-xl text-gray-200 max-w-2xl mx-auto mb-12">
-          Nuestro compromiso con el cliente, la calidad y la excelencia nos llevó a convertirnos en representantes de las marcas más destacadas en cada uno de sus segmentos. En nuestros concesionarios podrás encontrar las soluciones que tu campo necesita.
-        </p>
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Contenido principal */}
+      <div className="relative z-10 container mx-auto px-4 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl lg:text-5xl font-bold mb-4 text-white"
+        >
+          Maquinaria Agrícola
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-xl text-gray-200 max-w-2xl mx-auto mb-12"
+        >
+          Nuestro compromiso con el cliente, la calidad y la excelencia nos llevó a convertirnos en representantes de las marcas más destacadas en cada uno de sus segmentos. En nuestros concesionarios podrás encontrar las soluciones que tu campo necesita.
+        </motion.p>
+
+        {/* Tarjetas de marcas */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
           {marcas.map((marca, index) => (
-            <Card key={index} className="bg-white/10 backdrop-blur-sm border-0 hover:shadow-lg transition-all">
+            <Card 
+              key={index}
+              className="bg-white/10 backdrop-blur-sm border-0 hover:shadow-lg transition-all"
+            >
               <img 
                 src={marca.imagen} 
                 alt={marca.marca} 
@@ -41,17 +65,22 @@ export default function Marcas() {
                 <CardDescription className="text-gray-200">{marca.descripcion}</CardDescription>
               </CardHeader>
               <CardContent className="text-center">
-                
                 <Link href={marca.ruta}>
                   <Button className="bg-red-500 hover:bg-red-600">Ver más</Button>
                 </Link>
               </CardContent>
             </Card>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="mt-16 p-8 rounded-lg">
-          <h3 className="text-xl font-bold mb-2">¿Necesitas asesoramiento personalizado?</h3>
+        {/* CTA (Llamado a la acción) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-16 p-8 rounded-lg bg-white/10 backdrop-blur-sm"
+        >
+          <h3 className="text-xl font-bold mb-2 text-white">¿Necesitas asesoramiento personalizado?</h3>
           <p className="text-gray-200 mb-4">Nuestro equipo está disponible 24/7 para ayudarte.</p>
           <Button 
             size="lg" 
@@ -59,7 +88,7 @@ export default function Marcas() {
           >
             Contactar Gerente de Ventas
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
