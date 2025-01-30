@@ -15,6 +15,7 @@ import {
   FileUp,
   X
 } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   const socialLinks = [
@@ -136,58 +137,12 @@ const handleSubmit = (e: React.FormEvent) => {
         <p className="text-gray-300">
           ¿Querés ser parte de nuestro equipo? Dejanos tus datos.
         </p>
-        <form onSubmit={handleSubmit} className="space-y-2">
-          <Input 
-            type="text" 
-            placeholder="Nombre completo" 
-            required
-            className="bg-white/10 border-white/10 text-white placeholder:text-gray-400"
-          />
-          <Input 
-            type="email" 
-            placeholder="Correo electrónico" 
-            required
-            className="bg-white/10 border-white/10 text-white placeholder:text-gray-400"
-          />
-          <div className="space-y-1">
-            <Input 
-              type="file"
-              accept=".pdf"
-              className="hidden"
-              id="cv-upload"
-              onChange={handleFileChange}
-            />
-            {!selectedFile ? (
-              <label 
-                htmlFor="cv-upload"
-                className="flex items-center justify-center gap-2 w-full p-2 cursor-pointer bg-white/10 border border-white/10 rounded-md text-gray-300 hover:bg-white/20 transition-colors"
-              >
-                <FileUp className="w-4 h-4" />
-                Subir CV (PDF)
-              </label>
-            ) : (
-              <div className="flex items-center justify-between gap-2 w-full p-2 bg-white/10 border border-white/10 rounded-md text-gray-300">
-                <div className="truncate flex-1">
-                  {selectedFile.name}
-                </div>
-                <button 
-                  type="button"
-                  onClick={removeFile}
-                  className="flex-shrink-0 hover:text-white"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
-            )}
-            {fileError && (
-              <p className="text-red-400 text-sm mt-1">{fileError}</p>
-            )}
-          </div>
-          <Button className="w-full bg-white text-red-900 hover:bg-gray-100">
+        <Link href="/trabaja-con-nosotros">
+          <Button className="w-full bg-white text-red-900 hover:bg-gray-100 mt-5">
             Postularme
             <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
-        </form>
+        </Link>
       </div>
         </div>
 
