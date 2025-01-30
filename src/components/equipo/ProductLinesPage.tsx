@@ -27,15 +27,25 @@ const ProductLinesPage: React.FC<ProductLinesPageProps> = ({
   const isEmpty = lines.length === 0;
 
   return (
-    <div className="min-h-screen bg-gray-50 relative py-10 overflow-hidden">
+    <div 
+    className={`min-h-screen py-4 px-4 sm:px-6 lg:px-8 ${
+      brand === "Case"
+        ? "bg-gradient-to-br from-red-900 via-black to-gray-900 "
+        : brand === "JCB"
+        ? "bg-gradient-to-br from-yellow-900 via-black to-gray-900 "
+        : "bg-gradient-to-r from-blue-600 to-blue-800"
+    }`}
+    >
       {/* Hero Section */}
-      <div className={`py-16 ${
-        brand === 'Case' 
-          ? 'bg-[#8f131a]' 
-          : brand === 'JCB' 
-            ? 'bg-[#fcb026]' 
-            : 'bg-gradient-to-r from-blue-600 to-blue-800'
-      }`}>
+      <div
+        className={`py-16 ${
+          brand === "Case"
+            ? "bg-gradient-to-br from-red-900 via-black to-gray-900 rounded-2xl"
+            : brand === "JCB"
+            ? "bg-gradient-to-br from-yellow-900 via-black to-gray-900 rounded-2xl"
+            : "bg-gradient-to-r from-blue-600 to-blue-800"
+        }`}
+      >
         <div className="container mx-auto px-4">
           <h1 className={`text-4xl md:text-5xl font-bold ${brand === 'JCB' ? 'text-gray-800' : 'text-white'} text-center mb-4`}>
             {category} {brand}
@@ -50,15 +60,15 @@ const ProductLinesPage: React.FC<ProductLinesPageProps> = ({
       {/* Product Lines Grid */}
       <div className="container mx-auto px-4 py-16">
         {isEmpty ? (
-          <div className="text-center py-16">
+          <div className="text-center py-16 ">
             <p className="text-gray-600 text-xl">
               Actualmente no hay líneas de {category.toLowerCase()} cargadas.
             </p>
           </div>
         ) : (
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 ">
             {lines.map((line) => (
-              <Card key={line.id} className="flex flex-col">
+              <Card key={line.id} className="flex flex-col bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 ">
                 <CardHeader>
                   <div className="aspect-video relative overflow-hidden rounded-lg mb-4">
                     <img
@@ -67,11 +77,11 @@ const ProductLinesPage: React.FC<ProductLinesPageProps> = ({
                       className="object-cover w-full h-full hover:scale-105 transition-transform"
                     />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-800">Línea {line.name}</h3>
+                  <h3 className="text-2xl font-bold text-white">Línea {line.name}</h3>
                 </CardHeader>
                 
-                <CardContent className="flex-grow">
-                  <p className="text-gray-600">{line.description}</p>
+                <CardContent className="flex-grow ">
+                  <p className="text-gray-300">{line.description}</p>
                 </CardContent>
 
                 <CardFooter>

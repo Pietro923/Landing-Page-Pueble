@@ -34,8 +34,7 @@ export default function Company() {
   ];
 
   return (
-    <section id="empresa" className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100" />
+    <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       
       <div className="container mx-auto px-4 relative">
         <motion.div
@@ -44,8 +43,8 @@ export default function Company() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">Nuestras Instalaciones</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-white">Nuestras Instalaciones</h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Infraestructura de primer nivel para garantizar la mejor calidad en 
             productos y servicios para el sector agrícola
           </p>
@@ -59,7 +58,7 @@ export default function Company() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <Card className="bg-white shadow-xl">
+            <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 bg-red-100 rounded-lg">
@@ -69,11 +68,11 @@ export default function Company() {
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex items-center gap-2 text-gray-600">
+                <div className="flex items-center gap-2 text-gray-300">
                   <MapPin className="w-5 h-5" />
                   <span>Tucumán, Argentina</span>
                 </div>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   Nuestra sede central cuenta con más de 5000m² dedicados a la 
                   exhibición, venta y mantenimiento de maquinaria agrícola de 
                   primera línea.
@@ -109,8 +108,8 @@ export default function Company() {
               return (
                 <Card 
                   key={index} 
-                  className="bg-white shadow-lg hover:shadow-xl transition-all duration-300"
-                >
+                  className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white"
+                  >
                   <CardHeader>
                     <div className="flex items-center gap-3">
                       <div className="p-2 bg-red-100 rounded-lg">
@@ -120,15 +119,14 @@ export default function Company() {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600">{facility.description}</p>
+                    <p className="text-gray-300">{facility.description}</p>
                   </CardContent>
                 </Card>
               );
             })}
 
             <Button 
-              variant="outline" 
-              className="w-full border-red-200 hover:bg-red-50"
+              className="w-full bg-red-600 hover:bg-red-700"
             >
               Agendar una visita
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -141,20 +139,20 @@ export default function Company() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="relative p-6 bg-white/50 backdrop-blur-sm rounded-lg shadow-lg border border-red-100"
+          className="relative p-6 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg "
         >
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
               <h3 className="text-4xl font-bold text-red-600 mb-2">+5000m²</h3>
-              <p className="text-gray-600">De instalaciones</p>
+              <p className="text-gray-300">De instalaciones</p>
             </div>
             <div>
               <h3 className="text-4xl font-bold text-red-600 mb-2">24/7</h3>
-              <p className="text-gray-600">Soporte técnico</p>
+              <p className="text-gray-300">Soporte técnico</p>
             </div>
             <div>
               <h3 className="text-4xl font-bold text-red-600 mb-2">+15</h3>
-              <p className="text-gray-600">Centros de servicio</p>
+              <p className="text-gray-300">Centros de servicio</p>
             </div>
           </div>
         </motion.div>

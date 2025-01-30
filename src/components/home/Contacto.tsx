@@ -48,21 +48,21 @@ export default function Contact() {
                   <div className="grid md:grid-cols-2 gap-6">
                     <Input 
                       placeholder="Nombre" 
-                      className="bg-white/20 text-white placeholder-gray-300 border-0 focus:ring-2 focus:ring-red-500"
+                      className="bg-white/20 text-white [&::placeholder]:text-white/70 border-0 focus:ring-2 focus:ring-red-500"
                     />
                     <Input 
                       type="email" 
                       placeholder="Correo Electrónico" 
-                      className="bg-white/20 text-white placeholder-gray-300 border-0 focus:ring-2 focus:ring-red-500"
+                      className="bg-white/20 text-white [&::placeholder]:text-white/70 border-0 focus:ring-2 focus:ring-red-500"
                     />
                   </div>
                   <Input 
                     placeholder="Asunto" 
-                    className="bg-white/20 text-white placeholder-gray-300 border-0 focus:ring-2 focus:ring-red-500"
+                    className="bg-white/20 text-white [&::placeholder]:text-white/70 border-0 focus:ring-2 focus:ring-red-500"
                   />
                   <Textarea 
                     placeholder="Mensaje" 
-                    className="bg-white/20 text-white placeholder-gray-300 border-0 focus:ring-2 focus:ring-red-500 min-h-[150px]"
+                    className="bg-white/20 text-white [&::placeholder]:text-white/70 border-0 focus:ring-2 focus:ring-red-500 min-h-[150px]"
                   />
                   <Button 
                     className="w-full bg-red-500 hover:bg-red-600 text-white"

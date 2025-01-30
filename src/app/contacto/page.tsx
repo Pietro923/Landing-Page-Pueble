@@ -15,7 +15,7 @@ import {
   MessageSquare,
   ArrowRight
 } from "lucide-react";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import 'leaflet/dist/leaflet.css';
 import { LatLngTuple } from "leaflet";
@@ -41,6 +41,16 @@ const Popup = dynamic(
 );
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    nombre: "",
+    email: "",
+    asunto: "",
+    mensaje: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
   useEffect(() => {
     // Fix marker icon after component mounts
     import('leaflet').then((L) => {
@@ -72,14 +82,39 @@ export default function ContactPage() {
     },
   ];
 
-  
   const position: LatLngTuple = [-26.810563, -65.168024]; // Definir explícitamente como LatLngTuple
   const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${position[0]},${position[1]}`;
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    try {
+      // Simulación de envío
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      console.log("Datos enviados:", formData);
+      setSubmitStatus('success');
+      setFormData({
+        nombre: "",
+        email: "",
+        asunto: "",
+        mensaje: "",
+      });
+    } catch (error) {
+      setSubmitStatus('error');
+      console.error("Error al enviar:", error);
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus('idle'), 3000);
+    }
+  };
+
   return (
-    <section id="contacto" className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100" />
-      
+    <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto px-4 relative">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -87,8 +122,8 @@ export default function ContactPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">Contáctanos</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-white">Contáctanos</h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Estamos aquí para responder tus consultas y brindarte la mejor atención
           </p>
         </motion.div>
@@ -104,7 +139,7 @@ export default function ContactPage() {
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="bg-white/80 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
+                <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
                   <CardHeader>
                     <div className="flex items-center gap-3">
                       <div className="p-2 bg-red-100 rounded-lg">
@@ -114,8 +149,8 @@ export default function ContactPage() {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600">{item.info}</p>
-                    <p className="text-gray-600">{item.info2}</p>
+                    <p className="text-gray-300">{item.info}</p>
+                    <p className="text-gray-300">{item.info2}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -130,7 +165,7 @@ export default function ContactPage() {
           viewport={{ once: true }}
           className="grid lg:grid-cols-2 gap-8"
         >
-          <Card className="bg-white/80 backdrop-blur-sm shadow-lg">
+          <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
             <CardHeader>
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 bg-red-100 rounded-lg">
@@ -140,30 +175,79 @@ export default function ContactPage() {
               </div>
             </CardHeader>
             <CardContent>
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid md:grid-cols-2 gap-4">
                   <Input 
                     placeholder="Nombre" 
-                    className="bg-white/50"
+                    name="nombre"
+                    value={formData.nombre}
+                    onChange={handleChange}
+                    className="bg-white/20 text-white [&::placeholder]:text-white/70 border-0 focus:ring-2 focus:ring-red-500"
+                    required
                   />
                   <Input 
                     type="email" 
                     placeholder="Correo Electrónico" 
-                    className="bg-white/50"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="bg-white/20 text-white [&::placeholder]:text-white/70 border-0 focus:ring-2 focus:ring-red-500"
+                    required
                   />
                 </div>
                 <Input 
                   placeholder="Asunto" 
-                  className="bg-white/50"
+                  name="asunto"
+                  value={formData.asunto}
+                  onChange={handleChange}
+                  className="bg-white/20 text-white [&::placeholder]:text-white/70 border-0 focus:ring-2 focus:ring-red-500"
+                  required
                 />
                 <Textarea 
                   placeholder="Mensaje" 
-                  className="bg-white/50 min-h-[120px]"
+                  name="mensaje"
+                  value={formData.mensaje}
+                  onChange={handleChange}
+                  className="bg-white/20 text-white [&::placeholder]:text-white/70 border-0 focus:ring-2 focus:ring-red-500 min-h-[120px]"
+                  required
                 />
-                <Button className="w-full bg-gradient-to-r from-red-800 to-red-600 hover:from-red-700 hover:to-red-500">
-                  Enviar Mensaje
-                  <Send className="ml-2 w-4 h-4" />
+                <Button 
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-red-800 to-red-600 hover:from-red-700 hover:to-red-500 text-white"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Send className="animate-bounce" />
+                      Enviando...
+                    </>
+                  ) : (
+                    <>
+                      <Send />
+                      Enviar Mensaje
+                    </>
+                  )}
                 </Button>
+
+                {submitStatus === 'success' && (
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-green-400 text-center font-medium"
+                  >
+                    ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.
+                  </motion.p>
+                )}
+
+                {submitStatus === 'error' && (
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-red-400 text-center font-medium"
+                  >
+                    Hubo un error al enviar tu mensaje. Por favor, intenta nuevamente.
+                  </motion.p>
+                )}
               </form>
             </CardContent>
           </Card>

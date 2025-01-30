@@ -68,9 +68,9 @@ const categories = [
 
 export default function JCBEquipmentPage() {
   return (
-    <div className="min-h-screen bg-gray-50 relative py-10 overflow-hidden">
+    <section className="min-h-screen bg-gradient-to-br from-yellow-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       {/* Hero Section */}
-      <div className="bg-[#fcb026] py-16">
+      
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center mb-8">
             <img 
@@ -79,25 +79,25 @@ export default function JCBEquipmentPage() {
               className="h-16"
             />
           </div>
-          <p className="text-gray-800 text-center text-lg max-w-3xl mx-auto">
+          <p className="text-white text-center text-lg max-w-3xl mx-auto">
             Somos distribuidor oficial JCB en Argentina. JCB es líder en retroexcavadoras en el mercado 
             global, une fuerza, robustez, estabilidad y seguridad en toda su amplia gama de equipos. 
             Máxima eficiencia con el consumo más bajo y optimizado del mercado.
           </p>
         </div>
-      </div>
+      
 
       {/* Categories Grid */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {categories.map((category) => (
             <Link href={category.href} key={category.id}>
-              <Card className="hover:shadow-lg transition-shadow duration-300 cursor-pointer group">
+              <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
                 <CardHeader className="flex flex-col items-center text-center p-8">
                   <div className="text-[#fcb026] group-hover:text-[#ffc251] transition-colors duration-300">
                     {category.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800">
+                  <h3 className="text-xl font-bold text-gray-300">
                     {category.name}
                   </h3>
                 </CardHeader>
@@ -106,6 +106,6 @@ export default function JCBEquipmentPage() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

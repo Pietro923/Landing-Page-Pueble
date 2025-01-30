@@ -68,9 +68,7 @@ const categories = [
 
 export default function CaseEquipmentPage() {
   return (
-    <div className="min-h-screen bg-gray-50 relative py-10 overflow-hidden">
-      {/* Hero Section */}
-      <div className="bg-[#8f131a] py-16">
+    <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center mb-8">
             <img 
@@ -84,19 +82,18 @@ export default function CaseEquipmentPage() {
             teniendo una sólida estructura en administración, venta de repuestos y servicio de posventa.
           </p>
         </div>
-      </div>
 
       {/* Categories Grid */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {categories.map((category) => (
             <Link href={category.href} key={category.id}>
-              <Card className="hover:shadow-lg transition-shadow duration-300 cursor-pointer group">
+              <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
                 <CardHeader className="flex flex-col items-center text-center p-8">
                   <div className="text-[#8f131a] group-hover:text-[#b71921] transition-colors duration-300">
                     {category.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800">
+                  <h3 className="text-xl font-bold text-gray-300">
                     {category.name}
                   </h3>
                 </CardHeader>
@@ -105,6 +102,6 @@ export default function CaseEquipmentPage() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -138,7 +138,7 @@ const handleSubmit = (e: React.FormEvent) => {
           ¿Querés ser parte de nuestro equipo? Dejanos tus datos.
         </p>
         <Link href="/trabaja-con-nosotros">
-          <Button className="w-full bg-white text-red-900 hover:bg-gray-100 mt-5">
+          <Button className="w-full bg-white text-gray-900 hover:bg-gray-100 mt-5">
             Postularme
             <ArrowRight className="ml-2 w-4 h-4" />
           </Button>

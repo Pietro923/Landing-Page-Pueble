@@ -77,7 +77,7 @@ export default function Service() {
   };
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+    <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -85,8 +85,8 @@ export default function Service() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">Servicios Post Venta</h2>
-          <p className="text-xl max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-white">Servicios Post Venta</h2>
+          <p className="text-xl max-w-2xl mx-auto text-gray-300">
             Respaldamos tu inversión con un servicio técnico de excelencia y soporte continuo 
             para garantizar el máximo rendimiento de tu maquinaria.
           </p>
@@ -97,13 +97,13 @@ export default function Service() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 "
         >
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <motion.div key={index} variants={itemVariants}>
-                <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300">
+                <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
                   <CardHeader>
                     <div className="flex items-center gap-4 mb-4">
                       <div className="p-3 bg-red-500 rounded-lg">
@@ -111,7 +111,7 @@ export default function Service() {
                       </div>
                       <CardTitle className="text-xl ">{service.title}</CardTitle>
                     </div>
-                    <CardDescription className="">
+                    <CardDescription className="text-gray-300">
                       {service.description}
                     </CardDescription>
                   </CardHeader>
@@ -144,7 +144,7 @@ export default function Service() {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <div className="p-8 bg-white/10 backdrop-blur-sm rounded-lg">
+          <div className="p-8 bg-white/10 backdrop-blur-sm rounded-lg text-white">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex items-center gap-4">
                 <Headphones className="w-12 h-12 text-red-400" />

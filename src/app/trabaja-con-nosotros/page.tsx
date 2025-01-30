@@ -273,109 +273,108 @@ export default function TrabajaConNosotros() {
                 </div>
               </div>
 
-              <div className="space-y-2">
+            <div className="space-y-2">
                 <Label htmlFor="mensaje" className="text-gray-300">Mensaje</Label>
                 <Textarea
-                  id="mensaje"
-                  name="mensaje"
-                  placeholder="Cuéntanos sobre ti y por qué te gustaría trabajar con nosotros"
-                  value={formData.mensaje}
-                  onChange={handleChange}
-                  className="min-h-[100px] bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
-                  required
+                id="mensaje"
+                name="mensaje"
+                placeholder="Cuéntanos sobre ti y por qué te gustaría trabajar con nosotros"
+                value={formData.mensaje}
+                onChange={handleChange}
+                className="min-h-[100px] bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
+                required
                 />
-              </div>
-
-              <div className="space-y-2">
-  <Label htmlFor="cv" className="text-gray-300 flex items-center gap-2">
-    <FileText className="h-5 w-5" />
-    Curriculum Vitae (PDF)
-  </Label>
-  <div className="relative">
-    <div className="relative border-2 border-dashed border-gray-400 rounded-lg p-6 hover:border-red-500 transition-colors">
-      <Input
-        id="cv"
-        type="file"
-        accept=".pdf"
-        onChange={handleFileChange}
-        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-        required
-      />
-      <div className="text-center">
-        {fileName ? (
-          <div className="space-y-2">
-            <FileText className="h-12 w-12 mx-auto text-red-500" />
-            <div className="flex items-center justify-center gap-2">
-              <div className="flex-1 truncate max-w-xs">
-                <p className="text-gray-300 font-medium truncate">{fileName}</p>
-                <p className="text-sm text-gray-400">
-                  Haz clic para cambiar el archivo
-                </p>
-              </div>
             </div>
-          </div>
-        ) : (
-          <div className="space-y-2">
-            <Upload className="h-12 w-12 mx-auto text-gray-400" />
-            <div>
-              <p className="text-gray-300">
-                <span className="font-semibold text-red-500">
-                  Haz clic para subir
-                </span>{" "}
-                o arrastra y suelta
-              </p>
-              <p className="text-sm text-gray-400">
-                Sólo archivos PDF (máximo 10MB)
-              </p>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  </div>
-</div>
 
-              <Button
+            <div className="space-y-2">
+            <Label htmlFor="cv" className="text-gray-300 flex items-center gap-2">
+                <FileText className="h-5 w-5" />
+                Curriculum Vitae (PDF)
+            </Label>
+            <div className="relative">
+                <div className="relative border-2 border-dashed border-gray-400 rounded-lg p-6 hover:border-red-500 transition-colors">
+                <Input
+                    id="cv"
+                    type="file"
+                    accept=".pdf"
+                    onChange={handleFileChange}
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                    required
+                />
+                <div className="text-center">
+                {fileName ? (
+                <div className="space-y-2">
+                    <FileText className="h-12 w-12 mx-auto text-red-500" />
+                    <div className="flex items-center justify-center gap-2">
+                    <div className="flex-1 truncate max-w-xs">
+                        <p className="text-gray-300 font-medium truncate">{fileName}</p>
+                        <p className="text-sm text-gray-400">
+                        Haz clic para cambiar el archivo
+                        </p>
+                    </div>
+                    </div>
+                </div>
+                ) : (
+                    <div className="space-y-2">
+                        <Upload className="h-12 w-12 mx-auto text-gray-400" />
+                        <div>
+                        <p className="text-gray-300">
+                            <span className="font-semibold text-red-500">
+                            Haz clic para subir
+                            </span>{" "}
+                            o arrastra y suelta
+                        </p>
+                        <p className="text-sm text-gray-400">
+                            Sólo archivos PDF (máximo 10MB)
+                        </p>
+                        </div>
+                    </div>
+                    )}
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <Button
                 type="submit"
                 className="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-3 rounded-lg transition-all duration-200 flex items-center justify-center gap-2"
                 disabled={isSubmitting}
-              >
+            >
                 {isSubmitting ? (
-                  <>
+                <>
                     <Upload className="animate-bounce" />
                     Enviando...
-                  </>
+                </>
                 ) : (
-                  <>
+                <>
                     <Upload />
                     Enviar Postulación
-                  </>
+                </>
                 )}
-              </Button>
+            </Button>
 
-              {submitStatus === 'success' && (
+            {submitStatus === 'success' && (
                 <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-green-400 text-center font-medium"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-green-400 text-center font-medium"
                 >
-                  ¡Postulación enviada con éxito! Nos pondremos en contacto contigo pronto.
+                ¡Postulación enviada con éxito! Nos pondremos en contacto contigo pronto.
                 </motion.p>
-              )}
+            )}
 
-              {submitStatus === 'error' && (
+            {submitStatus === 'error' && (
                 <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-red-400 text-center font-medium"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-red-400 text-center font-medium"
                 >
-                  Hubo un error al enviar tu postulación. Por favor, intenta nuevamente.
+                Hubo un error al enviar tu postulación. Por favor, intenta nuevamente.
                 </motion.p>
-              )}
+            )}
             </form>
-          </CardContent>
+        </CardContent>
         </Card>
-      </motion.div>
+    </motion.div>
     </div>
-  );
-}
+);}

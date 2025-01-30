@@ -28,7 +28,7 @@ export default function About() {
   ];
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+    <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -36,8 +36,8 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">Nosotros</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-white">Nosotros</h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Más de 40 años liderando el sector de maquinaria agrícola, 
             impulsando el desarrollo y la innovación en el campo argentino.
           </p>
@@ -50,7 +50,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Card className="h-full bg-white shadow-xl">
+          <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 bg-red-100 rounded-lg">
@@ -60,13 +60,13 @@ export default function About() {
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   Somos una empresa líder en la venta y servicio de maquinaria agrícola, 
                   con más de cuatro décadas de experiencia en el sector. Nuestro compromiso 
                   con la excelencia y la innovación nos ha permitido convertirnos en un 
                   referente en la industria.
                 </p>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   Contamos con un equipo altamente capacitado y la tecnología más avanzada 
                   para brindar soluciones integrales que optimizan la producción agrícola 
                   de nuestros clientes.
@@ -85,7 +85,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Card className="h-full bg-white shadow-xl">
+            <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 bg-red-100 rounded-lg">
@@ -95,7 +95,7 @@ export default function About() {
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   Nuestro principal objetivo es proporcionar soluciones integrales y de 
                   alta calidad que impulsen la productividad y eficiencia del sector agrícola. 
                   Nos esforzamos por:
@@ -109,7 +109,7 @@ export default function About() {
                   ].map((item, index) => (
                     <li key={index} className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-red-600 rounded-full" />
-                      <span className="text-gray-600">{item}</span>
+                      <span className="text-gray-300">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -126,7 +126,7 @@ export default function About() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <Card className="bg-white shadow-xl">
+          <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
             <CardHeader>
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 bg-red-100 rounded-lg">
@@ -149,7 +149,7 @@ export default function About() {
                       <div>
                         <h3 className="font-bold text-xl text-red-600">{milestone.year}</h3>
                         <h4 className="font-semibold mb-1">{milestone.title}</h4>
-                        <p className="text-gray-600">{milestone.description}</p>
+                        <p className="text-gray-300">{milestone.description}</p>
                       </div>
                     </div>
                   ))}
@@ -170,17 +170,17 @@ export default function About() {
           {values.map((value, index) => {
             const Icon = value.icon;
             return (
-              <Card key={index} className="bg-white shadow-lg hover:shadow-xl transition-shadow">
+              <Card key={index} className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
                 <CardHeader>
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-red-100 rounded-lg">
                       <Icon className="w-6 h-6 text-red-600" />
                     </div>
-                    <CardTitle className="text-lg">{value.title}</CardTitle>
+                    <CardTitle className="text-lg ">{value.title}</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600">{value.description}</p>
+                  <p className="text-gray-300">{value.description}</p>
                 </CardContent>
               </Card>
             );

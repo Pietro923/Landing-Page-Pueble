@@ -35,28 +35,36 @@ const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({
   categoryDescription 
 }) => {
   return (
-    <div className="min-h-screen bg-gray-50 relative py-10 overflow-hidden">
+    <div 
+    className={`min-h-screen py-4 px-4 sm:px-6 lg:px-8 ${
+      brand === "Case"
+        ? "bg-gradient-to-br from-red-900 via-black to-gray-900 "
+        : brand === "JCB"
+        ? "bg-gradient-to-br from-yellow-900 via-black to-gray-900 "
+        : "bg-gradient-to-r from-blue-600 to-blue-800"
+    }`}
+    >
       {/* Hero Section */}
       <div
         className={`py-16 ${
           brand === "Case"
-            ? "bg-[#8f131a]"
+            ? "bg-gradient-to-br from-red-900 via-black to-gray-900 rounded-2xl"
             : brand === "JCB"
-            ? "bg-[#fcb026]"
+            ? "bg-gradient-to-br from-yellow-900 via-black to-gray-900 rounded-2xl"
             : "bg-gradient-to-r from-blue-600 to-blue-800"
         }`}
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 ">
           <h1
             className={`text-4xl md:text-5xl font-bold ${
-              brand === "JCB" ? "text-gray-800" : "text-white"
+              brand === "JCB" ? "text-gray-300" : "text-white"
             } text-center mb-4`}
           >
             {categoryTitle}
           </h1>
           <p
             className={`${
-              brand === "JCB" ? "text-gray-800" : "text-white"
+              brand === "JCB" ? "text-gray-300" : "text-white"
             } text-center text-lg max-w-2xl mx-auto`}
           >
             {categoryDescription}
@@ -69,7 +77,7 @@ const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({
         {products.length > 0 ? (
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
-              <Card key={product.id} className="flex flex-col">
+              <Card key={product.id} className="flex flex-col bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300">
                 <CardHeader>
                   <div className="aspect-video relative overflow-hidden rounded-lg mb-4">
                     <img
@@ -78,13 +86,13 @@ const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({
                       className="object-cover w-full h-full hover:scale-105 transition-transform"
                     />
                   </div>
-                  <Badge className="mb-2">{product.category}</Badge>
-                  <h3 className="text-xl font-semibold">{product.name}</h3>
+                  <Badge className="mb-2 text-center justify-center">{product.category}</Badge>
+                  <h3 className="text-xl font-semibold text-white">{product.name}</h3>
                 </CardHeader>
 
                 <CardContent className="flex-grow">
-                  <p className="text-gray-600 mb-4">{product.description}</p>
-                  <div className="space-y-2">
+                  <p className="text-gray-300 mb-4 ">{product.description}</p>
+                  <div className="space-y-2 text-gray-300">
                     <p>
                       <strong>Potencia:</strong> {product.specs.power}
                     </p>
