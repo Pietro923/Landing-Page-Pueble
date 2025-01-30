@@ -1,8 +1,5 @@
 'use client'
-
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { 
   Building2, 
   Phone, 
@@ -12,72 +9,15 @@ import {
   Linkedin,
   ArrowRight,
   Briefcase,
-  FileUp,
-  X
 } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
   const socialLinks = [
-    { icon: Facebook, label: "Facebook" },
-    { icon: Instagram, label: "Instagram" },
-    { icon: Linkedin, label: "LinkedIn" },
+    { icon: Facebook, label: "Facebook", href:"https://www.facebook.com/Pueblemaquinarias" },
+    { icon: Instagram, label: "Instagram", href:"https://www.instagram.com/casepueblesa/" },
+    { icon: Linkedin, label: "LinkedIn", href:"https://www.instagram.com/casepueblesa/" },
   ];
-
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const element = document.getElementById(href);
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [fileError, setFileError] = useState<string>("");
-
-// Validación del archivo
-const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  const file = e.target.files?.[0];
-  setFileError("");
-
-  if (file) {
-    // Validar tipo de archivo
-    if (file.type !== 'application/pdf') {
-      setFileError("Solo se permiten archivos PDF");
-      setSelectedFile(null);
-      e.target.value = '';
-      return;
-    }
-
-    // Validar tamaño (5MB máximo)
-    if (file.size > 5 * 1024 * 1024) {
-      setFileError("El archivo no debe superar los 5MB");
-      setSelectedFile(null);
-      e.target.value = '';
-      return;
-    }
-
-    setSelectedFile(file);
-  }
-};
-
-// Remover archivo seleccionado
-const removeFile = () => {
-  setSelectedFile(null);
-  setFileError("");
-  // Resetear el input file
-  const fileInput = document.getElementById('cv-upload') as HTMLInputElement;
-  if (fileInput) fileInput.value = '';
-};
-
-// Manejar envío del formulario
-const handleSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
-  // Aquí iría la lógica para enviar el formulario
-  console.log('Archivo seleccionado:', selectedFile);
-};
 
   return (
     <footer className="relative bg-gradient-to-br from-gray-900 to-red-900 text-white">
@@ -96,14 +36,15 @@ const handleSubmit = (e: React.FormEvent) => {
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
                 return (
-                  <Button
+                  <a
                     key={index}
-                    size="icon"
-                    variant="ghost"
-                    className="hover:bg-white/10 text-white"
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:bg-white/10 text-white rounded-full p-2 transition"
                   >
                     <Icon className="w-5 h-5" />
-                  </Button>
+                  </a>
                 );
               })}
             </div>

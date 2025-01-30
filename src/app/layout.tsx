@@ -33,7 +33,7 @@ export default function RootLayout({
           className="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-green-500 text-white hover:bg-green-600 transition-transform transform hover:scale-110"
           aria-label="Contactar por WhatsApp"
         >
-          <Phone className="w-6 h-6" />
+         <img src="/imagenes/whatsapp.svg" className="w-6 h-6" alt="WhatsApp" />
         </a>
       </body>
     </html>
