@@ -110,19 +110,19 @@ export default function TrabajaConNosotros() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 opacity-95 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="max-w-2xl mx-auto"
       >
-        <Card className="shadow-xl">
+        <Card className="bg-white/10 backdrop-blur-sm border-0 shadow-xl">
           <CardHeader className="text-center space-y-2">
             <CardTitle className="text-3xl font-bold bg-gradient-to-r from-red-600 to-red-800 text-transparent bg-clip-text">
               Trabaja con Nosotros
             </CardTitle>
-            <CardDescription className="text-gray-600 text-lg">
+            <CardDescription className="text-gray-300 text-lg">
               Únete a nuestro equipo y sé parte de una empresa líder en el sector agrícola
             </CardDescription>
           </CardHeader>
@@ -131,25 +131,25 @@ export default function TrabajaConNosotros() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4"> 
                 <div className="space-y-2">
-                  <Label htmlFor="nombre">Nombre Completo</Label>
+                  <Label htmlFor="nombre" className="text-gray-300">Nombre Completo</Label>
                   <div className="relative">
-                    <User className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                    <User className="absolute left-3 top-2 h-5 w-5 text-gray-400" />
                     <Input
-                      id="nombre"
-                      type="text"
-                      name="nombre"
-                      placeholder="Tu nombre completo"
-                      value={formData.nombre}
-                      onChange={handleChange}
-                      className="pl-10"
-                      required
+                    id="nombre"
+                    type="text"
+                    name="nombre"
+                    placeholder="Tu nombre completo"
+                    value={formData.nombre}
+                    onChange={handleChange}
+                    className="pl-10 bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
+                    required
                     />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="apellido">Apellido</Label>
+                  <Label htmlFor="apellido" className="text-gray-300">Apellido</Label>
                   <div className="relative">
-                    <User className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                    <User className="absolute left-3 top-2 h-5 w-5 text-gray-400" />
                     <Input
                       id="apellido"
                       type="text"
@@ -157,7 +157,7 @@ export default function TrabajaConNosotros() {
                       placeholder="Apellido"
                       value={formData.apellido}
                       onChange={handleChange}
-                      className="pl-10"
+                       className="pl-10 bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
                       required
                     />
                   </div>
@@ -166,9 +166,9 @@ export default function TrabajaConNosotros() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email" className="text-gray-300">Email</Label>
                   <div className="relative">
-                    <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                    <Mail className="absolute left-3 top-2 h-5 w-5 text-gray-400" />
                     <Input
                       id="email"
                       type="email"
@@ -176,39 +176,39 @@ export default function TrabajaConNosotros() {
                       placeholder="tu@email.com"
                       value={formData.email}
                       onChange={handleChange}
-                      className="pl-10"
+                       className="pl-10 bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
                       required
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="telefono">Teléfono</Label>
+                  <Label htmlFor="telefono" className="text-gray-300">Teléfono</Label>
                   <div className="relative">
-                    <Phone className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                    <Phone className="absolute left-3 top-2 h-5 w-5 text-gray-400" />
                     <Input
-                      id="telefono"
-                      type="tel"
-                      name="telefono"
-                      placeholder="Tu teléfono"
-                      value={formData.telefono}
-                      onChange={handleChange}
-                      className="pl-10"
-                      required
+                    id="telefono"
+                    type="tel"
+                    name="telefono"
+                    placeholder="Tu teléfono"
+                    value={formData.telefono}
+                    onChange={handleChange}
+                    className="pl-10 bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
+                    required
                     />
                   </div>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="areaInteres">Área de Interés</Label>
+                <Label htmlFor="areaInteres" className="text-gray-300">Área de Interés</Label>
                 <Select onValueChange={handleSelectChange('areaInteres')} value={formData.areaInteres}>
-                  <SelectTrigger className="w-full">
+                  <SelectTrigger className="w-full bg-white/20 text-white placeholder-gray-300 border-0 focus:ring-2 focus:ring-red-500">
                     <SelectValue placeholder="Selecciona un área" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-white/20 backdrop-blur-sm border-0 text-gray-300">
                     {areasInteres.map((area) => (
-                      <SelectItem key={area} value={area}>
+                      <SelectItem key={area} value={area} className="hover:bg-white/10">
                         {area}
                       </SelectItem>
                     ))}
@@ -217,9 +217,9 @@ export default function TrabajaConNosotros() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="experiencia">Experiencia Laboral</Label>
+                <Label htmlFor="experiencia" className="text-gray-300">Experiencia Laboral</Label>
                 <div className="relative">
-                  <Briefcase className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                  <Briefcase className="absolute left-3 top-2 h-5 w-5 text-gray-400" />
                   <Input
                     id="experiencia"
                     type="text"
@@ -227,7 +227,7 @@ export default function TrabajaConNosotros() {
                     placeholder="Resume tu experiencia"
                     value={formData.experiencia}
                     onChange={handleChange}
-                    className="pl-10"
+                    className="pl-10 bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
                     required
                   />
                 </div>
@@ -235,16 +235,16 @@ export default function TrabajaConNosotros() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="nivelEstudio">Nivel de Estudios</Label>
+                  <Label htmlFor="nivelEstudio" className="text-gray-300">Nivel de Estudios</Label>
                   <div className="relative">
-                    <GraduationCap className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                    <GraduationCap className="absolute left-3 top-2 h-5 w-5 text-gray-400" />
                     <Select onValueChange={handleSelectChange('nivelEstudio')} value={formData.nivelEstudio}>
-                      <SelectTrigger className="w-full pl-10">
+                      <SelectTrigger className="w-full pl-10 bg-white/20 text-white placeholder-gray-300 border-0 focus:ring-2 focus:ring-red-500">
                         <SelectValue placeholder="Selecciona tu nivel de estudios" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="bg-white/20 backdrop-blur-sm border-0 text-gray-300">
                         {nivelesEstudio.map((nivel) => (
-                          <SelectItem key={nivel} value={nivel}>
+                          <SelectItem key={nivel} value={nivel} className="hover:bg-white/10">
                             {nivel}
                           </SelectItem>
                         ))}
@@ -254,16 +254,16 @@ export default function TrabajaConNosotros() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="disponibilidad">Disponibilidad Horaria</Label>
+                  <Label htmlFor="disponibilidad" className="text-gray-300">Disponibilidad Horaria</Label>
                   <div className="relative">
-                    <Clock className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                    <Clock className="absolute left-3 top-2 h-5 w-5 text-gray-400" />
                     <Select onValueChange={handleSelectChange('disponibilidad')} value={formData.disponibilidad}>
-                      <SelectTrigger className="w-full pl-10">
+                      <SelectTrigger className="w-full pl-10 bg-white/20 text-white placeholder-gray-300 border-0 focus:ring-2 focus:ring-red-500">
                         <SelectValue placeholder="Selecciona tu disponibilidad" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="bg-white/20 backdrop-blur-sm border-0 text-gray-300">
                         {disponibilidadHoraria.map((disponibilidad) => (
-                          <SelectItem key={disponibilidad} value={disponibilidad}>
+                          <SelectItem key={disponibilidad} value={disponibilidad} className="hover:bg-white/10">
                             {disponibilidad}
                           </SelectItem>
                         ))}
@@ -274,37 +274,66 @@ export default function TrabajaConNosotros() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="mensaje">Mensaje</Label>
+                <Label htmlFor="mensaje" className="text-gray-300">Mensaje</Label>
                 <Textarea
                   id="mensaje"
                   name="mensaje"
                   placeholder="Cuéntanos sobre ti y por qué te gustaría trabajar con nosotros"
                   value={formData.mensaje}
                   onChange={handleChange}
-                  className="min-h-[100px]"
+                  className="min-h-[100px] bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
                   required
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="cv">Curriculum Vitae (PDF)</Label>
-                <div className="relative">
-                  <FileText className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-                  <Input
-                    id="cv"
-                    type="file"
-                    accept=".pdf"
-                    onChange={handleFileChange}
-                    className="pl-10"
-                    required
-                  />
-                </div>
-                {fileName && (
-                  <p className="text-sm text-gray-500">
-                    Archivo seleccionado: {fileName}
-                  </p>
-                )}
+  <Label htmlFor="cv" className="text-gray-300 flex items-center gap-2">
+    <FileText className="h-5 w-5" />
+    Curriculum Vitae (PDF)
+  </Label>
+  <div className="relative">
+    <div className="relative border-2 border-dashed border-gray-400 rounded-lg p-6 hover:border-red-500 transition-colors">
+      <Input
+        id="cv"
+        type="file"
+        accept=".pdf"
+        onChange={handleFileChange}
+        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+        required
+      />
+      <div className="text-center">
+        {fileName ? (
+          <div className="space-y-2">
+            <FileText className="h-12 w-12 mx-auto text-red-500" />
+            <div className="flex items-center justify-center gap-2">
+              <div className="flex-1 truncate max-w-xs">
+                <p className="text-gray-300 font-medium truncate">{fileName}</p>
+                <p className="text-sm text-gray-400">
+                  Haz clic para cambiar el archivo
+                </p>
               </div>
+            </div>
+          </div>
+        ) : (
+          <div className="space-y-2">
+            <Upload className="h-12 w-12 mx-auto text-gray-400" />
+            <div>
+              <p className="text-gray-300">
+                <span className="font-semibold text-red-500">
+                  Haz clic para subir
+                </span>{" "}
+                o arrastra y suelta
+              </p>
+              <p className="text-sm text-gray-400">
+                Sólo archivos PDF (máximo 10MB)
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</div>
 
               <Button
                 type="submit"
@@ -328,7 +357,7 @@ export default function TrabajaConNosotros() {
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="text-green-600 text-center font-medium"
+                  className="text-green-400 text-center font-medium"
                 >
                   ¡Postulación enviada con éxito! Nos pondremos en contacto contigo pronto.
                 </motion.p>
@@ -338,7 +367,7 @@ export default function TrabajaConNosotros() {
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="text-red-600 text-center font-medium"
+                  className="text-red-400 text-center font-medium"
                 >
                   Hubo un error al enviar tu postulación. Por favor, intenta nuevamente.
                 </motion.p>
