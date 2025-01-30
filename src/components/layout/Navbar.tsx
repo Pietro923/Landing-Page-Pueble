@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/80' : 'bg-black'}`}>
+      <div className={`fixed w-full z-50 transition-all duration-300 overflow-hidden ${isScrolled ? 'bg-black/80' : 'bg-black'}`}>
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <Link href="/" className="relative z-10">

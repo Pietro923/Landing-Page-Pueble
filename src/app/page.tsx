@@ -5,7 +5,7 @@ import Contacto from '@/components/home/Contacto'
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-hidden">
       <Hero />
       <Marcas />
       <Nosotros />
