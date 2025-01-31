@@ -11,7 +11,11 @@ import {
   Shield, 
   Phone,
   Wrench,
-  ArrowRight
+  ArrowRight,
+  Users,
+  Video,
+  Calendar,
+  MessageCircle
 } from 'lucide-react'
 
 export default function Company() {
@@ -33,10 +37,28 @@ export default function Company() {
     }
   ];
 
+  const teams = [
+    {
+      image: "/imagenes/equipos/postventa.jpg",
+      name: "Equipo de Postventa",
+      description: "Expertos en mantenimiento y soporte técnico para garantizar el máximo rendimiento de tus equipos."
+    },
+    {
+      image: "/imagenes/equipos/afs.jpg",
+      name: "Equipo AFS",
+      description: "Especialistas en sistemas de agricultura de precisión para optimizar tus cosechas."
+    },
+    {
+      image: "/imagenes/equipos/administracion.jpg",
+      name: "Administración",
+      description: "Nuestro equipo administrativo asegura una gestión eficiente y transparente."
+    }
+  ];
+
   return (
     <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-      
       <div className="container mx-auto px-4 relative">
+        {/* Título y descripción */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -50,6 +72,7 @@ export default function Company() {
           </p>
         </motion.div>
 
+        {/* Sección de instalaciones */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -109,7 +132,7 @@ export default function Company() {
                 <Card 
                   key={index} 
                   className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white"
-                  >
+                >
                   <CardHeader>
                     <div className="flex items-center gap-3">
                       <div className="p-2 bg-red-100 rounded-lg">
@@ -134,12 +157,67 @@ export default function Company() {
           </motion.div>
         </div>
 
+        {/* Sección de equipos */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="relative p-6 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg "
+          className="mb-16"
+        >
+          <h3 className="text-3xl font-bold text-white text-center mb-8">Nuestros Equipos</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {teams.map((team, index) => (
+              <Card key={index} className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
+                <CardHeader>
+                  <div className="relative h-48 w-full">
+                    <Image
+                      src={team.image}
+                      alt={team.name}
+                      fill
+                      className="object-cover rounded-t-lg"
+                    />
+                  </div>
+                </CardHeader>
+                <CardContent className="mt-4">
+                  <CardTitle className="text-xl mb-2">{team.name}</CardTitle>
+                  <p className="text-gray-300">{team.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Video de visita guiada */}
+        <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="mb-16"
+      >
+        <h3 className="text-3xl font-bold text-white text-center mb-8">Visita Guiada</h3>
+        <div className="relative aspect-video rounded-lg overflow-hidden">
+          <video
+            src="/videos/visita.mp4"
+            controls
+            preload="metadata"
+            playsInline
+            poster="/videos/thumbnail.jpg" 
+            className="w-full h-full"
+          >
+            Tu navegador no soporta la reproducción de videos.
+          </video>
+        </div>
+      </motion.div>
+
+        {/* Estadísticas */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="relative p-6 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg"
         >
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
