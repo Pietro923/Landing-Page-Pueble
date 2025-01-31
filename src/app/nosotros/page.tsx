@@ -1,6 +1,5 @@
 'use client'
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card"
 import { motion } from "framer-motion"
 import { 
   History, 
@@ -9,7 +8,7 @@ import {
   Award,
   Globe,
   Gem,
-  ArrowRight
+  Wrench
 } from 'lucide-react'
 
 export default function About() {
@@ -21,10 +20,11 @@ export default function About() {
     { year: 2017, title: 'Reconocimiento Continuado', description: 'Renovación del reconocimiento Premium en la evaluación mundial de World Class Dealer de CASE IH.' }
 ];
   const values = [
-    { icon: Users, title: 'Compromiso', description: 'Con nuestros clientes y el sector agrícola' },
-    { icon: Award, title: 'Excelencia', description: 'En cada servicio y producto que ofrecemos' },
+    { icon: Target, title: 'Compromiso', description: 'Con nuestros clientes y el sector agrícola' },
+    { icon: Award, title: 'Innovación', description: 'Apostamos a las nuevas tendencias y avances tecnológicos que facilitan el trabajo del agricultor.' },
     { icon: Globe, title: 'Alcance', description: 'Presencia y servicio en todo el país' },
-    { icon: Gem, title: 'Calidad', description: 'Productos y servicios de primer nivel' }
+    { icon: Gem, title: 'Calidad', description: 'Productos y servicios de primer nivel' },
+    { icon: Wrench, title: 'Calidad', description: 'Capacitamos permanentemente a nuestro grupo de trabajo.' }
   ];
 
   return (
@@ -42,6 +42,7 @@ export default function About() {
             impulsando el desarrollo y la innovación en el campo argentino.
           </p>
         </motion.div>
+        <img src="https://www.semtraco.com.ar/frontend/images/empresa-semtraco.jpg" alt="nosotros" className="rounded-2xl mb-10" />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <motion.div
@@ -56,7 +57,7 @@ export default function About() {
                   <div className="p-2 bg-red-100 rounded-lg">
                     <Users className="w-6 h-6 text-red-600" />
                   </div>
-                  <CardTitle>Quiénes Somos</CardTitle>
+                  <CardTitle className="text-xl font-bold ">Quiénes Somos</CardTitle>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -71,10 +72,6 @@ export default function About() {
                   para brindar soluciones integrales que optimizan la producción agrícola 
                   de nuestros clientes.
                 </p>
-                <Button className="bg-red-600 hover:bg-red-700">
-                  Conoce más sobre nosotros
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
               </CardContent>
             </Card>
           </motion.div>
@@ -91,7 +88,7 @@ export default function About() {
                   <div className="p-2 bg-red-100 rounded-lg">
                     <Target className="w-6 h-6 text-red-600" />
                   </div>
-                  <CardTitle>Nuestro Objetivo</CardTitle>
+                  <CardTitle className="text-xl font-bold ">Nuestro Objetivo</CardTitle>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -117,6 +114,53 @@ export default function About() {
             </Card>
           </motion.div>
         </div>
+
+        <div className="bg-white/10 backdrop-blur-sm mt-10 mb-10 p-6 rounded-lg ">
+          <div className="flex items-center gap-4">
+            {/* Imagen */}
+            <img src="/imagenes/placeholdercachopuente.jpg" className="w-40 h-40 rounded-full object-cover mr-12" alt="Javier Nebbia" />
+
+            {/* Texto */}
+            <div>
+              <p className="text-white text-lg italic">
+                “El campo no se detiene, y nosotros tampoco. Trabajamos con quienes siembran el futuro, brindando la mejor maquinaria para cada desafío.”.
+              </p>
+              <p className="text-gray-300 font-semibold mt-2">Javier Bedey</p>
+              <p className="text-gray-400 text-sm">Presidente</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Valores */}
+        <h2 className="text-3xl font-bold text-white text-center mb-6">
+          Nuestros <span className="text-red-500">Valores</span>
+        </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-10"
+        >
+          {values.map((value, index) => {
+            const Icon = value.icon;
+            return (
+              <Card key={index} className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-red-100 rounded-lg">
+                      <Icon className="w-6 h-6 text-red-600" />
+                    </div>
+                    <CardTitle className="text-lg ">{value.title}</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300">{value.description}</p>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </motion.div>
 
         {/* Timeline */}
         <motion.div
@@ -157,34 +201,6 @@ export default function About() {
               </div>
             </CardContent>
           </Card>
-        </motion.div>
-
-        {/* Valores */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {values.map((value, index) => {
-            const Icon = value.icon;
-            return (
-              <Card key={index} className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
-                <CardHeader>
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-red-100 rounded-lg">
-                      <Icon className="w-6 h-6 text-red-600" />
-                    </div>
-                    <CardTitle className="text-lg ">{value.title}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300">{value.description}</p>
-                </CardContent>
-              </Card>
-            );
-          })}
         </motion.div>
       </div>
     </section>

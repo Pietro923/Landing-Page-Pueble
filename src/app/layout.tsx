@@ -28,7 +28,7 @@ export default function RootLayout({
 
         {/* Botón flotante WhatsApp */}
         <a
-          href="https://wa.me/+5491112345678" // Reemplaza con tu número de WhatsApp
+          href="https://web.whatsapp.com/send?phone=5493816618632&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta!" 
           target="_blank"
           className="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-green-500 text-white hover:bg-green-600 transition-transform transform hover:scale-110"
           aria-label="Contactar por WhatsApp"
