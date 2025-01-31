@@ -5,7 +5,7 @@ import Contacto from '@/components/home/Contacto'
 
 export default function Home() {
   return (
-    <main className="overflow-hidden bg-gradient-to-br from-red-900 via-black to-gray-900 opacity-95 z-0">
+    <main className="overflow-hidden bg-gradient-to-br from-red-900 via-black to-gray-900  z-0">
       <Hero />
       <Marcas />
       <Nosotros />
