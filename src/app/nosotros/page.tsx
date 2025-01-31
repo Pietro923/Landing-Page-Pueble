@@ -41,8 +41,8 @@ export default function About() {
             Más de 40 años liderando el sector de maquinaria agrícola, 
             impulsando el desarrollo y la innovación en el campo argentino.
           </p>
+        <img src="https://www.semtraco.com.ar/frontend/images/empresa-semtraco.jpg" alt="nosotros" className="rounded-2xl mb-10 mt-10" />
         </motion.div>
-        <img src="https://www.semtraco.com.ar/frontend/images/empresa-semtraco.jpg" alt="nosotros" className="rounded-2xl mb-10" />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <motion.div
@@ -115,15 +115,18 @@ export default function About() {
           </motion.div>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-sm mt-10 mb-10 p-6 rounded-lg ">
-          <div className="flex items-center gap-4">
+        <div className="bg-white/10 backdrop-blur-sm mt-10 mb-10 p-4 md:p-6 rounded-lg">
+          <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
             {/* Imagen */}
-            <img src="/imagenes/placeholdercachopuente.jpg" className="w-40 h-40 rounded-full object-cover mr-12" alt="Javier Nebbia" />
-
+            <img 
+              src="/imagenes/placeholdercachopuente.jpg" 
+              className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover md:mr-12 mb-4 md:mb-0" 
+              alt="Javier Nebbia" 
+            />
             {/* Texto */}
             <div>
-              <p className="text-white text-lg italic">
-                “El campo no se detiene, y nosotros tampoco. Trabajamos con quienes siembran el futuro, brindando la mejor maquinaria para cada desafío.”.
+              <p className="text-white text-base md:text-lg italic">
+                "El campo no se detiene, y nosotros tampoco. Trabajamos con quienes siembran el futuro, brindando la mejor maquinaria para cada desafío."
               </p>
               <p className="text-gray-300 font-semibold mt-2">Javier Bedey</p>
               <p className="text-gray-400 text-sm">Presidente</p>
