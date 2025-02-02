@@ -109,7 +109,7 @@ export default function Company() {
 
             <div className="relative">
               <Image
-                src="/imagenes/imagen 2.jpg"
+                src="/imagenes/empresa/imagen 2.jpg"
                 alt="Vista aérea de Pueble S.A."
                 width={800}
                 height={100}
