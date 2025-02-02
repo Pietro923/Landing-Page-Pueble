@@ -72,9 +72,9 @@ export default function CaseEquipmentPage() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center mb-8">
             <img 
-              src="/imagenes/equipment/case/caseih.avif" 
+              src="/imagenes/equipment/case/case.png"
               alt="Case IH Logo" 
-              className="h-16"
+              className="h-12"
             />
           </div>
           <p className="text-white text-center text-lg max-w-3xl mx-auto">

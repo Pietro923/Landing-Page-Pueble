@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   description: "Tu socio confiable en maquinaria agrícola de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
   keywords: ["maquinaria agrícola", "agricultura", "equipos agrícolas", "Pueble SA", "implementos agrícolas", "repuestos agrícolas", "venta maquinaria", "servicio técnico agrícola"],
   authors: [{ name: "Pueble S.A." }],
-  viewport: "width=device-width, initial-scale=1.0",
   icons: {
     icon: "/favicon.ico",
   },
@@ -62,7 +61,7 @@ export default function RootLayout({
           className="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-green-500 text-white hover:bg-green-600 transition-transform transform hover:scale-110"
           aria-label="Contactar por WhatsApp"
         >
-         <img src="/imagenes/whatsapp.svg" className="w-6 h-6" alt="WhatsApp" />
+         <img src="/imagenes/logos/whatsapp.svg" className="w-6 h-6" alt="WhatsApp" />
         </a>
       </body>
     </html>

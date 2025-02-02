@@ -1,6 +1,7 @@
 'use client'
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
+import Link from "next/link";
 
 export default function Nosotros() {
   return (
@@ -39,12 +40,14 @@ export default function Nosotros() {
             <p className="text-xl text-gray-200 mb-8">
               Somos concesionario oficial de las marcas <strong>CASE IH</strong> y <strong>JCB</strong>. Comercializamos toda la línea de sus productos y diversas marcas de maquinarias agrícolas usadas. Contamos con una sólida estructura en administración, venta de repuestos y servicio de posventa, manteniendo nuestro compromiso con la <strong>Responsabilidad Social Empresaria</strong>.
             </p>
+            <Link href={"/nosotros"}>
             <Button 
               className="bg-red-500 hover:bg-red-600 text-white"
               size="lg"
             >
               Conoce más
             </Button>
+            </Link>
           </motion.div>
         </div>
       </div>

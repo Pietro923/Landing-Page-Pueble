@@ -1,168 +1,299 @@
 'use client'
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+
 import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button"
+import { Card, CardHeader, CardContent, CardTitle, CardDescription } from "@/components/ui/card"
 import { 
   Wrench, 
-  Users, 
-  Clock, 
-  ShieldCheck, 
-  Headphones, 
-  ChevronRight
+  ShoppingCart, 
+  Smartphone,
+  Shield
 } from 'lucide-react'
+import Image from 'next/image'
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
 
-export default function Service() {
+export default function Servicios() {
   const services = [
     {
+      icon: ShoppingCart,
+      title: "Servicio de Venta",
+      description: "Asesoramiento personalizado para encontrar la maquinaria que mejor se adapte a tus necesidades.",
+      image: "/imagenes/placeholdercachopuente.jpg"
+    },
+    {
       icon: Wrench,
-      title: "Mantenimiento y Reparación",
-      description: "Mantenemos tu maquinaria en óptimas condiciones con nuestro servicio técnico especializado.",
-      features: [
-        "Mantenimiento preventivo programado",
-        "Reparaciones con garantía",
-        "Diagnóstico computarizado",
-        "Repuestos originales"
-      ]
+      title: "Servicio de Postventa",
+      description: "Mantenimiento, reparaciones y soporte técnico especializado las 24 horas, los 365 días del año.",
+      image: "/imagenes/placeholdercachopuente.jpg"
     },
     {
-      icon: Users,
-      title: "Capacitación y Asesoría",
-      description: "Te ayudamos a maximizar el rendimiento de tu inversión con capacitación especializada.",
-      features: [
-        "Entrenamiento personalizado",
-        "Workshops técnicos",
-        "Certificaciones oficiales",
-        "Consultoría operativa"
-      ]
+      icon: Smartphone,
+      title: "AFS Connect",
+      description: "Supervisa y gestiona tu operación agrícola de forma remota con tecnología de última generación.",
+      image: "/imagenes/servicios/afs.png"
     },
     {
-      icon: Clock,
-      title: "Soporte 24/7",
-      description: "Estamos disponibles cuando nos necesites con nuestro servicio de asistencia permanente.",
-      features: [
-        "Atención de emergencias",
-        "Soporte técnico remoto",
-        "Monitoreo en tiempo real",
-        "Respuesta inmediata"
-      ]
-    },
-    {
-      icon: ShieldCheck,
-      title: "Garantía Extendida",
-      description: "Protege tu inversión con nuestros planes de garantía extendida y mantenimiento.",
-      features: [
-        "Cobertura completa",
-        "Planes personalizados",
-        "Beneficios exclusivos",
-        "Transferible"
-      ]
+      icon: Shield,
+      title: "Garantía y Soporte",
+      description: "Garantías extendidas y soporte técnico permanente para asegurar el máximo rendimiento de tus equipos.",
+      image: "/imagenes/servicios/garan.webp"
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 }
-    }
-  };
+  const imagesafs = [
+    "/imagenes/servicios/afs1.jpg",
+    "/imagenes/servicios/afs2.jpg",
+    "/imagenes/servicios/afs3.jpg",
+  ];
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 }
+  const imagesentregas = [
+    "/imagenes/servicios/entrega1.jpg",
+    "/imagenes/servicios/entrega2.jpg",
+    "/imagenes/servicios/entrega3.jpg",
+  ];
+
+  const testimonials = [
+    {
+      name: "José Lauro Medina",
+      role: "Productor Agrícola",
+      comment: "El servicio de postventa de Pueble es increíble. Siempre están disponibles cuando los necesito.",
+      image: "/imagenes/placeholdercachopuente.jpg"
+    },
+    {
+      name: "Fabersani SA",
+      role: "Empresa Agrícola",
+      comment: "AFS Connect ha revolucionado la forma en que gestiono mis cultivos. ¡Lo recomiendo totalmente!",
+      image: "/imagenes/placeholdercachopuente.jpg"
     }
-  };
+  ];
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative">
+        {/* Título y descripción */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4 text-white">Servicios Post Venta</h2>
-          <p className="text-xl max-w-2xl mx-auto text-gray-300">
-            Respaldamos tu inversión con un servicio técnico de excelencia y soporte continuo 
-            para garantizar el máximo rendimiento de tu maquinaria.
+          <h2 className="text-4xl font-bold mb-4 text-white">Nuestros Servicios</h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Asistencia especializada y permanente las 24 horas, los 365 días del año. Vehículos equipados para soluciones a campo y un taller totalmente preparado para garantizar la calidad en cada trabajo.
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 "
-        >
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <motion.div key={index} variants={itemVariants}>
-                <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
-                  <CardHeader>
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="p-3 bg-red-500 rounded-lg">
-                        <Icon className="w-6 h-6 " />
-                      </div>
-                      <CardTitle className="text-xl ">{service.title}</CardTitle>
-                    </div>
-                    <CardDescription className="text-gray-300">
-                      {service.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center gap-2 ">
-                          <ChevronRight className="w-4 h-4 text-red-400" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                    <Button 
-                      className="w-full mt-6 bg-red-500 hover:bg-red-600"
-                    >
-                      Más información
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* CTA Section */}
+        {/* Servicios destacados */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
         >
-          <div className="p-8 bg-white/10 backdrop-blur-sm rounded-lg text-white">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="flex items-center gap-4">
-                <Headphones className="w-12 h-12 text-red-400" />
-                <div className="text-left">
-                  <h3 className="text-xl font-bold">¿Necesitas asistencia técnica?</h3>
-                  <p className="">Nuestro equipo está disponible 24/7 para ayudarte</p>
-                </div>
-              </div>
-              <Button 
-                size="lg"
-                className="bg-red-500 hover:bg-red-600"
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <Card 
+                key={index} 
+                className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white"
               >
-                Contactar Soporte
-                <ChevronRight className="ml-2 w-4 h-4" />
-              </Button>
+                <CardHeader>
+                  <div className="relative h-48 w-full">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover rounded-t-lg"
+                    />
+                  </div>
+                </CardHeader>
+                <CardContent className="mt-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 bg-red-100 rounded-lg">
+                      <Icon className="w-6 h-6 text-red-600" />
+                    </div>
+                    <CardTitle className="text-lg">{service.title}</CardTitle>
+                  </div>
+                  <CardDescription className="text-gray-300">
+                    {service.description}
+                  </CardDescription>
+                  <Button className="mt-4 bg-red-600 hover:bg-red-700 w-full">
+                    Más información
+                  </Button>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </motion.div>
+
+        {/* AFS Connect */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-16 relative"
+        >
+          
+          
+          {/* Main content */}
+          <div className="relative p-8">
+            <h3 className="text-4xl font-bold text-white text-center mb-8">
+                AFS Connect
+            </h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <div className="space-y-8">
+                <p className="text-gray-200 text-lg leading-relaxed">
+                  AFS Connect te brinda el poder de supervisar tu explotación agrícola desde cualquier lugar, en cualquier momento. 
+                  Con Advanced Farming Systems, tendrás una visión completa de todas tus operaciones en el campo, 
+                  desde la primera labranza de primavera hasta la última cosecha del año.
+                </p>
+                
+                <div className="space-y-4">
+                  <h4 className="text-red-500 font-semibold text-xl mb-4">Beneficios Principales</h4>
+                  <ul className="space-y-4">
+                    {[
+                      {
+                        title: "Supervisión Total",
+                        desc: "Mantén el control de toda tu operación desde cualquier ubicación."
+                      },
+                      {
+                        title: "Alertas en Tiempo Real",
+                        desc: "Recibe notificaciones instantáneas sobre el estado de tus equipos."
+                      },
+                      {
+                        title: "Gestión Inteligente",
+                        desc: "Administra y comparte datos críticos de tu explotación de forma segura."
+                      },
+                      {
+                        title: "Control de Flota",
+                        desc: "Coordina toda tu flota de manera remota y eficiente."
+                      }
+                    ].map((item, index) => (
+                      <li key={index} className="flex items-start space-x-3">
+                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-600 flex items-center justify-center mt-1">
+                          <div className="w-2 h-2 bg-white rounded-full" />
+                        </div>
+                        <div>
+                          <h5 className="text-red-400 font-medium">{item.title}</h5>
+                          <p className="text-gray-300">{item.desc}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <Button className="bg-red-600 hover:bg-red-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-red-600/25">
+                  Descubre AFS Connect
+                </Button>
+              </div>
+
+              {/* Carrusel de imágenes */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="relative w-full max-w-7xl mx-auto"
+              >
+                <Carousel className="w-full">
+                  <CarouselContent className="-ml-4">
+                    {imagesafs.map((image, index) => (
+                      <CarouselItem key={index} className="pl-4 basis-full">
+                        <motion.div 
+                          whileHover={{ scale: 1.02 }}
+                          className="relative overflow-hidden rounded-2xl shadow-2xl aspect-[4/4]"
+                        >
+                          <img 
+                            src={image}
+                            alt={`Imagen ${index + 1}`}
+                            className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                        </motion.div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="absolute -left-4 lg:-left-8 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white border-none shadow-xl hover:shadow-2xl transition-all duration-300" />
+                  <CarouselNext className="absolute -right-4 lg:-right-8 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white border-none shadow-xl hover:shadow-2xl transition-all duration-300" />
+                </Carousel>
+              </motion.div>
             </div>
           </div>
         </motion.div>
+
+        {/* Testimonios */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <h3 className="text-3xl font-bold text-white text-center mb-8">Testimonios</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card 
+                key={index} 
+                className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white"
+              >
+                <CardHeader>
+                  <div className="flex items-center gap-4">
+                    <div className="relative h-16 w-16 rounded-full overflow-hidden">
+                      <Image
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div>
+                      <CardTitle>{testimonial.name}</CardTitle>
+                      <CardDescription className="text-gray-300">
+                        {testimonial.role}
+                      </CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300">"{testimonial.comment}"</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </motion.div>
+        {/* Ultimas Entregas */}
+          <h3 className="text-3xl font-bold text-white text-center mb-8">Ultimas Entregas</h3>
+          {/* Carrusel de imágenes entregas - Ajustar tamaño de imágenes */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="relative w-full max-w-7xl mx-auto px-4 mb-12"
+          >
+            <Carousel className="w-full">
+              <CarouselContent className="-ml-4">
+                {imagesentregas.map((image, index) => (
+                  <CarouselItem key={index} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
+                    <motion.div 
+                      whileHover={{ scale: 1.02 }}
+                      className="relative overflow-hidden rounded-2xl shadow-2xl aspect-[4/3]"
+                    >
+                      <img 
+                        src={image}
+                        alt={`Imagen ${index + 1}`}
+                        className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                    </motion.div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="absolute -left-4 lg:-left-8 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white border-none shadow-xl hover:shadow-2xl transition-all duration-300" />
+              <CarouselNext className="absolute -right-4 lg:-right-8 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white border-none shadow-xl hover:shadow-2xl transition-all duration-300" />
+            </Carousel>
+          </motion.div>
       </div>
     </section>
   );

@@ -45,6 +45,7 @@ export default function TrabajaConNosotros() {
   ];
 
   const nivelesEstudio = [
+    "Secundario en Curso",
     "Secundario Finalizado",
     "Terciario en Curso",
     "Terciario Finalizado",

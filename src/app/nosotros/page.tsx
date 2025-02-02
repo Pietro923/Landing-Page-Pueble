@@ -8,7 +8,9 @@ import {
   Award,
   Globe,
   Gem,
-  Wrench
+  Wrench,
+  Shield,
+  Handshake
 } from 'lucide-react'
 
 export default function About() {
@@ -20,11 +22,12 @@ export default function About() {
     { year: 2017, title: 'Reconocimiento Continuado', description: 'Renovación del reconocimiento Premium en la evaluación mundial de World Class Dealer de CASE IH.' }
 ];
   const values = [
-    { icon: Target, title: 'Compromiso', description: 'Con nuestros clientes y el sector agrícola' },
+    { icon: Shield, title: 'Confianza y Honestidad', description: 'Construimos relaciones basadas en la transparencia y el respeto mutuo.' },
+    { icon: Target, title: 'Compromiso', description: 'Con nuestros clientes, empleados, socios y resultados.' },
+    { icon: Handshake, title: 'Actitud de Servicio', description: 'Brindamos atención y soluciones con responsabilidad y empatía.' },
+    { icon: Gem, title: 'Autocrítica', description: 'Compromiso con la excelencia y la mejora continua.' },
+    { icon: Wrench, title: 'Responsabilidad', description: 'Cumplimos con nuestras obligaciones fiscales, sociales y ambientales.' },
     { icon: Award, title: 'Innovación', description: 'Apostamos a las nuevas tendencias y avances tecnológicos que facilitan el trabajo del agricultor.' },
-    { icon: Globe, title: 'Alcance', description: 'Presencia y servicio en todo el país' },
-    { icon: Gem, title: 'Calidad', description: 'Productos y servicios de primer nivel' },
-    { icon: Wrench, title: 'Calidad', description: 'Capacitamos permanentemente a nuestro grupo de trabajo.' }
   ];
 
   return (
@@ -143,7 +146,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
         >
           {values.map((value, index) => {
             const Icon = value.icon;
@@ -154,7 +157,7 @@ export default function About() {
                     <div className="p-2 bg-red-100 rounded-lg">
                       <Icon className="w-6 h-6 text-red-600" />
                     </div>
-                    <CardTitle className="text-lg ">{value.title}</CardTitle>
+                    <CardTitle className="text-lg">{value.title}</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent>

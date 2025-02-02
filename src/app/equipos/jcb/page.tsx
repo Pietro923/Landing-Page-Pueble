@@ -74,7 +74,7 @@ export default function JCBEquipmentPage() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center mb-8">
             <img 
-              src="/imagenes/equipment/jcb/jcb.png" 
+              src="/imagenes/equipment/jcb/jcb.svg" 
               alt="JCB Logo" 
               className="h-16"
             />

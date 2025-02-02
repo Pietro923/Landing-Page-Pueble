@@ -1,7 +1,7 @@
 'use client'
 import { Button } from "@/components/ui/button"
 import { ChevronRight, Tractor, Award, Clock, Users } from 'lucide-react'
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 export default function Hero() {
@@ -13,7 +13,7 @@ export default function Hero() {
     },
     {
       icon: <Award className="w-6 h-6" />,
-      title: "30+ Años",
+      title: "20+ Años",
       description: "De experiencia en el sector"
     },
     {
@@ -29,9 +29,9 @@ export default function Hero() {
   ];
 
   const images = [
-  "/imagenes/carousel1.jpg",
-  "/imagenes/carousel2.jpg",
-  "/imagenes/carousel3.jpg",
+  "/imagenes/inicio/carousel1.jpg",
+  "/imagenes/inicio/carousel2.jpg",
+  "/imagenes/inicio/carousel3.jpg",
   ];
 
   return (
