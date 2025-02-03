@@ -4,21 +4,46 @@ import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
 const retroProducts = [
   {
     id: 1,
-    name: "Retroexcavadora JCB 3CX",
+    name: "Retroexcavadora 1CX",
     category: "Retroexcavadoras",
-    description: "La retroexcavadora JCB 3CX es una máquina versátil y potente, ideal para construcción y obras públicas. Ofrece excelente rendimiento y bajo consumo de combustible.",
-    image: "/imagenes/equipment/jcb/3cx.jpg",
+    description: "La ligera JCB 1CX es la retroexcavadora más pequeña de nuestra gama. Su huella compacta y estrecha la hace increíblemente versátil y le permite trabajar en los lugares más angostos.",
+    image: "/imagenes/equipment/jcb/retroexcavadora/1cx.jpg",
     specs: {
-      power: "92 HP",
-      weight: "8,070 kg",
-      capacity: "1,000 kg"
+      power: "",
+      weight: "",
+      capacity: ""
     },
-    pdfUrl: "/docs/jcb/3cx-spec.pdf"
+    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
   },
-  // Más productos...
+  {
+    id: 2,
+    name: "Retroexcavadora 3CX",
+    category: "Retroexcavadoras",
+    description: "La retroexcavadora 3CX está diseñada para proveer un óptimo retorno de la inversión a través de una amplia gama de aplicaciones.",
+    image: "/imagenes/equipment/jcb/retroexcavadora/3cx.jpg",
+    specs: {
+      power: "",
+      weight: "",
+      capacity: ""
+    },
+    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+  },
+  {
+    id: 3,
+    name: "Retroexcavadora 4CX",
+    category: "Retroexcavadoras",
+    description: "La retroexcavadora JCB 4CX es el modelo más grande de nuestra gama, y ofrece un balde con capacidad de 1 m3 y 1.3 m3 opcional, 3 modos de dirección y nuestro potente motor Dieselmax de 74.2 kW.",
+    image: "/imagenes/equipment/jcb/retroexcavadora/4cx.jpg",
+    specs: {
+      power: "",
+      weight: "",
+      capacity: ""
+    },
+    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+  },
 ];
 
-const JCBBackhoesPage = () => {
+const retroexcavadorasPage = () => {
   return <EquipmentBrandPage 
     brand="JCB" 
     products={retroProducts}
@@ -27,4 +52,4 @@ const JCBBackhoesPage = () => {
   />;
 };
 
-export default JCBBackhoesPage;
+export default retroexcavadorasPage;
