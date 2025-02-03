@@ -8,17 +8,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
   Building2, 
   Phone, 
-  Mail, 
-  Clock, 
+  Mail,
   MapPin, 
   Send,
   MessageSquare,
-  ArrowRight
+  ArrowRight,
+  Loader2
 } from "lucide-react";
 import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import 'leaflet/dist/leaflet.css';
 import { LatLngTuple } from "leaflet";
+import emailjs from '@emailjs/browser';
+import { useToast } from "@/hooks/use-toast";
 
 const MapContainer = dynamic(
   () => import('react-leaflet').then((mod) => mod.MapContainer),
@@ -41,6 +43,7 @@ const Popup = dynamic(
 );
 
 export default function ContactPage() {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
@@ -92,21 +95,42 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
-      // Simulación de envío
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      console.log("Datos enviados:", formData);
-      setSubmitStatus('success');
-      setFormData({
-        nombre: "",
-        email: "",
-        asunto: "",
-        mensaje: "",
-      });
+      const response = await emailjs.send(
+        'YOUR_SERVICE_ID', // Reemplaza con tu Service ID de EmailJS
+        'YOUR_TEMPLATE_ID', // Reemplaza con tu Template ID de EmailJS
+        {
+          from_name: formData.nombre,
+          reply_to: formData.email,
+          subject: formData.asunto,
+          message: formData.mensaje,
+        },
+        'YOUR_PUBLIC_KEY' // Reemplaza con tu Public Key de EmailJS
+      );
+
+      if (response.status === 200) {
+        toast({
+          title: "Mensaje enviado",
+          description: "Gracias por contactarnos. Nos pondremos en contacto contigo pronto.",
+        });
+        setFormData({
+          nombre: "",
+          email: "",
+          asunto: "",
+          mensaje: "",
+        });
+        setSubmitStatus('success');
+      } else {
+        throw new Error('Error al enviar el mensaje');
+      }
     } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo.",
+      });
       setSubmitStatus('error');
-      console.error("Error al enviar:", error);
     } finally {
       setIsSubmitting(false);
       setTimeout(() => setSubmitStatus('idle'), 3000);
@@ -116,6 +140,7 @@ export default function ContactPage() {
   return (
     <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto px-4 relative">
+        {/* Título y descripción */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -128,6 +153,7 @@ export default function ContactPage() {
           </p>
         </motion.div>
 
+        {/* Tarjetas de información de contacto */}
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
           {contactInfo.map((item, index) => {
             const Icon = item.icon;
@@ -158,6 +184,7 @@ export default function ContactPage() {
           })}
         </div>
 
+        {/* Formulario y mapa */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -165,6 +192,7 @@ export default function ContactPage() {
           viewport={{ once: true }}
           className="grid lg:grid-cols-2 gap-8"
         >
+          {/* Formulario */}
           <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
             <CardHeader>
               <div className="flex items-center gap-3 mb-4">
@@ -218,7 +246,7 @@ export default function ContactPage() {
                 >
                   {isSubmitting ? (
                     <>
-                      <Send className="animate-bounce" />
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                       Enviando...
                     </>
                   ) : (
@@ -252,6 +280,7 @@ export default function ContactPage() {
             </CardContent>
           </Card>
 
+          {/* Mapa */}
           <Card className="bg-gradient-to-br from-red-800 to-red-600 text-white">
             <CardHeader>
               <div className="flex items-center gap-3 mb-4">

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google"
 import "@/styles/globals.css"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
+import { Toaster } from "@/components/ui/toaster"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -63,6 +64,7 @@ export default function RootLayout({
         >
          <img src="/imagenes/logos/whatsapp.svg" className="w-6 h-6" alt="WhatsApp" />
         </a>
+        <Toaster />
       </body>
     </html>
   )
