@@ -7,61 +7,61 @@ const categories = [
   {
     id: 1,
     name: 'EXCAVADORAS',
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-12 h-12 mb-4" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M4 16v-2a2 2 0 0 1 2-2h12M6 12V8m12 4v-2m-6 2V4m0 8v4m-6 0v2m12-2v2M3 12h18" />
-      </svg>
-    ),
+    icon: <img 
+    src="/maquinaslogos/jcb/miniexcavadora.png" 
+    alt="Excavadoras" 
+    className="w-full my-3 h-auto [filter:brightness(0)_saturate(100%)_invert(66%)_sepia(75%)_saturate(634%)_hue-rotate(360deg)_brightness(103%)_contrast(103%)]"
+  />,
     href: '/equipos/jcb/excavadoras'
   },
   {
     id: 2,
     name: 'CARGADORES FRONTALES',
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-12 h-12 mb-4" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M3 12h18M7 8v8m10-8v8M12 4v16M4 16v-4h16v4" />
-      </svg>
-    ),
+    icon: <img 
+    src="/maquinaslogos/jcb/cargador.png" 
+    alt="Cargadores Frontales" 
+    className="w-full my-3 h-auto [filter:brightness(0)_saturate(100%)_invert(66%)_sepia(75%)_saturate(634%)_hue-rotate(360deg)_brightness(103%)_contrast(103%)]"
+  />,
     href: '/equipos/jcb/cargadores-frontales'
   },
   {
     id: 3,
     name: 'MINICARGADORES',
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-12 h-12 mb-4" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M4 16v-4h16v4M6 12V8h12v4M12 4v16" />
-      </svg>
-    ),
+    icon: <img 
+    src="/maquinaslogos/jcb/cargador.png" 
+    alt="MiniCargadores" 
+    className="w-full my-3 h-auto [filter:brightness(0)_saturate(100%)_invert(66%)_sepia(75%)_saturate(634%)_hue-rotate(360deg)_brightness(103%)_contrast(103%)]"
+  />,
     href: '/equipos/jcb/minicargadores'
   },
   {
     id: 4,
     name: 'ROLOS COMPACTADORES',
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-12 h-12 mb-4" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 4v16m-8-8h16M8 8h8M6 12h12" />
-      </svg>
-    ),
+    icon: <img 
+    src="/maquinaslogos/jcb/compactadores.png" 
+    alt="Rolos Compactadores" 
+    className="w-full my-3 h-auto [filter:brightness(0)_saturate(100%)_invert(66%)_sepia(75%)_saturate(634%)_hue-rotate(360deg)_brightness(103%)_contrast(103%)]"
+  />,
     href: '/equipos/jcb/rolos-compactadores'
   },
   {
     id: 5,
     name: 'RETROEXCAVADORAS',
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-12 h-12 mb-4" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M4 16v-4h16v4M6 12V8m12 4V8M3 12h18M12 4v8" />
-      </svg>
-    ),
+    icon: <img 
+    src="/maquinaslogos/jcb/retroexcavadora.png" 
+    alt="Retroexcavadoras" 
+    className="w-full my-3 h-auto [filter:brightness(0)_saturate(100%)_invert(66%)_sepia(75%)_saturate(634%)_hue-rotate(360deg)_brightness(103%)_contrast(103%)]"
+  />,
     href: '/equipos/jcb/retroexcavadora'
   },
   {
     id: 6,
     name: 'MANIPULADORES TELESCÓPICOS',
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-12 h-12 mb-4" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M4 16v-4h12l4-4v8M6 12V8m12 4V8M3 12h18" />
-      </svg>
-    ),
+    icon: <img 
+    src="/maquinaslogos/jcb/manipulador-telescopico.png" 
+    alt="Manipuladores Telescópicos" 
+    className="w-full my-3 h-auto [filter:brightness(0)_saturate(100%)_invert(66%)_sepia(75%)_saturate(634%)_hue-rotate(360deg)_brightness(103%)_contrast(103%)]"
+  />,
     href: '/equipos/jcb/manipuladores-telescopicos'
   }
 ];

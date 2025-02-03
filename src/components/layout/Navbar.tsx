@@ -57,7 +57,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
             >
               <img
-                src="/imagenes/grupoPueble.png"
+                src="/imagenes/logos/grupoPueble.png"
                 alt="Logo de Pueble S.A."
                 className="h-28 w-auto"
               />
