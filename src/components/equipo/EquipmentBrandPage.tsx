@@ -104,33 +104,32 @@ const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({
                     </p>
                   </div>
                 </CardContent>
-
-                <CardFooter className="flex gap-4">
+              <CardFooter className="flex gap-4 flex-wrap">
+                <Button
+                  variant="outline"
+                  className="flex-1 min-w-[140px]"
+                  onClick={() => window.open(product.pdfUrl, "_blank")}
+                >
+                  <FileDown className="w-4 h-4 mr-2" />
+                  Ficha Técnica
+                </Button>
+                <Link
+                  href={`https://wa.me/+5491112345678?text=Me interesa el ${product.name}`}
+                  target="_blank"
+                  className="flex-1 min-w-[120px]"
+                >
                   <Button
-                    variant="outline"
-                    className="flex-1"
-                    onClick={() => window.open(product.pdfUrl, "_blank")}
+                    className="w-full"
+                    style={{
+                      backgroundColor: brand === "Case" ? "#8f131a" : brand === "JCB" ? "#fcb026" : undefined,
+                      color: brand === "JCB" ? "#000" : "#fff",
+                    }}
                   >
-                    <FileDown className="w-4 h-4 mr-2" />
-                    Ficha Técnica
+                    <Phone className="w-4 h-4 mr-2" />
+                    Consultar
                   </Button>
-                  <Link
-                    href={`https://wa.me/+5491112345678?text=Me interesa el ${product.name}`}
-                    target="_blank"
-                    className="flex-1"
-                  >
-                    <Button
-                      className="w-full"
-                      style={{
-                        backgroundColor: brand === "Case" ? "#8f131a" : brand === "JCB" ? "#fcb026" : undefined,
-                        color: brand === "JCB" ? "#000" : "#fff",
-                      }}
-                    >
-                      <Phone className="w-4 h-4 mr-2" />
-                      Consultar
-                    </Button>
-                  </Link>
-                </CardFooter>
+                </Link>
+              </CardFooter>
               </Card>
             ))}
           </div>
