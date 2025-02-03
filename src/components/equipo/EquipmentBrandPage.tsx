@@ -93,26 +93,34 @@ const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({
                 <CardContent className="flex-grow">
                   <p className="text-gray-300 mb-4 ">{product.description}</p>
                   <div className="space-y-2 text-gray-300">
-                    <p>
-                      <strong>Potencia:</strong> {product.specs.power}
-                    </p>
-                    <p>
-                      <strong>Peso:</strong> {product.specs.weight}
-                    </p>
-                    <p>
-                      <strong>Capacidad:</strong> {product.specs.capacity}
-                    </p>
+                    {product.specs.power && (
+                      <p>
+                        <strong>Potencia:</strong> {product.specs.power}
+                      </p>
+                    )}
+                    {product.specs.weight && (
+                      <p>
+                        <strong>Peso:</strong> {product.specs.weight}
+                      </p>
+                    )}
+                    {product.specs.capacity && (
+                      <p>
+                        <strong>Capacidad:</strong> {product.specs.capacity}
+                      </p>
+                    )}
                   </div>
                 </CardContent>
               <CardFooter className="flex gap-4 flex-wrap">
-                <Button
-                  variant="outline"
-                  className="flex-1 min-w-[140px]"
-                  onClick={() => window.open(product.pdfUrl, "_blank")}
-                >
-                  <FileDown className="w-4 h-4 mr-2" />
-                  Ficha Técnica
-                </Button>
+              {product.pdfUrl && (
+                  <Button
+                    variant="outline"
+                    className="flex-1 min-w-[140px]"
+                    onClick={() => window.open(product.pdfUrl, "_blank")}
+                  >
+                    <FileDown className="w-4 h-4 mr-2" />
+                    Ficha Técnica
+                  </Button>
+                )}
                 <Link
                   href={`https://wa.me/+5491112345678?text=Me interesa el ${product.name}`}
                   target="_blank"
