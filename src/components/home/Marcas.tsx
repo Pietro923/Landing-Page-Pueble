@@ -13,7 +13,7 @@ export default function Marcas() {
       ruta: "/equipos/jcb",
     },
     {
-      marca: "Case",
+      marca: "Case IH",
       descripcion: "Máquinas confiables diseñadas para maximizar la productividad.",
       imagen: "/imagenes/equipment/case/caselogo.png",
       ruta: "/equipos/case",
