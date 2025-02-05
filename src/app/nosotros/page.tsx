@@ -44,7 +44,11 @@ export default function About() {
             Más de 40 años liderando el sector de maquinaria agrícola, 
             impulsando el desarrollo y la innovación en el campo argentino.
           </p>
-        <img src="https://www.semtraco.com.ar/frontend/images/empresa-semtraco.jpg" alt="nosotros" className="rounded-2xl mb-10 mt-10" />
+          <img 
+            src="/imagenes/empresa/Equipo Pueble SA.jpeg"  
+            alt="nosotros" 
+            className="rounded-3xl mb-10 mt-10 w-full max-w-[1500px] h-auto max-h-[650px] object-cover mx-auto" 
+          />
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">

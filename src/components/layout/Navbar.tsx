@@ -1,16 +1,19 @@
 "use client"
 import { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronDown, Search } from "lucide-react"
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [searchTerm, setSearchTerm] = useState('')
   const pathname = usePathname()
+  const router = useRouter()
 
   const navItems = [
     { href: '/', label: 'Inicio' },
@@ -29,7 +32,6 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
     }
-
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -37,6 +39,19 @@ const Navbar = () => {
   const handleNavigation = () => {
     setIsMobileMenuOpen(false)
     setIsDropdownOpen(false)
+  }
+
+  const handleSearch = () => {
+    if (searchTerm.trim()) {
+      router.push(`/buscar?q=${encodeURIComponent(searchTerm)}`)
+      setSearchTerm('')
+    }
+  }
+
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleSearch()
+    }
   }
 
   const isActivePage = (href: string) => {
@@ -65,7 +80,7 @@ const Navbar = () => {
           </Link>
   
           {/* Navegación Desktop */}
-          <nav className="hidden md:block">
+          <nav className="hidden md:flex items-center space-x-6">
             <ul className="flex items-center space-x-6">
               {navItems.map((item) => (
                 <motion.li
@@ -142,6 +157,26 @@ const Navbar = () => {
                 </AnimatePresence>
               </motion.li>
             </ul>
+
+            {/* Search Bar */}
+            <div className="flex items-center space-x-2 ml-4">
+              <Input 
+                type="text" 
+                placeholder="Buscar..." 
+                className="w-48 text-white bg-zinc-800/50 border-zinc-700 focus:border-red-500 focus:ring-red-500"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyPress={handleKeyPress}
+              />
+              <Button 
+                variant="outline" 
+                size="icon" 
+                className="text-white hover:bg-red-700 border-zinc-700 bg-red-800 hover:text-white"
+                onClick={handleSearch}
+              >
+                <Search className="w-5 h-5" />
+              </Button>
+            </div>
           </nav>
   
           {/* Mobile Menu Button */}
@@ -167,6 +202,27 @@ const Navbar = () => {
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden overflow-hidden"
             >
+               {/* Mobile Search Bar */}
+            <div className="px-4 pb-4">
+              <div className="flex items-center space-x-2 mt-4">
+                <Input 
+                  type="text" 
+                  placeholder="Buscar..." 
+                  className="w-full text-white bg-zinc-800/50 border-zinc-700 focus:border-red-500 focus:ring-red-500"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                />
+                <Button 
+                  variant="outline" 
+                  size="icon" 
+                  className="text-white hover:bg-red-700 border-zinc-700 bg-red-800 hover:text-white"
+                  onClick={handleSearch}
+                >
+                  <Search className="w-5 h-5" />
+                </Button>
+              </div>
+            </div>
               <motion.ul
                 className="flex flex-col space-y-1 py-4"
                 initial="closed"

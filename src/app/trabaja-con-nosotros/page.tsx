@@ -15,8 +15,11 @@ import {
 } from "@/components/ui/select";
 import { Upload, Mail, User, FileText, Briefcase, Phone, GraduationCap, Clock } from 'lucide-react';
 import { motion } from "framer-motion";
+import emailjs from '@emailjs/browser';
+import { useToast } from "@/hooks/use-toast";
 
 export default function TrabajaConNosotros() {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     nombre: "",
     apellido: "",
@@ -65,11 +68,11 @@ export default function TrabajaConNosotros() {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      if (file.type === "application/pdf") {
+      if (file.type === "application/pdf" && file.size <= 10 * 1024 * 1024) { // 10MB máximo
         setFormData({ ...formData, cv: file });
         setFileName(file.name);
       } else {
-        alert("Por favor, sube un archivo PDF");
+        alert("Por favor, sube un archivo PDF válido (máximo 10MB).");
         e.target.value = '';
       }
     }
@@ -82,28 +85,60 @@ export default function TrabajaConNosotros() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
-      // Simulación de envío
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      console.log("Datos enviados:", formData);
-      setSubmitStatus('success');
-      setFormData({
-        nombre: "",
-        apellido: "",
-        email: "",
-        telefono: "",
-        areaInteres: "",
-        experiencia: "",
-        nivelEstudio: "",
-        disponibilidad: "",
-        mensaje: "",
-        cv: null,
-      });
-      setFileName("");
+      // Crear un FormData para enviar el archivo adjunto
+      const formDataToSend = new FormData();
+      formDataToSend.append("nombre", formData.nombre);
+      formDataToSend.append("apellido", formData.apellido);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("telefono", formData.telefono);
+      formDataToSend.append("areaInteres", formData.areaInteres);
+      formDataToSend.append("experiencia", formData.experiencia);
+      formDataToSend.append("nivelEstudio", formData.nivelEstudio);
+      formDataToSend.append("disponibilidad", formData.disponibilidad);
+      formDataToSend.append("mensaje", formData.mensaje);
+      if (formData.cv) {
+        formDataToSend.append("cv", formData.cv);
+      }
+
+      // Enviar el formulario usando EmailJS
+      const response = await emailjs.sendForm(
+        'Portfolio-Contact',
+        'template_xjnt9vu',
+        e.currentTarget as HTMLFormElement,
+        '0M277pAq9VZnYfBbu'
+      );
+
+      if (response.status === 200) {
+        toast({
+          title: "Postulación enviada",
+          description: "Gracias por tu interés. Nos pondremos en contacto contigo pronto.",
+        });
+        setSubmitStatus('success');
+        setFormData({
+          nombre: "",
+          apellido: "",
+          email: "",
+          telefono: "",
+          areaInteres: "",
+          experiencia: "",
+          nivelEstudio: "",
+          disponibilidad: "",
+          mensaje: "",
+          cv: null,
+        });
+        setFileName("");
+      } else {
+        throw new Error('Error al enviar la postulación');
+      }
     } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Hubo un problema al enviar tu postulación. Por favor, inténtalo de nuevo.",
+      });
       setSubmitStatus('error');
-      console.error("Error al enviar:", error);
     } finally {
       setIsSubmitting(false);
       setTimeout(() => setSubmitStatus('idle'), 3000);
@@ -158,7 +193,7 @@ export default function TrabajaConNosotros() {
                       placeholder="Apellido"
                       value={formData.apellido}
                       onChange={handleChange}
-                       className="pl-10 bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
+                      className="pl-10 bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
                       required
                     />
                   </div>
@@ -177,7 +212,7 @@ export default function TrabajaConNosotros() {
                       placeholder="tu@email.com"
                       value={formData.email}
                       onChange={handleChange}
-                       className="pl-10 bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
+                      className="pl-10 bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
                       required
                     />
                   </div>

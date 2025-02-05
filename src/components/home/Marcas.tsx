@@ -15,7 +15,7 @@ export default function Marcas() {
     {
       marca: "Case",
       descripcion: "Máquinas confiables diseñadas para maximizar la productividad.",
-      imagen: "/imagenes/equipment/case/caseih.avif",
+      imagen: "/imagenes/equipment/case/caselogo.png",
       ruta: "/equipos/case",
     },
   ];

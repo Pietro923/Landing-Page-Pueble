@@ -2,6 +2,13 @@ import ProductLinesPage from "@/components/equipo/ProductLinesPage";
 
 const cosechadoraLines = [
   {
+    id: 'Cosechadora de Caña',
+    name: 'Cosechadora de Caña',
+    description: 'Las cosechadoras Austoft de Case IH aumentan la calidad y productividad de tu cosecha mecanizada de caña de azúcar. Su potente motor asociado a un sistema hidráulico inteligente, te brinda una mayor capacidad de trabajo con el menor costo operativo. Cuenta con las más modernas tecnologías, como AFS Autopilot y el nuevo sistema de telemetría con conectividad 4G. Todo esto para mejorar la productividad de tu explotación de caña.',
+    image: '/imagenes/equipment/case/lines/cosechadora/cosechadoracaña.webp',
+    href: '/equipos/case/cosechadoras/cosechadoracana'
+  },
+  {
     id: 'Axial',
     name: 'Axial-Flow',
     description: 'Case IH ha diseñado, creado y desarrollado el mejor sistema de cosecha del mundo. Sus cosechadoras son reconocidas por el gran rendimiento, la calidad superior de los granos y la excelente productividad en todas las condiciones. Diseñadas para aquellos que exigen más, las cosechadoras Case IH son referencia. Conozca los detalles en las páginas de los productos.',
