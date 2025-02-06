@@ -26,6 +26,8 @@ const BuscarContent = () => {
     { name: 'Rolos Compacadores - JCB', href: '/equipos/jcb/rolos-compactadores' },
     { name: 'Retroexcavadoras - JCB', href: '/equipos/jcb/retroexcavadora' },
     { name: 'Manipuladores Telescópicos - JCB', href: '/equipos/jcb/manipuladores-telescopicos' },
+
+    { name: 'Usados', href: 'https://www.agroads.com.ar/e/pueble-sa/'},
   ];
 
   // Filtramos los resultados que coinciden con el término de búsqueda
@@ -54,17 +56,32 @@ const BuscarContent = () => {
                 <ul className="space-y-4">
                   {filteredResults.map((result) => (
                     <li key={result.href}>
+                    {result.href.startsWith("http") ? (
+                      // Enlace externo con target="_blank"
+                      <a 
+                        href={result.href} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                      >
+                        <Button className="w-full bg-white/10 hover:bg-white/20 text-white font-medium py-3 rounded-lg transition-all duration-200 flex items-center justify-between">
+                          <span>{result.name}</span>
+                          <Search className="h-5 w-5 text-gray-400" />
+                        </Button>
+                      </a>
+                    ) : (
+                      // Enlace interno con Link de Next.js
                       <Link href={result.href}>
                         <Button className="w-full bg-white/10 hover:bg-white/20 text-white font-medium py-3 rounded-lg transition-all duration-200 flex items-center justify-between">
                           <span>{result.name}</span>
                           <Search className="h-5 w-5 text-gray-400" />
                         </Button>
                       </Link>
-                    </li>
+                    )}
+                  </li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-gray-300 text-center">No se encontraron resultados.</p>
+                <p className="text-gray-300 text-center">No se encontraron resultados para <span className="font-semibold">"{q}"</span>.</p>
               )}
             </div>
           </CardContent>

@@ -26,6 +26,7 @@ const Navbar = () => {
   const equiposItems = [
     { href: '/equipos/case', label: 'Case IH', icon: '/imagenes/equipment/case/case.png' },
     { href: '/equipos/jcb', label: 'JCB', icon: '/imagenes/equipment/jcb/jcb.svg' },
+    { href: 'https://www.agroads.com.ar/e/pueble-sa/', label: 'Usados', icon: '/imagenes/equipment/agroads/agroads.png', target: "_blank" },
   ]
 
   useEffect(() => {
@@ -139,20 +140,38 @@ const Navbar = () => {
                       className="absolute right-0 mt-2 w-48 bg-zinc-800/90 backdrop-blur-sm rounded-lg shadow-xl border border-zinc-700/50 overflow-hidden"
                     >
                       {equiposItems.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          onClick={handleNavigation}
-                          className="flex items-center px-4 py-3 hover:bg-zinc-700/50 transition-all duration-200 group"
-                        >
-                          <img
-                            src={item.icon}
-                            alt={item.label}
-                            className="w-8 h-8 object-contain mr-3 group-hover:scale-105 transition-transform duration-200"
-                          />
-                          <span className="text-white/90 group-hover:text-white font-medium">{item.label}</span>
-                        </Link>
+                        item.href.startsWith("http") ? (
+                          <a
+                            key={item.href}
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center px-4 py-3 hover:bg-zinc-700/50 transition-all duration-200 group"
+                          >
+                            <img
+                              src={item.icon}
+                              alt={item.label}
+                              className="w-8 h-8 object-contain mr-3 group-hover:scale-105 transition-transform duration-200"
+                            />
+                            <span className="text-white/90 group-hover:text-white font-medium">{item.label}</span>
+                          </a>
+                        ) : (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            onClick={handleNavigation}
+                            className="flex items-center px-4 py-3 hover:bg-zinc-700/50 transition-all duration-200 group"
+                          >
+                            <img
+                              src={item.icon}
+                              alt={item.label}
+                              className="w-8 h-8 object-contain mr-3 group-hover:scale-105 transition-transform duration-200"
+                            />
+                            <span className="text-white/90 group-hover:text-white font-medium">{item.label}</span>
+                          </Link>
+                        )
                       ))}
+
                     </motion.div>
                   )}
                 </AnimatePresence>

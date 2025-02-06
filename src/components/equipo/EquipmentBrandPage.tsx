@@ -122,7 +122,7 @@ const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({
                   </Button>
                 )}
                 <Link
-                  href={`https://wa.me/+5491112345678?text=Me interesa el ${product.name}`}
+                  href={`https://wa.me/+543816618632?text=Hola! Estoy en la pagina Web. Me interesa el ${product.name}. de ${brand} ¿Me podrias asesorar?. Gracias!`}
                   target="_blank"
                   className="flex-1 min-w-[120px]"
                 >

@@ -22,9 +22,9 @@ const farmallProducts = [
     description: "Los tractores Farmall tienen un rendimiento inigualable en cualquier actividad. Con un sistema hidráulico de alta capacidad, ofrecen la máxima flexibilidad en las operaciones.",
     image: "/imagenes/equipment/case/tractores/farmall/farmall80.jpg",
     specs: {
-      power: "75 HP",
-      weight: "3,750 kg",
-      capacity: "2,300 kg"
+      power: "",
+      weight: "",
+      capacity: ""
     },
     pdfUrl: ""
   },
@@ -36,8 +36,8 @@ const farmallProducts = [
     image: "/imagenes/equipment/case/tractores/farmall/farmall90.jpg",
     specs: {
       power: "90 cv (66 kW)",
-      weight: "3,750 kg", // Cilindrada: 3,9 L
-      capacity: "2,300 kg" // Transmisión: 12 de avance y 12 de retroceso
+      weight: "", // Cilindrada: 3,9 L
+      capacity: "" // Transmisión: 12 de avance y 12 de retroceso
     },
     pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC-FARMALL-90JX-100JX-110JX.pdf"
   },
@@ -48,9 +48,9 @@ const farmallProducts = [
     description: "La alta tecnología y la confiabilidad que sólo la marca Case IH ofrece llegan a los tractores de baja potencia. La línea Farmall es reconocida mundialmente por la robustez, simplicidad de operación y flexibilidad de uso.",
     image: "/imagenes/equipment/case/tractores/farmall/farmall100.jpg",
     specs: {
-      power: "75 HP",
-      weight: "3,750 kg",
-      capacity: "2,300 kg"
+      power: "100 cv (74 kW)",
+      weight: "",
+      capacity: ""
     },
     pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC-FARMALL-90JX-100JX-110JX.pdf"
   },
@@ -61,9 +61,9 @@ const farmallProducts = [
     description: "La alta tecnología y la confiabilidad que sólo la marca Case IH ofrece llegan a los tractores de baja potencia. La línea Farmall es reconocida mundialmente por la robustez, simplicidad de operación y flexibilidad de uso.",
     image: "/imagenes/equipment/case/tractores/farmall/farmall110.jpg",
     specs: {
-      power: "75 HP",
-      weight: "3,750 kg",
-      capacity: "2,300 kg"
+      power: "110 cv (81 kW)",
+      weight: "",
+      capacity: ""
     },
     pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC-FARMALL-90JX-100JX-110JX.pdf"
   },
@@ -74,9 +74,9 @@ const farmallProducts = [
     description: "Los nuevos tractores Case IH Farmall Serie JXM suministran la potencia y el rendimiento que sus dueños esperan, con el diseño de primera calidad distintivo de Case IH.",
     image: "/imagenes/equipment/case/tractores/farmall/farmall55.jpg",
     specs: {
-      power: "75 HP",
-      weight: "3,750 kg",
-      capacity: "2,300 kg"
+      power: "55 HP",
+      weight: "",
+      capacity: ""
     },
     pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC_FARMALL_SERIE_JXM-EO.pdf"
   },
@@ -88,8 +88,8 @@ const farmallProducts = [
     image: "/imagenes/equipment/case/tractores/farmall/farmall-jxm.jpg",
     specs: {
       power: "75 HP",
-      weight: "3,750 kg", // hay que cambiar esto por: Cilindrada: 2,9 L
-      capacity: "2,300 kg" // hay que cambiar esto por: Transmisión: 12 x 12
+      weight: "", // hay que cambiar esto por: Cilindrada: 2,9 L
+      capacity: "" // hay que cambiar esto por: Transmisión: 12 x 12
     },
     pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC_FARMALL_SERIE_JXM-EO.pdf"
   },
@@ -100,9 +100,9 @@ const farmallProducts = [
     description: "Los tractores Farmall son la mejor opción para las economías regionales y con los años, se han ido renovando. Tienen un rendimiento inigualable en cualquier actividad.",
     image: "/imagenes/equipment/case/tractores/farmall/farmall120.jpg",
     specs: {
-      power: "75 HP",
-      weight: "3,750 kg",
-      capacity: "2,300 kg"
+      power: "",
+      weight: "",
+      capacity: ""
     },
     pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC_FARMALL_120A_Y_130A.pdf"
   },
@@ -113,9 +113,9 @@ const farmallProducts = [
     description: "Toda la potencia que necesita, ya sea en la agricultura o la ganadería, la puede encontrar en Farmall 130A.",
     image: "/imagenes/equipment/case/tractores/farmall/farmall130.jpg",
     specs: {
-      power: "75 HP",
-      weight: "3,750 kg",
-      capacity: "2,300 kg"
+      power: "",
+      weight: "",
+      capacity: ""
     },
     pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC_FARMALL_120A_Y_130A.pdf"
   },
@@ -126,9 +126,9 @@ const farmallProducts = [
     description: "Los tractores Farmall tienen un rendimiento inigualable en cualquier actividad. Con un sistema hidráulico de alta capacidad, ofrecen la máxima flexibilidad en las operaciones.",
     image: "/imagenes/equipment/case/tractores/farmall/farmall80conpala.jpeg",
     specs: {
-      power: "75 HP",
-      weight: "3,750 kg",
-      capacity: "2,300 kg"
+      power: "",
+      weight: "",
+      capacity: ""
     },
     pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC_FARMALL_SERIE_JXM-EO.pdf"
   },

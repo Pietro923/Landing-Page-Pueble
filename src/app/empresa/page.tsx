@@ -12,10 +12,6 @@ import {
   Phone,
   Wrench,
   ArrowRight,
-  Users,
-  Video,
-  Calendar,
-  MessageCircle
 } from 'lucide-react'
 
 export default function Company() {
@@ -44,7 +40,7 @@ export default function Company() {
       description: "Expertos en mantenimiento y soporte técnico para garantizar el máximo rendimiento de tus equipos."
     },
     {
-      image: "/imagenes/equipos/afs.jpg",
+      image: "/imagenes/equipos/afs.jpeg",
       name: "Equipo AFS",
       description: "Especialistas en sistemas de agricultura de precisión para optimizar tus cosechas."
     },
