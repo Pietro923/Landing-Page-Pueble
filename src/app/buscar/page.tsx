@@ -6,12 +6,12 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Search } from 'lucide-react';
 import { motion } from "framer-motion";
+import { Suspense } from 'react';
 
-const Buscar = () => {
+const BuscarContent = () => {
   const searchParams = useSearchParams();
   const q = searchParams.get('q');  // Obtenemos el término de búsqueda desde la URL
 
-  // Simulamos los resultados basados en el término de búsqueda
   const results = [
     { name: 'Cosechadora - Case IH', href: '/equipos/case/cosechadoras' },
     { name: 'Tractor - Case IH', href: '/equipos/case/tractores' },
@@ -50,7 +50,6 @@ const Buscar = () => {
 
           <CardContent>
             <div className="space-y-6">
-
               {filteredResults.length > 0 ? (
                 <ul className="space-y-4">
                   {filteredResults.map((result) => (
@@ -58,7 +57,6 @@ const Buscar = () => {
                       <Link href={result.href}>
                         <Button className="w-full bg-white/10 hover:bg-white/20 text-white font-medium py-3 rounded-lg transition-all duration-200 flex items-center justify-between">
                           <span>{result.name}</span>
-
                           <Search className="h-5 w-5 text-gray-400" />
                         </Button>
                       </Link>
@@ -73,6 +71,14 @@ const Buscar = () => {
         </Card>
       </motion.div>
     </div>
+  );
+};
+
+const Buscar = () => {
+  return (
+    <Suspense fallback={<div className="text-center text-gray-300">Cargando...</div>}>
+      <BuscarContent />
+    </Suspense>
   );
 };
 
