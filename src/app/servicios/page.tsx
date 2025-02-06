@@ -3,42 +3,48 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardContent, CardTitle, CardDescription } from "@/components/ui/card"
-import { 
-  Wrench, 
-  ShoppingCart, 
-  Smartphone,
-  Shield
-} from 'lucide-react'
 import Image from 'next/image'
+import { Wrench, ShoppingCart, Smartphone, Shield, PhoneCall } from 'lucide-react'
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
 
 export default function Servicios() {
   const services = [
     {
       icon: ShoppingCart,
-      title: "Servicio de Venta",
-      description: "Asesoramiento personalizado para encontrar la maquinaria que mejor se adapte a tus necesidades.",
-      image: "/imagenes/placeholdercachopuente.jpg"
+      title: "Venta y Postventa",
+      description: "Asesoramiento, mantenimiento y soporte técnico 24/7 para tu maquinaria.",
+      image: "/imagenes/placeholdercachopuente.jpg",
+      //contact: "https://web.whatsapp.com/send?phone=3816618632&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20solicitar%20asesoramiento!%20"
     },
     {
-      icon: Wrench,
-      title: "Servicio de Postventa",
-      description: "Mantenimiento, reparaciones y soporte técnico especializado las 24 horas, los 365 días del año.",
-      image: "/imagenes/placeholdercachopuente.jpg"
+      icon: PhoneCall,
+      title: "Guardia de Repuestos",
+      description: "Disponibilidad 24/7 para enviarte el repuesto exacto cuando lo necesites.",
+      image: "/imagenes/placeholdercachopuente.jpg",
+      contact: "https://web.whatsapp.com/send?phone=3815821998&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta%20sobre%20la%20guardia!"
+    },
+    {
+      icon: PhoneCall,
+      title: "Guardia de Servicios",
+      description: "Atención 24/7 para resolver cualquier necesidad en tu campo.",
+      image: "/imagenes/placeholdercachopuente.jpg",
+      contact: "https://web.whatsapp.com/send?phone=3814901111&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta%20sobre%20la%20guardia!"
     },
     {
       icon: Smartphone,
       title: "AFS Connect",
-      description: "Supervisa y gestiona tu operación agrícola de forma remota con tecnología de última generación.",
-      image: "/imagenes/servicios/afs.png"
+      description: "Supervisa y gestiona tu operación agrícola de forma remota con tecnología avanzada.",
+      image: "/imagenes/servicios/afs.png",
+      //contact: "https://web.whatsapp.com/send?phone=3816618632&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20realizar%una%20consulta%20acerca%20de%20AFS%20!"
     },
     {
       icon: Shield,
       title: "Garantía y Soporte",
-      description: "Garantías extendidas y soporte técnico permanente para asegurar el máximo rendimiento de tus equipos.",
-      image: "/imagenes/servicios/garan.webp"
+      description: "Garantía extendida y soporte técnico permanente para optimizar el rendimiento de tu equipo.",
+      image: "/imagenes/servicios/garan.webp",
+      //contact: "https://web.whatsapp.com/send?phone=3814901111&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta%20sobre%20la%20garantia!"
     }
-  ];
+  ];  
 
   const imagesafs = [
     "/imagenes/servicios/afs1.jpg",
@@ -89,7 +95,7 @@ export default function Servicios() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16"
         >
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -104,22 +110,27 @@ export default function Servicios() {
                       src={service.image}
                       alt={service.title}
                       fill
-                      className="object-cover rounded-t-lg"
+                      className="object-cover rounded-2xl"
                     />
                   </div>
                 </CardHeader>
-                <CardContent className="mt-4">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-red-100 rounded-lg">
-                      <Icon className="w-6 h-6 text-red-600" />
+                {/* Agregamos flex-grow para que el contenido empuje el botón hacia abajo */}
+                <CardContent className="mt-4 flex flex-col justify-between min-h-[200px]">
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-2 bg-red-100 rounded-lg">
+                        <Icon className="w-6 h-6 text-red-600" />
+                      </div>
+                      <CardTitle className="text-lg">{service.title}</CardTitle>
                     </div>
-                    <CardTitle className="text-lg">{service.title}</CardTitle>
+                    <CardDescription className="text-gray-300">
+                      {service.description}
+                    </CardDescription>
                   </div>
-                  <CardDescription className="text-gray-300">
-                    {service.description}
-                  </CardDescription>
                   <Button className="mt-4 bg-red-600 hover:bg-red-700 w-full">
-                    Más información
+                    <a href={service.contact} target="_blank" rel="noopener noreferrer" className="w-full block text-center">
+                      Contactar
+                    </a>
                   </Button>
                 </CardContent>
               </Card>

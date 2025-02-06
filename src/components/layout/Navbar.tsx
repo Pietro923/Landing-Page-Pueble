@@ -163,7 +163,7 @@ const Navbar = () => {
               <Input 
                 type="text" 
                 placeholder="Buscar..." 
-                className="w-48 text-white bg-zinc-800/50 border-zinc-700 focus:border-red-500 focus:ring-red-500"
+                className="w-48 text-white bg-zinc-800/50 border-zinc-700 focus:border-red-500 focus:ring-red-500 [&::placeholder]:text-white/70"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onKeyPress={handleKeyPress}
