@@ -1,47 +1,79 @@
-"use client"
+"use client";
 
-import { useState, useCallback } from "react"
-import { useRouter } from "next/navigation"
-import { Search } from "lucide-react"
+import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Search } from 'lucide-react';
+import { motion } from "framer-motion";
 
-const Navbar: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState<string>("")
-  const router = useRouter()
+const Buscar = () => {
+  const searchParams = useSearchParams();
+  const q = searchParams.get('q');  // Obtenemos el término de búsqueda desde la URL
 
-  const handleSearch = useCallback(() => {
-    if (searchTerm.trim()) {
-      router.push(`/buscar?q=${encodeURIComponent(searchTerm)}`)
-    }
-  }, [searchTerm, router])
+  // Simulamos los resultados basados en el término de búsqueda
+  const results = [
+    { name: 'Cosechadora - Case IH', href: '/equipos/case/cosechadoras' },
+    { name: 'Tractor - Case IH', href: '/equipos/case/tractores' },
+    { name: 'Sembradoras - Case IH', href: '/equipos/case/sembradoras' },
+    { name: 'Pulverizadoras - Case IH', href: '/equipos/case/pulverizadoras' },
+    { name: 'Agricultura de Precisión - Case IH', href: '/equipos/case/agricultura-precision' },
+    { name: 'Heno y Forraje - Case IH', href: '/equipos/case/heno-forraje' },
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
-      handleSearch()
-    }
-  }
+    { name: 'Excavadoras - JCB', href: '/equipos/jcb/excavadoras' },
+    { name: 'Cargadores Frontales - JCB', href: '/equipos/jcb/cargadores-frontales' },
+    { name: 'Minicargadores - JCB', href: '/equipos/jcb/minicargadores' },
+    { name: 'Rolos Compacadores - JCB', href: '/equipos/jcb/rolos-compactadores' },
+    { name: 'Retroexcavadoras - JCB', href: '/equipos/jcb/retroexcavadora' },
+    { name: 'Manipuladores Telescópicos - JCB', href: '/equipos/jcb/manipuladores-telescopicos' },
+  ];
+
+  // Filtramos los resultados que coinciden con el término de búsqueda
+  const filteredResults = results.filter(result =>
+    result.name.toLowerCase().includes(q?.toLowerCase() || '')
+  );
 
   return (
-    <nav className="bg-gray-900 p-4 w-full flex justify-between items-center">
-      <div className="text-white text-xl font-bold">Mi Aplicación</div>
-      <div className="relative">
-        <input
-          type="text"
-          placeholder="Buscar..."
-          className="p-2 pr-10 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          onKeyDown={handleKeyDown}
-        />
-        <button
-          onClick={handleSearch}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
-          aria-label="Buscar"
-        >
-          <Search size={20} />
-        </button>
-      </div>
-    </nav>
-  )
-}
+    <div className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-2xl mx-auto"
+      >
+        <Card className="bg-white/10 backdrop-blur-sm border-0 shadow-xl">
+          <CardHeader className="text-center space-y-2">
+            <CardTitle className="text-3xl font-bold bg-gradient-to-r from-red-600 to-red-800 text-transparent bg-clip-text">
+              Buscar Equipos
+            </CardTitle>
+          </CardHeader>
 
-export default Navbar
+          <CardContent>
+            <div className="space-y-6">
+
+              {filteredResults.length > 0 ? (
+                <ul className="space-y-4">
+                  {filteredResults.map((result) => (
+                    <li key={result.href}>
+                      <Link href={result.href}>
+                        <Button className="w-full bg-white/10 hover:bg-white/20 text-white font-medium py-3 rounded-lg transition-all duration-200 flex items-center justify-between">
+                          <span>{result.name}</span>
+
+                          <Search className="h-5 w-5 text-gray-400" />
+                        </Button>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-gray-300 text-center">No se encontraron resultados.</p>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+    </div>
+  );
+};
+
+export default Buscar;
