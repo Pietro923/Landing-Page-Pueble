@@ -1,40 +1,47 @@
 "use client"
 
-import { useSearchParams } from "next/navigation"
-import { useState, useEffect } from "react"
+import { useState, useCallback } from "react"
+import { useRouter } from "next/navigation"
+import { Search } from "lucide-react"
 
-const SearchResults = () => {
-  const searchParams = useSearchParams()
-  const query = searchParams.get("q") || ""
-  const [results, setResults] = useState([])
+const Navbar: React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState<string>("")
+  const router = useRouter()
 
-  useEffect(() => {
-    if (query) {
-      // Simulación de búsqueda (aquí podrías hacer una llamada a una API)
-      const fakeData = [
-        { id: 1, name: "Servicio A", href: "/servicios/a" },
-        { id: 2, name: "Servicio B", href: "/servicios/b" },
-      ]
-      setResults(fakeData.filter(item => item.name.toLowerCase().includes(query.toLowerCase())))
+  const handleSearch = useCallback(() => {
+    if (searchTerm.trim()) {
+      router.push(`/buscar?q=${encodeURIComponent(searchTerm)}`)
     }
-  }, [query])
+  }, [searchTerm, router])
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      handleSearch()
+    }
+  }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold text-white">Resultados para: "{query}"</h1>
-      {results.length > 0 ? (
-        <ul className="mt-4">
-          {results.map(result => (
-            <li key={result.id} className="py-2">
-              <a href={result.href} className="text-red-400 hover:underline">{result.name}</a>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="text-gray-400 mt-4">No se encontraron resultados.</p>
-      )}
-    </div>
+    <nav className="bg-gray-900 p-4 w-full flex justify-between items-center">
+      <div className="text-white text-xl font-bold">Mi Aplicación</div>
+      <div className="relative">
+        <input
+          type="text"
+          placeholder="Buscar..."
+          className="p-2 pr-10 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
+        <button
+          onClick={handleSearch}
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
+          aria-label="Buscar"
+        >
+          <Search size={20} />
+        </button>
+      </div>
+    </nav>
   )
 }
 
-export default SearchResults
+export default Navbar
