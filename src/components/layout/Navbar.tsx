@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ChevronDown, Search } from "lucide-react"
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -28,6 +29,13 @@ const Navbar = () => {
     { href: '/equipos/jcb', label: 'JCB', icon: '/imagenes/equipment/jcb/jcb.svg' },
     { href: 'https://www.agroads.com.ar/e/pueble-sa/', label: 'Usados', icon: '/imagenes/equipment/agroads/agroads.png', target: "_blank" },
   ]
+
+  // Define los enlaces de redes sociales
+const socialLinks = [
+  { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/Pueblemaquinarias" },
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/casepueblesa/" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.instagram.com/casepueblesa/" },
+];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -197,7 +205,26 @@ const Navbar = () => {
                 <Search className="w-5 h-5" />
               </Button>
             </div>
+            {/* Redes Sociales */}
+            <div className="hidden md:flex items-center space-x-4">
+              {socialLinks.map((social, index) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-red-400 transition-colors duration-200"
+                    aria-label={social.label}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </a>
+                );
+              })}
+            </div>
           </nav>
+          
   
           {/* Mobile Menu Button */}
           <motion.div className="md:hidden" whileTap={{ scale: 0.95 }}>
@@ -214,97 +241,120 @@ const Navbar = () => {
         </div>
   
         {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.nav
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden overflow-hidden"
+<AnimatePresence>
+  {isMobileMenuOpen && (
+    <motion.nav
+      initial={{ opacity: 0, height: 0 }}
+      animate={{ opacity: 1, height: "auto" }}
+      exit={{ opacity: 0, height: 0 }}
+      className="md:hidden overflow-hidden"
+    >
+      {/* Mobile Search Bar */}
+      <div className="px-4 pb-4">
+        <div className="flex items-center space-x-2 mt-4">
+          <Input 
+            type="text" 
+            placeholder="Buscar..." 
+            className="w-full text-white bg-zinc-800/50 border-zinc-700 focus:border-red-500 focus:ring-red-500"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyPress={handleKeyPress}
+          />
+          <Button 
+            variant="outline" 
+            size="icon" 
+            className="text-white hover:bg-red-700 border-zinc-700 bg-red-800 hover:text-white"
+            onClick={handleSearch}
+          >
+            <Search className="w-5 h-5" />
+          </Button>
+        </div>
+      </div>
+
+      {/* Mobile Navigation Links */}
+      <motion.ul
+        className="flex flex-col space-y-1 py-4"
+        initial="closed"
+        animate="open"
+        variants={{
+          open: { transition: { staggerChildren: 0.1 } },
+          closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } }
+        }}
+      >
+        {navItems.map((item) => (
+          <motion.li
+            key={item.href}
+            variants={{
+              open: { y: 0, opacity: 1 },
+              closed: { y: 20, opacity: 0 }
+            }}
+          >
+            <Link
+              href={item.href}
+              onClick={handleNavigation}
+              className={`block px-4 py-2 rounded-md transition-all duration-200 
+                ${isActivePage(item.href)
+                  ? 'bg-gradient-to-r from-red-600 to-red-500 text-white font-medium'
+                  : 'text-white hover:bg-red-500/10'}`}
             >
-               {/* Mobile Search Bar */}
-            <div className="px-4 pb-4">
-              <div className="flex items-center space-x-2 mt-4">
-                <Input 
-                  type="text" 
-                  placeholder="Buscar..." 
-                  className="w-full text-white bg-zinc-800/50 border-zinc-700 focus:border-red-500 focus:ring-red-500"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                />
-                <Button 
-                  variant="outline" 
-                  size="icon" 
-                  className="text-white hover:bg-red-700 border-zinc-700 bg-red-800 hover:text-white"
-                  onClick={handleSearch}
+              {item.label}
+            </Link>
+          </motion.li>
+        ))}
+
+        {/* Mobile Equipos Menu */}
+        <motion.li
+          variants={{
+            open: { y: 0, opacity: 1 },
+            closed: { y: 20, opacity: 0 }
+          }}
+        >
+          <div className="px-4 py-2">
+            <div className="text-white/80 font-medium mb-2">Equipos</div>
+            <div className="ml-4 space-y-1">
+              {equiposItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={handleNavigation}
+                  className="flex items-center py-2 px-3 rounded-md text-white hover:bg-red-500/10 group"
                 >
-                  <Search className="w-5 h-5" />
-                </Button>
-              </div>
+                  <img
+                    src={item.icon}
+                    alt={item.label}
+                    className="w-6 h-6 object-contain mr-2 group-hover:scale-105 transition-transform duration-200"
+                  />
+                  <span>{item.label}</span>
+                </Link>
+              ))}
             </div>
-              <motion.ul
-                className="flex flex-col space-y-1 py-4"
-                initial="closed"
-                animate="open"
-                variants={{
-                  open: { transition: { staggerChildren: 0.1 } },
-                  closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } }
-                }}
+          </div>
+        </motion.li>
+      </motion.ul>
+
+      {/* Redes Sociales en Mobile */}
+      <div className="px-4 py-4 border-t border-zinc-700/50">
+        <div className="flex items-center justify-center space-x-6">
+          {socialLinks.map((social, index) => {
+            const Icon = social.icon;
+            return (
+              <a
+                key={index}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-red-400 transition-colors duration-200"
+                aria-label={social.label}
               >
-                {navItems.map((item) => (
-                  <motion.li
-                    key={item.href}
-                    variants={{
-                      open: { y: 0, opacity: 1 },
-                      closed: { y: 20, opacity: 0 }
-                    }}
-                  >
-                    <Link
-                      href={item.href}
-                      onClick={handleNavigation}
-                      className={`block px-4 py-2 rounded-md transition-all duration-200 
-                        ${isActivePage(item.href)
-                          ? 'bg-gradient-to-r from-red-600 to-red-500 text-white font-medium'
-                          : 'text-white hover:bg-red-500/10'}`}
-                    >
-                      {item.label}
-                    </Link>
-                  </motion.li>
-                ))}
-                
-                {/* Mobile Equipos Menu */}
-                <motion.li
-                  variants={{
-                    open: { y: 0, opacity: 1 },
-                    closed: { y: 20, opacity: 0 }
-                  }}
-                >
-                  <div className="px-4 py-2">
-                    <div className="text-white/80 font-medium mb-2">Equipos</div>
-                    <div className="ml-4 space-y-1">
-                      {equiposItems.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          onClick={handleNavigation}
-                          className="flex items-center py-2 px-3 rounded-md text-white hover:bg-red-500/10 group"
-                        >
-                          <img
-                            src={item.icon}
-                            alt={item.label}
-                            className="w-6 h-6 object-contain mr-2 group-hover:scale-105 transition-transform duration-200"
-                          />
-                          <span>{item.label}</span>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </motion.li>
-              </motion.ul>
-            </motion.nav>
-          )}
-        </AnimatePresence>
+                <Icon className="w-6 h-6" />
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </motion.nav>
+  )}
+</AnimatePresence>
       </div>
     </div>
   )

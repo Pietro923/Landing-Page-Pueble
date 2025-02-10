@@ -1,4 +1,3 @@
-'use client'
 import { Button } from "@/components/ui/button";
 import { 
   Building2, 
@@ -9,6 +8,7 @@ import {
   Linkedin,
   ArrowRight,
   Briefcase,
+  Code,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -70,25 +70,34 @@ export default function Footer() {
           </div>
 
           {/* Trabaja con nosotros */}
-      <div className="space-y-4">
-        <div className="flex items-center gap-2">
-          <Briefcase className="w-5 h-5" />
-          <h3 className="text-xl font-bold">Trabaja con Nosotros</h3>
-        </div>
-        <p className="text-gray-300">
-          ¿Querés ser parte de nuestro equipo? Dejanos tus datos.
-        </p>
-        <Link href="/trabaja-con-nosotros">
-          <Button className="w-full bg-white text-gray-900 hover:bg-gray-100 mt-5">
-            Postularme
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
-        </Link>
-      </div>
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <Briefcase className="w-5 h-5" />
+              <h3 className="text-xl font-bold">Trabaja con Nosotros</h3>
+            </div>
+            <p className="text-gray-300">
+              ¿Querés ser parte de nuestro equipo? Dejanos tus datos.
+            </p>
+            <Link href="/trabaja-con-nosotros">
+              <Button className="w-full bg-white text-gray-900 hover:bg-gray-200 mt-5">
+                Postularme
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
         </div>
 
         <div className="py-6 border-t border-white/10 text-center text-gray-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} Pueble S.A. Todos los derechos reservados.</p>
+          <p className="mb-2">&copy; {new Date().getFullYear()} Pueble S.A. Todos los derechos reservados.</p>
+          <a
+            href="https://portfolio-bonacossa.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+          >
+            <Code className="w-4 h-4" />
+            <span>Desing by P</span>
+          </a>
         </div>
       </div>
     </footer>
