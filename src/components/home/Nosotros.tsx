@@ -20,7 +20,7 @@ export default function Nosotros() {
             className="flex-shrink-0 w-full lg:w-1/2"
           >
             <img 
-              src="https://placehold.co/600x400" 
+              src="imagenes/empresa/Equipo Pueble SA.jpeg" 
               alt="Sobre Nosotros" 
               className="rounded-xl shadow-2xl object-cover w-full h-auto"
             />
@@ -35,7 +35,7 @@ export default function Nosotros() {
             className="text-center lg:text-left lg:w-1/2"
           >
             <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white">
-              Sobre <span className="text-red-400">nosotros</span>
+              Sobre <span className="text-red-400 border-b-2 border-red-500 inline-block">nosotros</span>
             </h2>
             <p className="text-xl text-gray-200 mb-8">
               Somos concesionario oficial de las marcas <strong>CASE IH</strong> y <strong>JCB</strong>. Comercializamos toda la línea de sus productos y diversas marcas de maquinarias agrícolas usadas. Contamos con una sólida estructura en administración, venta de repuestos y servicio de posventa, manteniendo nuestro compromiso con la <strong>Responsabilidad Social Empresaria</strong>.

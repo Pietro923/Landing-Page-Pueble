@@ -61,7 +61,7 @@ export default function Company() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4 text-white">Nuestras Instalaciones</h2>
+          <h2 className="text-4xl font-bold mb-4 text-white border-b-2 border-red-500 w-fit mx-auto">Nuestras Instalaciones</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Infraestructura de primer nivel para garantizar la mejor calidad en 
             productos y servicios para el sector agrícola
@@ -161,7 +161,7 @@ export default function Company() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h3 className="text-3xl font-bold text-white text-center mb-8">Nuestros Equipos</h3>
+          <h3 className="text-3xl font-bold text-white text-center mb-8 border-b-2 border-red-500 w-fit mx-auto">Nuestros Equipos</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teams.map((team, index) => (
               <Card key={index} className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
@@ -192,7 +192,7 @@ export default function Company() {
         viewport={{ once: true }}
         className="mb-16"
       >
-        <h3 className="text-3xl font-bold text-white text-center mb-8">Visita Guiada</h3>
+        <h3 className="text-3xl font-bold text-white text-center mb-8 border-b-2 border-red-500 w-fit mx-auto">Visita Guiada</h3>
         <div className="relative aspect-video rounded-lg overflow-hidden">
           <video
             src="/videos/visita.mp4"

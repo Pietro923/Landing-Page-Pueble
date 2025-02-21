@@ -83,7 +83,7 @@ export default function Servicios() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4 text-white">Nuestros Servicios</h2>
+          <h2 className="text-4xl font-bold mb-4 text-white border-b-2 border-red-500 inline-block">Nuestros Servicios</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Asistencia especializada y permanente las 24 horas, los 365 días del año. Vehículos equipados para soluciones a campo y un taller totalmente preparado para garantizar la calidad en cada trabajo.
           </p>
@@ -150,7 +150,7 @@ export default function Servicios() {
           
           {/* Main content */}
           <div className="relative p-8">
-            <h3 className="text-4xl font-bold text-white text-center mb-8">
+            <h3 className="text-4xl font-bold text-white text-center mb-8 border-b-2 border-red-500 inline-block">
                 AFS Connect
             </h3>
             
@@ -242,7 +242,7 @@ export default function Servicios() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h3 className="text-3xl font-bold text-white text-center mb-8">Testimonios</h3>
+          <h3 className="text-3xl font-bold text-white text-center mb-8 border-b-2 border-red-500 inline-block">Testimonios</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
               <Card 
@@ -274,37 +274,6 @@ export default function Servicios() {
             ))}
           </div>
         </motion.div>
-        {/* Ultimas Entregas */}
-          <h3 className="text-3xl font-bold text-white text-center mb-8">Ultimas Entregas</h3>
-          {/* Carrusel de imágenes entregas - Ajustar tamaño de imágenes */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="relative w-full max-w-7xl mx-auto px-4 mb-12"
-          >
-            <Carousel className="w-full">
-              <CarouselContent className="-ml-4">
-                {imagesentregas.map((image, index) => (
-                  <CarouselItem key={index} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
-                    <motion.div 
-                      whileHover={{ scale: 1.02 }}
-                      className="relative overflow-hidden rounded-2xl shadow-2xl aspect-[4/3]"
-                    >
-                      <img 
-                        src={image}
-                        alt={`Imagen ${index + 1}`}
-                        className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
-                    </motion.div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="absolute -left-4 lg:-left-8 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white border-none shadow-xl hover:shadow-2xl transition-all duration-300" />
-              <CarouselNext className="absolute -right-4 lg:-right-8 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white border-none shadow-xl hover:shadow-2xl transition-all duration-300" />
-            </Carousel>
-          </motion.div>
       </div>
     </section>
   );

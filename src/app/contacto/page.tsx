@@ -147,7 +147,7 @@ export default function ContactPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4 text-white">Contáctanos</h2>
+          <h2 className="text-4xl font-bold mb-4 text-white border-b-2 border-red-500 w-fit mx-auto">Contáctanos</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Estamos aquí para responder tus consultas y brindarte la mejor atención
           </p>

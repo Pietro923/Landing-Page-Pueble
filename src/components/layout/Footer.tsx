@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* About */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold">Sobre Nosotros</h3>
+            <h3 className="text-xl font-bold w-fit border-b-2 border-red-500">Sobre Nosotros</h3>
             <p className="text-gray-300 leading-relaxed">
               Pueble S.A. es líder en maquinaria agrícola, ofreciendo soluciones 
               confiables y de calidad para el campo argentino desde hace más de 40 años.
@@ -52,7 +52,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold">Contacto</h3>
+            <h3 className="text-xl font-bold w-fit border-b-2 border-red-500">Contacto</h3>
             <ul className="space-y-3">
               <li className="flex gap-3 text-gray-300">
                 <Building2 className="w-5 h-5 flex-shrink-0" />
@@ -71,7 +71,7 @@ export default function Footer() {
 
           {/* Trabaja con nosotros */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 w-fit border-b-2 border-red-500">
               <Briefcase className="w-5 h-5" />
               <h3 className="text-xl font-bold">Trabaja con Nosotros</h3>
             </div>

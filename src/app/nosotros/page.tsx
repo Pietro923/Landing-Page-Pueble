@@ -39,7 +39,7 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4 text-white">Nosotros</h2>
+          <h2 className="text-4xl font-bold mb-4 text-white border-b-2 border-red-500 inline-block">Nosotros</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Más de 40 años liderando el sector de maquinaria agrícola, 
             impulsando el desarrollo y la innovación en el campo argentino.
@@ -142,8 +142,8 @@ export default function About() {
         </div>
 
         {/* Valores */}
-        <h2 className="text-3xl font-bold text-white text-center mb-6">
-          Nuestros <span className="text-red-500">Valores</span>
+        <h2 className="text-3xl font-bold text-white mb-6 border-b-2 border-red-500 w-fit mx-auto">
+          Nuestros <span className="text-red-500 ">Valores</span>
         </h2>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -171,6 +171,10 @@ export default function About() {
             );
           })}
         </motion.div>
+
+        <h2 className="text-3xl font-bold text-white mb-6 border-b-2 border-red-500 w-fit mx-auto">
+          Nuestra Historia
+        </h2>
 
         {/* Timeline */}
         <motion.div
