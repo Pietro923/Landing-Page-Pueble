@@ -126,7 +126,7 @@ export default function About() {
           <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
             {/* Imagen */}
             <img 
-              src="/imagenes/placeholdercachopuente.jpg" 
+              src="/imagenes/bedey.png" 
               className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover md:mr-12 mb-4 md:mb-0" 
               alt="Javier Nebbia" 
             />
