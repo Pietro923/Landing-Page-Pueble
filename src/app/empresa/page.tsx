@@ -13,8 +13,10 @@ import {
   Wrench,
   ArrowRight,
 } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
 export default function Company() {
+  const [contactLink, setContactLink] = useState("");
   const facilities = [
     {
       icon: Factory,
@@ -50,6 +52,15 @@ export default function Company() {
       description: "Nuestro equipo administrativo asegura una gestión eficiente y transparente."
     }
   ];
+  
+  useEffect(() => {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      setContactLink("tel:+543814530680"); // Llamada en móviles
+    } else {
+      setContactLink("https://wa.me/543816618632"); // WhatsApp en PC
+    }
+  }, []);
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
@@ -97,9 +108,12 @@ export default function Company() {
                   primera línea.
                 </p>
                 <Button className="bg-red-600 hover:bg-red-700">
-                  Contactar
-                  <Phone className="ml-2 w-4 h-4" />
-                </Button>
+      <a href={contactLink} target="_blank" rel="noopener noreferrer">
+        Contactar
+      </a>
+      <Phone className="ml-2 w-4 h-4" />
+    </Button>
+
               </CardContent>
             </Card>
 
@@ -147,7 +161,9 @@ export default function Company() {
             <Button 
               className="w-full bg-red-600 hover:bg-red-700"
             >
-              Agendar una visita
+              <a href="https://web.whatsapp.com/send?phone=3816618632&text=Hola!%20Quiero%20agendar%20una%20visita" target="_blank" rel="noopener noreferrer"> 
+              Agendar una Visita
+            </a>
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </motion.div>
@@ -207,7 +223,7 @@ export default function Company() {
         </div>
       </motion.div>
 
-        {/* Estadísticas */}
+        {/* Estadísticas 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -230,6 +246,7 @@ export default function Company() {
             </div>
           </div>
         </motion.div>
+        */}
       </div>
     </section>
   );

@@ -72,20 +72,22 @@ export default function Hero() {
           className="flex flex-wrap justify-center gap-4 px-4"
         >
           <Button 
-            size="lg" 
-            className="bg-red-500 hover:bg-red-600 shadow-lg hover:shadow-red-500/50 transition-all duration-300 transform hover:scale-105"
-          >
-            Descubre nuestros productos
-            <ChevronRight className="ml-2 h-4 w-4" />
-          </Button>
-          
-          <Button 
-            size="lg" 
-            variant="outline"
-            className="bg-gray-500 hover:bg-gray-600 shadow-lg hover:shadow-gray-500/50 transition-all duration-300 transform hover:scale-105 text-white hover:text-white"
-          >
-            Contáctanos
-          </Button>
+  size="lg" 
+  className="bg-red-500 hover:bg-red-600 shadow-lg hover:shadow-red-500/50 transition-all duration-300 transform hover:scale-105"
+  onClick={() => document.getElementById("marcas")?.scrollIntoView({ behavior: "smooth" })}
+>
+  Descubre nuestros productos
+  <ChevronRight className="ml-2 h-4 w-4" />
+</Button>
+
+<Button 
+  size="lg" 
+  variant="outline"
+  className="bg-gray-500 hover:bg-gray-600 shadow-lg hover:shadow-gray-500/50 transition-all duration-300 transform hover:scale-105 text-white hover:text-white"
+  asChild
+>
+  <a href="mailto:contacto@pueble.com">Contáctanos</a>
+</Button>
         </motion.div>
       </div>
 

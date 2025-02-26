@@ -19,7 +19,8 @@ export default function About() {
     { year: 2006, title: 'Concesionario Oficial', description: 'PUEBLE S.A. es nombrado concesionario oficial CASE IH en Tucumán, convirtiéndose en su actividad principal.' },
     { year: 2012, title: 'Nueva Sede', description: 'Inauguración de la nueva concesionaria en el Parque Industrial de Tucumán, en Au. de Circunvalación km 1294.' },
     { year: 2016, title: 'Reconocimiento Mundial', description: 'PUEBLE S.A. obtiene la categoría Premium en la evaluación mundial de World Class Dealer de CASE IH.' },
-    { year: 2017, title: 'Reconocimiento Continuado', description: 'Renovación del reconocimiento Premium en la evaluación mundial de World Class Dealer de CASE IH.' }
+    { year: 2017, title: 'Reconocimiento Continuado', description: 'Renovación del reconocimiento Premium en la evaluación mundial de World Class Dealer de CASE IH.' },
+    { year: 2025, title: 'Expansión y Crecimiento', description: 'PUEBLE S.A. traslada su concesionaria a una nueva sede, reafirmando su compromiso con la innovación y el crecimiento en la región.' }
 ];
   const values = [
     { icon: Shield, title: 'Confianza y Honestidad', description: 'Construimos relaciones basadas en la transparencia y el respeto mutuo.' },
@@ -184,37 +185,67 @@ export default function About() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
-            <CardHeader>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-red-100 rounded-lg">
-                  <History className="w-6 h-6 text-red-600" />
-                </div>
-                <CardTitle>Nuestra Historia</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="relative">
-                <div className="absolute left-4 top-0 h-full w-0.5 bg-red-200" />
-                <div className="space-y-8">
-                  {milestones.map((milestone, index) => (
-                    <div key={index} className="relative flex items-start gap-6 ml-8">
-                      <div className="absolute -left-10 flex items-center justify-center w-6 h-6">
-                        <div className="w-6 h-6 bg-red-600 rounded-full" />
-                        <div className="absolute w-4 h-4 bg-white rounded-full" />
-                        <div className="absolute w-2 h-2 bg-red-600 rounded-full" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-xl text-red-600">{milestone.year}</h3>
-                        <h4 className="font-semibold mb-1">{milestone.title}</h4>
-                        <p className="text-gray-300">{milestone.description}</p>
-                      </div>
-                    </div>
-                  ))}
+          {/* Timeline Alternado (Zigzag) con mejoras responsive */}
+<div className="mb-16">
+  <Card className="bg-white/10 backdrop-blur-sm border-0 text-white">
+    <CardHeader>
+      
+    </CardHeader>
+    <CardContent>
+      <div className="relative">
+        {/* Línea central - visible solo en desktop */}
+        <div className="absolute left-1/2 top-0 h-full w-0.5 bg-red-600/50 hidden md:block" />
+        
+        {/* Línea lateral - visible solo en mobile */}
+        <div className="absolute left-4 top-0 h-full w-0.5 bg-red-600/50 md:hidden" />
+        
+        <div className="space-y-10">
+          {milestones.map((milestone, index) => (
+            <div key={index} 
+              className={`relative flex md:items-center gap-4 md:gap-6  
+                ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} 
+                flex-row items-start`}
+            >
+              {/* Punto de tiempo para mobile */}
+              <div className="absolute left-4 flex items-center justify-center w-8 h-8 md:hidden -translate-x-1/2 ">
+                <div className="w-8 h-8 bg-black/50 rounded-full border-2 border-red-600 flex items-center justify-center">
+                  <div className="w-3 h-3 bg-red-600 rounded-full" />
                 </div>
               </div>
-            </CardContent>
-          </Card>
+              
+              {/* Contenido en mobile (siempre a la derecha) */}
+              <div className="md:hidden ml-10 w-full">
+                <div className="bg-black/30 p-4 rounded-lg border-l-2 border-red-600">
+                  <h3 className="font-bold text-xl text-red-600">{milestone.year}</h3>
+                  <h4 className="font-semibold mb-1">{milestone.title}</h4>
+                  <p className="text-gray-300 text-sm">{milestone.description}</p>
+                </div>
+              </div>
+              
+              {/* Contenido para desktop (alternando lados) */}
+              <div className={`md:w-5/12 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'} text-center hidden md:block `}>
+                <div className={`bg-black/30 p-4 rounded-lg ${index % 2 === 0 ? 'border-r-2' : 'border-l-2'} border-red-600 hover:bg-white/5 transition-colors duration-200`}>
+                  <h3 className="font-bold text-xl text-red-600">{milestone.year}</h3>
+                  <h4 className="font-semibold mb-1">{milestone.title}</h4>
+                  <p className="text-gray-300">{milestone.description}</p>
+                </div>
+              </div>
+              
+              {/* Punto central para desktop */}
+              <div className="absolute left-1/2 -translate-x-1/2 items-center justify-center w-10 h-10 hidden md:flex">
+                <div className="w-10 h-10 bg-black/50 rounded-full border-2 border-red-600 flex items-center justify-center">
+                  <div className="w-4 h-4 bg-red-600 rounded-full" />
+                </div>
+              </div>
+              
+              <div className="md:w-5/12 hidden md:block"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+</div>
         </motion.div>
       </div>
     </section>

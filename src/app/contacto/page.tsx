@@ -1,5 +1,4 @@
 'use client';
-
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,34 +12,14 @@ import {
   Send,
   MessageSquare,
   ArrowRight,
-  Loader2
+  Loader2,
+  Facebook,
+  Instagram,
+  Linkedin
 } from "lucide-react";
-import { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
-import 'leaflet/dist/leaflet.css';
-import { LatLngTuple } from "leaflet";
+import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useToast } from "@/hooks/use-toast";
-
-const MapContainer = dynamic(
-  () => import('react-leaflet').then((mod) => mod.MapContainer),
-  { ssr: false }
-);
-
-const TileLayer = dynamic(
-  () => import('react-leaflet').then((mod) => mod.TileLayer),
-  { ssr: false }
-);
-
-const Marker = dynamic(
-  () => import('react-leaflet').then((mod) => mod.Marker),
-  { ssr: false }
-);
-
-const Popup = dynamic(
-  () => import('react-leaflet').then((mod) => mod.Popup),
-  { ssr: false }
-);
 
 export default function ContactPage() {
   const { toast } = useToast();
@@ -50,22 +29,9 @@ export default function ContactPage() {
     asunto: "",
     mensaje: "",
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  useEffect(() => {
-    // Fix marker icon after component mounts
-    import('leaflet').then((L) => {
-      delete (L.Icon.Default.prototype as any)._getIconUrl;
-      L.Icon.Default.mergeOptions({
-        iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-      });
-    });
-  }, []);
-
+  const [submitStatus, setSubmitStatus] = useState('idle');
+  
   const contactInfo = [
     {
       icon: Building2,
@@ -84,18 +50,23 @@ export default function ContactPage() {
       info: "info@pueblesa.com",
     },
   ];
-
-  const position: LatLngTuple = [-26.810563, -65.168024]; // Definir explícitamente como LatLngTuple
-  const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${position[0]},${position[1]}`;
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  
+  const socialLinks = [
+    { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/Pueblemaquinarias" },
+    { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/casepueblesa/" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/grupo-pueble/" },
+  ];
+  
+  // URL de Google Maps para usar en el enlace "Cómo llegar"
+  const googleMapsLink = `https://www.google.com/maps/place/PUEBLE+S.A./@-26.8105303,-65.1866737,15z/data=!3m1!4b1!4m6!3m5!1s0x94225e94c0835bbf:0x8568c458ceb402c1!8m2!3d-26.8105506!4d-65.1682196!16s%2Fg%2F11bzrcb9mm?entry=ttu&g_ep=EgoyMDI1MDIyMy4xIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D`;
+  
+  const handleChange = (e: { target: { name: any; value: any; }; }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
       const response = await emailjs.send(
         'YOUR_SERVICE_ID', // Reemplaza con tu Service ID de EmailJS
@@ -108,7 +79,6 @@ export default function ContactPage() {
         },
         'YOUR_PUBLIC_KEY' // Reemplaza con tu Public Key de EmailJS
       );
-
       if (response.status === 200) {
         toast({
           title: "Mensaje enviado",
@@ -136,7 +106,7 @@ export default function ContactPage() {
       setTimeout(() => setSubmitStatus('idle'), 3000);
     }
   };
-
+  
   return (
     <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto px-4 relative">
@@ -152,7 +122,7 @@ export default function ContactPage() {
             Estamos aquí para responder tus consultas y brindarte la mejor atención
           </p>
         </motion.div>
-
+        
         {/* Tarjetas de información de contacto */}
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
           {contactInfo.map((item, index) => {
@@ -183,7 +153,51 @@ export default function ContactPage() {
             );
           })}
         </div>
+        
+        {/* Redes Sociales */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+  className="mb-16"
+>
+  <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white overflow-hidden">
+    <CardHeader className="pb-0">
+      <div className="flex flex-col items-center gap-2 text-center">
+      <h3 className="text-3xl font-bold text-white tracking-tight underline decoration-red-500 decoration-[2px] underline-offset-8 w-fit mx-auto">
+  ¡Conéctate con nosotros!
+</h3>
 
+        <p className="text-lg text-gray-300 max-w-2xl mt-4">
+          Síguenos en nuestras redes sociales para estar al día con nuestras novedades
+        </p>
+      </div>
+    </CardHeader>
+    <CardContent className="pt-8 pb-6">
+      <div className="flex flex-wrap justify-center gap-12">
+        {socialLinks.map((social, index) => {
+          const Icon = social.icon;
+          return (
+            <a 
+              key={index}
+              href={social.href}
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-3 hover:text-red-500 transition-colors duration-300 group"
+            >
+              <div className="p-6 bg-white/10 rounded-full ">
+                <Icon className="w-8 h-8" />
+              </div>
+              <span className="font-medium text-lg">{social.label}</span>
+            </a>
+          );
+        })}
+      </div>
+    </CardContent>
+  </Card>
+</motion.div>
+        
         {/* Formulario y mapa */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -251,12 +265,11 @@ export default function ContactPage() {
                     </>
                   ) : (
                     <>
-                      <Send />
+                      <Send className="mr-2 w-4 h-4" />
                       Enviar Mensaje
                     </>
                   )}
                 </Button>
-
                 {submitStatus === 'success' && (
                   <motion.p
                     initial={{ opacity: 0 }}
@@ -266,7 +279,6 @@ export default function ContactPage() {
                     ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.
                   </motion.p>
                 )}
-
                 {submitStatus === 'error' && (
                   <motion.p
                     initial={{ opacity: 0 }}
@@ -279,8 +291,8 @@ export default function ContactPage() {
               </form>
             </CardContent>
           </Card>
-
-          {/* Mapa */}
+          
+          {/* Mapa con iframe */}
           <Card className="bg-gradient-to-br from-red-800 to-red-600 text-white">
             <CardHeader>
               <div className="flex items-center gap-3 mb-4">
@@ -292,23 +304,16 @@ export default function ContactPage() {
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="aspect-video rounded-lg overflow-hidden bg-white/10 relative z-0">
-                <MapContainer
-                  center={position}
-                  zoom={16}
-                  style={{ height: "100%", width: "100%" }}
-                >
-                  <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                  />
-                  <Marker position={position}>
-                    <Popup>
-                      Pueble S.A.<br />
-                      Parque Industrial Aut. Circunvalación Km 1294<br />
-                      San Miguel de Tucumán
-                    </Popup>
-                  </Marker>
-                </MapContainer>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.2035662380936!2d-65.1702126239386!3d-26.810651!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDQ4JzM4LjAiUyA2NcKwMTAnMDQuOSJX!5e0!3m2!1ses-419!2s!4v1708984653321!5m2!1ses-419!2s"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0"
+                ></iframe>
               </div>
               <a 
                 href={googleMapsLink}

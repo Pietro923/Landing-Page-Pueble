@@ -21,7 +21,7 @@ export default function Marcas() {
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24">
+    <section id="marcas" className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24">
 
       {/* Contenido principal */}
       <div className="relative z-10 container mx-auto px-4 text-center">
@@ -86,7 +86,9 @@ export default function Marcas() {
             size="lg" 
             className="bg-red-500 hover:bg-red-600"
           >
+            <a href="https://web.whatsapp.com/send?phone=3816618632&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20solicitar%20asesoramiento!%20" target="_blank" rel="noopener noreferrer" className="w-full block text-center">
             Contactar Gerente de Ventas
+            </a>
           </Button>
         </motion.div>
       </div>

@@ -30,7 +30,7 @@ export default function Footer() {
             <h3 className="text-xl font-bold w-fit border-b-2 border-red-500">Sobre Nosotros</h3>
             <p className="text-gray-300 leading-relaxed">
               Pueble S.A. es líder en maquinaria agrícola, ofreciendo soluciones 
-              confiables y de calidad para el campo argentino desde hace más de 40 años.
+              confiables y de calidad para el campo argentino desde hace más de 20 años.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social, index) => {

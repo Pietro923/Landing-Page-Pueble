@@ -17,7 +17,7 @@ export default function Servicios() {
       //contact: "https://web.whatsapp.com/send?phone=3816618632&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20solicitar%20asesoramiento!%20"
     },
     {
-      icon: PhoneCall,
+      icon: Wrench,
       title: "Guardia de Repuestos",
       description: "Lunes a Viernes 18:00 HS a 08:00 HS. Sabados y Domingos 24 HS.",
       image: "/imagenes/placeholdercachopuente.jpg",
@@ -50,12 +50,6 @@ export default function Servicios() {
     "/imagenes/servicios/afs1.jpg",
     "/imagenes/servicios/afs2.jpg",
     "/imagenes/servicios/afs3.jpg",
-  ];
-
-  const imagesentregas = [
-    "/imagenes/servicios/entrega1.jpg",
-    "/imagenes/servicios/entrega2.jpg",
-    "/imagenes/servicios/entrega3.jpg",
   ];
 
   const testimonials = [
@@ -104,17 +98,6 @@ export default function Servicios() {
                 key={index} 
                 className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white"
               >
-                <CardHeader>
-                  <div className="relative h-48 w-full">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover rounded-2xl"
-                    />
-                  </div>
-                </CardHeader>
-                {/* Agregamos flex-grow para que el contenido empuje el botón hacia abajo */}
                 <CardContent className="mt-4 flex flex-col justify-between min-h-[200px]">
                   <div>
                     <div className="flex items-center gap-3 mb-4">
@@ -127,11 +110,13 @@ export default function Servicios() {
                       {service.description}
                     </CardDescription>
                   </div>
-                  <Button className="mt-4 bg-red-600 hover:bg-red-700 w-full">
-                    <a href={service.contact} target="_blank" rel="noopener noreferrer" className="w-full block text-center">
-                      Contactar
-                    </a>
-                  </Button>
+                  {service.contact && (
+                    <Button className="mt-4 bg-red-600 hover:bg-red-700 w-full">
+                      <a href={service.contact} target="_blank" rel="noopener noreferrer" className="w-full block text-center">
+                        Contactar
+                      </a>
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             );
@@ -197,7 +182,9 @@ export default function Servicios() {
                 </div>
                 
                 <Button className="bg-red-600 hover:bg-red-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-red-600/25">
+                <a href="https://www.instagram.com/casepueblesa/reel/C1pCi1muKuY/" target="_blank" rel="noopener noreferrer">
                   Descubre AFS Connect
+                </a>
                 </Button>
               </div>
 
