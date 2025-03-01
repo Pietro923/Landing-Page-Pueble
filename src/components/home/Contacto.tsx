@@ -1,5 +1,4 @@
 'use client'
-
 import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -7,7 +6,6 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Mail, Phone, MapPin, MessageSquare, Loader2 } from 'lucide-react'
 import { motion } from "framer-motion"
-import emailjs from '@emailjs/browser'
 import { useToast } from "@/hooks/use-toast"
 
 export default function Contact() {
@@ -30,44 +28,43 @@ export default function Contact() {
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault() // Previene el envío tradicional del formulario
     setIsLoading(true)
-
+    
     try {
-      const response = await emailjs.send(
-        'YOUR_SERVICE_ID', // Reemplaza con tu Service ID de EmailJS
-        'YOUR_TEMPLATE_ID', // Reemplaza con tu Template ID de EmailJS
-        {
-          from_name: formData.nombre,
-          reply_to: formData.correo,
-          subject: formData.asunto,
-          message: formData.mensaje,
-        },
-        'YOUR_PUBLIC_KEY' // Reemplaza con tu Public Key de EmailJS
-      )
-
-      if (response.status === 200) {
-        toast({
-          title: "Mensaje enviado",
-          description: "Gracias por contactarnos. Nos pondremos en contacto contigo pronto.",
-        })
-        setFormData({
-          nombre: '',
-          correo: '',
-          asunto: '',
-          mensaje: ''
-        })
-      } else {
-        throw new Error('Error al enviar el mensaje')
-      }
+      // Obtener el formulario como elemento HTML
+      const form = e.target as HTMLFormElement;
+      const formData = new FormData(form);
+      
+      // Enviar el formulario usando fetch en lugar de form.submit()
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors' // Importante para evitar problemas de CORS con FormSubmit
+      });
+      
+      // Mostramos mensaje de éxito
+      toast({
+        title: "Mensaje enviado",
+        description: "Gracias por contactarnos. Nos pondremos en contacto contigo pronto.",
+      });
+      
+      // Limpiamos el formulario
+      setFormData({
+        nombre: '',
+        correo: '',
+        asunto: '',
+        mensaje: ''
+      });
+      
     } catch (error) {
       toast({
         variant: "destructive",
         title: "Error",
         description: "Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo.",
-      })
+      });
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   }
 
@@ -90,7 +87,6 @@ export default function Contact() {
             Estamos aquí para responder tus consultas y brindarte la mejor atención.
           </p>
         </motion.div>
-
         {/* Formulario y tarjetas de contacto */}
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Formulario */}
@@ -106,7 +102,19 @@ export default function Contact() {
                 <CardTitle className="text-2xl text-white">Envía un mensaje</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form 
+                  onSubmit={handleSubmit} 
+                  className="space-y-6"
+                  action="https://formsubmit.co/beelbonacossa@gmail.com" 
+                  method="POST"
+                >
+                  {/* Campo oculto para personalizar la página de agradecimiento */}
+                  <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html" />
+                  {/* Campo oculto para prevenir captcha */}
+                  <input type="hidden" name="_captcha" value="false" />
+                  {/* Campo oculto para personalizar el asunto del correo */}
+                  <input type="hidden" name="_subject" value="Nuevo mensaje del sitio web" />
+                  
                   <div className="grid md:grid-cols-2 gap-6">
                     <Input 
                       placeholder="Nombre" 
@@ -161,7 +169,6 @@ export default function Contact() {
               </CardContent>
             </Card>
           </motion.div>
-
           {/* Tarjetas de información de contacto */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -179,7 +186,6 @@ export default function Contact() {
                 <p className="text-gray-200 text-center">Parque Industrial Aut. Circunvalación Km 1294, San Miguel de Tucumán</p>
               </CardContent>
             </Card>
-
             <Card className="bg-white/10 backdrop-blur-sm border-0 shadow-lg">
               <CardHeader className="flex items-center gap-3">
                 <Phone className="w-8 h-8 text-red-500" />
@@ -189,7 +195,6 @@ export default function Contact() {
                 <p className="text-gray-200 text-center">+54 9 381 661 8632</p>
               </CardContent>
             </Card>
-
             <Card className="bg-white/10 backdrop-blur-sm border-0 shadow-lg">
               <CardHeader className="flex items-center gap-3">
                 <Mail className="w-8 h-8 text-red-500" />

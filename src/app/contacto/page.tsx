@@ -18,7 +18,6 @@ import {
   Linkedin
 } from "lucide-react";
 import { useState } from 'react';
-import emailjs from '@emailjs/browser';
 import { useToast } from "@/hooks/use-toast";
 
 export default function ContactPage() {
@@ -64,36 +63,36 @@ export default function ContactPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    
     try {
-      const response = await emailjs.send(
-        'YOUR_SERVICE_ID', // Reemplaza con tu Service ID de EmailJS
-        'YOUR_TEMPLATE_ID', // Reemplaza con tu Template ID de EmailJS
-        {
-          from_name: formData.nombre,
-          reply_to: formData.email,
-          subject: formData.asunto,
-          message: formData.mensaje,
-        },
-        'YOUR_PUBLIC_KEY' // Reemplaza con tu Public Key de EmailJS
-      );
-      if (response.status === 200) {
-        toast({
-          title: "Mensaje enviado",
-          description: "Gracias por contactarnos. Nos pondremos en contacto contigo pronto.",
-        });
-        setFormData({
-          nombre: "",
-          email: "",
-          asunto: "",
-          mensaje: "",
-        });
-        setSubmitStatus('success');
-      } else {
-        throw new Error('Error al enviar el mensaje');
-      }
+      // Obtener el formulario como elemento HTML
+      const form = e.target as HTMLFormElement;
+      const formData = new FormData(form);
+      
+      // Enviar el formulario usando fetch en lugar de form.submit()
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors' // Importante para evitar problemas de CORS con FormSubmit
+      });
+      
+      // Mostramos mensaje de éxito
+      toast({
+        title: "Mensaje enviado",
+        description: "Gracias por contactarnos. Nos pondremos en contacto contigo pronto.",
+      });
+      
+      // Limpiamos el formulario
+      setFormData({
+        nombre: "",
+        email: "",
+        asunto: "",
+        mensaje: "",
+      });
+      setSubmitStatus('success');
     } catch (error) {
       toast({
         variant: "destructive",
@@ -168,7 +167,6 @@ export default function ContactPage() {
       <h3 className="text-3xl font-bold text-white tracking-tight underline decoration-red-500 decoration-[2px] underline-offset-8 w-fit mx-auto">
   ¡Conéctate con nosotros!
 </h3>
-
         <p className="text-lg text-gray-300 max-w-2xl mt-4">
           Síguenos en nuestras redes sociales para estar al día con nuestras novedades
         </p>
@@ -217,7 +215,17 @@ export default function ContactPage() {
               </div>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form 
+                onSubmit={handleSubmit}
+                className="space-y-6"
+                action="https://formsubmit.co/beelbonacossa@gmail.com" 
+                method="POST"
+                >
+                {/* Campos ocultos para FormSubmit */}
+                <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_subject" value="Nuevo mensaje del sitio web" />
+                
                 <div className="grid md:grid-cols-2 gap-4">
                   <Input 
                     placeholder="Nombre" 
