@@ -86,7 +86,7 @@ export default function Hero() {
   className="bg-gray-500 hover:bg-gray-600 shadow-lg hover:shadow-gray-500/50 transition-all duration-300 transform hover:scale-105 text-white hover:text-white"
   asChild
 >
-  <a href="mailto:contacto@pueble.com">Contáctanos</a>
+  <a href="mailto:recepcion@pueblemaquinarias.com.ar">Contáctanos</a>
 </Button>
         </motion.div>
       </div>

@@ -64,7 +64,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-3 text-gray-300">
                 <Mail className="w-5 h-5 flex-shrink-0" />
-                <span>info@pueblesa.com</span>
+                <span>recepcion@pueblemaquinarias.com.ar</span>
               </li>
             </ul>
           </div>

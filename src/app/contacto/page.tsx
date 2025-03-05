@@ -46,7 +46,7 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: "Email",
-      info: "info@pueblesa.com",
+      info: "recepcion@pueblemaquinarias.com.ar",
     },
   ];
   

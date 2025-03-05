@@ -201,7 +201,7 @@ export default function Contact() {
                 <CardTitle className="text-2xl text-white">Correo</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-200 text-center">info@pueblesa.com</p>
+                <p className="text-gray-200 text-center">recepcion@pueblemaquinarias.com.ar</p>
               </CardContent>
             </Card>
           </motion.div>
