@@ -57,13 +57,13 @@ export default function Servicios() {
       name: "José Lauro Medina",
       role: "Productor Agrícola",
       comment: "El servicio de postventa de Pueble es increíble. Siempre están disponibles cuando los necesito.",
-      image: "/imagenes/servicios/productor1.jpg"
+      image: "/imagenes/servicios/productor1.webp"
     },
     {
       name: "Fabersani SA",
       role: "Empresa Agrícola",
       comment: "AFS Connect ha revolucionado la forma en que gestiono mis cultivos. ¡Lo recomiendo totalmente!",
-      image: "/imagenes/servicios/empresaagricola.jpg"
+      image: "/imagenes/servicios/empresaagricola.webp"
     }
   ];
 
