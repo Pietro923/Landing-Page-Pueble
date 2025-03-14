@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description: "Tu socio confiable en maquinaria agrícola de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
     images: [
       {
-        url: "/pueblemeta.jpg", // Reemplaza con la ruta correcta de tu imagen
+        url: "/pueblemeta.jpg", 
         width: 1200,
         height: 630,
         alt: "Pueble S.A. Maquinaria Agrícola",
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pueble S.A. | Maquinaria Agrícola",
     description: "Tu socio confiable en maquinaria agrícola de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
-    images: ["/pueblemeta.jpg"], // Reemplaza con la ruta correcta de tu imagen
-    creator: "@pueblesa", // Si tienes cuenta de Twitter
+    images: ["/pueblemeta.jpg"], 
+    creator: "@pueblesa", 
   },
 }
 

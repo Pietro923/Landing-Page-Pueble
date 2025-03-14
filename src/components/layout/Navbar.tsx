@@ -54,7 +54,7 @@ const socialLinks = [
     if (searchTerm.trim()) {
       router.push(`/buscar?q=${encodeURIComponent(searchTerm)}`)
       setSearchTerm('')
-      setIsMobileMenuOpen(false) // Cerrar el menú móvil si está abierto
+      setIsMobileMenuOpen(false) 
     }
   }
 

@@ -136,7 +136,7 @@ export default function About() {
               <p className="text-white text-base md:text-lg italic">
                 "El campo no se detiene, y nosotros tampoco. Trabajamos con quienes siembran el futuro, brindando la mejor maquinaria para cada desafío."
               </p>
-              <p className="text-gray-300 font-semibold mt-2">Javier Bedey</p>
+              <p className="text-gray-300 font-semibold mt-2">Javier Rojas</p>
               <p className="text-gray-400 text-sm">Presidente</p>
             </div>
           </div>
