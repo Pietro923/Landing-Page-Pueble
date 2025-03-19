@@ -37,7 +37,7 @@ export default function Company() {
 
   const teams = [
     {
-      image: "/imagenes/equipos/postventa.jpg",
+      image: "/imagenes/equipos/postventa.jpeg",
       name: "Equipo de Postventa",
       description: "Expertos en mantenimiento y soporte técnico para garantizar el máximo rendimiento de tus equipos."
     },
