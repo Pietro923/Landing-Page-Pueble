@@ -43,9 +43,9 @@ export default function Hero() {
     ],
     // Segundo set de imágenes
     [
-      { src: "/imagenes/inicio/carousel4.jpg", type: "photo" },
+      { src: "/imagenes/inicio/asd1.jpg", type: "photo" },
       { src: "/imagenes/equipment/jcb/jcb.png", type: "logo", bgColor: "bg-white" },
-      { src: "/imagenes/inicio/carousel6.jpg", type: "photo" },
+      { src: "/imagenes/inicio/asd3.jpg", type: "photo" },
     ],
   ];
   

@@ -82,7 +82,7 @@ const socialLinks = [
               whileTap={{ scale: 0.95 }}
             >
               <img
-                src="/imagenes/logos/grupoPueble.png"
+                src="/imagenes/logos/LogoPueble.png"
                 alt="Logo de Pueble S.A."
                 className="h-28 w-auto"
               />

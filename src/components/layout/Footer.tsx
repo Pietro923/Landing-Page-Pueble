@@ -29,7 +29,7 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-xl font-bold w-fit border-b-2 border-red-500">Sobre Nosotros</h3>
             <p className="text-gray-300 leading-relaxed">
-              Pueble S.A. es líder en maquinaria agrícola, ofreciendo soluciones 
+              Pueble S.A. es líder en maquinaria agrícola y de construcción, ofreciendo soluciones 
               confiables y de calidad para el campo argentino desde hace más de 20 años.
             </p>
             <div className="flex gap-4">
@@ -56,11 +56,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex gap-3 text-gray-300">
                 <Building2 className="w-5 h-5 flex-shrink-0" />
-                <span>Parque Industrial Aut. Circunvalación Km 1294, San Miguel de Tucumán</span>
+                <span>Cambiar, San Miguel de Tucumán</span>
               </li>
               <li className="flex gap-3 text-gray-300">
                 <Phone className="w-5 h-5 flex-shrink-0" />
-                <span>+54 9 381 661 8632</span>
+                <span>+Cambiar</span>
               </li>
               <li className="flex gap-3 text-gray-300">
                 <Mail className="w-5 h-5 flex-shrink-0" />
