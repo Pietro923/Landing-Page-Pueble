@@ -91,8 +91,8 @@ export default function Company() {
             <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-red-100 rounded-lg">
-                    <Building2 className="w-6 h-6 text-red-600" />
+                <div className="p-2 bg-gradient-to-br from-red-600 to-red-800 rounded-lg shadow-md">
+                    <Building2 className="w-6 h-6 text-white" />
                   </div>
                   <CardTitle>Sede Central</CardTitle>
                 </div>
@@ -100,11 +100,11 @@ export default function Company() {
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-2 text-gray-300">
                   <MapPin className="w-5 h-5" />
-                  <span>Tucumán, Argentina</span>
+                  <span className="font-semibold">Tucumán, Argentina</span>
                 </div>
                 <p className="text-gray-300 leading-relaxed">
-                  Nuestra sede central cuenta con más de 5000m² dedicados a la 
-                  exhibición, venta y mantenimiento de maquinaria agrícola de 
+                  Nuestra sede central cuenta con más de <span className="font-semibold">5000m²</span> dedicados a la 
+                  exhibición, venta y mantenimiento de <span className="font-semibold">maquinaria agrícola y de construcción </span> de 
                   primera línea.
                 </p>
                 <Button className="bg-red-600 hover:bg-red-700">
@@ -145,8 +145,8 @@ export default function Company() {
                 >
                   <CardHeader>
                     <div className="flex items-center gap-3">
-                      <div className="p-2 bg-red-100 rounded-lg">
-                        <Icon className="w-6 h-6 text-red-600" />
+                    <div className="p-2 bg-gradient-to-br from-red-600 to-red-800 rounded-lg shadow-md">
+                        <Icon className="w-6 h-6 text-white" />
                       </div>
                       <CardTitle className="text-lg">{facility.title}</CardTitle>
                     </div>
