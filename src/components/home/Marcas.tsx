@@ -62,7 +62,7 @@ export default function Marcas() {
               />
               <CardHeader className="text-center p-4">
                 <CardTitle className="text-2xl text-white">{marca.marca}</CardTitle>
-                <CardDescription className="text-gray-200">{marca.descripcion}</CardDescription>
+                <CardDescription className="text-gray-200 text-lg">{marca.descripcion}</CardDescription>
               </CardHeader>
               <CardContent className="text-center">
                 <Link href={marca.ruta}>
@@ -80,11 +80,11 @@ export default function Marcas() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-16 p-8 rounded-lg bg-white/10 backdrop-blur-sm"
         >
-          <h3 className="text-xl font-bold mb-2 text-white">¿Necesitas asesoramiento personalizado?</h3>
-          <p className="text-gray-200 mb-4">Nuestro equipo está disponible 24/7 para ayudarte.</p>
+          <h3 className="text-2xl lg:text-3xl font-bold mb-3 text-white">¿Necesitas asesoramiento personalizado?</h3>
+          <p className="text-gray-200 mb-6 text-lg max-w-2xl mx-auto">Nuestro equipo está disponible 24/7 para ayudarte.</p>
           <Button 
             size="lg" 
-            className="bg-red-500 hover:bg-red-600"
+            className="bg-red-500 hover:bg-red-600 text-white px-8 py-6 text-lg shadow-lg hover:shadow-red-700/40 transform hover:-translate-y-1 transition-all duration-300"
           >
             <a href="https://web.whatsapp.com/send?phone=3816618632&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20solicitar%20asesoramiento!%20" target="_blank" rel="noopener noreferrer" className="w-full block text-center">
             Contactar Gerente de Ventas

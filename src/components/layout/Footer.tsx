@@ -56,7 +56,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex gap-3 text-gray-300">
                 <Building2 className="w-5 h-5 flex-shrink-0" />
-                <span>Cambiar, San Miguel de Tucumán</span>
+                <span>Ruta 9 Km 1301, San Miguel de Tucumán 4000, San Miguel de Tucumán</span>
               </li>
               <li className="flex gap-3 text-gray-300">
                 <Phone className="w-5 h-5 flex-shrink-0" />

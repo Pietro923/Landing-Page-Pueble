@@ -35,13 +35,13 @@ export default function ContactPage() {
     {
       icon: Building2,
       title: "Oficina Central",
-      info: "Parque Industrial Aut. Circunvalación Km 1294, San Miguel de Tucumán 4000",
+      info: "Ruta 9 Km 1301, San Miguel de Tucumán 4000",
       info2: "Lunes a Viernes: 8:00 - 18:00",
     },
     {
       icon: Phone,
       title: "Teléfono",
-      info: "+54 9 381 661 8632",
+      info: "+54 Solicitar",
     },
     {
       icon: Mail,
@@ -57,7 +57,7 @@ export default function ContactPage() {
   ];
   
   // URL de Google Maps para usar en el enlace "Cómo llegar"
-  const googleMapsLink = `https://www.google.com/maps/place/PUEBLE+S.A./@-26.8105303,-65.1866737,15z/data=!3m1!4b1!4m6!3m5!1s0x94225e94c0835bbf:0x8568c458ceb402c1!8m2!3d-26.8105506!4d-65.1682196!16s%2Fg%2F11bzrcb9mm?entry=ttu&g_ep=EgoyMDI1MDIyMy4xIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D`;
+  const googleMapsLink = `https://www.google.com/maps/place/JCB+PUEBLE+SA/@-26.7681248,-65.2195014,17z/data=!3m1!4b1!4m6!3m5!1s0x94225d003948aec7:0x5aca876c4fba6d96!8m2!3d-26.7681296!4d-65.2169265!16s%2Fg%2F11w_bycf21?entry=ttu&g_ep=EgoyMDI1MDMxNy4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D`;
   
   const handleChange = (e: { target: { name: any; value: any; }; }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -137,15 +137,15 @@ export default function ContactPage() {
                 <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
                   <CardHeader>
                     <div className="flex items-center gap-3">
-                      <div className="p-2 bg-red-100 rounded-lg">
-                        <Icon className="w-6 h-6 text-red-600" />
+                    <div className="p-2 bg-gradient-to-br from-red-600 to-red-800 rounded-lg shadow-md">
+                        <Icon className="w-6 h-6 text-white" />
                       </div>
                       <CardTitle className="text-lg">{item.title}</CardTitle>
                     </div>
                   </CardHeader>
                   <CardContent>
                     <p className="text-gray-300">{item.info}</p>
-                    <p className="text-gray-300">{item.info2}</p>
+                    <p className="text-gray-300 font-bold">{item.info2}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -312,8 +312,7 @@ export default function ContactPage() {
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="aspect-video rounded-lg overflow-hidden bg-white/10 relative z-0">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.2035662380936!2d-65.1702126239386!3d-26.810651!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDQ4JzM4LjAiUyA2NcKwMTAnMDQuOSJX!5e0!3m2!1ses-419!2s!4v1708984653321!5m2!1ses-419!2s"
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3562.2553370575342!2d-65.2169265!3d-26.768129599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225d003948aec7%3A0x5aca876c4fba6d96!2sJCB%20PUEBLE%20SA!5e0!3m2!1ses-419!2sar!4v1742484690853!5m2!1ses-419!2sar" 
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -327,8 +326,7 @@ export default function ContactPage() {
                 href={googleMapsLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center text-white border-white/20 hover:bg-white/10 bg-red-500 px-4 py-2 rounded-md"
-              >
+                className="w-full inline-flex items-center justify-center bg-white text-red-700 hover:bg-gray-100 px-4 py-2 rounded-md font-medium">
                 Cómo llegar
                 <ArrowRight className="ml-2 w-4 h-4" />
               </a>
