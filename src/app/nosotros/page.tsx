@@ -24,7 +24,7 @@ export default function About() {
 ];
   const values = [
     { icon: Shield, title: 'Confianza y Honestidad', description: 'Construimos relaciones basadas en la transparencia y el respeto mutuo.' },
-    { icon: Target, title: 'Compromiso', description: 'Con nuestros clientes, empleados, socios y resultados.' },
+    { icon: Target, title: 'Compromiso', description: 'Con nuestros clientes, empleados, accionistas y resultados.' },
     { icon: Handshake, title: 'Actitud de Servicio', description: 'Brindamos atención y soluciones con responsabilidad y empatía.' },
     { icon: Gem, title: 'Autocrítica', description: 'Compromiso con la excelencia y la mejora continua.' },
     { icon: Wrench, title: 'Responsabilidad', description: 'Cumplimos con nuestras obligaciones fiscales, sociales y ambientales.' },
@@ -42,8 +42,7 @@ export default function About() {
         >
           <h2 className="text-4xl font-bold mb-4 text-white border-b-2 border-red-500 inline-block">Nosotros</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Más de 40 años liderando el sector de maquinaria agrícola, 
-            impulsando el desarrollo y la innovación en el campo argentino.
+           Desde 2003 entregamos al campo y la construcción la mejor maquinaria impulsando el desarrollo y la innovacion con soluciones innovadoras.
           </p>
           <img 
             src="/imagenes/empresa/Equipo Pueble SA.jpeg"  
@@ -59,24 +58,24 @@ export default function About() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-          <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
+            <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-red-100 rounded-lg">
-                    <Users className="w-6 h-6 text-red-600" />
+                  <div className="p-2 bg-gradient-to-br from-red-600 to-red-800 rounded-lg shadow-md">
+                    <Users className="w-6 h-6 text-white" />
                   </div>
-                  <CardTitle className="text-xl font-bold ">Quiénes Somos</CardTitle>
+                  <CardTitle className="text-xl font-bold text-white">Quiénes Somos</CardTitle>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-gray-300 leading-relaxed">
-                  Somos una empresa líder en la venta y servicio de maquinaria agrícola, 
-                  con más de cuatro décadas de experiencia en el sector. Nuestro compromiso 
+                  Somos una empresa <span className="text-white font-semibold">líder en la venta y servicio</span> de maquinaria agrícola y de construcción, 
+                  con más de 20 años de experiencia en el sector. Nuestro compromiso 
                   con la excelencia y la innovación nos ha permitido convertirnos en un 
                   referente en la industria.
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  Contamos con un equipo altamente capacitado y la tecnología más avanzada 
+                  Contamos con un <span className="text-white font-semibold">equipo altamente capacitado</span> y la tecnología más avanzada 
                   para brindar soluciones integrales que optimizan la producción agrícola 
                   de nuestros clientes.
                 </p>
@@ -93,16 +92,16 @@ export default function About() {
             <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-red-100 rounded-lg">
-                    <Target className="w-6 h-6 text-red-600" />
+                <div className="p-2 bg-gradient-to-br from-red-600 to-red-800 rounded-lg shadow-md">
+                    <Target className="w-6 h-6 text-white" />
                   </div>
                   <CardTitle className="text-xl font-bold ">Nuestro Objetivo</CardTitle>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-gray-300 leading-relaxed">
-                  Nuestro principal objetivo es proporcionar soluciones integrales y de 
-                  alta calidad que impulsen la productividad y eficiencia del sector agrícola. 
+                  Nuestro principal objetivo es proporcionar <span className="text-white font-semibold">soluciones integrales y de 
+                  alta calidad</span> que impulsen la productividad y eficiencia del <span className="text-white font-semibold">sector agrícola y de construcción</span>. 
                   Nos esforzamos por:
                 </p>
                 <ul className="space-y-3">
@@ -110,7 +109,7 @@ export default function About() {
                     'Ofrecer maquinaria de última generación',
                     'Brindar soporte técnico especializado',
                     'Garantizar la satisfacción de nuestros clientes',
-                    'Contribuir al desarrollo del sector agrícola'
+                    'Contribuir al desarrollo del sector agrícola y de construcción'
                   ].map((item, index) => (
                     <li key={index} className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-red-600 rounded-full" />
@@ -122,7 +121,6 @@ export default function About() {
             </Card>
           </motion.div>
         </div>
-
         <div className="bg-white/10 backdrop-blur-sm mt-10 mb-10 p-4 md:p-6 rounded-lg">
           <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
             {/* Imagen */}
@@ -137,7 +135,7 @@ export default function About() {
                 "El campo no se detiene, y nosotros tampoco. Trabajamos con quienes siembran el futuro, brindando la mejor maquinaria para cada desafío."
               </p>
               <p className="text-gray-300 font-semibold mt-2">Javier Rojas</p>
-              <p className="text-gray-400 text-sm">Presidente</p>
+              <p className="text-gray-400 text-sm">CEO</p>
             </div>
           </div>
         </div>
@@ -159,8 +157,8 @@ export default function About() {
               <Card key={index} className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
                 <CardHeader>
                   <div className="flex items-center gap-3">
-                    <div className="p-2 bg-red-100 rounded-lg">
-                      <Icon className="w-6 h-6 text-red-600" />
+                  <div className="p-2 bg-gradient-to-br from-red-600 to-red-800 rounded-lg shadow-md">
+                      <Icon className="w-6 h-6 text-white" />
                     </div>
                     <CardTitle className="text-lg">{value.title}</CardTitle>
                   </div>
@@ -186,66 +184,66 @@ export default function About() {
           className="mb-16"
         >
           {/* Timeline Alternado (Zigzag) con mejoras responsive */}
-<div className="mb-16">
-  <Card className="bg-white/10 backdrop-blur-sm border-0 text-white">
-    <CardHeader>
-      
-    </CardHeader>
-    <CardContent>
-      <div className="relative">
-        {/* Línea central - visible solo en desktop */}
-        <div className="absolute left-1/2 top-0 h-full w-0.5 bg-red-600/50 hidden md:block" />
-        
-        {/* Línea lateral - visible solo en mobile */}
-        <div className="absolute left-4 top-0 h-full w-0.5 bg-red-600/50 md:hidden" />
-        
-        <div className="space-y-10">
-          {milestones.map((milestone, index) => (
-            <div key={index} 
-              className={`relative flex md:items-center gap-4 md:gap-6  
-                ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} 
-                flex-row items-start`}
-            >
-              {/* Punto de tiempo para mobile */}
-              <div className="absolute left-4 flex items-center justify-center w-8 h-8 md:hidden -translate-x-1/2 ">
-                <div className="w-8 h-8 bg-black/50 rounded-full border-2 border-red-600 flex items-center justify-center">
-                  <div className="w-3 h-3 bg-red-600 rounded-full" />
+          <div className="mb-16">
+            <Card className="bg-white/10 backdrop-blur-sm border-0 text-white">
+              <CardHeader>
+                
+              </CardHeader>
+              <CardContent>
+                <div className="relative">
+                  {/* Línea central - visible solo en desktop */}
+                  <div className="absolute left-1/2 top-0 h-full w-0.5 bg-red-600/50 hidden md:block" />
+                  
+                  {/* Línea lateral - visible solo en mobile */}
+                  <div className="absolute left-4 top-0 h-full w-0.5 bg-red-600/50 md:hidden" />
+                  
+                  <div className="space-y-10">
+                    {milestones.map((milestone, index) => (
+                      <div key={index} 
+                        className={`relative flex md:items-center gap-4 md:gap-6  
+                          ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} 
+                          flex-row items-start`}
+                      >
+                        {/* Punto de tiempo para mobile */}
+                        <div className="absolute left-4 flex items-center justify-center w-8 h-8 md:hidden -translate-x-1/2 ">
+                          <div className="w-8 h-8 bg-black/50 rounded-full border-2 border-red-600 flex items-center justify-center">
+                            <div className="w-3 h-3 bg-red-600 rounded-full" />
+                          </div>
+                        </div>
+                        
+                        {/* Contenido en mobile (siempre a la derecha) */}
+                        <div className="md:hidden ml-10 w-full">
+                          <div className="bg-black/30 p-4 rounded-lg border-l-2 border-red-600">
+                            <h3 className="font-bold text-xl text-red-600">{milestone.year}</h3>
+                            <h4 className="font-semibold mb-1">{milestone.title}</h4>
+                            <p className="text-gray-300 text-sm">{milestone.description}</p>
+                          </div>
+                        </div>
+                        
+                        {/* Contenido para desktop (alternando lados) */}
+                        <div className={`md:w-5/12 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'} text-center hidden md:block `}>
+                          <div className={`bg-black/30 p-4 rounded-lg ${index % 2 === 0 ? 'border-r-2' : 'border-l-2'} border-red-600 hover:bg-white/5 transition-colors duration-200`}>
+                            <h3 className="font-bold text-xl text-red-600">{milestone.year}</h3>
+                            <h4 className="font-semibold mb-1">{milestone.title}</h4>
+                            <p className="text-gray-300">{milestone.description}</p>
+                          </div>
+                        </div>
+                        
+                        {/* Punto central para desktop */}
+                        <div className="absolute left-1/2 -translate-x-1/2 items-center justify-center w-10 h-10 hidden md:flex">
+                          <div className="w-10 h-10 bg-black/50 rounded-full border-2 border-red-600 flex items-center justify-center">
+                            <div className="w-4 h-4 bg-red-600 rounded-full" />
+                          </div>
+                        </div>
+                        
+                        <div className="md:w-5/12 hidden md:block"></div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              
-              {/* Contenido en mobile (siempre a la derecha) */}
-              <div className="md:hidden ml-10 w-full">
-                <div className="bg-black/30 p-4 rounded-lg border-l-2 border-red-600">
-                  <h3 className="font-bold text-xl text-red-600">{milestone.year}</h3>
-                  <h4 className="font-semibold mb-1">{milestone.title}</h4>
-                  <p className="text-gray-300 text-sm">{milestone.description}</p>
-                </div>
-              </div>
-              
-              {/* Contenido para desktop (alternando lados) */}
-              <div className={`md:w-5/12 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'} text-center hidden md:block `}>
-                <div className={`bg-black/30 p-4 rounded-lg ${index % 2 === 0 ? 'border-r-2' : 'border-l-2'} border-red-600 hover:bg-white/5 transition-colors duration-200`}>
-                  <h3 className="font-bold text-xl text-red-600">{milestone.year}</h3>
-                  <h4 className="font-semibold mb-1">{milestone.title}</h4>
-                  <p className="text-gray-300">{milestone.description}</p>
-                </div>
-              </div>
-              
-              {/* Punto central para desktop */}
-              <div className="absolute left-1/2 -translate-x-1/2 items-center justify-center w-10 h-10 hidden md:flex">
-                <div className="w-10 h-10 bg-black/50 rounded-full border-2 border-red-600 flex items-center justify-center">
-                  <div className="w-4 h-4 bg-red-600 rounded-full" />
-                </div>
-              </div>
-              
-              <div className="md:w-5/12 hidden md:block"></div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </CardContent>
-  </Card>
-</div>
+              </CardContent>
+            </Card>
+          </div>
         </motion.div>
       </div>
     </section>

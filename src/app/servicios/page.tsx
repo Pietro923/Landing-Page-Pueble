@@ -99,8 +99,8 @@ export default function Servicios() {
                 <CardContent className="mt-4 flex flex-col justify-between min-h-[200px]">
                   <div>
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="p-2 bg-red-100 rounded-lg">
-                        <Icon className="w-6 h-6 text-red-600" />
+                    <div className="p-2 bg-gradient-to-br from-red-600 to-red-800 rounded-lg shadow-md">
+                        <Icon className="w-6 h-6 text-white" />
                       </div>
                       <CardTitle className="text-lg">{service.title}</CardTitle>
                     </div>
