@@ -38,7 +38,7 @@ export default function Nosotros() {
               Sobre <span className="text-red-400 border-b-2 border-red-500 inline-block">nosotros</span>
             </h2>
             <p className="text-xl text-gray-200 mb-8">
-              Somos concesionario oficial de las marcas <strong>CASE IH</strong> y <strong>JCB</strong>. Comercializamos toda la línea de sus productos y diversas marcas de maquinarias agrícolas usadas. Contamos con una sólida estructura en administración, venta de repuestos y servicio de posventa, manteniendo nuestro compromiso con la <strong>Responsabilidad Social Empresaria</strong>.
+              Somos concesionario oficial de las marcas <strong>CASE IH</strong> y <strong>JCB</strong>. Comercializamos toda la línea de sus productos y diversas marcas de maquinarias agrícolas y de construcción usadas. Contamos con una sólida estructura en administración, venta de repuestos y servicio de posventa, manteniendo nuestro compromiso con la <strong>Responsabilidad Social Empresaria</strong>.
             </p>
             <Link href={"/nosotros"}>
             <Button 

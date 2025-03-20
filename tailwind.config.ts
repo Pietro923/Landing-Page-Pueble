@@ -9,6 +9,10 @@ export default {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+			titillium: ['Titillium Web', 'sans-serif'],
+			minecraft: ['"Press Start 2P"', 'cursive'],
+		  },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

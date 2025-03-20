@@ -53,7 +53,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${inter.className} overflow-x-hidden`}>
         <Navbar />
-        <main className="min-h-screen pt-20">
+        <main className="min-h-screen pt-20 font-titillium">
           {children}
         </main>
         <Footer />

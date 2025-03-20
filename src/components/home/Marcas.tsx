@@ -29,9 +29,9 @@ export default function Marcas() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl lg:text-5xl font-bold mb-4 text-white border-b-2 border-red-500 inline-block"
+          className="text-4xl lg:text-5xl font-bold mb-4 text-white border-b-2 border-red-500 inline-block tracking-tight underline decoration-red-500 decoration-[2px] underline-offset-8 w-fit mx-auto"
         >
-          Maquinaria Agrícola
+          Maquinaria Agrícola y de Construcción
         </motion.h2>
 
         <motion.p
@@ -40,7 +40,7 @@ export default function Marcas() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-xl text-gray-200 max-w-2xl mx-auto mb-12"
         >
-          Nuestro compromiso con el cliente, la calidad y la excelencia nos llevó a convertirnos en representantes de las marcas más destacadas en cada uno de sus segmentos. En nuestros concesionarios podrás encontrar las soluciones que tu campo necesita.
+          Nuestro compromiso con el cliente, la calidad y la excelencia nos llevó a convertirnos en representantes de las marcas más destacadas en cada uno de sus segmentos. En nuestros concesionarios podrás encontrar las soluciones que tu campo y construcción necesita.
         </motion.p>
 
         {/* Tarjetas de marcas */}
