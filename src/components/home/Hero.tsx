@@ -99,9 +99,9 @@ export default function Hero() {
           className="text-6xl lg:text-8xl font-bold text-white px-4"
         >
           Bienvenido a{' '}
-          <span className="bg-gradient-to-r from-red-400 to-red-600 text-transparent bg-clip-text">
+          
             Pueble S.A.
-          </span>
+          
         </motion.h1>
         {/* Descripción */}
         <motion.p
@@ -121,7 +121,7 @@ export default function Hero() {
         >
           <Button 
             size="lg" 
-            className="bg-red-500 hover:bg-red-600 shadow-lg hover:shadow-red-500/50 transition-all duration-300 transform hover:scale-105"
+            className="bg-red-600 hover:bg-red-700 shadow-lg hover:shadow-red-500/50 transition-all duration-300 transform hover:scale-105 text-base"
             onClick={() => document.getElementById("marcas")?.scrollIntoView({ behavior: "smooth" })}
           >
             Descubre nuestros productos
@@ -130,7 +130,7 @@ export default function Hero() {
           <Button 
             size="lg" 
             variant="outline"
-            className="bg-gray-500 hover:bg-gray-600 shadow-lg hover:shadow-gray-500/50 transition-all duration-300 transform hover:scale-105 text-white hover:text-white"
+            className="bg-gray-600 hover:bg-gray-700 shadow-lg hover:shadow-gray-500/50 transition-all duration-300 transform hover:scale-105 text-white hover:text-white text-base"
             asChild
           >
             <a href="mailto:recepcion@pueblemaquinarias.com.ar">Contáctanos</a>
@@ -154,7 +154,7 @@ export default function Hero() {
                 <CarouselItem key={`${currentImageSet}-${index}`} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
                   <motion.div 
                     whileHover={{ scale: 1.02 }}
-                    className={`relative overflow-hidden rounded-2xl shadow-2xl aspect-[4/3] ${image.type === 'logo' ? `${image.bgColor || 'bg-white'} flex items-center justify-center p-4` : ''}`}
+                    className={`relative overflow-hidden bg-gradient-to-t from-black/50 to-transparent rounded-2xl shadow-2xl aspect-[4/3] ${image.type === 'logo' ? `${image.bgColor || 'bg-white'} flex items-center justify-center p-4` : ''}`}
                   >
                     <img 
                       src={image.src}

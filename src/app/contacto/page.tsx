@@ -35,7 +35,7 @@ export default function ContactPage() {
     {
       icon: Building2,
       title: "Oficina Central",
-      info: "Ruta 9 Km 1301, San Miguel de Tucumán 4000",
+      info: "Ruta 9 - Km 1301, San Miguel de Tucumán 4000",
       info2: "Lunes a Viernes: 8:00 - 18:00",
     },
     {

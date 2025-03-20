@@ -12,7 +12,6 @@ import {
   Shield,
   Handshake
 } from 'lucide-react'
-
 export default function About() {
   const milestones = [
     { year: 2003, title: 'Fundación', description: 'Nace PUEBLE S.A. con el propósito de representar y dedicarse a la venta específica de fertilizantes para todo el NOA.' },
@@ -30,27 +29,57 @@ export default function About() {
     { icon: Wrench, title: 'Responsabilidad', description: 'Cumplimos con nuestras obligaciones fiscales, sociales y ambientales.' },
     { icon: Award, title: 'Innovación', description: 'Apostamos a las nuevas tendencias y avances tecnológicos que facilitan el trabajo del agricultor.' },
   ];
-
   return (
     <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto px-4">
+        {/* Hero Section con Imagen y Texto lado a lado */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="flex flex-col lg:flex-row items-center gap-8 mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4 text-white border-b-2 border-red-500 inline-block">Nosotros</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-           Desde 2003 entregamos al campo y la construcción la mejor maquinaria impulsando el desarrollo y la innovacion con soluciones innovadoras.
-          </p>
-          <img 
-            src="/imagenes/empresa/Equipo Pueble SA.jpeg"  
-            alt="nosotros" 
-            className="rounded-3xl mb-10 mt-10 w-full max-w-[1500px] h-auto max-h-[650px] object-cover mx-auto" 
-          />
+          {/* Contenido de texto */}
+          <div className="lg:w-1/2 text-left">
+            <h1 className="text-4xl font-bold mb-6 text-white border-b-2 border-red-500 inline-block">Nosotros</h1>
+            <p className="text-xl text-gray-300 leading-relaxed mb-6">
+              Desde nuestra fundación en 2003, nos dedicamos a comercializar maquinaria de máxima calidad y avanzada tecnología.
+            </p>
+            <p className="text-lg text-gray-300 leading-relaxed">
+              Con más de 20 años en el mercado, nuestra estrategia se basa en la inversión constante en tecnología y en mantener una relación cercana con nuestros clientes, ofreciendo atención las 24 horas y cumpliendo siempre con nuestra palabra.
+            </p>
+          </div>
+          
+          {/* Imagen */}
+          <div className="lg:w-1/2">
+            <img 
+              src="/imagenes/empresa/Equipo Pueble SA.jpeg"  
+              alt="Equipo Pueble SA" 
+              className="rounded-3xl w-full h-auto object-cover shadow-lg" 
+            />
+          </div>
         </motion.div>
-
+        
+        {/* Cita del CEO */}
+        <div className="bg-gradient-to-r from-red-900/40 to-black/40 backdrop-blur-sm mt-6 mb-12 p-6 rounded-lg shadow-lg">
+          <div className="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+            {/* Imagen */}
+            <img 
+              src="/imagenes/bedey.png" 
+              className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-red-600/30" 
+              alt="Javier Rojas" 
+            />
+            {/* Texto */}
+            <div>
+              <p className="text-white text-xl md:text-2xl italic font-light">
+                "El campo no se detiene, y nosotros tampoco. Trabajamos con quienes siembran el futuro, brindando la mejor maquinaria para cada desafío."
+              </p>
+              <p className="text-gray-300 font-semibold mt-3 text-lg">Javier Rojas</p>
+              <p className="text-gray-400">CEO</p>
+            </div>
+          </div>
+        </div>
+        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -82,7 +111,6 @@ export default function About() {
               </CardContent>
             </Card>
           </motion.div>
-
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -121,27 +149,9 @@ export default function About() {
             </Card>
           </motion.div>
         </div>
-        <div className="bg-white/10 backdrop-blur-sm mt-10 mb-10 p-4 md:p-6 rounded-lg">
-          <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
-            {/* Imagen */}
-            <img 
-              src="/imagenes/bedey.png" 
-              className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover md:mr-12 mb-4 md:mb-0" 
-              alt="Javier Nebbia" 
-            />
-            {/* Texto */}
-            <div>
-              <p className="text-white text-base md:text-lg italic">
-                "El campo no se detiene, y nosotros tampoco. Trabajamos con quienes siembran el futuro, brindando la mejor maquinaria para cada desafío."
-              </p>
-              <p className="text-gray-300 font-semibold mt-2">Javier Rojas</p>
-              <p className="text-gray-400 text-sm">CEO</p>
-            </div>
-          </div>
-        </div>
-
+        
         {/* Valores */}
-        <h2 className="text-3xl font-bold text-white mb-6 border-b-2 border-red-500 w-fit mx-auto">
+        <h2 className="text-3xl font-bold text-white mb-8 border-b-2 border-red-500 w-fit mx-auto">
           Nuestros <span className="text-red-500 ">Valores</span>
         </h2>
         <motion.div
@@ -171,11 +181,26 @@ export default function About() {
           })}
         </motion.div>
 
-        <h2 className="text-3xl font-bold text-white mb-6 border-b-2 border-red-500 w-fit mx-auto">
+        {/* Nuestra Filosofía - Párrafo completo */}
+        <h2 className="text-3xl font-bold text-white mb-8 border-b-2 border-red-500 w-fit mx-auto">
+          Nuestra Filosofia
+        </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-16 rounded-lg p-8 bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white max-w-2xl mx-auto"
+        >
+          <p className="text-lg text-gray-300 leading-relaxed">
+            Desde nuestra fundación en 2003, comprendimos que el crecimiento solo sería posible comercializando maquinaria de <span className="font-bold">máxima calidad y avanzada tecnología.</span> Tras casi 8 años de experiencia, descubrimos que nuestra mayor inversión debía centrarse en el servicio <span className="font-bold">Post Venta</span>, convirtiéndose en la unidad de negocio más importante de la empresa. Actualmente, nuestra estrategia se basa en la inversión constante en tecnología y en mantener una relación cercana con nuestros clientes, ofreciendo atención las 24 horas y cumpliendo siempre con nuestra palabra.
+          </p>
+        </motion.div>
+        
+        {/* Nuestra Historia */}
+        <h2 className="text-3xl font-bold text-white mb-8 border-b-2 border-red-500 w-fit mx-auto">
           Nuestra Historia
         </h2>
-
-        {/* Timeline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -186,10 +211,7 @@ export default function About() {
           {/* Timeline Alternado (Zigzag) con mejoras responsive */}
           <div className="mb-16">
             <Card className="bg-white/10 backdrop-blur-sm border-0 text-white">
-              <CardHeader>
-                
-              </CardHeader>
-              <CardContent>
+              <CardContent className="py-8">
                 <div className="relative">
                   {/* Línea central - visible solo en desktop */}
                   <div className="absolute left-1/2 top-0 h-full w-0.5 bg-red-600/50 hidden md:block" />
