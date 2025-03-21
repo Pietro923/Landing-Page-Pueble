@@ -9,9 +9,9 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   metadataBase: new URL("http://pueblemaquinarias.com.ar/"),
-  title: "Pueble S.A. | Maquinaria Agrícola de Alta Calidad",
-  description: "Tu socio confiable en maquinaria agrícola de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
-  keywords: ["maquinaria agrícola", "agricultura", "equipos agrícolas", "Pueble SA", "implementos agrícolas", "repuestos agrícolas", "venta maquinaria", "servicio técnico agrícola"],
+  title: "Pueble S.A. | Maquinaria Agrícola y de construcción de Alta Calidad",
+  description: "Tu socio confiable en maquinaria agrícola y de construcción de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
+  keywords: ["maquinaria agrícola","maquinaria de construcción", "construcción","agricultura", "equipos agrícolas", "Pueble SA", "implementos agrícolas", "repuestos agrícolas", "venta maquinaria", "servicio técnico agrícola"],
   authors: [{ name: "Pueble S.A." }],
   icons: {
     icon: "/favicon.ico",
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_ES",
     url: "http://pueblemaquinarias.com.ar/",
-    title: "Pueble S.A. | Maquinaria Agrícola",
-    description: "Tu socio confiable en maquinaria agrícola de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
+    title: "Pueble S.A. | Maquinaria Agrícola y de construcción de Alta Calidad",
+    description: "Tu socio confiable en maquinaria agrícola y de construcción de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
     images: [
       {
         url: "/pueblemeta.jpg", 
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pueble S.A. | Maquinaria Agrícola",
-    description: "Tu socio confiable en maquinaria agrícola de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
+    title: "Pueble S.A. | Maquinaria Agrícola y de construcción de Alta Calidad",
+    description: "Tu socio confiable en maquinaria agrícola y de construcción de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
     images: ["/pueblemeta.jpg"], 
     creator: "@pueblesa", 
   },
