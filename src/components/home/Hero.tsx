@@ -98,9 +98,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="text-6xl lg:text-8xl font-bold text-white px-4"
         >
-          Bienvenido a{' '}
-          
-            Pueble S.A.
+           Bienvenido a <span className="italic">Pueble S.A</span>
           
         </motion.h1>
         {/* Descripción */}
