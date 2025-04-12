@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { 
-  Building2, 
+  Building2,
+  MapPin,
   Phone, 
   Mail,
   Facebook,
@@ -56,11 +57,23 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex gap-3 text-gray-300">
                 <Building2 className="w-5 h-5 flex-shrink-0" />
-                <span>Ruta 9 - Km 1301, San Miguel de Tucumán 4000, San Miguel de Tucumán</span>
+                <span>Av. Circunvalación km. 1294, San Miguel de Tucuman, Tucumán</span>
               </li>
+              <li className="flex gap-3 items-start text-white">
+                <MapPin className="w-5 h-5 flex-shrink-0" />
+                <a
+                  href="https://www.google.com/maps/place/PUEBLE+S.A./@-26.7684015,-65.2193973,17z/data=!3m1!4b1!4m6!3m5!1s0x94225e94c0835bbf:0x8568c458ceb402c1!8m2!3d-26.7684063!4d-65.2168224!16s%2Fg%2F11bzrcb9mm?entry=ttu&g_ep=EgoyMDI1MDQwOS4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-red-500 hover:underline"
+                >
+                  Cómo llegar?
+                </a>
+              </li>
+
               <li className="flex gap-3 text-gray-300">
                 <Phone className="w-5 h-5 flex-shrink-0" />
-                <span>+Cambiar</span>
+                <span>+543815897858</span>
               </li>
               <li className="flex gap-3 text-gray-300">
                 <Mail className="w-5 h-5 flex-shrink-0" />

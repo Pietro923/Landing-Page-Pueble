@@ -56,9 +56,10 @@ export default function Company() {
   useEffect(() => {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
-      setContactLink("tel:+543814530680"); // Llamada en móviles
+      setContactLink("tel:+543815897858"); // Llamada en móviles +54 9 3815 89-7858
     } else {
-      setContactLink("https://wa.me/543816618632"); // WhatsApp en PC
+      setContactLink("https://wa.me/543815897858?text=¡Hola!%20Quisiera%20hacer%20una%20consulta.");
+// WhatsApp en PC
     }
   }, []);
 
@@ -107,17 +108,21 @@ export default function Company() {
                   exhibición, venta y mantenimiento de <span className="font-semibold">maquinaria agrícola y de construcción </span> de 
                   primera línea.
                 </p>
-                <Button className="bg-red-600 hover:bg-red-700">
-      <a href={contactLink} target="_blank" rel="noopener noreferrer">
-        Contactar
-      </a>
-      <Phone className="ml-2 w-4 h-4" />
-    </Button>
+                <a
+  href={contactLink}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors"
+>
+  Contactar
+  <Phone className="ml-2 w-4 h-4" />
+</a>
+
 
               </CardContent>
             </Card>
 
-            <div className="relative">
+            {/*<div className="relative">
               <Image
                 src="/imagenes/empresa/imagen 2.jpg"
                 alt="Vista aérea de Pueble S.A."
@@ -126,7 +131,7 @@ export default function Company() {
                 className="rounded-lg shadow-xl"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 to-transparent rounded-lg" />
-            </div>
+            </div> */}
           </motion.div>
 
           <motion.div
@@ -157,15 +162,16 @@ export default function Company() {
                 </Card>
               );
             })}
-
-            <Button 
-              className="w-full bg-red-600 hover:bg-red-700"
-            >
-              <a href="https://web.whatsapp.com/send?phone=3816618632&text=Hola!%20Quiero%20agendar%20una%20visita" target="_blank" rel="noopener noreferrer"> 
+              <a
+              href="https://wa.me/543815897858?text=Hola!%20Quiero%20agendar%20una%20visita%20guiada."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors text-center justify-center"
+>
               Agendar una Visita
-            </a>
               <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
+            </a>
+            
           </motion.div>
         </div>
 

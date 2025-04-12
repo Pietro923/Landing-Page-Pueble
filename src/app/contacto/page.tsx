@@ -35,13 +35,13 @@ export default function ContactPage() {
     {
       icon: Building2,
       title: "Oficina Central",
-      info: "Ruta 9 - Km 1301, San Miguel de Tucumán 4000",
+      info: "Av. Circunvalación km. 1294, San Miguel de Tucuman, Tucumán",
       info2: "Lunes a Viernes: 8:00 - 18:00",
     },
     {
       icon: Phone,
       title: "Teléfono",
-      info: "+54 Solicitar",
+      info: "+543815897858",
     },
     {
       icon: Mail,
@@ -57,7 +57,7 @@ export default function ContactPage() {
   ];
   
   // URL de Google Maps para usar en el enlace "Cómo llegar"
-  const googleMapsLink = `https://www.google.com/maps/place/JCB+PUEBLE+SA/@-26.7681248,-65.2195014,17z/data=!3m1!4b1!4m6!3m5!1s0x94225d003948aec7:0x5aca876c4fba6d96!8m2!3d-26.7681296!4d-65.2169265!16s%2Fg%2F11w_bycf21?entry=ttu&g_ep=EgoyMDI1MDMxNy4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D`;
+  const googleMapsLink = `https://www.google.com/maps/place/PUEBLE+S.A./@-26.7684015,-65.2193973,17z/data=!3m1!4b1!4m6!3m5!1s0x94225e94c0835bbf:0x8568c458ceb402c1!8m2!3d-26.7684063!4d-65.2168224!16s%2Fg%2F11bzrcb9mm?entry=ttu&g_ep=EgoyMDI1MDQwOS4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D`;
   
   const handleChange = (e: { target: { name: any; value: any; }; }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

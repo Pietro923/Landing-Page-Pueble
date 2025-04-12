@@ -19,14 +19,14 @@ export default function Servicios() {
       title: "Guardia de Repuestos",
       description: "Lunes a Viernes 18:00 HS a 08:00 HS. Sabados y Domingos 24 HS.",
       image: "/imagenes/placeholdercachopuente.jpg",
-      contact: "https://web.whatsapp.com/send?phone=3815821998&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta%20sobre%20la%20guardia!"
+      contact: "https://wa.me/3815821998?text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta%20sobre%20la%20guardia%20de%20Repuestos!"
     },
     {
       icon: PhoneCall,
       title: "Guardia de Servicios",
       description: "Lunes a Viernes 18:00 HS a 08:00 HS. Sabados y Domingos 24 HS",
       image: "/imagenes/placeholdercachopuente.jpg",
-      contact: "https://web.whatsapp.com/send?phone=3814901111&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta%20sobre%20la%20guardia!"
+      contact: "https://wa.me/3814901111?text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta%20sobre%20la%20guardia%20de%20Servicios!"
     },
     {
       icon: Smartphone,

@@ -183,7 +183,7 @@ export default function Contact() {
                 <CardTitle className="text-2xl text-white">Ubicación</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-200 text-center">Ruta 9 - Km 1301, San Miguel de Tucumán</p>
+                <p className="text-gray-200 text-center">Av. Circunvalación km. 1294, San Miguel de Tucuman, Tucumán</p>
               </CardContent>
             </Card>
             <Card className="bg-white/10 backdrop-blur-sm border-0 shadow-lg">
@@ -192,7 +192,7 @@ export default function Contact() {
                 <CardTitle className="text-2xl text-white">Teléfono</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-200 text-center">+Cambiar</p>
+                <p className="text-gray-200 text-center">+543815897858</p>
               </CardContent>
             </Card>
             <Card className="bg-white/10 backdrop-blur-sm border-0 shadow-lg">
