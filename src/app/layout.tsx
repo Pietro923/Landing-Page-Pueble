@@ -4,6 +4,7 @@ import "@/styles/globals.css"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import { Toaster } from "@/components/ui/toaster"
+import { WhatsAppButton } from "@/components/layout/WhatsAppButton"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -57,14 +58,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <a
-          href={`https://wa.me/5493816618632?text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta!`}
-          target="_blank"
-          className="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-green-500 text-white hover:bg-green-600 transition-transform transform hover:scale-110"
-          aria-label="Contactar por WhatsApp"
-        >
-         <img src="/imagenes/logos/whatsapp.svg" className="w-6 h-6" alt="WhatsApp" />
-        </a>
+        <WhatsAppButton />
         <Toaster />
       </body>
     </html>
