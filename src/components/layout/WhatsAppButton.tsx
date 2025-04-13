@@ -12,9 +12,9 @@ import {
     
     const options = [
       {
-        title: "Servicio de Guardia",
-        description: "Asistencia 24/7",
-        phone: "5493816618632",
+        title: "Servicio de Guardia de Servicios",
+        description: "Asistencia Lun-Vie 18:00-8:00",
+        phone: "5493814901111",
         message: "Hola, necesito asistencia del servicio de guardia.",
         icon: <Phone className="w-5 h-5 text-green-600" />
       },
