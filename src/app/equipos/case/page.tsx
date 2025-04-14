@@ -74,10 +74,10 @@ export default function CaseEquipmentPage() {
             <img 
               src="/imagenes/equipment/case/case.png"
               alt="Case IH Logo" 
-              className="h-12"
+              className="h-12 md:h-16"
             />
           </div>
-          <p className="text-white text-center text-lg max-w-3xl mx-auto">
+          <p className="text-gray-300 text-center text-lg max-w-3xl mx-auto">
             Somos concesionario oficial de la marca CASE IH, comercializamos toda su línea de productos; 
             teniendo una sólida estructura en administración, venta de repuestos y servicio de posventa.
           </p>

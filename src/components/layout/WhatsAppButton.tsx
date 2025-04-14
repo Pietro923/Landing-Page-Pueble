@@ -43,7 +43,7 @@ import {
       <Popover open={isOpen} onOpenChange={setIsOpen}>
         <PopoverTrigger asChild>
           <button 
-            className="fixed bottom-6 right-6 z-50 p-3 md:p-4 rounded-full bg-green-500 text-white hover:bg-green-600 transition-all duration-300 transform hover:scale-110 shadow-lg flex items-center justify-center group"
+            className="fixed bottom-6 right-6 z-40 p-3 md:p-4 rounded-full bg-green-500 text-white hover:bg-green-600 transition-all duration-300 transform hover:scale-110 shadow-lg flex items-center justify-center group"
             aria-label="Contactar por WhatsApp"
           >
             <div className="relative">
