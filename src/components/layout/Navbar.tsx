@@ -201,8 +201,9 @@ const socialLinks = [
                 size="icon" 
                 className="text-white hover:bg-red-700 border-zinc-700 bg-red-800 hover:text-white"
                 onClick={handleSearch}
+                aria-label="Buscar"
               >
-                <Search className="w-5 h-5" />
+                <Search className="w-5 h-5" aria-hidden="true"/>
               </Button>
             </div>
             {/* Redes Sociales */}

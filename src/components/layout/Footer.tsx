@@ -9,22 +9,13 @@ import {
   Linkedin,
   ArrowRight,
   Briefcase,
-  Code,
-  ExternalLink,
-  Github,
-  Heart
 } from "lucide-react";
 import Link from "next/link";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 import {Pietrobutton} from "@/components/layout/p-popover"
 
 export default function Footer() {
   const socialLinks = [
-    { icon: Facebook, label: "Facebook", href:"https://www.facebook.com/Pueblemaquinarias" },
+    { icon: Facebook, label: "Facebook", href:"https://www.facebook.com/Pueblemaquinarias", },
     { icon: Instagram, label: "Instagram", href:"https://www.instagram.com/casepueblesa/" },
     { icon: Linkedin, label: "LinkedIn", href:"https://www.linkedin.com/company/grupo-pueble/" },
   ];
@@ -52,8 +43,9 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:bg-white/10 text-white rounded-full p-2 transition"
+                    aria-label={social.label}
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-5 h-5" aria-hidden="true" />
                   </a>
                 );
               })}

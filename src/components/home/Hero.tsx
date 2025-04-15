@@ -204,7 +204,7 @@ export default function Hero() {
             <div className="bg-gradient-to-br from-red-500 to-red-600 rounded-full w-12 h-12 flex items-center justify-center mb-4 shadow-lg">
               {feature.icon} 
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+            <h2 className="text-lg font-semibold text-white mb-2">{feature.title}</h2>
             <p className="text-gray-300">{feature.description}</p>
           </motion.div>
         ))}
