@@ -91,15 +91,12 @@ export default function Hero() {
     <div className="relative min-h-screen flex flex-col justify-center">
       {/* Contenido principal */}
       <div className="relative z-10 text-center space-y-8 pt-24 pb-12">
+
         {/* Título */}
-        <motion.h1
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 0.3 }} // más rápido
-  className="text-6xl lg:text-8xl font-bold text-white px-4"
->
-  Bienvenido a <span className="italic">Pueble S.A</span>
-</motion.h1>
+        <h1 className="text-6xl lg:text-8xl font-bold text-white px-4">
+           Bienvenido a <span className="italic">Pueble S.A</span>
+        </h1>
+        
         {/* Descripción */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
