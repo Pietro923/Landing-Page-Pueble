@@ -77,7 +77,7 @@ const socialLinks = [
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/95 via-zinc-950/90 to-zinc-950/85"/>
       <div className="container mx-auto px-4 relative">
         <div className="flex justify-between items-center h-20">
-          <Link href="/" className="relative">
+          <Link href="/" >
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -87,6 +87,7 @@ const socialLinks = [
                 alt="Logo de Pueble S.A."
                 width={152}
                 height={150}
+                priority
               />
             </motion.div>
           </Link>

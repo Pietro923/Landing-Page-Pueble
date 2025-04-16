@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 export default function Marcas() {
   const marcas = [
@@ -55,10 +56,13 @@ export default function Marcas() {
               key={index}
               className="bg-white/10 backdrop-blur-sm border-0 hover:shadow-lg transition-all"
             >
-              <img 
-                src={marca.imagen} 
-                alt={marca.marca} 
+              <Image 
+                src={marca.imagen}
+                alt={marca.marca}
+                width={300} // definí un ancho acorde a tu diseño
+                height={160} // y una altura también
                 className="w-full h-40 object-contain bg-white rounded-t-lg p-4"
+                loading="lazy"
               />
               <CardHeader className="text-center p-4">
                 <CardTitle className="text-2xl text-white">{marca.marca}</CardTitle>
