@@ -5,11 +5,21 @@ import { ChevronRight, Tractor, Award, Clock, Users } from 'lucide-react'
 import { motion, AnimatePresence } from "framer-motion"
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import { useCallback } from "react";
+import Image from 'next/image';
 
 export default function Hero() {
   const [autoPlay, setAutoPlay] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
   
+  type ImageItem = {
+    src: string;
+    type: 'photo' | 'logo';
+    bgColor?: string;
+    width?: number;
+    height?: number;
+  };
+  
+
   const features = [
     {
       icon: <Tractor className="w-6 h-6" />,
@@ -34,20 +44,19 @@ export default function Hero() {
   ];
   
   // Configuración de las imágenes con tipos y estilos específicos
-  const allImages = [
-    // Primer set de imágenes
+  const allImages: ImageItem[][] = [
     [
       { src: "/imagenes/inicio/carousel1.jpg", type: "photo" },
-      { src: "/imagenes/equipment/case/caselogo.png", type: "logo", bgColor: "bg-white" },
+      { src: "/imagenes/equipment/case/caselogo.png", type: "logo", bgColor: "bg-white", width: 300, height: 200 },
       { src: "/imagenes/inicio/carousel3.jpg", type: "photo" },
     ],
-    // Segundo set de imágenes
     [
       { src: "/imagenes/inicio/asd1.jpg", type: "photo" },
-      { src: "/imagenes/equipment/jcb/jcb.png", type: "logo", bgColor: "bg-white" },
+      { src: "/imagenes/equipment/jcb/jcb.png", type: "logo", bgColor: "bg-white", width: 300, height: 200 },
       { src: "/imagenes/inicio/asd3.jpg", type: "photo" },
     ],
   ];
+  
   
   const [currentImageSet, setCurrentImageSet] = useState(0);
   const images = allImages[currentImageSet];
@@ -150,14 +159,17 @@ export default function Hero() {
                     whileHover={{ scale: 1.02 }}
                     className={`relative overflow-hidden bg-gradient-to-t from-black/50 to-transparent rounded-2xl shadow-2xl aspect-[4/3] ${image.type === 'logo' ? `${image.bgColor || 'bg-white'} flex items-center justify-center p-4` : ''}`}
                   >
-                    <img 
-                      src={image.src}
-                      alt={`Imagen ${index + 1}`}
-                      className={image.type === 'logo' 
-                        ? "max-w-[80%] max-h-[80%] object-contain" 
-                        : "w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
-                      }
-                    />
+                    <Image
+  src={image.src}
+  alt={`Imagen ${index + 1}`}
+  width={image.width || 400}     // valores por defecto si no los tenés
+  height={image.height || 300}
+  className={image.type === 'logo' 
+    ? "w-auto h-auto max-w-[80%] max-h-[80%] object-contain mx-auto" 
+    : "w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
+  }
+  style={{ objectFit: image.type === 'logo' ? 'contain' : 'cover' }}
+/>
                     {image.type === 'photo' && (
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
                     )}
