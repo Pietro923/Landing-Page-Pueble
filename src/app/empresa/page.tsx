@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card"
 import { 
   Building2, 
@@ -122,7 +121,7 @@ export default function Company() {
               </CardContent>
             </Card>
 
-            {/*<div className="relative">
+            <div className="relative">
               <Image
                 src="/imagenes/empresa/imagen 2.jpg"
                 alt="Vista aérea de Pueble S.A."
@@ -130,8 +129,7 @@ export default function Company() {
                 height={100}
                 className="rounded-lg shadow-xl"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 to-transparent rounded-lg" />
-            </div> */}
+            </div> 
           </motion.div>
 
           <motion.div
@@ -166,11 +164,11 @@ export default function Company() {
               href="https://wa.me/543815897858?text=Hola!%20Quiero%20agendar%20una%20visita%20guiada."
   target="_blank"
   rel="noopener noreferrer"
-  className="inline-flex items-center bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors text-center justify-center"
+  className="inline-flex items-center bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors text-center justify-center text-xl h-12 font-bold"
 >
-              Agendar una Visita
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </a>
+  Agendar una Visita
+  <ArrowRight className="ml-2 w-3 h-3" />
+</a>
             
           </motion.div>
         </div>

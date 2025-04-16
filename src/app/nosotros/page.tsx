@@ -1,12 +1,11 @@
 'use client'
 import { Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card"
+import Image from 'next/image'
 import { motion } from "framer-motion"
 import { 
-  History, 
   Target, 
   Users, 
   Award,
-  Globe,
   Gem,
   Wrench,
   Shield,
@@ -52,11 +51,13 @@ export default function About() {
           
           {/* Imagen */}
           <div className="lg:w-1/2">
-            <img 
-              src="/imagenes/empresa/Equipo Pueble SA.jpeg"  
-              alt="Equipo Pueble SA" 
-              className="rounded-3xl w-full h-auto object-cover shadow-lg" 
-            />
+          <Image
+    src="/imagenes/empresa/Equipo Pueble SA.jpeg"
+    alt="Equipo Pueble S.A."
+    width={1280}
+    height={853} // ajustá al tamaño real
+    className="rounded-3xl w-full h-auto object-cover shadow-lg"
+  />
           </div>
         </motion.div>
         

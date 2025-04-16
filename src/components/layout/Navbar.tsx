@@ -7,6 +7,7 @@ import { Menu, X, ChevronDown, Search } from "lucide-react"
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { Facebook, Instagram, Linkedin } from "lucide-react";
+import Image from 'next/image'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -81,14 +82,15 @@ const socialLinks = [
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <img
-                src="/imagenes/logos/LogoPueble.png"
+              <Image 
+                src="/imagenes/logos/LogoPueble.png" 
                 alt="Logo de Pueble S.A."
-                className="h-28 w-auto"
+                width={152}
+                height={150}
               />
             </motion.div>
           </Link>
-  
+          
           {/* Navegación Desktop */}
           <nav className="hidden md:flex items-center space-x-6">
             <ul className="flex items-center space-x-6">
