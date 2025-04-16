@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import Link from "next/link";
-
+import Image from 'next/image'
 export default function Nosotros() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24">
@@ -19,11 +19,13 @@ export default function Nosotros() {
             viewport={{ once: true }}
             className="flex-shrink-0 w-full lg:w-1/2"
           >
-            <img 
-              src="imagenes/empresa/Equipo Pueble SA.jpeg" 
-              alt="Sobre Nosotros" 
-              className="rounded-xl shadow-2xl object-cover w-full h-auto"
-            />
+            <Image
+                src="/imagenes/empresa/Equipo Pueble SA.jpeg"
+                alt="Equipo Pueble S.A."
+                width={1280}
+                height={853} // ajustá al tamaño real
+                className="rounded-3xl w-full h-auto object-cover shadow-lg"
+              />
           </motion.div>
 
           {/* Texto con animación */}
