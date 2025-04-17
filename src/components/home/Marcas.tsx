@@ -10,13 +10,13 @@ export default function Marcas() {
     {
       marca: "JCB",
       descripcion: "Equipos innovadores y duraderos para construcción y agricultura.",
-      imagen: "/imagenes/equipment/jcb/jcb.png",
+      imagen: "/imagenes/equipment/jcb/jcb.webp",
       ruta: "/equipos/jcb",
     },
     {
       marca: "Case IH",
       descripcion: "Máquinas confiables diseñadas para maximizar la productividad.",
-      imagen: "/imagenes/equipment/case/caselogo.png",
+      imagen: "/imagenes/equipment/case/caselogo.webp",
       ruta: "/equipos/case",
     },
   ];

@@ -20,7 +20,7 @@ export default function Nosotros() {
             className="flex-shrink-0 w-full lg:w-1/2"
           >
             <Image
-                src="/imagenes/empresa/Equipo Pueble SA.jpeg"
+                src="/imagenes/empresa/Equipo Pueble SA.webp"
                 alt="Equipo Pueble S.A."
                 width={1280}
                 height={853} // ajustá al tamaño real

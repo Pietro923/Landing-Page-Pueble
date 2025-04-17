@@ -46,14 +46,14 @@ export default function Hero() {
   // Configuración de las imágenes con tipos y estilos específicos
   const allImages: ImageItem[][] = [
     [
-      { src: "/imagenes/inicio/carousel1.jpg", type: "photo" },
-      { src: "/imagenes/equipment/case/caselogo.png", type: "logo", bgColor: "bg-white", width: 300, height: 200 },
-      { src: "/imagenes/inicio/carousel3.jpg", type: "photo" },
+      { src: "/imagenes/inicio/carousel1.webp", type: "photo" },
+      { src: "/imagenes/equipment/case/caselogo.webp", type: "logo", bgColor: "bg-white", width: 300, height: 200 },
+      { src: "/imagenes/inicio/carousel3.webp", type: "photo" },
     ],
     [
-      { src: "/imagenes/inicio/asd1.jpg", type: "photo" },
-      { src: "/imagenes/equipment/jcb/jcb.png", type: "logo", bgColor: "bg-white", width: 300, height: 200 },
-      { src: "/imagenes/inicio/asd3.jpg", type: "photo" },
+      { src: "/imagenes/inicio/asd1.webp", type: "photo" },
+      { src: "/imagenes/equipment/jcb/jcb.webp", type: "logo", bgColor: "bg-white", width: 300, height: 200 },
+      { src: "/imagenes/inicio/asd3.webp", type: "photo" },
     ],
   ];
   

@@ -52,7 +52,7 @@ export default function About() {
           {/* Imagen */}
           <div className="lg:w-1/2">
           <Image
-    src="/imagenes/empresa/Equipo Pueble SA.jpeg"
+    src="/imagenes/empresa/Equipo Pueble SA.webp"
     alt="Equipo Pueble S.A."
     width={1280}
     height={853} // ajustá al tamaño real
@@ -65,8 +65,10 @@ export default function About() {
         <div className="bg-gradient-to-r from-red-900/40 to-black/40 backdrop-blur-sm mt-6 mb-12 p-6 rounded-lg shadow-lg">
           <div className="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
             {/* Imagen */}
-            <img 
-              src="/imagenes/bedey.png" 
+            <Image 
+              src="/imagenes/bedey.webp" 
+              width={32}
+              height={32}
               className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-red-600/30" 
               alt="Javier Rojas" 
             />

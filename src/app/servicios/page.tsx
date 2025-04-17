@@ -11,46 +11,46 @@ export default function Servicios() {
       icon: ShoppingCart,
       title: "Venta y Postventa",
       description: "Asesoramiento, mantenimiento y soporte técnico 24/7 para tu maquinaria.",
-      image: "/imagenes/placeholdercachopuente.jpg",
+      //image: "/imagenes/placeholdercachopuente.jpg",
       //contact: "https://web.whatsapp.com/send?phone=3816618632&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20solicitar%20asesoramiento!%20"
     },
     {
       icon: Wrench,
       title: "Guardia de Repuestos",
       description: "Lunes a Viernes 18:00 HS a 08:00 HS. Sabados y Domingos 24 HS.",
-      image: "/imagenes/placeholdercachopuente.jpg",
+      //image: "/imagenes/placeholdercachopuente.jpg",
       contact: "https://wa.me/3815821998?text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta%20sobre%20la%20guardia%20de%20Repuestos!"
     },
     {
       icon: PhoneCall,
       title: "Guardia de Servicios",
       description: "Lunes a Viernes 18:00 HS a 08:00 HS. Sabados y Domingos 24 HS",
-      image: "/imagenes/placeholdercachopuente.jpg",
+      //image: "/imagenes/placeholdercachopuente.jpg",
       contact: "https://wa.me/3814901111?text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta%20sobre%20la%20guardia%20de%20Servicios!"
     },
     {
       icon: Smartphone,
       title: "AFS Connect",
       description: "Supervisa y gestiona tu operación agrícola de forma remota con tecnología avanzada.",
-      image: "/imagenes/servicios/afs.png",
+      //image: "/imagenes/servicios/afs.png",
       //contact: "https://web.whatsapp.com/send?phone=3816618632&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20realizar%una%20consulta%20acerca%20de%20AFS%20!"
     },
     {
       icon: Shield,
       title: "Garantía y Soporte",
       description: "Garantía extendida y soporte técnico permanente para optimizar el rendimiento de tu equipo.",
-      image: "/imagenes/servicios/garan.webp",
+      //image: "/imagenes/servicios/garan.webp",
       //contact: "https://web.whatsapp.com/send?phone=3814901111&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta%20sobre%20la%20garantia!"
     }
   ];  
   const imagesafs = [
-    "/imagenes/servicios/afs1.jpg",
-    "/imagenes/servicios/afs2.jpg",
-    "/imagenes/servicios/afs3.jpg",
+    "/imagenes/servicios/afs1.webp",
+    "/imagenes/servicios/afs2.webp",
+    "/imagenes/servicios/afs3.webp",
   ];
   const imagesjcb = [
-    "/imagenes/servicios/jcblivelink1.jpg",
-    "/imagenes/servicios/jcblivelink2.jpg",
+    "/imagenes/servicios/jcblivelink1.webp",
+    "/imagenes/servicios/jcblivelink2.webp",
   ];
   const testimonials = [
     {

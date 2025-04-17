@@ -36,17 +36,17 @@ export default function Company() {
 
   const teams = [
     {
-      image: "/imagenes/equipos/postventa.jpeg",
+      image: "/imagenes/equipos/postventa.webp",
       name: "Equipo de Postventa",
       description: "Expertos en mantenimiento y soporte técnico para garantizar el máximo rendimiento de tus equipos."
     },
     {
-      image: "/imagenes/equipos/afs.jpeg",
+      image: "/imagenes/equipos/afs.webp",
       name: "Equipo AFS",
       description: "Especialistas en sistemas de agricultura de precisión para optimizar tus cosechas."
     },
     {
-      image: "/imagenes/equipos/administracion.jpg",
+      image: "/imagenes/equipos/administracion.webp",
       name: "Administración",
       description: "Nuestro equipo administrativo asegura una gestión eficiente y transparente."
     }
@@ -120,16 +120,17 @@ export default function Company() {
 
               </CardContent>
             </Card>
-
+            {/* 
             <div className="relative">
               <Image
-                src="/imagenes/empresa/imagen 2.jpg"
+                src="/imagenes/empresa/imagen 2.webp"
                 alt="Vista aérea de Pueble S.A."
                 width={800}
                 height={100}
                 className="rounded-lg shadow-xl"
               />
             </div> 
+            */}
           </motion.div>
 
           <motion.div
@@ -219,7 +220,7 @@ export default function Company() {
             controls
             preload="metadata"
             playsInline
-            poster="/videos/thumbnail.jpg" 
+            poster="/videos/thumbnail.webp" 
             className="w-full h-full"
           >
             Tu navegador no soporta la reproducción de videos.
