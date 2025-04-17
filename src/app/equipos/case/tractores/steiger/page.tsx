@@ -7,7 +7,7 @@ const steigerProducts = [
     name: "Steiger 450",
     category: "Tractores",
     description: "Ideal para las condiciones de suelo más difíciles, la administración de potencia de su motor proporciona un adicional de hasta 63 cv, un 10% de su potencia.",
-    image: "/imagenes/equipment/case/tractores/steiger/steiger450.jpg",
+    image: "/imagenes/equipment/case/tractores/steiger/steiger450.webp",
     specs: {
       power: "",
       weight: "",

@@ -7,7 +7,7 @@ const arroceraproducts = [
     name: "Arrocera 5130 RI",
     category: "Cosechadoras",
     description: "Con la cosechadora 5130 RI es posible realizar una cosecha mucho más fácil, independientemente de la condición en campo.",
-    image: "/imagenes/equipment/case/cosechadoras/arrocera/arrocera7130.jpg",
+    image: "/imagenes/equipment/case/cosechadoras/arrocera/arrocera7130.webp",
     specs: {
       power: "",
       weight: "",
@@ -20,7 +20,7 @@ const arroceraproducts = [
     name: "Arrocera 7130 RI",
     category: "Cosechadoras",
     description: "Con la cosechadora 7130, la robustez y el menor costo operacional son destaques en su cosecha.",
-    image: "/imagenes/equipment/case/cosechadoras/arrocera/arrocera5130.jpg",
+    image: "/imagenes/equipment/case/cosechadoras/arrocera/arrocera5130.webp",
     specs: {
       power: "",
       weight: "",

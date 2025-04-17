@@ -7,7 +7,7 @@ const pantallasproducts = [
     name: "Pro 700",
     category: "Agricultura y Precisión",
     description: "AFS usa una única pantalla integrada con una interfaz común para todas las plataformas de su equipo Case IH.",
-    image: "/imagenes/equipment/case/agriculturayprecision/pantallas/pro700.jpg",
+    image: "/imagenes/equipment/case/agriculturayprecision/pantallas/pro700.webp",
     specs: {
       power: "",
       weight: "",
@@ -20,7 +20,7 @@ const pantallasproducts = [
     name: "XCN-1050",
     category: "Agricultura y Precisión",
     description: "La pantalla XCN-1050 es delgada y fácil de usar; posee un procesador quad-core y el software de aplicación de campo Precision-IQ™.",
-    image: "/imagenes/equipment/case/agriculturayprecision/pantallas/xcn.jpg",
+    image: "/imagenes/equipment/case/agriculturayprecision/pantallas/xcn.webp",
     specs: {
       power: "",
       weight: "",
@@ -33,7 +33,7 @@ const pantallasproducts = [
     name: "FM-750",
     category: "Agricultura y Precisión",
     description: "La FM-750 es una pantalla accesible, de guía multi-función que ofrece una característica clave de precisión de agricultura.",
-    image: "/imagenes/equipment/case/agriculturayprecision/pantallas/fm.jpg",
+    image: "/imagenes/equipment/case/agriculturayprecision/pantallas/fm.webp",
     specs: {
       power: "",
       weight: "",
@@ -46,7 +46,7 @@ const pantallasproducts = [
     name: "XCN-2050",
     category: "Agricultura y Precisión",
     description: "La XCN-2050 es una pantalla táctil avanzada que se ubica dentro de la cabina, construida sobre sistema operativo Android™.",
-    image: "/imagenes/equipment/case/agriculturayprecision/pantallas/xcn2050.jpg",
+    image: "/imagenes/equipment/case/agriculturayprecision/pantallas/xcn2050.webp",
     specs: {
       power: "",
       weight: "",

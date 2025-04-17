@@ -7,7 +7,7 @@ const precisiondiskProducts = [
     name: "Precision Disk",
     category: "Sembradoras",
     description: "La familia de sembradoras neumáticas Case IH Precision Disk presentan diseños que maximizan tu productividad, sin importar las condiciones de los residuos con los que está tratando o los cultivos que siembra.",
-    image: "/imagenes/equipment/case/sembradoras/precisiondisk.jpg",
+    image: "/imagenes/equipment/case/sembradoras/precisiondisk.webp",
     specs: {
       power: "",
       weight: "",

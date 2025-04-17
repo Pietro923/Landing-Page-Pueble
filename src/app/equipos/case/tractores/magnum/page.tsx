@@ -7,7 +7,7 @@ const magnumProducts = [
     name: "MAGNUM 260/290/315/340/380/400",
     category: "Tractores",
     description: "El nuevo Magnum AFS Connect llegó para ser tu principal aliado en esta evolución de la agricultura digital, para garantizar el control total de tus operaciones, a cada momento, desde donde tú y tu equipo estén.",
-    image: "/imagenes/equipment/case/tractores/magnum/magnum340.jpg",
+    image: "/imagenes/equipment/case/tractores/magnum/magnum340.webp",
     specs: {
       power: "",
       weight: "",

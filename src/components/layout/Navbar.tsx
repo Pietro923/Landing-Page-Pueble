@@ -28,7 +28,7 @@ const Navbar = () => {
   const equiposItems = [
     { href: '/equipos/case', label: 'Case IH', icon: '/imagenes/equipment/case/case.webp' },
     { href: '/equipos/jcb', label: 'JCB', icon: '/imagenes/equipment/jcb/jcb.svg' },
-    { href: 'https://www.agroads.com.ar/e/pueble-sa/', label: 'Usados', icon: '/imagenes/equipment/agroads/agroads.png', target: "_blank" },
+    { href: 'https://www.agroads.com.ar/e/pueble-sa/', label: 'Usados', icon: '/imagenes/equipment/agroads/agroads.webp', target: "_blank" },
   ]
 
   // Define los enlaces de redes sociales
@@ -83,7 +83,7 @@ const socialLinks = [
               whileTap={{ scale: 0.95 }}
             >
               <Image 
-                src="/imagenes/logos/LogoPueble.png" 
+                src="/imagenes/logos/LogoPueble.webp" 
                 alt="Logo de Pueble S.A."
                 width={152}
                 height={150}

@@ -7,7 +7,7 @@ const quantumProducts = [
     name: "Quantum 65V",
     category: "Tractores",
     description: "Tanto si trabaja viñas, cultiva frutales o requiere un tractor estrecho para otras tareas, las dimensiones reducidas del nuevo Quantum, su radio de giro cerrado y su renovado diseño le proporcionarán las mejores prestaciones.",
-    image: "/imagenes/equipment/case/tractores/quantum/quantum65.jpg",
+    image: "/imagenes/equipment/case/tractores/quantum/quantum65.webp",
     specs: {
       power: "",
       weight: "",
@@ -20,7 +20,7 @@ const quantumProducts = [
     name: "Quantum 85V",
     category: "Tractores",
     description: "Tanto si trabaja viñas, cultiva frutales o requiere un tractor estrecho para otras tareas, las dimensiones reducidas del nuevo Quantum, su radio de giro cerrado y su renovado diseño le proporcionarán las mejores prestaciones.",
-    image: "/imagenes/equipment/case/tractores/quantum/quantum85.jpg",
+    image: "/imagenes/equipment/case/tractores/quantum/quantum85.webp",
     specs: {
       power: "",
       weight: "",
@@ -33,7 +33,7 @@ const quantumProducts = [
     name: "Quantum 85F",
     category: "Tractores",
     description: "Tanto si trabaja viñas, cultiva frutales o requiere un tractor estrecho para otras tareas, las dimensiones reducidas del nuevo Quantum, su radio de giro cerrado y su renovado diseño le proporcionarán las mejores prestaciones.",
-    image: "/imagenes/equipment/case/tractores/quantum/quantum85f.jpg",
+    image: "/imagenes/equipment/case/tractores/quantum/quantum85f.webp",
     specs: {
       power: "",
       weight: "",
@@ -46,7 +46,7 @@ const quantumProducts = [
     name: "Quantum 75N",
     category: "Tractores",
     description: "Tanto si trabaja viñas, cultiva frutales o requiere un tractor estrecho para otras tareas, las dimensiones reducidas del nuevo Quantum, su radio de giro cerrado y su renovado diseño le proporcionarán las mejores prestaciones.",
-    image: "/imagenes/equipment/case/tractores/quantum/quantum75.jpg",
+    image: "/imagenes/equipment/case/tractores/quantum/quantum75.webp",
     specs: {
       power: "",
       weight: "",

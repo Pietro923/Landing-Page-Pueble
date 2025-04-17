@@ -6,7 +6,7 @@ const HenoforrageProducts = [
     name: "Cabezal RD165",
     category: "Heno y Forrage",
     description: "Su principal característica es su estilo refinado para una mejor visibilidad del Cabezal así como ideal para grandes superficies y futuros productores de biomasa.",
-    image: "/imagenes/equipment/case/heno/rd.jpg",
+    image: "/imagenes/equipment/case/heno/rd.webp",
     specs: {
       power: "",
       weight: "",
@@ -19,7 +19,7 @@ const HenoforrageProducts = [
     name: "Segadora WD1904",
     category: "Heno y Forrage",
     description: "Manejo suave y alta capacidad de alimentación de material, más de 50 años de ser la mejor del mercado.",
-    image: "/imagenes/equipment/case/heno/wd.jpg",
+    image: "/imagenes/equipment/case/heno/wd.webp",
     specs: {
       power: "",
       weight: "",
@@ -32,7 +32,7 @@ const HenoforrageProducts = [
     name: "Rotoenfardadora RB565",
     category: "Heno y Forrage",
     description: "Las nuevas Rotoenfardadoras Case IH son la solución para todas sus necesidades en trabajos de pastura.",
-    image: "/imagenes/equipment/case/heno/rb.jpg",
+    image: "/imagenes/equipment/case/heno/rb.webp",
     specs: {
       power: "",
       weight: "",
@@ -45,7 +45,7 @@ const HenoforrageProducts = [
     name: "Enfardadora Prismática SB531",
     category: "Heno y Forrage",
     description: "Las Enfardadoras Prismáticas SB531 de Case IH, son conocidas por producir fardos de mejor calidad y a la vez por recolectar el cultivo del campo de manera más eficiente y confiable.",
-    image: "/imagenes/equipment/case/heno/enfardadora.jpg",
+    image: "/imagenes/equipment/case/heno/enfardadora.webp",
     specs: {
       power: "",
       weight: "",
@@ -58,7 +58,7 @@ const HenoforrageProducts = [
     name: "Enfardadora Gigante LB434 RXL",
     category: "Heno y Forrage",
     description: "Case IH le ofrece equipos que optimizan su tiempo y aumentan su productividad. Puede hacer más de 25 megafardos por hora.",
-    image: "/imagenes/equipment/case/heno/enfardadorag.jpg",
+    image: "/imagenes/equipment/case/heno/enfardadorag.webp",
     specs: {
       power: "",
       weight: "",

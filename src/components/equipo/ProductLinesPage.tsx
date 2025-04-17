@@ -33,7 +33,7 @@ const ProductLinesPage: React.FC<ProductLinesPageProps> = ({
       bg: "from-red-900 via-black to-gray-900",
       accent: "#b71921",
       accentHover: "#8f131a",
-      logoPath: "/imagenes/equipment/case/case.png",
+      logoPath: "/imagenes/equipment/case/case.webp",
       lightText: "text-red-300",
       buttonText: "text-white",
       cardHover: "group-hover:shadow-red-500/20"

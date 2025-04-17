@@ -7,7 +7,7 @@ const farmallProducts = [
     name: "Farmall M",
     category: "Tractores",
     description: "Los tractores Farmall® M ActiveDrive 4 de Case IH ofrecen un paquete único en el que cada detalle ha sido meticulosamente diseñado, con características superiores e innovaciones diseñadas para satisfacer las necesidades futuras.",
-    image: "/imagenes/equipment/case/tractores/farmall/farmallM.jpg",
+    image: "/imagenes/equipment/case/tractores/farmall/farmallM.webp",
     specs: {
       power: "",
       weight: "",
@@ -20,7 +20,7 @@ const farmallProducts = [
     name: "Farmall 80",
     category: "Tractores",
     description: "Los tractores Farmall tienen un rendimiento inigualable en cualquier actividad. Con un sistema hidráulico de alta capacidad, ofrecen la máxima flexibilidad en las operaciones.",
-    image: "/imagenes/equipment/case/tractores/farmall/farmall80.jpg",
+    image: "/imagenes/equipment/case/tractores/farmall/farmall80.webp",
     specs: {
       power: "",
       weight: "",
@@ -33,7 +33,7 @@ const farmallProducts = [
     name: "Farmall 90JX",
     category: "Tractores",
     description: "La alta tecnología y la confiabilidad que sólo la marca Case IH ofrece llegan a los tractores de baja potencia. La línea Farmall es reconocida mundialmente por la robustez, simplicidad de operación y flexibilidad de uso.",
-    image: "/imagenes/equipment/case/tractores/farmall/farmall90.jpg",
+    image: "/imagenes/equipment/case/tractores/farmall/farmall90.webp",
     specs: {
       power: "90 cv (66 kW)",
       weight: "", // Cilindrada: 3,9 L
@@ -46,7 +46,7 @@ const farmallProducts = [
     name: "Farmall 100JX",
     category: "Tractores",
     description: "La alta tecnología y la confiabilidad que sólo la marca Case IH ofrece llegan a los tractores de baja potencia. La línea Farmall es reconocida mundialmente por la robustez, simplicidad de operación y flexibilidad de uso.",
-    image: "/imagenes/equipment/case/tractores/farmall/farmall100.jpg",
+    image: "/imagenes/equipment/case/tractores/farmall/farmall100.webp",
     specs: {
       power: "100 cv (74 kW)",
       weight: "",
@@ -59,7 +59,7 @@ const farmallProducts = [
     name: "Farmall 110JX",
     category: "Tractores",
     description: "La alta tecnología y la confiabilidad que sólo la marca Case IH ofrece llegan a los tractores de baja potencia. La línea Farmall es reconocida mundialmente por la robustez, simplicidad de operación y flexibilidad de uso.",
-    image: "/imagenes/equipment/case/tractores/farmall/farmall110.jpg",
+    image: "/imagenes/equipment/case/tractores/farmall/farmall110.webp",
     specs: {
       power: "110 cv (81 kW)",
       weight: "",
@@ -72,7 +72,7 @@ const farmallProducts = [
     name: "Farmall JXM55",
     category: "Tractores",
     description: "Los nuevos tractores Case IH Farmall Serie JXM suministran la potencia y el rendimiento que sus dueños esperan, con el diseño de primera calidad distintivo de Case IH.",
-    image: "/imagenes/equipment/case/tractores/farmall/farmall55.jpg",
+    image: "/imagenes/equipment/case/tractores/farmall/farmall55.webp",
     specs: {
       power: "55 HP",
       weight: "",
@@ -85,7 +85,7 @@ const farmallProducts = [
     name: "Farmall JXM 75",
     category: "Tractores",
     description: "Los nuevos tractores Case IH Farmall Serie JXM se ajustan a la demanda de equipos robustos pero cómodos y fáciles de operar. Los modelos vienen en una versión 2WD o 4WD y cuentan con opciones de transmisión",
-    image: "/imagenes/equipment/case/tractores/farmall/farmall-jxm.jpg",
+    image: "/imagenes/equipment/case/tractores/farmall/farmall-jxm.webp",
     specs: {
       power: "75 HP",
       weight: "", // hay que cambiar esto por: Cilindrada: 2,9 L
@@ -98,7 +98,7 @@ const farmallProducts = [
     name: "Farmall 120A",
     category: "Tractores",
     description: "Los tractores Farmall son la mejor opción para las economías regionales y con los años, se han ido renovando. Tienen un rendimiento inigualable en cualquier actividad.",
-    image: "/imagenes/equipment/case/tractores/farmall/farmall120.jpg",
+    image: "/imagenes/equipment/case/tractores/farmall/farmall120.webp",
     specs: {
       power: "",
       weight: "",
@@ -111,7 +111,7 @@ const farmallProducts = [
     name: "Farmall 130A",
     category: "Tractores",
     description: "Toda la potencia que necesita, ya sea en la agricultura o la ganadería, la puede encontrar en Farmall 130A.",
-    image: "/imagenes/equipment/case/tractores/farmall/farmall130.jpg",
+    image: "/imagenes/equipment/case/tractores/farmall/farmall130.webp",
     specs: {
       power: "",
       weight: "",
@@ -124,7 +124,7 @@ const farmallProducts = [
     name: "Farmall 80 con pala",
     category: "Tractores",
     description: "Los tractores Farmall tienen un rendimiento inigualable en cualquier actividad. Con un sistema hidráulico de alta capacidad, ofrecen la máxima flexibilidad en las operaciones.",
-    image: "/imagenes/equipment/case/tractores/farmall/farmall80conpala.jpeg",
+    image: "/imagenes/equipment/case/tractores/farmall/farmall80conpala.webp",
     specs: {
       power: "",
       weight: "",

@@ -7,7 +7,7 @@ const quadtracProducts = [
     name: "Quadtrac 500",
     category: "Tractores",
     description: "El nuevo Quadtrac AFS Connect ofrece toda la fuerza y robustez que ya conoces con las ventajas y adicionales agronómicos que solo la agricultura de precisión puede proporcionar.",
-    image: "/imagenes/equipment/case/tractores/quadtrac/quadtrac500.jpg",
+    image: "/imagenes/equipment/case/tractores/quadtrac/quadtrac500.webp",
     specs: {
       power: "",
       weight: "",
