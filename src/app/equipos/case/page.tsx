@@ -2,6 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Card, CardHeader } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 const categories = [
   {
@@ -66,41 +67,81 @@ const categories = [
   }
 ];
 
+// Variantes simples similares a las de ProductLinesPage
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { type: "spring", stiffness: 100 }
+  }
+};
+
 export default function CaseEquipmentPage() {
   return (
     <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-center mb-8">
+        <motion.div 
+          className="flex items-center justify-center mb-8"
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
           <img 
             src="/imagenes/equipment/case/case.webp"
             alt="Case IH Logo" 
             className="h-12 md:h-16"
           />
-        </div>
-        <p className="text-gray-300 text-center text-xl max-w-3xl mx-auto">
+        </motion.div>
+        <motion.p 
+          className="text-gray-300 text-center text-xl max-w-3xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
           Somos concesionario oficial de la marca CASE IH, comercializamos toda su línea de productos; 
           teniendo una sólida estructura en administración, venta de repuestos y servicio de posventa.
-        </p>
+        </motion.p>
       </div>
       
       {/* Categories Grid */}
       <div className="container mx-auto px-4 py-16">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <motion.div 
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+
+        
           {categories.map((category) => (
-            <Link href={category.href} key={category.id} className="h-full">
-              <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white h-full flex flex-col">
-                <CardHeader className="flex flex-col items-center justify-between text-center p-8 h-full">
+            <motion.div key={category.id} variants={itemVariants}>
+            <Link href={category.href} className="h-full">
+              <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-all duration-300 text-white h-full flex flex-col">
+                                <CardHeader className="flex flex-col items-center justify-between text-center p-8 h-full">
                   <div className="flex items-center justify-center h-32 text-[#8f131a] group-hover:text-[#b71921] transition-colors duration-300">
                     {category.icon}
                   </div>
                   <h3 className="text-xl font-bold text-gray-300 mt-4">
-                    {category.name}
-                  </h3>
-                </CardHeader>
-              </Card>
-            </Link>
+                      {category.name}
+                    </h3>
+                    </CardHeader>
+                </Card>
+              </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
