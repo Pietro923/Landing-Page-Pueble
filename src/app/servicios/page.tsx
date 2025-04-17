@@ -1,10 +1,15 @@
 'use client'
-import { motion } from "framer-motion"
+const controls = useAnimation();
+useEffect(() => {
+  controls.start({ opacity: 1, y: 0 });
+}, []);
+import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardContent, CardTitle, CardDescription } from "@/components/ui/card"
 import Image from 'next/image'
 import { Wrench, ShoppingCart, Smartphone, Shield, PhoneCall } from 'lucide-react'
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
+import { useEffect } from "react";
 export default function Servicios() {
   const services = [
     {
@@ -66,6 +71,8 @@ export default function Servicios() {
       image: "/imagenes/servicios/empresaagricola.webp"
     }
   ];
+
+  
   return (
     <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto px-4 relative">
@@ -83,10 +90,10 @@ export default function Servicios() {
         </motion.div>
         {/* Servicios destacados */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0.3, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16"
         >
           {services.map((service, index) => {
@@ -122,10 +129,10 @@ export default function Servicios() {
         </motion.div>
         {/* AFS Connect */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0.3, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           className="mb-16 relative"
         >
           
@@ -218,10 +225,10 @@ export default function Servicios() {
         </motion.div>
         {/* JCB Live Link */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0.3, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           className="mb-16 relative"
         >
           
@@ -316,10 +323,10 @@ export default function Servicios() {
         </motion.div>
         {/* Testimonios */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0.3, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           className="mb-16"
         >
           <h3 className="text-3xl font-bold text-white text-center mb-8 border-b-2 border-red-500 inline-block">Testimonios</h3>
