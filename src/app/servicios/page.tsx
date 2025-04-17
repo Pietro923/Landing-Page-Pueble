@@ -7,12 +7,6 @@ import { Wrench, ShoppingCart, Smartphone, Shield, PhoneCall } from 'lucide-reac
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
 import { useEffect } from "react";
 
-
-const controls = useAnimation();
-useEffect(() => {
-  controls.start({ opacity: 1, y: 0 });
-}, []);
-
 export default function Servicios() {
   const services = [
     {
@@ -75,6 +69,10 @@ export default function Servicios() {
     }
   ];
 
+  const controls = useAnimation();
+useEffect(() => {
+  controls.start({ opacity: 1, y: 0 });
+}, []);
   
   return (
     <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
