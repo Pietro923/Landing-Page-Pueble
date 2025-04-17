@@ -1,8 +1,4 @@
 'use client'
-const controls = useAnimation();
-useEffect(() => {
-  controls.start({ opacity: 1, y: 0 });
-}, []);
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardContent, CardTitle, CardDescription } from "@/components/ui/card"
@@ -10,6 +6,13 @@ import Image from 'next/image'
 import { Wrench, ShoppingCart, Smartphone, Shield, PhoneCall } from 'lucide-react'
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
 import { useEffect } from "react";
+
+
+const controls = useAnimation();
+useEffect(() => {
+  controls.start({ opacity: 1, y: 0 });
+}, []);
+
 export default function Servicios() {
   const services = [
     {
