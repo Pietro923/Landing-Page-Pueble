@@ -45,7 +45,7 @@ const BuscarContent = () => {
       >
         <Card className="bg-white/10 backdrop-blur-sm border-0 shadow-xl">
           <CardHeader className="text-center space-y-2">
-            <CardTitle className="text-3xl font-bold bg-gradient-to-r from-red-600 to-red-800 text-transparent bg-clip-text">
+            <CardTitle className="text-3xl font-bold bg-gradient-to-r text-gray-300  bg-clip-text">
               Buscar Equipos
             </CardTitle>
           </CardHeader>

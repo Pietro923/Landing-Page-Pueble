@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ChevronDown, Search } from "lucide-react"
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { Facebook, Instagram, Linkedin } from "lucide-react"
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 import Image from 'next/image'
 
 const Navbar = () => {
@@ -31,11 +31,12 @@ const Navbar = () => {
     { href: 'https://www.agroads.com.ar/e/pueble-sa/', label: 'Usados', icon: '/imagenes/equipment/agroads/agroads.webp', target: "_blank" },
   ]
 
-  const socialLinks = [
-    { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/Pueblemaquinarias" },
-    { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/casepueblesa/" },
-    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/grupo-pueble/" },
-  ]
+  // Define los enlaces de redes sociales
+const socialLinks = [
+  { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/Pueblemaquinarias" },
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/casepueblesa/" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/grupo-pueble/" },
+];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,70 +73,46 @@ const Navbar = () => {
   }
 
   return (
-    <motion.div 
-  className="fixed w-full z-50"
-  animate={{ 
-    backgroundColor: isScrolled ? "rgba(24, 24, 27, 0.95)" : "rgba(9, 9, 11, 0.8)", // Cambiado el color cuando está scrolled
-    boxShadow: isScrolled ? "0 4px 12px rgba(0, 0, 0, 0.3)" : "none",
-  }}
-  transition={{ duration: 0.3 }}
->
-  <div className="absolute inset-0 backdrop-blur-md" 
-       style={{ 
-         opacity: isScrolled ? 0.9 : 0.7,
-         background: isScrolled ? 'linear-gradient(to bottom, rgba(24, 24, 27, 0.95), rgba(24, 24, 27, 0.9))' : 'linear-gradient(to bottom, rgba(9, 9, 11, 0.8), rgba(9, 9, 11, 0.7))'
-       }} 
-  />
+    <div className="fixed w-full z-50">
+      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/95 via-zinc-950/90 to-zinc-950/85"/>
       <div className="container mx-auto px-4 relative">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <Link href="/">
-  <motion.div
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    className="relative z-10"
-    
-    transition={{ type: "spring", stiffness: 300, damping: 25 }}
-  >
-    <motion.div
-      animate={{ 
-        filter: isScrolled ? 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))' : 'drop-shadow(0 4px 6px rgba(0,0,0,0.4))'
-      }}
-      transition={{ duration: 0.3 }}
-    >
-      <Image 
-        src="/imagenes/logos/LogoPueble.webp" 
-        alt="Logo de Pueble S.A."
-        width={152}
-        height={150}
-        priority
-        className="h-28 w-auto object-contain"
-      />
-    </motion.div>
-  </motion.div>
-</Link>
+          <Link href="/" >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Image 
+                src="/imagenes/logos/LogoPueble.webp" 
+                alt="Logo de Pueble S.A."
+                width={152}
+                height={150}
+                priority
+              />
+            </motion.div>
+          </Link>
           
           {/* Navegación Desktop */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <ul className="flex items-center space-x-2">
+          <nav className="hidden md:flex items-center space-x-6">
+            <ul className="flex items-center space-x-6">
               {navItems.map((item) => (
                 <motion.li
                   key={item.href}
-                  whileHover={{ y: -2 }}
+                  whileHover={{ y: -1 }}
                   className="relative"
                 >
                   <Link
                     href={item.href}
                     onClick={handleNavigation}
-                    className={`text-white px-4 py-2 rounded-md transition-all duration-300 relative group text-sm uppercase tracking-wide font-medium
-                      ${isActivePage(item.href) ? 'text-red-400' : 'hover:text-red-400'}`}
+                    className={`text-white px-3 py-2 rounded-md transition-all duration-200 relative group
+                      ${isActivePage(item.href) ? 'font-medium' : 'hover:text-red-400'}`}
                   >
                     {item.label}
-                    <div className="absolute inset-0 bg-red-500/0 group-hover:bg-red-500/10 rounded-md transition-all duration-300" />
+                    <div className="absolute inset-0 bg-red-500/0 group-hover:bg-red-500/10 rounded-md transition-all duration-200" />
                     {isActivePage(item.href) && (
                       <motion.div
                         layoutId="activeSection"
-                        className="absolute -bottom-1 left-1 right-1 h-[2px] bg-gradient-to-r from-red-600 via-red-500 to-red-400"
+                        className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-red-500 to-red-400"
                         initial={false}
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
@@ -151,18 +128,17 @@ const Navbar = () => {
                 onMouseLeave={() => setIsDropdownOpen(false)}
               >
                 <button
-                  className={`flex items-center text-white px-4 py-2 rounded-md transition-all duration-300 relative group text-sm uppercase tracking-wide font-medium
-                    ${isActivePage('/equipos') ? 'text-red-400' : 'hover:text-red-400'}`}
+                  className={`flex items-center text-white px-3 py-2 rounded-md transition-all duration-200 relative group
+                    ${isActivePage('/equipos') ? 'font-medium' : 'hover:text-red-400'}`}
                 >
                   Equipos
                   <motion.span
                     animate={{ rotate: isDropdownOpen ? 180 : 0 }}
                     transition={{ duration: 0.2 }}
-                    className="ml-1"
                   >
-                    <ChevronDown className="h-4 w-4" />
+                    <ChevronDown className="ml-1 h-4 w-4" />
                   </motion.span>
-                  <div className="absolute inset-0 bg-red-500/0 group-hover:bg-red-500/10 rounded-md transition-all duration-300" />
+                  <div className="absolute inset-0 bg-red-500/0 group-hover:bg-red-500/10 rounded-md transition-all duration-200" />
                 </button>
   
                 <AnimatePresence>
@@ -172,7 +148,7 @@ const Navbar = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute right-0 mt-2 w-60 bg-zinc-900/95 backdrop-blur-lg rounded-lg shadow-xl border border-zinc-700/30 overflow-hidden"
+                      className="absolute right-0 mt-2 w-48 bg-zinc-800/90 backdrop-blur-sm rounded-lg shadow-xl border border-zinc-700/50 overflow-hidden"
                     >
                       {equiposItems.map((item) => (
                         item.href.startsWith("http") ? (
@@ -181,57 +157,48 @@ const Navbar = () => {
                             href={item.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center px-5 py-4 hover:bg-zinc-800 transition-all duration-200 group border-b border-zinc-800/50 last:border-0"
+                            className="flex items-center px-4 py-3 hover:bg-zinc-700/50 transition-all duration-200 group"
                           >
-                            <div className="bg-zinc-800 p-2 rounded-md mr-3 group-hover:bg-zinc-700 transition-colors duration-200">
-                              <img
-                                src={item.icon}
-                                alt={item.label}
-                                className="w-6 h-6 object-contain group-hover:scale-110 transition-transform duration-300"
-                              />
-                            </div>
-                            <span className="text-white/90 group-hover:text-white text-sm font-medium">{item.label}</span>
+                            <img
+                              src={item.icon}
+                              alt={item.label}
+                              className="w-8 h-8 object-contain mr-3 group-hover:scale-105 transition-transform duration-200"
+                            />
+                            <span className="text-white/90 group-hover:text-white font-medium">{item.label}</span>
                           </a>
                         ) : (
                           <Link
                             key={item.href}
                             href={item.href}
                             onClick={handleNavigation}
-                            className="flex items-center px-5 py-4 hover:bg-zinc-800 transition-all duration-200 group border-b border-zinc-800/50 last:border-0"
+                            className="flex items-center px-4 py-3 hover:bg-zinc-700/50 transition-all duration-200 group"
                           >
-                            <div className="bg-zinc-800 p-2 rounded-md mr-3 group-hover:bg-zinc-700 transition-colors duration-200">
-                              <img
-                                src={item.icon}
-                                alt={item.label}
-                                className="w-6 h-6 object-contain group-hover:scale-110 transition-transform duration-300"
-                              />
-                            </div>
-                            <span className="text-white/90 group-hover:text-white text-sm font-medium">{item.label}</span>
+                            <img
+                              src={item.icon}
+                              alt={item.label}
+                              className="w-8 h-8 object-contain mr-3 group-hover:scale-105 transition-transform duration-200"
+                            />
+                            <span className="text-white/90 group-hover:text-white font-medium">{item.label}</span>
                           </Link>
                         )
                       ))}
+
                     </motion.div>
                   )}
                 </AnimatePresence>
               </motion.li>
             </ul>
-            
-            {/* Separador vertical */}
-            <div className="h-8 w-px bg-zinc-700/50"></div>
-            
+
             {/* Search Bar */}
-            <div className="flex items-center space-x-2">
-              <div className="relative group">
-                <Input 
-                  type="text" 
-                  placeholder="Buscar..." 
-                  className="w-48 text-white bg-zinc-800/70 border-zinc-700/50 focus:border-red-500 focus:ring-red-500/30 rounded-md [&::placeholder]:text-zinc-400 h-9 pl-9"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                />
-                <Search className="w-4 h-4 text-zinc-400 absolute left-3 top-2.5 group-focus-within:text-red-400 transition-colors duration-200" />
-              </div>
+            <div className="flex items-center space-x-2 ml-4">
+              <Input 
+                type="text" 
+                placeholder="Buscar..." 
+                className="w-48 text-white bg-zinc-800/50 border-zinc-700 focus:border-red-500 focus:ring-red-500 [&::placeholder]:text-white/70"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyPress={handleKeyPress}
+              />
               <Button 
                 variant="outline" 
                 size="icon" 
@@ -242,38 +209,33 @@ const Navbar = () => {
                 <Search className="w-5 h-5" aria-hidden="true"/>
               </Button>
             </div>
-
-            {/* Separador vertical */}
-            <div className="h-8 w-px bg-zinc-700/50"></div>
-            
             {/* Redes Sociales */}
-            <div className="flex items-center space-x-4">
+            <div className="hidden md:flex items-center space-x-4">
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
                 return (
-                  <motion.a
+                  <a
                     key={index}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white hover:text-red-400 transition-colors duration-300"
+                    className="text-white hover:text-red-400 transition-colors duration-200"
                     aria-label={social.label}
-                    whileHover={{ scale: 1.15, rotate: 5 }}
-                    whileTap={{ scale: 0.95 }}
                   >
                     <Icon className="w-5 h-5" />
-                  </motion.a>
+                  </a>
                 );
               })}
             </div>
           </nav>
           
+  
           {/* Mobile Menu Button */}
           <motion.div className="md:hidden" whileTap={{ scale: 0.95 }}>
             <Button
               variant="ghost"
               size="icon"
-              className="text-white hover:bg-red-500/20 focus:ring-1 focus:ring-red-500/30"
+              className="text-white hover:bg-red-500/20"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
             >
@@ -289,12 +251,12 @@ const Navbar = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden overflow-hidden  backdrop-blur-lg rounded-b-xl  shadow-lg"
+              className="md:hidden overflow-hidden  backdrop-blur-sm"
             >
               {/* Mobile Search Bar */}
-              <div className="p-4 border-b border-zinc-800/50">
-              <div className="flex items-center space-x-2 mt-4">
-                <Input 
+              <div className="px-4 pb-4">
+                <div className="flex items-center space-x-2 mt-4">
+                  <Input 
                     type="text" 
                     placeholder="Buscar..." 
                     className="w-full text-white bg-zinc-800/50 border-zinc-700 focus:border-red-500 focus:ring-red-500"
@@ -309,17 +271,17 @@ const Navbar = () => {
                     onClick={handleSearch}
                   >
                     <Search className="w-5 h-5" />
-                    </Button>
+                  </Button>
                 </div>
               </div>
-              
+
               {/* Mobile Navigation Links */}
               <motion.ul
-                className="flex flex-col py-2"
+                className="flex flex-col space-y-1 py-4"
                 initial="closed"
                 animate="open"
                 variants={{
-                  open: { transition: { staggerChildren: 0.07 } },
+                  open: { transition: { staggerChildren: 0.1 } },
                   closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } }
                 }}
               >
@@ -335,32 +297,27 @@ const Navbar = () => {
                     <Link
                       href={item.href}
                       onClick={handleNavigation}
-                      className={`flex items-center px-6 py-3 transition-all duration-200 
+                      className={`block px-4 py-2 rounded-md transition-all duration-200 
                         ${isActivePage(item.href)
-                          ? 'bg-gradient-to-r from-red-700 to-red-600 text-white font-medium'
-                          : 'text-white hover:bg-zinc-800'}`}
+                          ? 'bg-gradient-to-r from-red-600 to-red-500 text-white font-medium'
+                          : 'text-white hover:bg-red-500/10'}`}
                     >
-                      <span className="font-medium">{item.label}</span>
-                      {isActivePage(item.href) && (
-                        <div className="ml-auto">
-                          <div className="w-1.5 h-1.5 rounded-full bg-white"></div>
-                        </div>
-                      )}
+                      {item.label}
                     </Link>
                   </motion.li>
                 ))}
-                
+
                 {/* Sección de Equipos */}
                 <motion.li
                   variants={{
                     open: { y: 0, opacity: 1 },
                     closed: { y: 20, opacity: 0 }
                   }}
-                  className="mt-2"
+                  className="space-y-1"
                 >
-                  <div className="px-6 py-2">
-                    <div className="text-red-500 font-semibold uppercase text-xs tracking-wider mb-3">Equipos</div>
-                    <div className="ml-2 space-y-1">
+                  <div className="px-4 py-2">
+                    <div className="text-white/80 font-medium mb-2">Equipos</div>
+                    <div className="ml-4 space-y-2">
                       {equiposItems.map((item) => (
                         item.href.startsWith('http') ? (
                           <a
@@ -368,33 +325,29 @@ const Navbar = () => {
                             href={item.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center py-3 px-4 rounded-lg text-white bg-zinc-800/50 hover:bg-zinc-800 mb-2 group"
+                            className="flex items-center py-2 px-3 rounded-md text-white hover:bg-red-500/10 group"
                             onClick={handleNavigation}
                           >
-                            <div className="bg-zinc-800 p-2 rounded-md group-hover:bg-zinc-700 transition-colors duration-200">
-                              <img
-                                src={item.icon}
-                                alt={item.label}
-                                className="w-6 h-6 object-contain group-hover:scale-110 transition-transform duration-300"
-                              />
-                            </div>
-                            <span className="ml-3 font-medium">{item.label}</span>
+                            <img
+                              src={item.icon}
+                              alt={item.label}
+                              className="w-6 h-6 object-contain mr-2 group-hover:scale-105 transition-transform duration-200"
+                            />
+                            <span>{item.label}</span>
                           </a>
                         ) : (
                           <Link
                             key={item.href}
                             href={item.href}
                             onClick={handleNavigation}
-                            className="flex items-center py-3 px-4 rounded-lg text-white bg-zinc-800/50 hover:bg-zinc-800 mb-2 group"
+                            className="flex items-center py-2 px-3 rounded-md text-white hover:bg-red-500/10 group"
                           >
-                            <div className="bg-zinc-800 p-2 rounded-md group-hover:bg-zinc-700 transition-colors duration-200">
-                              <img
-                                src={item.icon}
-                                alt={item.label}
-                                className="w-6 h-6 object-contain group-hover:scale-110 transition-transform duration-300"
-                              />
-                            </div>
-                            <span className="ml-3 font-medium">{item.label}</span>
+                            <img
+                              src={item.icon}
+                              alt={item.label}
+                              className="w-6 h-6 object-contain mr-2 group-hover:scale-105 transition-transform duration-200"
+                            />
+                            <span>{item.label}</span>
                           </Link>
                         )
                       ))}
@@ -402,10 +355,10 @@ const Navbar = () => {
                   </div>
                 </motion.li>
               </motion.ul>
-              
+
               {/* Redes Sociales en Mobile */}
-              <div className="px-6 py-4 border-t border-zinc-800/50">
-                <div className="flex items-center justify-around">
+              <div className="px-4 py-4 border-t border-zinc-700/50">
+                <div className="flex items-center justify-center space-x-6">
                   {socialLinks.map((social, index) => {
                     const Icon = social.icon;
                     return (
@@ -414,13 +367,10 @@ const Navbar = () => {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex flex-col items-center text-zinc-400 hover:text-red-400 transition-colors duration-200 py-2 px-4"
+                        className="text-white hover:text-red-400 transition-colors duration-200"
                         aria-label={social.label}
                       >
-                        <div className="bg-zinc-800 p-3 rounded-full mb-2 hover:bg-zinc-700 transition-colors duration-200">
-                          <Icon className="w-5 h-5" />
-                        </div>
-                        <span className="text-xs font-medium">{social.label}</span>
+                        <Icon className="w-6 h-6" />
                       </a>
                     );
                   })}
@@ -430,7 +380,7 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </div>
-    </motion.div>
+    </div>
   )
 }
 
