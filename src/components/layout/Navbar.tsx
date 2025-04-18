@@ -248,11 +248,11 @@ const socialLinks = [
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.nav
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden overflow-hidden  backdrop-blur-sm"
-            >
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden overflow-hidden backdrop-blur-sm"
+          >
               {/* Mobile Search Bar */}
               <div className="px-4 pb-4">
                 <div className="flex items-center space-x-2 mt-4">
@@ -276,8 +276,8 @@ const socialLinks = [
               </div>
 
               {/* Mobile Navigation Links */}
-              <motion.ul
-                className="flex flex-col space-y-1 py-4"
+              <motion.ul className="flex flex-col space-y-1 py-2"
+
                 initial="closed"
                 animate="open"
                 variants={{
@@ -313,41 +313,46 @@ const socialLinks = [
                     open: { y: 0, opacity: 1 },
                     closed: { y: 20, opacity: 0 }
                   }}
-                  className="space-y-1"
+                  className="mt-2"
                 >
-                  <div className="px-4 py-2">
-                    <div className="text-white/80 font-medium mb-2">Equipos</div>
-                    <div className="ml-4 space-y-2">
-                      {equiposItems.map((item) => (
-                        item.href.startsWith('http') ? (
-                          <a
-                            key={item.href}
-                            href={item.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center py-2 px-3 rounded-md text-white hover:bg-red-500/10 group"
-                            onClick={handleNavigation}
-                          >
+                  <div className="px-6 py-2">
+                    <div className="text-red-500 font-semibold uppercase text-xs tracking-wider mb-3">Equipos</div>
+
+                    <div className="ml-2 space-y-1">
+  {equiposItems.map((item) => (
+    item.href.startsWith('http') ? (
+      <a
+        key={item.href}
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center py-2 px-3 rounded-lg text-white bg-zinc-800/50 hover:bg-zinc-800 mb-1 group" // Cambiado py-3 a py-2
+        onClick={handleNavigation}
+      >
+                            <div className="bg-zinc-800 p-2 rounded-md group-hover:bg-zinc-700 transition-colors duration-200"> {/* p-2 a p-1 */}
                             <img
-                              src={item.icon}
-                              alt={item.label}
-                              className="w-6 h-6 object-contain mr-2 group-hover:scale-105 transition-transform duration-200"
-                            />
-                            <span>{item.label}</span>
+            src={item.icon}
+            alt={item.label}
+            className="w-5 h-5 object-contain group-hover:scale-110 transition-transform duration-300" // w-6 a w-5
+                              />
+                            </div>
+                            <span className="ml-2 font-medium text-sm">{item.label}</span> {/* ml-3 a ml-2, añadido text-sm */}
                           </a>
                         ) : (
                           <Link
                             key={item.href}
                             href={item.href}
                             onClick={handleNavigation}
-                            className="flex items-center py-2 px-3 rounded-md text-white hover:bg-red-500/10 group"
+                            className="flex items-center py-2 px-3 rounded-lg text-white bg-zinc-800/50 hover:bg-zinc-800 mb-1 group" // Cambiado py-3 a py-2
                           >
-                            <img
-                              src={item.icon}
-                              alt={item.label}
-                              className="w-6 h-6 object-contain mr-2 group-hover:scale-105 transition-transform duration-200"
-                            />
-                            <span>{item.label}</span>
+                            <div className="bg-zinc-800 p-2 rounded-md group-hover:bg-zinc-700 transition-colors duration-200">
+                              <img
+                                src={item.icon}
+                                alt={item.label}
+                                className="w-5 h-5 object-contain group-hover:scale-110 transition-transform duration-300" // w-6 a w-5
+                              />
+                            </div>
+                            <span className="ml-2 font-medium text-sm">{item.label}</span> {/* ml-3 a ml-2, añadido text-sm */}
                           </Link>
                         )
                       ))}
