@@ -92,27 +92,27 @@ const socialLinks = [
             </motion.div>
           </Link>
           
-          {/* Navegación Desktop */}
-          <nav className="hidden md:flex items-center space-x-6">
-            <ul className="flex items-center space-x-6">
+         {/* Navegación Desktop */}
+          <nav className="hidden md:flex items-center space-x-8">
+            <ul className="flex items-center space-x-2">
               {navItems.map((item) => (
                 <motion.li
                   key={item.href}
-                  whileHover={{ y: -1 }}
+                  whileHover={{ y: -2 }}
                   className="relative"
                 >
                   <Link
                     href={item.href}
                     onClick={handleNavigation}
-                    className={`text-white px-3 py-2 rounded-md transition-all duration-200 relative group
-                      ${isActivePage(item.href) ? 'font-medium' : 'hover:text-red-400'}`}
+                    className={`text-white px-4 py-2 rounded-md transition-all duration-300 relative group text-sm uppercase tracking-wide font-medium
+                      ${isActivePage(item.href) ? 'text-red-400' : 'hover:text-red-400'}`}
                   >
                     {item.label}
-                    <div className="absolute inset-0 bg-red-500/0 group-hover:bg-red-500/10 rounded-md transition-all duration-200" />
+                    <div className="absolute inset-0 bg-red-500/0 group-hover:bg-red-500/10 rounded-md transition-all duration-300" />
                     {isActivePage(item.href) && (
                       <motion.div
                         layoutId="activeSection"
-                        className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-red-500 to-red-400"
+                        className="absolute -bottom-1 left-1 right-1 h-[2px] bg-gradient-to-r from-red-600 via-red-500 to-red-400"
                         initial={false}
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
@@ -128,17 +128,18 @@ const socialLinks = [
                 onMouseLeave={() => setIsDropdownOpen(false)}
               >
                 <button
-                  className={`flex items-center text-white px-3 py-2 rounded-md transition-all duration-200 relative group
-                    ${isActivePage('/equipos') ? 'font-medium' : 'hover:text-red-400'}`}
+                  className={`flex items-center text-white px-4 py-2 rounded-md transition-all duration-300 relative group text-sm uppercase tracking-wide font-medium
+                    ${isActivePage('/equipos') ? 'text-red-400' : 'hover:text-red-400'}`}
                 >
                   Equipos
                   <motion.span
                     animate={{ rotate: isDropdownOpen ? 180 : 0 }}
                     transition={{ duration: 0.2 }}
+                    className="ml-1"
                   >
-                    <ChevronDown className="ml-1 h-4 w-4" />
+                    <ChevronDown className="h-4 w-4" />
                   </motion.span>
-                  <div className="absolute inset-0 bg-red-500/0 group-hover:bg-red-500/10 rounded-md transition-all duration-200" />
+                  <div className="absolute inset-0 bg-red-500/0 group-hover:bg-red-500/10 rounded-md transition-all duration-300" />
                 </button>
   
                 <AnimatePresence>
@@ -148,7 +149,7 @@ const socialLinks = [
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute right-0 mt-2 w-48 bg-zinc-800/90 backdrop-blur-sm rounded-lg shadow-xl border border-zinc-700/50 overflow-hidden"
+                      className="absolute right-0 mt-2 w-60 bg-zinc-900/95 backdrop-blur-lg rounded-lg shadow-xl border border-zinc-700/30 overflow-hidden"
                     >
                       {equiposItems.map((item) => (
                         item.href.startsWith("http") ? (
@@ -157,37 +158,42 @@ const socialLinks = [
                             href={item.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center px-4 py-3 hover:bg-zinc-700/50 transition-all duration-200 group"
+                            className="flex items-center px-5 py-4 hover:bg-zinc-800 transition-all duration-200 group border-b border-zinc-800/50 last:border-0"
                           >
-                            <img
-                              src={item.icon}
-                              alt={item.label}
-                              className="w-8 h-8 object-contain mr-3 group-hover:scale-105 transition-transform duration-200"
-                            />
-                            <span className="text-white/90 group-hover:text-white font-medium">{item.label}</span>
+                            <div className="bg-zinc-800 p-2 rounded-md mr-3 group-hover:bg-zinc-700 transition-colors duration-200">
+                              <img
+                                src={item.icon}
+                                alt={item.label}
+                                className="w-6 h-6 object-contain group-hover:scale-110 transition-transform duration-300"
+                              />
+                            </div>
+                            <span className="text-white/90 group-hover:text-white text-sm font-medium">{item.label}</span>
                           </a>
                         ) : (
                           <Link
                             key={item.href}
                             href={item.href}
                             onClick={handleNavigation}
-                            className="flex items-center px-4 py-3 hover:bg-zinc-700/50 transition-all duration-200 group"
+                            className="flex items-center px-5 py-4 hover:bg-zinc-800 transition-all duration-200 group border-b border-zinc-800/50 last:border-0"
                           >
-                            <img
-                              src={item.icon}
-                              alt={item.label}
-                              className="w-8 h-8 object-contain mr-3 group-hover:scale-105 transition-transform duration-200"
-                            />
-                            <span className="text-white/90 group-hover:text-white font-medium">{item.label}</span>
+                            <div className="bg-zinc-800 p-2 rounded-md mr-3 group-hover:bg-zinc-700 transition-colors duration-200">
+                              <img
+                                src={item.icon}
+                                alt={item.label}
+                                className="w-6 h-6 object-contain group-hover:scale-110 transition-transform duration-300"
+                              />
+                            </div>
+                            <span className="text-white/90 group-hover:text-white text-sm font-medium">{item.label}</span>
                           </Link>
                         )
                       ))}
-
                     </motion.div>
                   )}
                 </AnimatePresence>
               </motion.li>
             </ul>
+
+            <div className="h-8 w-px bg-zinc-700/50"></div>
 
             {/* Search Bar */}
             <div className="flex items-center space-x-2 ml-4">
@@ -209,21 +215,26 @@ const socialLinks = [
                 <Search className="w-5 h-5" aria-hidden="true"/>
               </Button>
             </div>
-            {/* Redes Sociales */}
-            <div className="hidden md:flex items-center space-x-4">
+
+            <div className="h-8 w-px bg-zinc-700/50"></div>
+            
+           {/* Redes Sociales */}
+            <div className="flex items-center space-x-4">
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
                 return (
-                  <a
+                  <motion.a
                     key={index}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white hover:text-red-400 transition-colors duration-200"
+                    className="text-white hover:text-red-400 transition-colors duration-300"
                     aria-label={social.label}
+                    whileHover={{ scale: 1.15, rotate: 5 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     <Icon className="w-5 h-5" />
-                  </a>
+                  </motion.a>
                 );
               })}
             </div>
