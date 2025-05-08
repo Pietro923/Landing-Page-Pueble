@@ -12,7 +12,7 @@ const cargadoresProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Cargadores-Frontales/406.pdf"
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const cargadoresProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Cargadores-Frontales/422ZX.pdf"
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const cargadoresProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Cargadores-Frontales/426.pdf"
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ const cargadoresProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Cargadores-Frontales/437ZX.pdf"
   },
   {
     id: 5,
@@ -64,7 +64,7 @@ const cargadoresProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Cargadores-Frontales/426.pdf"
   },
   {
     id: 6,
@@ -77,7 +77,7 @@ const cargadoresProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Cargadores-Frontales/437ZX.pdf"
   },
   {
     id: 7,
@@ -90,7 +90,7 @@ const cargadoresProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Cargadores-Frontales/455ZX.pdf"
   },
   {
     id: 8,
@@ -103,7 +103,7 @@ const cargadoresProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Cargadores-Frontales/456.pdf"
   },
   {
     id: 9,
@@ -116,7 +116,7 @@ const cargadoresProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Cargadores-Frontales/467ZX.pdf"
   },
 ];
 

@@ -13,7 +13,7 @@ const retroProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Retroexcavadora/1CX.pdf"
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const retroProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Retroexcavadora/3CX-4CX.pdf"
   },
   {
     id: 3,
@@ -39,7 +39,7 @@ const retroProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Retroexcavadora/3CX-4CX.pdf"
   },
 ];
 

@@ -1,5 +1,6 @@
-'use client'
-import { useState, useEffect } from "react";
+"use client"
+
+import { useState, useEffect, SetStateAction } from "react";
 import { Button } from "@/components/ui/button"
 import { ChevronRight, Tractor, Award, Clock, Users } from 'lucide-react'
 import { motion, AnimatePresence } from "framer-motion"
@@ -7,9 +8,10 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 import { useCallback } from "react";
 import Image from 'next/image';
 
-export default function Hero() {
+export default function HeroPreview() {
   const [autoPlay, setAutoPlay] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [activeSection, setActiveSection] = useState(0);
   
   type ImageItem = {
     src: string;
@@ -19,7 +21,6 @@ export default function Hero() {
     height?: number;
   };
   
-
   const features = [
     {
       icon: <Tractor className="w-6 h-6" />,
@@ -43,6 +44,22 @@ export default function Hero() {
     }
   ];
   
+  // Texto dividido en secciones para mejor presentación
+  const descriptionSections = [
+    "Desde el año de su fundación en el 2003 entendimos que la única manera de crecer era comercializar maquinarias de altísima calidad y evolución tecnológica.",
+    "Luego, nos llevó casi 8 años entender que la mayor inversión debíamos hacerla en Postventa y a partir de ahí, se convirtió en la unidad de negocios más importante de la empresa.",
+    "Hoy nuestra estrategia está basada en la permanente inversión en tecnología y en la cercanía al cliente atendiendo las 24 horas del día y respetando nuestra palabra Siempre."
+  ];
+  
+  // Cambia la sección de texto cada cierto tiempo
+  useEffect(() => {
+    const textInterval = setInterval(() => {
+      setActiveSection((prev) => (prev + 1) % descriptionSections.length);
+    }, 4000);
+    
+    return () => clearInterval(textInterval);
+  }, [descriptionSections.length]);
+  
   // Configuración de las imágenes con tipos y estilos específicos
   const allImages: ImageItem[][] = [
     [
@@ -56,7 +73,6 @@ export default function Hero() {
       { src: "/imagenes/inicio/asd3.webp", type: "photo" },
     ],
   ];
-  
   
   const [currentImageSet, setCurrentImageSet] = useState(0);
   const images = allImages[currentImageSet];
@@ -95,26 +111,49 @@ export default function Hero() {
     // Reactivar después de un tiempo de inactividad
     setTimeout(() => setAutoPlay(true), 15000); // 15 segundos de inactividad
   };
+  
+  // Función para mostrar una sección específica del texto
+  const showTextSection = (index: SetStateAction<number>) => {
+    setActiveSection(index);
+  };
 
   return (
     <div className="relative min-h-screen flex flex-col justify-center">
       {/* Contenido principal */}
-      <div className="relative z-10 text-center space-y-8 pt-24 pb-12">
-
+      <div className="relative z-10 text-center space-y-8 pt-20 pb-12">
         {/* Título */}
         <h1 className="text-6xl lg:text-8xl font-bold text-white px-4">
            Bienvenido a <span className="italic">Pueble S.A</span>
         </h1>
         
-        {/* Descripción */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto px-4"
-        >
-          Tu socio confiable en maquinaria agrícola y de construcción de alta calidad, brindando soluciones innovadoras para el campo argentino.
-        </motion.p>
+        {/* Descripción con animación entre secciones */}
+        <div className="max-w-3xl mx-auto px-4 min-h-24">
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={activeSection}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6 }}
+              className="text-xl lg:text-2xl text-gray-300"
+            >
+              {descriptionSections[activeSection]}
+            </motion.p>
+          </AnimatePresence>
+          
+          {/* Indicadores para el texto */}
+          <div className="flex justify-center gap-3 mt-6">
+            {descriptionSections.map((_, idx) => (
+              <button 
+                key={idx} 
+                onClick={() => showTextSection(idx)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === activeSection ? 'bg-red-500 scale-110' : 'bg-gray-400 opacity-50'}`}
+                aria-label={`Ver párrafo ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+        
         {/* Botones flotantes */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -160,16 +199,16 @@ export default function Hero() {
                     className={`relative overflow-hidden bg-gradient-to-t from-black/50 to-transparent rounded-2xl shadow-2xl aspect-[4/3] ${image.type === 'logo' ? `${image.bgColor || 'bg-white'} flex items-center justify-center p-4` : ''}`}
                   >
                     <Image
-  src={image.src}
-  alt={`Imagen ${index + 1}`}
-  width={image.width || 400}     // valores por defecto si no los tenés
-  height={image.height || 300}
-  className={image.type === 'logo' 
-    ? "w-auto h-auto max-w-[80%] max-h-[80%] object-contain mx-auto" 
-    : "w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
-  }
-  style={{ objectFit: image.type === 'logo' ? 'contain' : 'cover' }}
-/>
+                      src={image.src}
+                      alt={`Imagen ${index + 1}`}
+                      width={image.width || 400}
+                      height={image.height || 300}
+                      className={image.type === 'logo' 
+                        ? "w-auto h-auto max-w-[80%] max-h-[80%] object-contain mx-auto" 
+                        : "w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
+                      }
+                      style={{ objectFit: image.type === 'logo' ? 'contain' : 'cover' }}
+                    />
                     {image.type === 'photo' && (
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
                     )}

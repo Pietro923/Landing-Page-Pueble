@@ -13,7 +13,7 @@ const minicargadoresProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Minicargadores/SSL-Folleto-Gama-Completa-Espanol-Latam-LR.pdf"
   },
   {
     id: 2,
@@ -26,10 +26,23 @@ const minicargadoresProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Minicargadores/SSL-Folleto-Gama-Completa-Espanol-Latam-LR.pdf"
   },
   {
     id: 3,
+    name: "175",
+    category: "Mini Cargadores",
+    description: "El minicargador JCB 175, de elevación vertical, y plataforma pequeña tiene una capacidad nominal operativa de 794 kg e incorpora un exclusivo brazo único y cabina con acceso lateral. El motor Perkins de 54,4 Hp que posee este minicargador ofrece excelente desempeño",
+    image: "/imagenes/equipment/jcb/minicargadores/175.webp",
+    specs: {
+      power: "",
+      weight: "",
+      capacity: ""
+    },
+    pdfUrl: "/pdf/Minicargadores/SSL-Folleto-Gama-Completa-Espanol-Latam-LR.pdf"
+  },
+  {
+    id: 4,
     name: "190",
     category: "Mini Cargadores",
     description: "El nuevo minicargador JCB 190 de plataforma pequeña ,elevación vertical, y 862 kg de capacidad operativa nominal, incorpora nuestro exclusivo diseño de pluma única y entrada lateral.",
@@ -39,10 +52,10 @@ const minicargadoresProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Minicargadores/SSL-Folleto-Gama-Completa-Espanol-Latam-LR.pdf"
   },
   {
-    id: 4,
+    id: 5,
     name: "205",
     category: "Mini Cargadores",
     description: "El nuevo cargador de elevación vertical JCB 205 es el mayor de nuestros minicargadores de plataforma pequeña; tiene una capacidad nominal operativa de 930 kg y una potencia de 44.7 kW. el minicargador más seguro de la industria.",
@@ -52,10 +65,10 @@ const minicargadoresProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Minicargadores/SSL-Folleto-Gama-Completa-Espanol-Latam-LR.pdf"
   },
   {
-    id: 5,
+    id: 6,
     name: "270",
     category: "Mini Cargadores",
     description: "El minicargador 270 de plataforma grande Hi-Viz, es una máquina de elevación vertical con un motor JCB DieselMAX de 48,3 kW y una capacidad operativa nominal de 1235 kg.",
@@ -65,7 +78,7 @@ const minicargadoresProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Minicargadores/SSL-Folleto-Gama-Completa-Espanol-Latam-LR.pdf"
   },
 ];
 

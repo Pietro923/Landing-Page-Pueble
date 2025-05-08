@@ -13,7 +13,7 @@ const manipuladorestelescopicosProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Manipuladores/530-70.pdf"
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const manipuladorestelescopicosProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Manipuladores/541-70.pdf"
   },
   {
     id: 3,
@@ -39,7 +39,7 @@ const manipuladorestelescopicosProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Manipuladores/541-70.pdf"
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ const manipuladorestelescopicosProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Manipuladores/541-70.pdf"
   },
   {
     id: 5,
@@ -65,7 +65,7 @@ const manipuladorestelescopicosProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "/pdf/Pueble_JCB_general.pdf"
+    pdfUrl: "/pdf/Manipuladores/541-70.pdf"
   },
 ];
 
