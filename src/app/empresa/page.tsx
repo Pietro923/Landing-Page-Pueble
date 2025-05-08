@@ -108,14 +108,14 @@ export default function Company() {
                   primera línea.
                 </p>
                 <a
-  href={contactLink}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-flex items-center bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors"
->
-  Contactar
-  <Phone className="ml-2 w-4 h-4" />
-</a>
+                  href={contactLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors"
+                >
+                  Contactar
+                  <Phone className="ml-2 w-4 h-4" />
+                </a>
 
 
               </CardContent>
@@ -163,13 +163,13 @@ export default function Company() {
             })}
               <a
               href="https://wa.me/543815897858?text=Hola!%20Quiero%20agendar%20una%20visita%20guiada."
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-flex items-center bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors text-center justify-center text-xl h-12 font-bold"
->
-  Agendar una Visita
-  <ArrowRight className="ml-2 w-3 h-3" />
-</a>
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors text-center justify-center text-xl h-12 font-bold"
+              >
+                Agendar una Visita
+                <ArrowRight className="ml-2 w-3 h-3" />
+              </a>
             
           </motion.div>
         </div>
@@ -185,9 +185,9 @@ export default function Company() {
           <h3 className="text-3xl font-bold text-white text-center mb-8 border-b-2 border-red-500 w-fit mx-auto">Nuestros Equipos</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teams.map((team, index) => (
-              <Card key={index} className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
-                <CardHeader>
-                  <div className="relative h-48 w-full">
+              <Card key={index} className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white text-center">
+                {/*<CardHeader>
+                <div className="relative h-48 w-full">
                     <Image
                       src={team.image}
                       alt={team.name}
@@ -195,9 +195,9 @@ export default function Company() {
                       className="object-cover rounded-t-lg"
                     />
                   </div>
-                </CardHeader>
+                </CardHeader>*/}
                 <CardContent className="mt-4">
-                  <CardTitle className="text-xl mb-2">{team.name}</CardTitle>
+                  <CardTitle className="text-2xl font-bold mb-4">{team.name}</CardTitle>
                   <p className="text-gray-300">{team.description}</p>
                 </CardContent>
               </Card>
