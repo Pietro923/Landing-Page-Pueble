@@ -34,7 +34,7 @@ export default function ContactPage() {
     {
       icon: Building2,
       title: "Oficina Central",
-      info: "Av. Circunvalación km. 1294, San Miguel de Tucuman, Tucumán",
+      info: "Ruta Nacional 9 KM 1301, San Miguel de Tucumán, Tucumán",
       info2: "Lunes a Viernes: 8:00 - 18:00",
     },
     {

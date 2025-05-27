@@ -109,7 +109,7 @@ export default function Servicios() {
                     </CardDescription>
                   </div>
                   {service.contact && (
-                    <Button className="mt-4 bg-red-600 hover:bg-red-700 w-full">
+                    <Button className="bg-red-600 hover:bg-red-700 text-lg shadow-lg hover:shadow-red-700/40 transform hover:-translate-y-1 transition-all duration-300 mt-4">
                       <a href={service.contact} target="_blank" rel="noopener noreferrer" className="w-full block text-center">
                         Contactar
                       </a>
@@ -178,7 +178,7 @@ export default function Servicios() {
                   </ul>
                 </div>
                 
-                <Button className="bg-red-600 hover:bg-red-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-red-600/25">
+                <Button className="bg-red-600 hover:bg-red-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-red-600/25 text-lg">
                 <a href="https://www.instagram.com/casepueblesa/reel/C1pCi1muKuY/" target="_blank" rel="noopener noreferrer">
                   Descubre AFS Connect
                 </a>
@@ -305,7 +305,7 @@ export default function Servicios() {
                 </ul>
               </div>
                 
-              <Button className="bg-yellow-600 hover:bg-yellow-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-yellow-600/25">
+              <Button className="bg-yellow-600 hover:bg-yellow-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-yellow-600/25 text-lg">
                 <a href="https://www.youtube.com/watch?v=BJlAb6UdTz8" target="_blank" rel="noopener noreferrer">
                   Descubre JCB LiveLink
                 </a>

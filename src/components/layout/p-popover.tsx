@@ -56,7 +56,7 @@ return (
                 
                 <div className="grid grid-cols-2 gap-2">
                   <a 
-                    href="https://portfolio-bonacossa.vercel.app/" 
+                    href="https://pietrocode.com" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 p-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors text-sm"

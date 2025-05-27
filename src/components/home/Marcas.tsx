@@ -70,7 +70,7 @@ export default function Marcas() {
               </CardHeader>
               <CardContent className="text-center">
                 <Link href={marca.ruta}>
-                  <Button className="bg-red-500 hover:bg-red-600">Ver más</Button>
+                  <Button className="bg-red-500 hover:bg-red-600 text-lg shadow-lg hover:shadow-red-700/40 transform hover:-translate-y-1 transition-all duration-300">Ver más</Button>
                 </Link>
               </CardContent>
             </Card>

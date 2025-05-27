@@ -57,7 +57,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex gap-3 text-gray-300">
                 <Building2 className="w-5 h-5 flex-shrink-0" />
-                <span>Av. Circunvalación km. 1294, San Miguel de Tucuman, Tucumán</span>
+                <span>Ruta Nacional 9 KM 1301, San Miguel de Tucumán, Tucumán</span>
               </li>
               <li className="flex gap-3 items-start text-gray-300">
                 <MapPin className="w-5 h-5 flex-shrink-0" />

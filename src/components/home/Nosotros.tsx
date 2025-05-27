@@ -20,12 +20,12 @@ export default function Nosotros() {
             className="flex-shrink-0 w-full lg:w-1/2"
           >
             <Image
-                src="/imagenes/empresa/Equipo Pueble SA.webp"
-                alt="Equipo Pueble S.A."
-                width={1280}
-                height={853} // ajustá al tamaño real
-                className="rounded-3xl w-full h-auto object-cover shadow-lg"
-              />
+              src="/imagenes/inauguracion/gp4.jpeg"
+              alt="Equipo Pueble S.A."
+              width={1280}
+              height={853}
+              className="rounded-3xl w-full h-auto object-cover shadow-lg transition-transform duration-300 hover:scale-105"
+            />
           </motion.div>
 
           {/* Texto con animación */}
@@ -44,7 +44,7 @@ export default function Nosotros() {
             </p>
             <Link href={"/nosotros"}>
             <Button 
-              className="bg-red-500 hover:bg-red-600 text-white"
+              className="bg-red-500 hover:bg-red-600 text-lg shadow-lg hover:shadow-red-700/40 transform hover:-translate-y-1 transition-all duration-300"
               size="lg"
             >
               Conoce más

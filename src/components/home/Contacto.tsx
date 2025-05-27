@@ -113,7 +113,7 @@ export default function Contact() {
                   {/* Campo oculto para prevenir captcha */}
                   <input type="hidden" name="_captcha" value="false" />
                   {/* Campo oculto para personalizar el asunto del correo */}
-                  <input type="hidden" name="_subject" value="Nuevo mensaje del sitio web" />
+                  <input type="hidden" name="_subject" value="Alguien se ha puesto en contacto desde PuebleMaquinarias" />
                   
                   <div className="grid md:grid-cols-2 gap-6">
                     <Input 
@@ -152,7 +152,7 @@ export default function Contact() {
                   />
                   <Button 
                     type="submit"
-                    className="w-full bg-red-500 hover:bg-red-600 text-white"
+                    className="w-full bg-red-500 hover:bg-red-600 text-lg shadow-lg hover:shadow-red-700/40 transform hover:-translate-y-1 transition-all duration-300"
                     size="lg"
                     disabled={isLoading}
                   >
@@ -183,7 +183,7 @@ export default function Contact() {
                 <CardTitle className="text-2xl text-white">Ubicación</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-200 text-center">Av. Circunvalación km. 1294, San Miguel de Tucuman, Tucumán</p>
+                <p className="text-gray-200 text-center ">Ruta Nacional 9 KM 1301, San Miguel de Tucumán, Tucumán</p>
               </CardContent>
             </Card>
             <Card className="bg-white/10 backdrop-blur-sm border-0 shadow-lg">

@@ -1,5 +1,7 @@
 'use client'
 import { Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { Button } from "@/components/ui/button"
 import Image from 'next/image'
 import { motion } from "framer-motion"
 import { 
@@ -9,16 +11,50 @@ import {
   Gem,
   Wrench,
   Shield,
-  Handshake
+  Handshake,
+  Image as ImageIcon,
+  Calendar
 } from 'lucide-react'
+
 export default function About() {
   const milestones = [
-    { year: 2003, title: 'Fundación', description: 'Nace PUEBLE S.A. con el propósito de representar y dedicarse a la venta específica de fertilizantes para todo el NOA.' },
-    { year: 2006, title: 'Concesionario Oficial', description: 'PUEBLE S.A. es nombrado concesionario oficial CASE IH en Tucumán, convirtiéndose en su actividad principal.' },
-    { year: 2012, title: 'Nueva Sede', description: 'Inauguración de la nueva concesionaria en el Parque Industrial de Tucumán, en Au. de Circunvalación km 1294.' },
-    { year: 2016, title: 'Reconocimiento Mundial', description: 'PUEBLE S.A. obtiene la categoría Premium Pro en la evaluación mundial de World Class Dealer de CASE IH y se mantiene hasta la fecha.' },
-    { year: 2025, title: 'Expansión y Crecimiento', description: 'PUEBLE S.A. traslada su concesionaria a una nueva sede, reafirmando su compromiso con la innovación y el crecimiento en la región.' }
-];
+    { 
+      year: 2003, 
+      title: 'Fundación', 
+      description: 'Nace PUEBLE S.A. con el propósito de representar y dedicarse a la venta específica de fertilizantes para todo el NOA.',
+      image: '/imagenes/historia/fundacion-2003.jpg', // Añade tus imágenes aquí
+      imageAlt: 'Fundación de Pueble S.A. en 2003'
+    },
+    { 
+      year: 2006, 
+      title: 'Concesionario Oficial', 
+      description: 'PUEBLE S.A. es nombrado concesionario oficial CASE IH en Tucumán, convirtiéndose en su actividad principal.',
+      image: '/imagenes/historia/concesionario-2006.jpg',
+      imageAlt: 'Nombramiento como concesionario oficial CASE IH'
+    },
+    { 
+      year: 2012, 
+      title: 'Nueva Sede', 
+      description: 'Inauguración de la nueva concesionaria en el Parque Industrial de Tucumán, en Av. de Circunvalación km 1294.',
+      image: '/imagenes/inauguracion/a2.webp',
+      imageAlt: 'Inauguración de la nueva sede en 2012'
+    },
+    { 
+      year: 2016, 
+      title: 'Reconocimiento Mundial', 
+      description: 'PUEBLE S.A. obtiene la categoría Premium Pro en la evaluación mundial de World Class Dealer de CASE IH y se mantiene hasta la fecha.',
+      image: '/imagenes/historia/reconocimiento-2016.jpg',
+      imageAlt: 'Reconocimiento Premium Pro de CASE IH'
+    },
+    { 
+      year: 2025, 
+      title: 'Expansión y Crecimiento', 
+      description: 'PUEBLE S.A. traslada su concesionaria a una nueva sede, reafirmando su compromiso con la innovación y el crecimiento en la región.',
+      image: '/imagenes/inauguracion/conse4.jpeg', // Usando la imagen que ya tienes
+      imageAlt: 'Nueva expansión y crecimiento 2025'
+    }
+  ];
+
   const values = [
     { icon: Shield, title: 'Confianza y Honestidad', description: 'Construimos relaciones basadas en la transparencia y el respeto mutuo.' },
     { icon: Target, title: 'Compromiso', description: 'Con nuestros clientes, empleados, accionistas y resultados.' },
@@ -27,6 +63,7 @@ export default function About() {
     { icon: Wrench, title: 'Responsabilidad', description: 'Cumplimos con nuestras obligaciones fiscales, sociales y ambientales.' },
     { icon: Award, title: 'Innovación', description: 'Apostamos a las nuevas tendencias y avances tecnológicos que facilitan el trabajo del agricultor.' },
   ];
+
   return (
     <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto px-4">
@@ -50,13 +87,13 @@ export default function About() {
           
           {/* Imagen */}
           <div className="lg:w-1/2">
-          <Image
-    src="/imagenes/empresa/Equipo Pueble SA.webp"
-    alt="Equipo Pueble S.A."
-    width={1280}
-    height={853} // ajustá al tamaño real
-    className="rounded-3xl w-full h-auto object-cover shadow-lg"
-  />
+            <Image
+              src="/imagenes/inauguracion/gp1.jpeg"
+              alt="Equipo Pueble S.A."
+              width={1280}
+              height={853}
+              className="rounded-3xl w-full h-auto object-cover shadow-lg"
+            />
           </div>
         </motion.div>
         
@@ -185,7 +222,7 @@ export default function About() {
           })}
         </motion.div>
 
-        {/* Nuestra Filosofía - Párrafo completo */}
+        {/* Nuestra Filosofía */}
         <h2 className="text-3xl font-bold text-white mb-8 border-b-2 border-red-500 w-fit mx-auto">
           Nuestra Filosofia
         </h2>
@@ -201,7 +238,7 @@ export default function About() {
           </p>
         </motion.div>
         
-        {/* Nuestra Historia */}
+        {/* Nuestra Historia con Popovers */}
         <h2 className="text-3xl font-bold text-white mb-8 border-b-2 border-red-500 w-fit mx-auto">
           Nuestra Historia
         </h2>
@@ -212,64 +249,125 @@ export default function About() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          {/* Timeline Alternado (Zigzag) con mejoras responsive */}
-          <div className="mb-16">
-            <Card className="bg-white/10 backdrop-blur-sm border-0 text-white">
-              <CardContent className="py-8">
-                <div className="relative">
-                  {/* Línea central - visible solo en desktop */}
-                  <div className="absolute left-1/2 top-0 h-full w-0.5 bg-red-600/50 hidden md:block" />
-                  
-                  {/* Línea lateral - visible solo en mobile */}
-                  <div className="absolute left-4 top-0 h-full w-0.5 bg-red-600/50 md:hidden" />
-                  
-                  <div className="space-y-10">
-                    {milestones.map((milestone, index) => (
-                      <div key={index} 
-                        className={`relative flex md:items-center gap-4 md:gap-6  
-                          ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} 
-                          flex-row items-start`}
-                      >
-                        {/* Punto de tiempo para mobile */}
-                        <div className="absolute left-4 flex items-center justify-center w-8 h-8 md:hidden -translate-x-1/2 ">
-                          <div className="w-8 h-8 bg-black/50 rounded-full border-2 border-red-600 flex items-center justify-center">
-                            <div className="w-3 h-3 bg-red-600 rounded-full" />
-                          </div>
+          <Card className="bg-white/10 backdrop-blur-sm border-0 text-white">
+            <CardContent className="py-8">
+              <div className="relative">
+                {/* Línea central - visible solo en desktop */}
+                <div className="absolute left-1/2 top-0 h-full w-0.5 bg-red-600/50 hidden md:block" />
+                
+                {/* Línea lateral - visible solo en mobile */}
+                <div className="absolute left-4 top-0 h-full w-0.5 bg-red-600/50 md:hidden" />
+                
+                <div className="space-y-10">
+                  {milestones.map((milestone, index) => (
+                    <div key={index} 
+                      className={`relative flex md:items-center gap-4 md:gap-6  
+                        ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} 
+                        flex-row items-start`}
+                    >
+                      {/* Punto de tiempo para mobile */}
+                      <div className="absolute left-4 flex items-center justify-center w-8 h-8 md:hidden -translate-x-1/2 ">
+                        <div className="w-8 h-8 bg-black/50 rounded-full border-2 border-red-600 flex items-center justify-center">
+                          <div className="w-3 h-3 bg-red-600 rounded-full" />
                         </div>
-                        
-                        {/* Contenido en mobile (siempre a la derecha) */}
-                        <div className="md:hidden ml-10 w-full">
-                          <div className="bg-black/30 p-4 rounded-lg border-l-2 border-red-600">
-                            <h3 className="font-bold text-xl text-red-600">{milestone.year}</h3>
-                            <h4 className="font-semibold mb-1">{milestone.title}</h4>
-                            <p className="text-gray-300 text-sm">{milestone.description}</p>
-                          </div>
-                        </div>
-                        
-                        {/* Contenido para desktop (alternando lados) */}
-                        <div className={`md:w-5/12 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'} text-center hidden md:block `}>
-                          <div className={`bg-black/30 p-4 rounded-lg ${index % 2 === 0 ? 'border-r-2' : 'border-l-2'} border-red-600 hover:bg-white/5 transition-colors duration-200`}>
-                            <h3 className="font-bold text-xl text-red-600">{milestone.year}</h3>
-                            <h4 className="font-semibold mb-1">{milestone.title}</h4>
-                            <p className="text-gray-300">{milestone.description}</p>
-                          </div>
-                        </div>
-                        
-                        {/* Punto central para desktop */}
-                        <div className="absolute left-1/2 -translate-x-1/2 items-center justify-center w-10 h-10 hidden md:flex">
-                          <div className="w-10 h-10 bg-black/50 rounded-full border-2 border-red-600 flex items-center justify-center">
-                            <div className="w-4 h-4 bg-red-600 rounded-full" />
-                          </div>
-                        </div>
-                        
-                        <div className="md:w-5/12 hidden md:block"></div>
                       </div>
-                    ))}
-                  </div>
+                      
+                      {/* Contenido en mobile (siempre a la derecha) */}
+                      <div className="md:hidden ml-10 w-full">
+                        <div className="bg-black/30 p-4 rounded-lg border-l-2 border-red-600">
+                          <div className="flex items-center justify-between mb-2">
+                            <h3 className="font-bold text-xl text-red-600">{milestone.year}</h3>
+                            <Popover>
+                              <PopoverTrigger asChild>
+                                <Button 
+                                  variant="ghost" 
+                                  size="sm"
+                                  className="text-gray-300 hover:text-white hover:bg-white/10 p-1 h-auto"
+                                >
+                                  <ImageIcon className="w-4 h-4" />
+                                </Button>
+                              </PopoverTrigger>
+                              <PopoverContent className="w-80 p-0 bg-black/90 border-red-600/30">
+                                <div className="relative">
+                                  <Image
+                                    src={milestone.image}
+                                    alt={milestone.imageAlt}
+                                    width={320}
+                                    height={240}
+                                    className="w-full h-48 object-cover rounded-t-lg"
+                                  />
+                                  <div className="p-4">
+                                    <div className="flex items-center gap-2 mb-2">
+                                      <Calendar className="w-4 h-4 text-red-500" />
+                                      <span className="text-red-500 font-semibold">{milestone.year}</span>
+                                    </div>
+                                    <h4 className="font-bold text-white mb-2">{milestone.title}</h4>
+                                    <p className="text-gray-300 text-sm">{milestone.description}</p>
+                                  </div>
+                                </div>
+                              </PopoverContent>
+                            </Popover>
+                          </div>
+                          <h4 className="font-semibold mb-1">{milestone.title}</h4>
+                          <p className="text-gray-300 text-sm">{milestone.description}</p>
+                        </div>
+                      </div>
+                      
+                      {/* Contenido para desktop (alternando lados) */}
+                      <div className={`md:w-5/12 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'} text-center hidden md:block `}>
+                        <div className={`bg-black/30 p-4 rounded-lg ${index % 2 === 0 ? 'border-r-2' : 'border-l-2'} border-red-600 hover:bg-white/5 transition-colors duration-200`}>
+                          <div className={`flex items-center gap-3 mb-2 ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
+                            <h3 className="font-bold text-xl text-red-600">{milestone.year}</h3>
+                            <Popover>
+                              <PopoverTrigger asChild>
+                                <Button 
+                                  variant="ghost" 
+                                  size="sm"
+                                  className="text-gray-300 hover:text-white hover:bg-white/10 p-2 h-auto"
+                                >
+                                  <ImageIcon className="w-5 h-5" />
+                                </Button>
+                              </PopoverTrigger>
+                              <PopoverContent className="w-80 p-0 bg-black/90 border-red-600/30" side={index % 2 === 0 ? 'left' : 'right'}>
+                                <div className="relative">
+                                  <Image
+                                    src={milestone.image}
+                                    alt={milestone.imageAlt}
+                                    width={320}
+                                    height={240}
+                                    className="w-full h-48 object-cover rounded-t-lg"
+                                  />
+                                  <div className="p-4">
+                                    <div className="flex items-center gap-2 mb-2">
+                                      <Calendar className="w-4 h-4 text-red-500" />
+                                      <span className="text-red-500 font-semibold">{milestone.year}</span>
+                                    </div>
+                                    <h4 className="font-bold text-white mb-2">{milestone.title}</h4>
+                                    <p className="text-gray-300 text-sm">{milestone.description}</p>
+                                  </div>
+                                </div>
+                              </PopoverContent>
+                            </Popover>
+                          </div>
+                          <h4 className="font-semibold mb-1">{milestone.title}</h4>
+                          <p className="text-gray-300">{milestone.description}</p>
+                        </div>
+                      </div>
+                      
+                      {/* Punto central para desktop */}
+                      <div className="absolute left-1/2 -translate-x-1/2 items-center justify-center w-10 h-10 hidden md:flex">
+                        <div className="w-10 h-10 bg-black/50 rounded-full border-2 border-red-600 flex items-center justify-center">
+                          <div className="w-4 h-4 bg-red-600 rounded-full" />
+                        </div>
+                      </div>
+                      
+                      <div className="md:w-5/12 hidden md:block"></div>
+                    </div>
+                  ))}
                 </div>
-              </CardContent>
-            </Card>
-          </div>
+              </div>
+            </CardContent>
+          </Card>
         </motion.div>
       </div>
     </section>
