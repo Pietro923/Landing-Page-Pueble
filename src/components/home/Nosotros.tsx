@@ -20,7 +20,7 @@ export default function Nosotros() {
             className="flex-shrink-0 w-full lg:w-1/2"
           >
             <Image
-              src="/imagenes/inauguracion/gp4.jpeg"
+              src="/imagenes/inauguracion/gp4.webp"
               alt="Equipo Pueble S.A."
               width={1280}
               height={853}

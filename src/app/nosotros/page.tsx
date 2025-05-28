@@ -85,7 +85,7 @@ export default function About() {
           {/* Imagen */}
           <div className="lg:w-1/2">
             <Image
-              src="/imagenes/inauguracion/gp1.jpeg"
+              src="/imagenes/inauguracion/gp1.webp"
               alt="Equipo Pueble S.A."
               width={1280}
               height={853}
