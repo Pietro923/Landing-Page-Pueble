@@ -15,21 +15,20 @@ import {
   Image as ImageIcon,
   Calendar
 } from 'lucide-react'
-
 export default function About() {
   const milestones = [
     { 
       year: 2003, 
       title: 'Fundación', 
       description: 'Nace PUEBLE S.A. con el propósito de representar y dedicarse a la venta específica de fertilizantes para todo el NOA.',
-      image: '/imagenes/historia/fundacion-2003.jpg', // Añade tus imágenes aquí
+      
       imageAlt: 'Fundación de Pueble S.A. en 2003'
     },
     { 
       year: 2006, 
       title: 'Concesionario Oficial', 
       description: 'PUEBLE S.A. es nombrado concesionario oficial CASE IH en Tucumán, convirtiéndose en su actividad principal.',
-      image: '/imagenes/historia/concesionario-2006.jpg',
+     
       imageAlt: 'Nombramiento como concesionario oficial CASE IH'
     },
     { 
@@ -43,18 +42,17 @@ export default function About() {
       year: 2016, 
       title: 'Reconocimiento Mundial', 
       description: 'PUEBLE S.A. obtiene la categoría Premium Pro en la evaluación mundial de World Class Dealer de CASE IH y se mantiene hasta la fecha.',
-      image: '/imagenes/historia/reconocimiento-2016.jpg',
+      image: '/imagenes/inauguracion/dealer.webp',
       imageAlt: 'Reconocimiento Premium Pro de CASE IH'
     },
     { 
       year: 2025, 
       title: 'Expansión y Crecimiento', 
       description: 'PUEBLE S.A. traslada su concesionaria a una nueva sede, reafirmando su compromiso con la innovación y el crecimiento en la región.',
-      image: '/imagenes/inauguracion/conse4.jpeg', // Usando la imagen que ya tienes
+      image: '/imagenes/inauguracion/conse4.webp', 
       imageAlt: 'Nueva expansión y crecimiento 2025'
     }
   ];
-
   const values = [
     { icon: Shield, title: 'Confianza y Honestidad', description: 'Construimos relaciones basadas en la transparencia y el respeto mutuo.' },
     { icon: Target, title: 'Compromiso', description: 'Con nuestros clientes, empleados, accionistas y resultados.' },
@@ -63,7 +61,6 @@ export default function About() {
     { icon: Wrench, title: 'Responsabilidad', description: 'Cumplimos con nuestras obligaciones fiscales, sociales y ambientales.' },
     { icon: Award, title: 'Innovación', description: 'Apostamos a las nuevas tendencias y avances tecnológicos que facilitan el trabajo del agricultor.' },
   ];
-
   return (
     <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto px-4">
@@ -221,7 +218,6 @@ export default function About() {
             );
           })}
         </motion.div>
-
         {/* Nuestra Filosofía */}
         <h2 className="text-3xl font-bold text-white mb-8 border-b-2 border-red-500 w-fit mx-auto">
           Nuestra Filosofia
@@ -277,36 +273,38 @@ export default function About() {
                         <div className="bg-black/30 p-4 rounded-lg border-l-2 border-red-600">
                           <div className="flex items-center justify-between mb-2">
                             <h3 className="font-bold text-xl text-red-600">{milestone.year}</h3>
-                            <Popover>
-                              <PopoverTrigger asChild>
-                                <Button 
-                                  variant="ghost" 
-                                  size="sm"
-                                  className="text-gray-300 hover:text-white hover:bg-white/10 p-1 h-auto"
-                                >
-                                  <ImageIcon className="w-4 h-4" />
-                                </Button>
-                              </PopoverTrigger>
-                              <PopoverContent className="w-80 p-0 bg-black/90 border-red-600/30">
-                                <div className="relative">
-                                  <Image
-                                    src={milestone.image}
-                                    alt={milestone.imageAlt}
-                                    width={320}
-                                    height={240}
-                                    className="w-full h-48 object-cover rounded-t-lg"
-                                  />
-                                  <div className="p-4">
-                                    <div className="flex items-center gap-2 mb-2">
-                                      <Calendar className="w-4 h-4 text-red-500" />
-                                      <span className="text-red-500 font-semibold">{milestone.year}</span>
+                            {milestone.image && (
+                              <Popover>
+                                <PopoverTrigger asChild>
+                                  <Button 
+                                    variant="ghost" 
+                                    size="sm"
+                                    className="text-gray-300 hover:text-white hover:bg-white/10 p-1 h-auto"
+                                  >
+                                    <ImageIcon className="w-4 h-4" />
+                                  </Button>
+                                </PopoverTrigger>
+                                <PopoverContent className="w-80 p-0 bg-black/90 border-red-600/30">
+                                  <div className="relative">
+                                    <Image
+                                      src={milestone.image}
+                                      alt={milestone.imageAlt}
+                                      width={320}
+                                      height={240}
+                                      className="w-full h-48 object-cover rounded-t-lg"
+                                    />
+                                    <div className="p-4">
+                                      <div className="flex items-center gap-2 mb-2">
+                                        <Calendar className="w-4 h-4 text-red-500" />
+                                        <span className="text-red-500 font-semibold">{milestone.year}</span>
+                                      </div>
+                                      <h4 className="font-bold text-white mb-2">{milestone.title}</h4>
+                                      <p className="text-gray-300 text-sm">{milestone.description}</p>
                                     </div>
-                                    <h4 className="font-bold text-white mb-2">{milestone.title}</h4>
-                                    <p className="text-gray-300 text-sm">{milestone.description}</p>
                                   </div>
-                                </div>
-                              </PopoverContent>
-                            </Popover>
+                                </PopoverContent>
+                              </Popover>
+                            )}
                           </div>
                           <h4 className="font-semibold mb-1">{milestone.title}</h4>
                           <p className="text-gray-300 text-sm">{milestone.description}</p>
@@ -318,36 +316,38 @@ export default function About() {
                         <div className={`bg-black/30 p-4 rounded-lg ${index % 2 === 0 ? 'border-r-2' : 'border-l-2'} border-red-600 hover:bg-white/5 transition-colors duration-200`}>
                           <div className={`flex items-center gap-3 mb-2 ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
                             <h3 className="font-bold text-xl text-red-600">{milestone.year}</h3>
-                            <Popover>
-                              <PopoverTrigger asChild>
-                                <Button 
-                                  variant="ghost" 
-                                  size="sm"
-                                  className="text-gray-300 hover:text-white hover:bg-white/10 p-2 h-auto"
-                                >
-                                  <ImageIcon className="w-5 h-5" />
-                                </Button>
-                              </PopoverTrigger>
-                              <PopoverContent className="w-80 p-0 bg-black/90 border-red-600/30" side={index % 2 === 0 ? 'left' : 'right'}>
-                                <div className="relative">
-                                  <Image
-                                    src={milestone.image}
-                                    alt={milestone.imageAlt}
-                                    width={320}
-                                    height={240}
-                                    className="w-full h-48 object-cover rounded-t-lg"
-                                  />
-                                  <div className="p-4">
-                                    <div className="flex items-center gap-2 mb-2">
-                                      <Calendar className="w-4 h-4 text-red-500" />
-                                      <span className="text-red-500 font-semibold">{milestone.year}</span>
+                            {milestone.image && (
+                              <Popover>
+                                <PopoverTrigger asChild>
+                                  <Button 
+                                    variant="ghost" 
+                                    size="sm"
+                                    className="text-gray-300 hover:text-white hover:bg-white/10 p-2 h-auto"
+                                  >
+                                    <ImageIcon className="w-5 h-5" />
+                                  </Button>
+                                </PopoverTrigger>
+                                <PopoverContent className="w-80 p-0 bg-black/90 border-red-600/30" side={index % 2 === 0 ? 'left' : 'right'}>
+                                  <div className="relative">
+                                    <Image
+                                      src={milestone.image}
+                                      alt={milestone.imageAlt}
+                                      width={320}
+                                      height={240}
+                                      className="w-full h-48 object-cover rounded-t-lg"
+                                    />
+                                    <div className="p-4">
+                                      <div className="flex items-center gap-2 mb-2">
+                                        <Calendar className="w-4 h-4 text-red-500" />
+                                        <span className="text-red-500 font-semibold">{milestone.year}</span>
+                                      </div>
+                                      <h4 className="font-bold text-white mb-2">{milestone.title}</h4>
+                                      <p className="text-gray-300 text-sm">{milestone.description}</p>
                                     </div>
-                                    <h4 className="font-bold text-white mb-2">{milestone.title}</h4>
-                                    <p className="text-gray-300 text-sm">{milestone.description}</p>
                                   </div>
-                                </div>
-                              </PopoverContent>
-                            </Popover>
+                                </PopoverContent>
+                              </Popover>
+                            )}
                           </div>
                           <h4 className="font-semibold mb-1">{milestone.title}</h4>
                           <p className="text-gray-300">{milestone.description}</p>

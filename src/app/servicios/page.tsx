@@ -315,45 +315,57 @@ export default function Servicios() {
         </div>
         </motion.div>
         {/* Testimonios */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <h3 className="text-3xl font-bold text-white text-center mb-8 border-b-2 border-red-500 inline-block">Testimonios</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card 
-                key={index} 
-                className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white"
-              >
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="relative h-16 w-16 rounded-full overflow-hidden">
-                      <Image
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div>
-                      <CardTitle>{testimonial.name}</CardTitle>
-                      <CardDescription className="text-gray-300">
-                        {testimonial.role}
-                      </CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300">"{testimonial.comment}"</p>
-                </CardContent>
-              </Card>
-            ))}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+  className="mb-16"
+>
+  <div className="text-center mb-12">
+    <h3 className="text-3xl font-bold text-white mb-4 border-b-2 border-red-500 inline-block">Testimonios</h3>
+    <motion.p 
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      viewport={{ once: true }}
+      className="text-lg text-gray-300 max-w-2xl mx-auto"
+    >
+      Conoce las experiencias de nuestros últimos clientes y descubre por qué confían en nosotros para sus proyectos más importantes
+    </motion.p>
+  </div>
+  
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {testimonials.map((testimonial, index) => (
+      <Card 
+        key={index} 
+        className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white"
+      >
+        <CardHeader>
+          <div className="flex items-center gap-4">
+            <div className="relative h-16 w-16 rounded-full overflow-hidden">
+              <Image
+                src={testimonial.image}
+                alt={testimonial.name}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <CardTitle>{testimonial.name}</CardTitle>
+              <CardDescription className="text-gray-300">
+                {testimonial.role}
+              </CardDescription>
+            </div>
           </div>
-        </motion.div>
+        </CardHeader>
+        <CardContent>
+          <p className="text-gray-300">"{testimonial.comment}"</p>
+        </CardContent>
+      </Card>
+    ))}
+  </div>
+</motion.div>
       </div>
     </section>
   );

@@ -30,7 +30,7 @@ export default function Marcas() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl lg:text-5xl font-bold mb-4 text-white border-b-2 border-red-500 inline-block tracking-tight underline decoration-red-500 decoration-[2px] underline-offset-8 w-fit mx-auto"
+          className="text-4xl lg:text-5xl font-bold mb-4 text-white border-b-2 border-red-500 inline-block"
         >
           Maquinaria Agrícola y de Construcción
         </motion.h2>
