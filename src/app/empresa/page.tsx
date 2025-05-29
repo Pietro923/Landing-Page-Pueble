@@ -50,7 +50,7 @@ export default function Company() {
   {
     image: "/imagenes/equipos/afs.webp",
     name: "Equipo AFS",
-    managerImage: "/imagenes/gerentes/guido.webp", // Imagen del gerente
+    managerImage: "/imagenes/gerentes/guido (1).jpg", // Imagen del gerente
     managerName: "Guido Meier",
     managerTitle: "Gerente de AFS",
     description: "Especialistas en sistemas de agricultura de precisión para optimizar tus cosechas."
