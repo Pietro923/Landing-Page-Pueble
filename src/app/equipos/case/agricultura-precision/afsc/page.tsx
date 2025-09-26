@@ -13,7 +13,7 @@ const afscproducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Agricultura%20de%20Precision%202019/ORIG_FOLLETO_AFS_ESPA%C3%91OL_2022.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/e9cbbedb11054db391c38206423cc2ed?v=dac96e30"
   },
 ]; 
 

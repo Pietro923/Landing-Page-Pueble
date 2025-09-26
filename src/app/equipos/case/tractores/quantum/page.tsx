@@ -13,7 +13,7 @@ const quantumProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Quantum/SPEC_QUANTUM_65V_75N_85V_85F.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/533e3ac5e0d74a14946338a630008652?v=bedcf000"
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const quantumProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Quantum/SPEC_QUANTUM_65V_75N_85V_85F.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/533e3ac5e0d74a14946338a630008652?v=bedcf000"
   },
   {
     id: 3,
@@ -39,7 +39,7 @@ const quantumProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Quantum/SPEC_QUANTUM_65V_75N_85V_85F.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/533e3ac5e0d74a14946338a630008652?v=bedcf000"
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ const quantumProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Quantum/SPEC_QUANTUM_65V_75N_85V_85F.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/533e3ac5e0d74a14946338a630008652?v=bedcf000"
   },
 ];
 

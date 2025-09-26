@@ -13,7 +13,7 @@ const pumaProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC_PUMA_190_200_215_230.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/4251b11594db466c97acf141e401e856?v=db1e6043"
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const pumaProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "//assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Puma/SPEC_PUMA_140_155_170Y185.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/b22b27e660a449088fd5afec41c7698b?v=cd6a9de3"
   },
   {
     id: 3,
@@ -39,7 +39,7 @@ const pumaProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "//assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Puma/SPEC_PUMA_140_155_170Y185.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/b22b27e660a449088fd5afec41c7698b?v=cd6a9de3"
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ const pumaProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "//assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Puma/SPEC_PUMA_140_155_170Y185.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/b22b27e660a449088fd5afec41c7698b?v=cd6a9de3"
   },
   {
     id: 5,
@@ -65,7 +65,7 @@ const pumaProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "//assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Puma/SPEC_PUMA_140_155_170Y185.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/b22b27e660a449088fd5afec41c7698b?v=cd6a9de3"
   },
 ]; 
 

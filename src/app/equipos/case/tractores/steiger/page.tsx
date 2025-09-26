@@ -13,7 +13,7 @@ const steigerProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC_STEIGER_450.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/a9aa283c468149599f1f67a10ae0e9ee?v=7b7302f9"
   },
 ]; // Array vacío para simular que no hay productos
 

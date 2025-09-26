@@ -13,7 +13,7 @@ const farmallProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC_FARMALL_M_2022.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/36d4df9a7ed84dcf8e4d461fbff0459a?v=0ec944a0"
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const farmallProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: ""
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/7c55d0a8924f41f69b72bd6462ceacf0?v=41eb35d5"
   },
   {
     id: 3,
@@ -39,7 +39,7 @@ const farmallProducts = [
       weight: "", // Cilindrada: 3,9 L
       capacity: "" // Transmisión: 12 de avance y 12 de retroceso
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC-FARMALL-90JX-100JX-110JX.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/7177f984e44147ba814da6d98588d0cd?v=9e20959a"
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ const farmallProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC-FARMALL-90JX-100JX-110JX.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/7177f984e44147ba814da6d98588d0cd?v=9e20959a"
   },
   {
     id: 5,
@@ -65,7 +65,7 @@ const farmallProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC-FARMALL-90JX-100JX-110JX.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/7177f984e44147ba814da6d98588d0cd?v=9e20959a"
   },
   {
     id: 6,
@@ -78,7 +78,7 @@ const farmallProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC_FARMALL_SERIE_JXM-EO.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/283f908d19a848fd859eac6a5234afa7?v=3abefaf3"
   },
   {
     id: 7,
@@ -91,7 +91,7 @@ const farmallProducts = [
       weight: "", // hay que cambiar esto por: Cilindrada: 2,9 L
       capacity: "" // hay que cambiar esto por: Transmisión: 12 x 12
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC_FARMALL_SERIE_JXM-EO.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/283f908d19a848fd859eac6a5234afa7?v=3abefaf3"
   },
   {
     id: 8,
@@ -104,7 +104,7 @@ const farmallProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC_FARMALL_120A_Y_130A.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/d98d9a0d86564fa9b1d0d38e81262082?v=0b791210"
   },
   {
     id: 9,
@@ -117,7 +117,7 @@ const farmallProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC_FARMALL_120A_Y_130A.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/d98d9a0d86564fa9b1d0d38e81262082?v=0b791210"
   },
   {
     id: 10,
@@ -130,7 +130,7 @@ const farmallProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Farmall/SPEC_FARMALL_SERIE_JXM-EO.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/7c55d0a8924f41f69b72bd6462ceacf0?v=41eb35d5"
   },
 ];
 

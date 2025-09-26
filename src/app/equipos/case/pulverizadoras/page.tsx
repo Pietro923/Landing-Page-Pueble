@@ -12,7 +12,7 @@ const PulverizadorasProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Pulverizadoras/SPEC-PATRIOT-250-350-3330.pdf"
+    pdfUrl: ""
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const PulverizadorasProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Pulverizadoras/SPEC-PATRIOT-250-350-3330.pdf"
+    pdfUrl: ""
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const PulverizadorasProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Pulverizadoras/SPEC-PATRIOT-250-350-3330.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/59a60db18bed402f82d14d2c5095f44e?v=6e19f11b"
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ const PulverizadorasProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Pulverizadoras/SPEC-PATRIOT-250-350-3330.pdf"
+    pdfUrl: ""
   },
 ]
 

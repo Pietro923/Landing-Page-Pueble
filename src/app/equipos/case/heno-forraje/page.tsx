@@ -12,7 +12,7 @@ const HenoforrageProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Heno-y-Forraje/Cabezal%20de%20Discos/Spec_Cabezal_RD165.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/21099237f20e45beb5e7020758e40444?v=cc7a0e0a"
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const HenoforrageProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Heno-y-Forraje/Segadoras/Segadora-Autopropulsada-WD1904/SPEC-SEGADORA-WINDROWER-WD1904.pdf"
+    pdfUrl: ""
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const HenoforrageProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Heno-y-Forraje/Rotoenfardadoras/Rotoenfardadoras-RB565/SPEC-ROTOENFARDADORA-RB565.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/f2a3dad5f5ea47e6bea08c5e22648502?v=c9bee521"
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ const HenoforrageProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Heno-y-Forraje/Enfardadoras/SPEC-ENFARDADORA-PRISMATICA-SB531.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/407083fd8cfa4ace8300fa43fad3927b?v=952cf777"
   },
   {
     id: 5,
@@ -64,7 +64,7 @@ const HenoforrageProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Heno-y-Forraje/Enfardadoras/LB434RXL/SPEC-ENFARDADORA-GIGANTE-LB434RXL.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/289bea62f65b4d24b140b584426ec81e?v=cafe074e"
   },
 ]; 
 

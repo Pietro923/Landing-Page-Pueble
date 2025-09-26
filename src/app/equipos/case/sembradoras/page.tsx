@@ -13,7 +13,7 @@ const precisiondiskProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Sembradoras/PRESICION%20DISC%20500/PRECISION-DISK-500.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/162381054f174b888b08065ac994e650?v=6ecb1e3b"
   },
 ]; 
 

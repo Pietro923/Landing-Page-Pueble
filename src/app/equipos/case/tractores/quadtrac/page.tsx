@@ -13,7 +13,7 @@ const quadtracProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Quadtrac%20AFS%20Connect/Quadtrac%20500/SPEC_QUADTRAC_500_ORUGAS.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/b94671e369eb4e6880aa23208cad4a45?v=542b27f8"
   },
 ]; // Array vacío para simular que no hay productos
 

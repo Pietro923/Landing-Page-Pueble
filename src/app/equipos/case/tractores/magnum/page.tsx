@@ -13,7 +13,7 @@ const magnumProducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Tractores/Magnum/SPEC_MAGNUM_GENERAL.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/bbf0da8d18c9470aaa1f27f64d933693?v=6ced0978"
   },
 ]; 
 

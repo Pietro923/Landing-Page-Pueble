@@ -13,7 +13,7 @@ const plataformadegranosproducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Cosechadoras/Plataformas%20de%20Granos/SPEC-PLATAFORMAS-2020-3020-3162.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/7664f90a1de44a9c8b11c161e93039e7?v=9d693c28"
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const plataformadegranosproducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Cosechadoras/Plataformas%20de%20Granos/SPEC-PLATAFORMAS-2020-3020-3162.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/7664f90a1de44a9c8b11c161e93039e7?v=9d693c28"
   },
 ]; 
 

@@ -13,7 +13,7 @@ const axialproducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Cosechadoras/Grano/Axial-Flow%20150/FOLLETO-AXIAL-FLOW-150.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/9aa11989582e43e9b229161ce00afe83?v=2e02714b"
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const axialproducts = [
       weight: "",
       capacity: ""
     },
-    pdfUrl: "https://assets.cnhindustrial.com/caseih/ARGENTINA/ARGENTINAASSETS/Productos/Cosechadoras/Grano/Serie-250/FOLLETO-AXIAL-FLOW-250-26-PAGS.pdf"
+    pdfUrl: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/cdbc304c987d40a4a876663f0b76c2a5?v=6e551eca"
   },
 ]; 
 
