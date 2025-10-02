@@ -42,7 +42,7 @@ export default function Company() {
   {
     image: "/imagenes/equipos/postventa.webp",
     name: "Equipo de Postventa",
-    managerImage: "/imagenes/gerentes/placeholder.png", // Imagen del gerente
+    managerImage: "/imagenes/gerentes/gerentedeventas.jpeg", // Imagen del gerente
     managerName: "Angel Ortiz",
     managerTitle: "Gerente de Post Venta",
     description: "Expertos en mantenimiento y soporte técnico para garantizar el máximo rendimiento de tus equipos."
@@ -50,7 +50,7 @@ export default function Company() {
   {
     image: "/imagenes/equipos/afs.webp",
     name: "Equipo AFS",
-    managerImage: "/imagenes/gerentes/guido (1).jpg", // Imagen del gerente
+    managerImage: "/imagenes/gerentes/gerentedeafs.jpg", // Imagen del gerente
     managerName: "Guido Meier",
     managerTitle: "Gerente de AFS",
     description: "Especialistas en sistemas de agricultura de precisión para optimizar tus cosechas."
@@ -58,7 +58,7 @@ export default function Company() {
   {
     image: "/imagenes/equipos/administracion.webp",
     name: "Administración",
-    managerImage: "/imagenes/gerentes/placeholder.png", // Imagen del gerente
+    managerImage: "/imagenes/gerentes/gerentedeadministracion.jpeg", // Imagen del gerente
     managerName: "Fátima Zamorano",
     managerTitle: "Gerente de Administración",
     description: "Nuestro equipo administrativo asegura una gestión eficiente y transparente."
