@@ -40,7 +40,6 @@ export default function Company() {
 
   const teams = [
   {
-    image: "/imagenes/equipos/postventa.webp",
     name: "Equipo de Postventa",
     managerImage: "/imagenes/gerentes/gerentedeventas.jpeg", // Imagen del gerente
     managerName: "Angel Ortiz",
@@ -48,7 +47,6 @@ export default function Company() {
     description: "Expertos en mantenimiento y soporte técnico para garantizar el máximo rendimiento de tus equipos."
   },
   {
-    image: "/imagenes/equipos/afs.webp",
     name: "Equipo AFS",
     managerImage: "/imagenes/gerentes/gerentedeafs.jpg", // Imagen del gerente
     managerName: "Guido Meier",
@@ -56,12 +54,18 @@ export default function Company() {
     description: "Especialistas en sistemas de agricultura de precisión para optimizar tus cosechas."
   },
   {
-    image: "/imagenes/equipos/administracion.webp",
     name: "Administración",
     managerImage: "/imagenes/gerentes/gerentedeadministracion.jpeg", // Imagen del gerente
     managerName: "Fátima Zamorano",
     managerTitle: "Gerente de Administración",
     description: "Nuestro equipo administrativo asegura una gestión eficiente y transparente."
+  },
+  {
+    name: "Equipo Comercial",
+    managerImage: "/imagenes/gerentes/gerentedecomercial.jpeg", // Imagen del gerente
+    managerName: "Christian de la Vega",
+    managerTitle: "Gerente de Comercial",
+    description: "Enfocados en brindar soluciones a medida, nuestro equipo comercial acompaña a cada cliente en todo el proceso de compra."
   }
 ];
 
@@ -231,7 +235,7 @@ export default function Company() {
           <h3 className="text-3xl font-bold text-white text-center mb-8 border-b-2 border-red-500 w-fit mx-auto">
             Nuestros Equipos
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {teams.map((team, index) => (
               <Card
                 key={index}
