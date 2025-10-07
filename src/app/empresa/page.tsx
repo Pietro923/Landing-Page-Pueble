@@ -64,7 +64,7 @@ export default function Company() {
     name: "Equipo Comercial",
     managerImage: "/imagenes/gerentes/gerentedeequipocomercial.jpeg", // Imagen del gerente
     managerName: "Christian de la Vega",
-    managerTitle: "Gerente de Comercial",
+    managerTitle: "Gerente General",
     description: "Enfocados en brindar soluciones a medida, nuestro equipo comercial acompaña a cada cliente en todo el proceso de compra."
   }
 ];
