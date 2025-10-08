@@ -12,15 +12,15 @@ import {
     
     const options = [
       {
-        title: "Servicio de Guardia de Servicios",
-        description: "Asistencia 24/7",
+        title: "Servicio de Guardia",
+        description: "Respuesta 24/7",
         phone: "5493814901111",
         message: "Hola, necesito asistencia del servicio de guardia.",
         icon: <Phone className="w-5 h-5 text-green-600" />
       },
       {
         title: "Servicio de Repuestos",
-        description: "Consultas sobre disponibilidad y precios",
+        description: "Respuesta 24/7 - Consultas sobre disponibilidad y precios",
         phone: "543815821998",
         message: "Hola, estoy en la página web y quiero consultar sobre repuestos.",
         icon: <Settings className="w-5 h-5 text-green-600" />
@@ -89,7 +89,7 @@ import {
             ))}
           </div>
           <div className="p-3 bg-gray-50 rounded-b-xl text-xs text-center text-gray-500">
-            Respuesta rápida en horario laboral • Lun-Vie 8:00-18:00
+            Lunes-Viernes 8:00-18:00
           </div>
         </PopoverContent>
       </Popover>
