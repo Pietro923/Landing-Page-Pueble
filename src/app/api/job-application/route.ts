@@ -52,22 +52,32 @@ export async function POST(request: NextRequest) {
     // Convertir archivo a buffer
     const cvBuffer = Buffer.from(await cvFile.arrayBuffer());
 
+    // Verificar que existan las variables de entorno
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      throw new Error('Faltan configuraciones SMTP. Revisa las variables de entorno.');
+    }
+
+    const smtpPort = parseInt(process.env.SMTP_PORT || '587');
+
     // Configurar transporter
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || '465'),
-      secure: true,
+      port: smtpPort,
+      secure: smtpPort === 465, // true para 465, false para 587
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
+      connectionTimeout: 5000, // 5 segundos
+      greetingTimeout: 5000,
+      socketTimeout: 5000,
       tls: {
-        rejectUnauthorized: false
+        rejectUnauthorized: false,
+        ciphers: 'SSLv3'
       }
     });
 
-    // Verificar conexión
-    await transporter.verify();
+    // NO verificar conexión, enviar directamente para ahorrar tiempo
 
     // Enviar email con adjunto
     const info = await transporter.sendMail({
@@ -268,6 +278,7 @@ export async function POST(request: NextRequest) {
       ],
     });
 
+    console.log('Postulación enviada:', info.messageId);
 
     return NextResponse.json(
       { 
@@ -296,5 +307,6 @@ export async function POST(request: NextRequest) {
   }
 }
 
-export const runtime = 'nodejs';
-export const dynamic = 'force-dynamic';
+// Las siguientes líneas no son necesarias si no tienes output: 'export'
+// Si tienes problemas, puedes descomentar:
+// export const dynamic = 'force-dynamic';
