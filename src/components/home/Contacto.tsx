@@ -1,18 +1,16 @@
-// src/components/home/Contacto.tsx
 'use client'
 import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, Phone, MapPin, MessageSquare, Loader2, CheckCircle2 } from 'lucide-react'
-import { motion, AnimatePresence } from "framer-motion"
+import { Mail, Phone, MapPin, MessageSquare, Loader2 } from 'lucide-react'
+import { motion } from "framer-motion"
 import { useToast } from "@/hooks/use-toast"
 
 export default function Contact() {
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [formData, setFormData] = useState({
     nombre: '',
     correo: '',
@@ -30,59 +28,49 @@ export default function Contact() {
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault() // Previene el envío tradicional del formulario
     setIsLoading(true)
-    setSubmitStatus('idle')
     
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Error al enviar el mensaje')
-      }
-
-      // Éxito
-      setSubmitStatus('success')
-      toast({
-        title: "✅ Mensaje enviado",
-        description: "Gracias por contactarnos. Nos pondremos en contacto contigo pronto.",
-      })
+      // Obtener el formulario como elemento HTML
+      const form = e.target as HTMLFormElement;
+      const formData = new FormData(form);
       
-      // Limpiar formulario
+      // Enviar el formulario usando fetch en lugar de form.submit()
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors' // Importante para evitar problemas de CORS con FormSubmit
+      });
+      
+      // Mostramos mensaje de éxito
+      toast({
+        title: "Mensaje enviado",
+        description: "Gracias por contactarnos. Nos pondremos en contacto contigo pronto.",
+      });
+      
+      // Limpiamos el formulario
       setFormData({
         nombre: '',
         correo: '',
         asunto: '',
         mensaje: ''
-      })
-
-      // Resetear estado después de 3 segundos
-      setTimeout(() => {
-        setSubmitStatus('idle')
-      }, 3000)
+      });
       
     } catch (error) {
-      setSubmitStatus('error')
       toast({
         variant: "destructive",
-        title: "❌ Error",
-        description: error instanceof Error ? error.message : "Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo.",
-      })
+        title: "Error",
+        description: "Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo.",
+      });
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   }
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24">
+      {/* Contenido principal */}
       <div className="relative z-10 container mx-auto px-4">
         {/* Título y descripción */}
         <motion.div
@@ -99,7 +87,6 @@ export default function Contact() {
             Estamos aquí para responder tus consultas y brindarte la mejor atención.
           </p>
         </motion.div>
-
         {/* Formulario y tarjetas de contacto */}
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Formulario */}
@@ -115,7 +102,19 @@ export default function Contact() {
                 <CardTitle className="text-2xl text-white">Envía un mensaje</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form 
+                  onSubmit={handleSubmit} 
+                  className="space-y-6"
+                  action="https://formsubmit.co/beelbonacossa@gmail.com" 
+                  method="POST"
+                >
+                  {/* Campo oculto para personalizar la página de agradecimiento */}
+                  <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html" />
+                  {/* Campo oculto para prevenir captcha */}
+                  <input type="hidden" name="_captcha" value="false" />
+                  {/* Campo oculto para personalizar el asunto del correo */}
+                  <input type="hidden" name="_subject" value="Alguien se ha puesto en contacto desde PuebleMaquinarias" />
+                  
                   <div className="grid md:grid-cols-2 gap-6">
                     <Input 
                       placeholder="Nombre" 
@@ -124,7 +123,6 @@ export default function Contact() {
                       onChange={handleChange}
                       className="bg-white/20 text-white [&::placeholder]:text-white/70 border-0 focus:ring-2 focus:ring-red-500"
                       required
-                      disabled={isLoading}
                     />
                     <Input 
                       type="email" 
@@ -134,7 +132,6 @@ export default function Contact() {
                       onChange={handleChange}
                       className="bg-white/20 text-white [&::placeholder]:text-white/70 border-0 focus:ring-2 focus:ring-red-500"
                       required
-                      disabled={isLoading}
                     />
                   </div>
                   <Input 
@@ -144,7 +141,6 @@ export default function Contact() {
                     onChange={handleChange}
                     className="bg-white/20 text-white [&::placeholder]:text-white/70 border-0 focus:ring-2 focus:ring-red-500"
                     required
-                    disabled={isLoading}
                   />
                   <Textarea 
                     placeholder="Mensaje" 
@@ -153,9 +149,7 @@ export default function Contact() {
                     onChange={handleChange}
                     className="bg-white/20 text-white [&::placeholder]:text-white/70 border-0 focus:ring-2 focus:ring-red-500 min-h-[150px]"
                     required
-                    disabled={isLoading}
                   />
-                  
                   <Button 
                     type="submit"
                     className="w-full bg-red-500 hover:bg-red-600 text-lg shadow-lg hover:shadow-red-700/40 transform hover:-translate-y-1 transition-all duration-300"
@@ -164,47 +158,17 @@ export default function Contact() {
                   >
                     {isLoading ? (
                       <>
-                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                         Enviando...
-                      </>
-                    ) : submitStatus === 'success' ? (
-                      <>
-                        <CheckCircle2 className="w-5 h-5 mr-2" />
-                        ¡Enviado!
                       </>
                     ) : (
                       "Enviar Mensaje"
                     )}
                   </Button>
-
-                  {/* Mensajes de estado */}
-                  <AnimatePresence>
-                    {submitStatus === 'success' && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        className="p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-300 text-center"
-                      >
-                        ✅ Tu mensaje ha sido enviado exitosamente
-                      </motion.div>
-                    )}
-                    {submitStatus === 'error' && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        className="p-4 bg-red-500/20 border border-red-500/30 rounded-lg text-red-300 text-center"
-                      >
-                        ❌ Hubo un error. Por favor intenta nuevamente.
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </form>
               </CardContent>
             </Card>
           </motion.div>
-
           {/* Tarjetas de información de contacto */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -219,12 +183,9 @@ export default function Contact() {
                 <CardTitle className="text-2xl text-white">Ubicación</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-200 text-center">
-                  Ruta Nacional 9 KM 1301, San Miguel de Tucumán, Tucumán
-                </p>
+                <p className="text-gray-200 text-center ">Ruta Nacional 9 KM 1301, San Miguel de Tucumán, Tucumán</p>
               </CardContent>
             </Card>
-
             <Card className="bg-white/10 backdrop-blur-sm border-0 shadow-lg">
               <CardHeader className="flex items-center gap-3">
                 <Phone className="w-8 h-8 text-red-500" />
@@ -234,16 +195,13 @@ export default function Contact() {
                 <p className="text-gray-200 text-center">+543815897858</p>
               </CardContent>
             </Card>
-
             <Card className="bg-white/10 backdrop-blur-sm border-0 shadow-lg">
               <CardHeader className="flex items-center gap-3">
                 <Mail className="w-8 h-8 text-red-500" />
                 <CardTitle className="text-2xl text-white">Correo</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-200 text-center">
-                  recepcion@pueblemaquinarias.com.ar
-                </p>
+                <p className="text-gray-200 text-center">recepcion@pueblemaquinarias.com.ar</p>
               </CardContent>
             </Card>
           </motion.div>
