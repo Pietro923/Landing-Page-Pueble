@@ -1,3 +1,4 @@
+// src/app/contacto/page.tsx
 'use client';
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -13,22 +14,25 @@ import {
   MessageSquare,
   ArrowRight,
   Loader2,
+  CheckCircle2,
   Facebook,
   Instagram,
   Linkedin
 } from "lucide-react";
 import { useState } from 'react';
 import { useToast } from "@/hooks/use-toast";
+import { AnimatePresence } from "framer-motion";
+
 export default function ContactPage() {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     nombre: "",
-    email: "",
+    correo: "",
     asunto: "",
     mensaje: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('idle');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   
   const contactInfo = [
     {
@@ -41,13 +45,13 @@ export default function ContactPage() {
       icon: Phone,
       title: "Teléfono",
       info: "+543815897858",
-      info2: "Atención al cliente", // Agregado para consistencia
+      info2: "Atención al cliente",
     },
     {
       icon: Mail,
       title: "Email",
       info: "recepcion@pueblemaquinarias.com.ar",
-      info2: "Soporte técnico y ventas", // Agregado para consistencia
+      info2: "Soporte técnico y ventas",
     },
   ];
   
@@ -57,53 +61,61 @@ export default function ContactPage() {
     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/grupo-pueble/" },
   ];
   
-  // URL de Google Maps para usar en el enlace "Cómo llegar"
   const googleMapsLink = `https://www.google.com/maps/place/PUEBLE+S.A./@-26.7684015,-65.2193973,17z/data=!3m1!4b1!4m6!3m5!1s0x94225e94c0835bbf:0x8568c458ceb402c1!8m2!3d-26.7684063!4d-65.2168224!16s%2Fg%2F11bzrcb9mm?entry=ttu&g_ep=EgoyMDI1MDQwOS4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D`;
   
-  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle');
     
     try {
-      // Obtener el formulario como elemento HTML
-      const form = e.target as HTMLFormElement;
-      const formData = new FormData(form);
-      
-      // Enviar el formulario usando fetch en lugar de form.submit()
-      const response = await fetch(form.action, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        body: formData,
-        mode: 'no-cors' // Importante para evitar problemas de CORS con FormSubmit
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      
-      // Mostramos mensaje de éxito
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Error al enviar el mensaje');
+      }
+
+      // Éxito
+      setSubmitStatus('success');
       toast({
-        title: "Mensaje enviado",
+        title: "✅ Mensaje enviado",
         description: "Gracias por contactarnos. Nos pondremos en contacto contigo pronto.",
       });
       
-      // Limpiamos el formulario
+      // Limpiar formulario
       setFormData({
         nombre: "",
-        email: "",
+        correo: "",
         asunto: "",
         mensaje: "",
       });
-      setSubmitStatus('success');
+
+      // Resetear estado después de 3 segundos
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 3000);
+      
     } catch (error) {
+      setSubmitStatus('error');
       toast({
         variant: "destructive",
-        title: "Error",
-        description: "Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo.",
+        title: "❌ Error",
+        description: error instanceof Error ? error.message : "Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo.",
       });
-      setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus('idle'), 3000);
     }
   };
   
@@ -219,17 +231,7 @@ export default function ContactPage() {
               </div>
             </CardHeader>
             <CardContent>
-              <form 
-                onSubmit={handleSubmit}
-                className="space-y-6"
-                action="https://formsubmit.co/beelbonacossa@gmail.com" 
-                method="POST"
-                >
-                {/* Campos ocultos para FormSubmit */}
-                <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_subject" value="Nuevo mensaje del sitio web" />
-                
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <Input 
                     placeholder="Nombre" 
@@ -238,15 +240,17 @@ export default function ContactPage() {
                     onChange={handleChange}
                     className="bg-white/20 text-white [&::placeholder]:text-white/70 border-0 focus:ring-2 focus:ring-red-500"
                     required
+                    disabled={isSubmitting}
                   />
                   <Input 
                     type="email" 
                     placeholder="Correo Electrónico" 
-                    name="email"
-                    value={formData.email}
+                    name="correo"
+                    value={formData.correo}
                     onChange={handleChange}
                     className="bg-white/20 text-white [&::placeholder]:text-white/70 border-0 focus:ring-2 focus:ring-red-500"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 <Input 
@@ -256,6 +260,7 @@ export default function ContactPage() {
                   onChange={handleChange}
                   className="bg-white/20 text-white [&::placeholder]:text-white/70 border-0 focus:ring-2 focus:ring-red-500"
                   required
+                  disabled={isSubmitting}
                 />
                 <Textarea 
                   placeholder="Mensaje" 
@@ -264,6 +269,7 @@ export default function ContactPage() {
                   onChange={handleChange}
                   className="bg-white/20 text-white [&::placeholder]:text-white/70 border-0 focus:ring-2 focus:ring-red-500 min-h-[120px]"
                   required
+                  disabled={isSubmitting}
                 />
                 <Button 
                   type="submit"
@@ -275,6 +281,11 @@ export default function ContactPage() {
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                       Enviando...
                     </>
+                  ) : submitStatus === 'success' ? (
+                    <>
+                      <CheckCircle2 className="w-4 h-4 mr-2" />
+                      ¡Enviado!
+                    </>
                   ) : (
                     <>
                       <Send className="mr-2 w-4 h-4" />
@@ -282,24 +293,30 @@ export default function ContactPage() {
                     </>
                   )}
                 </Button>
-                {submitStatus === 'success' && (
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-green-400 text-center font-medium"
-                  >
-                    ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.
-                  </motion.p>
-                )}
-                {submitStatus === 'error' && (
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-red-400 text-center font-medium"
-                  >
-                    Hubo un error al enviar tu mensaje. Por favor, intenta nuevamente.
-                  </motion.p>
-                )}
+                
+                {/* Mensajes de estado */}
+                <AnimatePresence>
+                  {submitStatus === 'success' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-300 text-center"
+                    >
+                      ✅ Tu mensaje ha sido enviado exitosamente
+                    </motion.div>
+                  )}
+                  {submitStatus === 'error' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="p-4 bg-red-500/20 border border-red-500/30 rounded-lg text-red-300 text-center"
+                    >
+                      ❌ Hubo un error. Por favor intenta nuevamente.
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </form>
             </CardContent>
           </Card>
@@ -316,7 +333,8 @@ export default function ContactPage() {
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="aspect-video rounded-lg overflow-hidden bg-white/10 relative z-0 shadow-md">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3562.2553370575342!2d-65.2169265!3d-26.768129599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225d003948aec7%3A0x5aca876c4fba6d96!2sJCB%20PUEBLE%20SA!5e0!3m2!1ses-419!2sar!4v1742484690853!5m2!1ses-419!2sar" 
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3562.2553370575342!2d-65.2169265!3d-26.768129599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225d003948aec7%3A0x5aca876c4fba6d96!2sJCB%20PUEBLE%20SA!5e0!3m2!1ses-419!2sar!4v1742484690853!5m2!1ses-419!2sar" 
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -324,13 +342,14 @@ export default function ContactPage() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="absolute inset-0"
-                ></iframe>
+                />
               </div>
               <a 
                 href={googleMapsLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center bg-white text-red-700 hover:bg-gray-100 px-4 py-3 rounded-md font-medium transition-all duration-300 hover:shadow-md">
+                className="w-full inline-flex items-center justify-center bg-white text-red-700 hover:bg-gray-100 px-4 py-3 rounded-md font-medium transition-all duration-300 hover:shadow-md"
+              >
                 Cómo llegar
                 <ArrowRight className="ml-2 w-4 h-4" />
               </a>
