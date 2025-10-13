@@ -26,9 +26,9 @@ const empresasGrupo = [
     id: 'kia',
     title: 'CP Motors - KIA',
     description: 'Concesionario oficial KIA',
-    image: '/imagenes/grupo/empresa4.webp', // Cambia por tu imagen
+    image: '/imagenes/empresas/kia.jpeg', // Cambia por tu imagen
     link: '#',
-    color: 'from-yellow-600 to-yellow-800'
+    color: 'from-red-100 to-red-300'
   },
   {
     id: 'semage-sa',

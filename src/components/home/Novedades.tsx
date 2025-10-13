@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import React, { useEffect, useState, useRef } from "react";
 
 const NovedadesLazy = () => {
@@ -41,15 +42,25 @@ const Novedades = () => {
 
   return (
     <section className="py-12 px-4">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold mb-8 border-b-2 border-red-500 pb-2 inline-block text-white">
-          NOVEDADES
-        </h2>
+      <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="text-red-500 font-semibold uppercase tracking-wider mb-4"
+              >
+                | Novedades
+              </motion.p>
+              
+              <h2 className="text-3xl lg:text-5xl font-bold mb-4 lg:mb-6 text-white leading-tight">
+                Nuestras novedades en el sector
+                
+              </h2>
         <div
           className="elfsight-app-d0552590-a7a9-4c42-a54c-97741aef4604"
           data-elfsight-app-lazy
-        ></div>
-      </div>
+        >
+
+        </div>
     </section>
   );
 };
