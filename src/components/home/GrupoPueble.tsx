@@ -138,7 +138,7 @@ export default function GrupoPueble() {
   const [active, setActive] = useState('pueble-sa');
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24 bg-gradient-to-br from-gray-900 via-black to-red-900">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24 ">
       <div className="container mx-auto px-4">
         {/* Título y descripción */}
         <motion.div
