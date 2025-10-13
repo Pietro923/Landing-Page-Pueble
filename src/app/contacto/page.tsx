@@ -1,6 +1,6 @@
 // src/app/contacto/page.tsx
 'use client';
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -21,7 +21,6 @@ import {
 } from "lucide-react";
 import { useState } from 'react';
 import { useToast } from "@/hooks/use-toast";
-import { AnimatePresence } from "framer-motion";
 
 export default function ContactPage() {
   const { toast } = useToast();

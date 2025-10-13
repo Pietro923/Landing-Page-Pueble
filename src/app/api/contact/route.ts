@@ -1,6 +1,8 @@
 // src/app/api/contact/route.ts
+import { Resend } from 'resend';
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
@@ -24,37 +26,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Verificar que existan las variables de entorno
-    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
-      throw new Error('Faltan configuraciones SMTP. Revisa las variables de entorno.');
-    }
-
-    const smtpPort = parseInt(process.env.SMTP_PORT || '587');
-    
-    // Configurar transporter con SMTP de Ferozo
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: smtpPort,
-      secure: smtpPort === 465, // true para 465, false para 587
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-      connectionTimeout: 5000, // 5 segundos
-      greetingTimeout: 5000,
-      socketTimeout: 5000,
-      tls: {
-        rejectUnauthorized: false,
-        ciphers: 'SSLv3'
-      }
-    });
-
-    // NO verificar conexión, enviar directamente para ahorrar tiempo
-    // await transporter.verify();
-
-    // Enviar email
-    const info = await transporter.sendMail({
-      from: `"Formulario Web Pueble" <${process.env.SMTP_USER}>`,
+    // Enviar email con Resend
+    const data = await resend.emails.send({
+      from: 'Pueble <recepcion@pueblemaquinarias.com.ar>', // Cambiar por tu dominio verificado
       to: process.env.SMTP_TO || 'recepcion@pueblemaquinarias.com.ar',
       replyTo: correo,
       subject: `[Web] ${asunto}`,
@@ -183,7 +157,6 @@ export async function POST(request: NextRequest) {
                     ${mensaje.replace(/\n/g, '<br>')}
                   </div>
                 </div>
-
                 <div style="text-align: center; margin-top: 30px;">
                   <a href="mailto:${correo}" class="btn-reply">
                     Responder a ${nombre}
@@ -206,53 +179,31 @@ export async function POST(request: NextRequest) {
       `,
     });
 
-    console.log('Email enviado:', info.messageId);
+    if (data.error) {
+      console.error('Error de Resend:', data.error);
+      return NextResponse.json(
+        { error: 'Error al enviar el email' },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json(
       { 
         success: true, 
         message: 'Email enviado correctamente',
-        messageId: info.messageId 
+        id: data.data?.id 
       },
       { status: 200 }
     );
 
   } catch (error: any) {
-    console.error('Error detallado al enviar email:', {
-      message: error.message,
-      code: error.code,
-      command: error.command,
-    });
+    console.error('Error al enviar email:', error);
     
-    // Manejo específico de errores
-    let errorMessage = 'Error al enviar el mensaje. Por favor intente nuevamente.';
-    let statusCode = 500;
-    
-    if (error.code === 'EAUTH') {
-      errorMessage = 'Error de autenticación SMTP. Verifique las credenciales.';
-      statusCode = 401;
-    } else if (error.code === 'ECONNECTION' || error.code === 'ETIMEDOUT') {
-      errorMessage = 'No se pudo conectar al servidor de correo. Intente nuevamente.';
-      statusCode = 503;
-    } else if (error.message.includes('Timeout')) {
-      errorMessage = 'El servidor de correo tardó mucho en responder. Intente nuevamente.';
-      statusCode = 504;
-    } else if (error.message.includes('variables de entorno')) {
-      errorMessage = 'Configuración del servidor incompleta.';
-      statusCode = 500;
-    }
-
     return NextResponse.json(
-      { 
-        error: errorMessage, 
-        details: process.env.NODE_ENV === 'development' ? error.message : undefined,
-        code: error.code 
-      },
-      { status: statusCode }
+      { error: 'Error al enviar el mensaje. Por favor intente nuevamente.' },
+      { status: 500 }
     );
   }
 }
 
-// Las siguientes líneas no son necesarias si no tienes output: 'export'
-// Si tienes problemas, puedes descomentar:
-// export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';

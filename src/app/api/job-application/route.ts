@@ -1,6 +1,8 @@
 // src/app/api/job-application/route.ts
+import { Resend } from 'resend';
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
@@ -49,39 +51,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Convertir archivo a buffer
+    // Convertir archivo a buffer y luego a base64 para Resend
     const cvBuffer = Buffer.from(await cvFile.arrayBuffer());
+    const cvBase64 = cvBuffer.toString('base64');
 
-    // Verificar que existan las variables de entorno
-    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
-      throw new Error('Faltan configuraciones SMTP. Revisa las variables de entorno.');
-    }
-
-    const smtpPort = parseInt(process.env.SMTP_PORT || '587');
-
-    // Configurar transporter
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: smtpPort,
-      secure: smtpPort === 465, // true para 465, false para 587
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-      connectionTimeout: 5000, // 5 segundos
-      greetingTimeout: 5000,
-      socketTimeout: 5000,
-      tls: {
-        rejectUnauthorized: false,
-        ciphers: 'SSLv3'
-      }
-    });
-
-    // NO verificar conexión, enviar directamente para ahorrar tiempo
-
-    // Enviar email con adjunto
-    const info = await transporter.sendMail({
-      from: `"RRHH Web Pueble" <${process.env.SMTP_USER}>`,
+    // Enviar email con Resend
+    const data = await resend.emails.send({
+      from: 'Pueble RRHH <recepcion@pueblemaquinarias.com.ar>', // Cambiar por tu dominio verificado
       to: process.env.SMTP_TO || 'recepcion@pueblemaquinarias.com.ar',
       replyTo: email,
       subject: `[POSTULACIÓN] ${nombre} ${apellido} - ${areaInteres}`,
@@ -272,19 +248,26 @@ export async function POST(request: NextRequest) {
       attachments: [
         {
           filename: `CV_${nombre}_${apellido}.pdf`,
-          content: cvBuffer,
-          contentType: 'application/pdf',
+          content: cvBase64,
         },
       ],
     });
 
-    console.log('Postulación enviada:', info.messageId);
+    if (data.error) {
+      console.error('Error de Resend:', data.error);
+      return NextResponse.json(
+        { error: 'Error al enviar la postulación' },
+        { status: 500 }
+      );
+    }
+
+    console.log('Postulación enviada:', data.data?.id);
 
     return NextResponse.json(
       { 
         success: true, 
         message: 'Postulación enviada correctamente',
-        messageId: info.messageId 
+        id: data.data?.id 
       },
       { status: 200 }
     );
@@ -292,21 +275,11 @@ export async function POST(request: NextRequest) {
   } catch (error: any) {
     console.error('Error al enviar postulación:', error);
     
-    let errorMessage = 'Error al enviar la postulación. Por favor intente nuevamente.';
-    
-    if (error.code === 'EAUTH') {
-      errorMessage = 'Error de autenticación del servidor de correo.';
-    } else if (error.code === 'ECONNECTION') {
-      errorMessage = 'No se pudo conectar al servidor de correo.';
-    }
-
     return NextResponse.json(
-      { error: errorMessage, details: process.env.NODE_ENV === 'development' ? error.message : undefined },
+      { error: 'Error al enviar la postulación. Por favor intente nuevamente.' },
       { status: 500 }
     );
   }
 }
 
-// Las siguientes líneas no son necesarias si no tienes output: 'export'
-// Si tienes problemas, puedes descomentar:
-// export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
