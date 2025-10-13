@@ -1,152 +1,203 @@
 "use client"
 import React from 'react';
 import Link from 'next/link';
-import { Card, CardHeader } from "@/components/ui/card";
+import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { ArrowRight, ChevronRight } from "lucide-react";
 
 const categories = [
   {
     id: 1,
     name: 'TRACTORES',
-    icon: <img 
-      src="/maquinaslogos/case/tractor.webp" 
-      alt="Tractor" 
-      className="h-20 w-auto my-3 [filter:brightness(0)_saturate(100%)_invert(15%)_sepia(84%)_saturate(5937%)_hue-rotate(357deg)_brightness(98%)_contrast(115%)]" 
-    />,
-    href: '/equipos/case/tractores'
+    description: 'Potencia y eficiencia para tu campo',
+    icon: '/maquinaslogos/case/tractor.webp',
+    href: '/equipos/case/tractores',
+    count: '15+ modelos'
   },
   {
     id: 2,
     name: 'COSECHADORAS',
-    icon: <img 
-      src="/maquinaslogos/case/cosechadora.webp" 
-      alt="Cosechadora" 
-      className="h-20 w-auto my-3 [filter:brightness(0)_saturate(100%)_invert(15%)_sepia(84%)_saturate(5937%)_hue-rotate(357deg)_brightness(98%)_contrast(115%)]" 
-    />,
-    href: '/equipos/case/cosechadoras'
+    description: 'Tecnología de cosecha avanzada',
+    icon: '/maquinaslogos/case/cosechadora.webp',
+    href: '/equipos/case/cosechadoras',
+    count: '7+ modelos'
   },
   {
     id: 3,
     name: 'SEMBRADORAS',
-    icon: <img 
-      src="/maquinaslogos/case/sembradora.webp" 
-      alt="Sembradora" 
-      className="h-20 w-auto my-3 [filter:brightness(0)_saturate(100%)_invert(15%)_sepia(84%)_saturate(5937%)_hue-rotate(357deg)_brightness(98%)_contrast(115%)]" 
-    />,
-    href: '/equipos/case/sembradoras'
+    description: 'Precisión en cada siembra',
+    icon: '/maquinaslogos/case/sembradora.webp',
+    href: '/equipos/case/sembradoras',
+    count: '1+ modelos'
   },
   {
     id: 4,
     name: 'PULVERIZADORAS',
-    icon: <img 
-      src="/maquinaslogos/case/pulverizadora.webp" 
-      alt="Pulverizadora" 
-      className="h-20 w-auto my-3 [filter:brightness(0)_saturate(100%)_invert(15%)_sepia(84%)_saturate(5937%)_hue-rotate(357deg)_brightness(98%)_contrast(115%)]" 
-    />,
-    href: '/equipos/case/pulverizadoras'
+    description: 'Aplicación eficiente y uniforme',
+    icon: '/maquinaslogos/case/pulverizadora.webp',
+    href: '/equipos/case/pulverizadoras',
+    count: '4+ modelos'
   },
   {
     id: 5,
     name: 'AGRICULTURA DE PRECISIÓN',
-    icon: <img 
-      src="/maquinaslogos/case/monitores-i.webp" 
-      alt="Agricultura de Precisión" 
-      className="h-20 w-auto my-3 [filter:brightness(0)_saturate(100%)_invert(15%)_sepia(84%)_saturate(5937%)_hue-rotate(357deg)_brightness(98%)_contrast(115%)]" 
-    />,
-    href: '/equipos/case/agricultura-precision'
+    description: 'Tecnología para maximizar rendimientos',
+    icon: '/maquinaslogos/case/monitores-i.webp',
+    href: '/equipos/case/agricultura-precision',
+    count: '2+ soluciones'
   },
   {
     id: 6,
     name: 'HENO Y FORRAJE',
-    icon: <img 
-      src="/maquinaslogos/case/heno.webp" 
-      alt="Heno y Forraje" 
-      className="h-20 w-auto my-3 [filter:brightness(0)_saturate(100%)_invert(15%)_sepia(84%)_saturate(5937%)_hue-rotate(357deg)_brightness(98%)_contrast(115%)]" 
-    />,
-    href: '/equipos/case/heno-forraje'
+    description: 'Equipamiento para producción ganadera',
+    icon: '/maquinaslogos/case/heno.webp',
+    href: '/equipos/case/heno-forraje',
+    count: '3+ modelos'
   }
 ];
 
-// Variantes simples similares a las de ProductLinesPage
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.3
+      delayChildren: 0.2
     }
   }
 };
 
 const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { y: 30, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
-    transition: { type: "spring", stiffness: 100 }
+    transition: { type: "spring", stiffness: 80, damping: 12 }
   }
 };
 
 export default function CaseEquipmentPage() {
   return (
-
-      <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-        {/* Hero Section - Logo y Texto */}
-        <div className="container mx-auto px-4 text-center mb-16">
+    <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-7xl">
+        {/* Hero Section */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 lg:mb-16"
+        >
           <motion.div
-            initial={{ y: -20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="flex justify-center mb-6"
           >
-            <img 
-              src="/imagenes/equipment/case/case.webp"
-              alt="Case IH Logo" 
-              className="h-12 md:h-16"
-            />
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 inline-block">
+              <img 
+                src="/imagenes/equipment/case/case.webp"
+                alt="Case IH Logo" 
+                className="h-16 md:h-20"
+              />
+            </div>
           </motion.div>
+          
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
+          >
+            Equipamiento <span className="text-red-500">Case IH</span>
+          </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-300 text-xl max-w-3xl mx-auto"
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-gray-300 text-base sm:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed"
           >
-            Somos concesionario oficial de la marca CASE IH, comercializamos toda su línea de productos; 
-            teniendo una sólida estructura en administración, venta de repuestos y servicio de posventa.
+            Concesionario oficial de <strong className="text-white">CASE IH</strong>. Comercializamos toda su línea de productos 
+            con una sólida estructura en administración, venta de repuestos y servicio de posventa.
           </motion.p>
-        </div>
+        </motion.div>
         
         {/* Categories Grid */}
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {categories.map((category) => (
-              <motion.div key={category.id} variants={itemVariants}>
-                <Link href={category.href} className="block h-full">
-                  <Card className="group bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-all duration-300 text-white h-full flex flex-col hover:shadow-xl hover:shadow-red-500/20">
-                    <CardHeader className="flex flex-col items-center justify-between text-center p-8 h-full">
-                      <div className="flex items-center justify-center h-32 transition-transform duration-300 group-hover:scale-110">
-                        {category.icon}
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-300 mt-4 group-hover:text-white transition-colors duration-300">
-                        {category.name}
-                      </h3>
-                    </CardHeader>
-                  </Card>
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {categories.map((category) => (
+            <motion.div key={category.id} variants={itemVariants}>
+              <Link href={category.href} className="block h-full group">
+                <Card className="relative overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-red-500/50 transition-all duration-300 text-white h-full flex flex-col shadow-lg hover:shadow-2xl hover:shadow-red-500/20 hover:-translate-y-1">
+                  {/* Efecto de brillo en hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-transparent group-hover:to-transparent transition-all duration-500" />
+                  
+                  <CardHeader className="relative flex-grow p-6 lg:p-8">
+                    {/* Badge de cantidad */}
+                    <div className="absolute top-4 right-4 bg-red-600/20 backdrop-blur-sm border border-red-500/30 rounded-full px-3 py-1">
+                      <span className="text-white text-xs font-semibold">{category.count}</span>
+                    </div>
+                    
+                    {/* Icono */}
+                    <div className="flex items-center justify-center mb-6 h-24">
+                      <img 
+                        src={category.icon}
+                        alt={category.name}
+                        className="h-20 w-auto transition-all duration-500 group-hover:scale-110 [filter:brightness(0)_saturate(100%)_invert(15%)_sepia(84%)_saturate(5937%)_hue-rotate(357deg)_brightness(98%)_contrast(115%)]"
+                      />
+                    </div>
+                    
+                    {/* Título */}
+                    <h3 className="text-xl lg:text-2xl font-bold text-white mb-3 text-center group-hover:text-red-600 transition-colors duration-300">
+                      {category.name}
+                    </h3>
+                    
+                    {/* Descripción */}
+                    <p className="text-gray-400 text-m text-center group-hover:text-gray-300 transition-colors duration-300">
+                      {category.description}
+                    </p>
+                  </CardHeader>
+                  
+                  {/* Footer con CTA */}
+                  <CardContent className="relative p-6 pt-0">
+                    <div className="flex items-center justify-center gap-2 text-white group-hover:text-red-600 transition-colors duration-300 font-semibold">
+                      <span>Ver modelos</span>
+                      <ChevronRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mt-16 lg:mt-20 text-center"
+        >
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl lg:rounded-3xl p-8 lg:p-12">
+            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+              ¿No encontrás lo que buscás?
+            </h3>
+            <p className="text-gray-300 text-base lg:text-lg mb-6 max-w-2xl mx-auto">
+              Nuestro equipo está listo para asesorarte y encontrar el equipo perfecto para tus necesidades
+            </p>
+            <Link href="/contacto">
+              <button className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-red-500/50 transition-all duration-300 hover:scale-105">
+                Contactar asesor
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </Link>
+          </div>
+        </motion.div>
+      </div>
+    </section>
   );
 }

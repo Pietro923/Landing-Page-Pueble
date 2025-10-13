@@ -13,7 +13,7 @@ export default function Servicios() {
       title: "Venta y Postventa",
       description: "Asesoramiento, mantenimiento y soporte técnico 24/7 para tu maquinaria.",
       //image: "/imagenes/placeholdercachopuente.jpg",
-      //contact: "https://web.whatsapp.com/send?phone=3816618632&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20solicitar%20asesoramiento!%20"
+      contact: "https://wa.me/"
     },
     {
       icon: Wrench,
@@ -34,14 +34,14 @@ export default function Servicios() {
       title: "AFS Connect",
       description: "Supervisa y gestiona tu operación agrícola de forma remota con tecnología avanzada.",
       //image: "/imagenes/servicios/afs.png",
-      //contact: "https://web.whatsapp.com/send?phone=3816618632&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20realizar%una%20consulta%20acerca%20de%20AFS%20!"
+      contact: "https://wa.me/"
     },
     {
       icon: Shield,
       title: "Garantía y Soporte",
       description: "Garantía extendida y soporte técnico permanente para optimizar el rendimiento de tu equipo.",
       //image: "/imagenes/servicios/garan.webp",
-      //contact: "https://web.whatsapp.com/send?phone=3814901111&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta%20sobre%20la%20garantia!"
+      contact: "https://wa.me/"
     }
   ];  
   const imagesafs = [

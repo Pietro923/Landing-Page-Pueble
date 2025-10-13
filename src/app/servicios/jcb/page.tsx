@@ -13,6 +13,7 @@ export default function ServiciosJCB() {
       icon: ShoppingCart,
       title: "Venta y Postventa",
       description: "Asesoramiento, mantenimiento y soporte técnico 24/7 para tu maquinaria JCB.",
+      contact: "https://wa.me/"
     },
     {
       icon: Wrench,
@@ -30,11 +31,13 @@ export default function ServiciosJCB() {
       icon: Smartphone,
       title: "JCB LiveLink",
       description: "Supervisa y gestiona tu flota de construcción de forma remota con tecnología avanzada.",
+      contact: "https://wa.me/"
     },
     {
       icon: Shield,
       title: "Garantía y Soporte",
       description: "Garantía extendida y soporte técnico permanente para optimizar el rendimiento de tu equipo JCB.",
+      contact: "https://wa.me/"
     }
   ];  
   

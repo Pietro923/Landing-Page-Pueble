@@ -35,7 +35,7 @@ export default function Contact() {
       icon: MapPin,
       title: "Ubicación",
       content: "Ruta Nacional 9 KM 1301, Tucumán",
-      link: "https://www.google.com/maps/place/PUEBLE+S.A."
+      link: "https://maps.app.goo.gl/Q8uDt7ZbTKY8JFeN7"
     }
   ]
 
