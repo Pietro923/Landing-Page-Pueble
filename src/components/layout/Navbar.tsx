@@ -6,37 +6,41 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ChevronDown, Search } from "lucide-react"
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Linkedin } from "lucide-react"
 import Image from 'next/image'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isServiciosDropdownOpen, setIsServiciosDropdownOpen] = useState(false)
+  const [isEquiposDropdownOpen, setIsEquiposDropdownOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const pathname = usePathname()
   const router = useRouter()
 
   const navItems = [
     { href: '/', label: 'Inicio' },
-    { href: '/servicios', label: 'Servicios' },
     { href: '/nosotros', label: 'Nosotros' },
     { href: '/empresa', label: 'Empresa' },
     { href: '/contacto', label: 'Contacto' },
   ]
 
+  const serviciosItems = [
+    { href: '/servicios/case', label: 'Case IH', icon: '/imagenes/equipment/case/case.webp' },
+    { href: '/servicios/jcb', label: 'JCB', icon: '/imagenes/equipment/jcb/jcb.svg' },
+  ]
+  
   const equiposItems = [
     { href: '/equipos/case', label: 'Case IH', icon: '/imagenes/equipment/case/case.webp' },
     { href: '/equipos/jcb', label: 'JCB', icon: '/imagenes/equipment/jcb/jcb.svg' },
     { href: 'https://www.agroads.com.ar/e/pueble-sa/', label: 'Usados', icon: '/imagenes/equipment/agroads/agroads.webp', target: "_blank" },
   ]
 
-  // Define los enlaces de redes sociales
-const socialLinks = [
-  { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/Pueblemaquinarias" },
-  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/casepueblesa/" },
-  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/grupo-pueble/" },
-];
+  const socialLinks = [
+    { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/Pueblemaquinarias" },
+    { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/casepueblesa/" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/grupo-pueble/" },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +52,8 @@ const socialLinks = [
 
   const handleNavigation = () => {
     setIsMobileMenuOpen(false)
-    setIsDropdownOpen(false)
+    setIsServiciosDropdownOpen(false)
+    setIsEquiposDropdownOpen(false)
   }
 
   const handleSearch = () => {
@@ -77,7 +82,7 @@ const socialLinks = [
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/95 via-zinc-950/90 to-zinc-950/85"/>
       <div className="container mx-auto px-4 relative">
         <div className="flex justify-between items-center h-20">
-          <Link href="/" >
+          <Link href="/">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -92,7 +97,7 @@ const socialLinks = [
             </motion.div>
           </Link>
           
-         {/* Navegación Desktop */}
+          {/* Navegación Desktop */}
           <nav className="hidden md:flex items-center space-x-8">
             <ul className="flex items-center space-x-2">
               {navItems.map((item) => (
@@ -121,19 +126,19 @@ const socialLinks = [
                 </motion.li>
               ))}
               
-              {/* Dropdown Equipos */}
+              {/* Dropdown Servicios */}
               <motion.li
                 className="relative"
-                onMouseEnter={() => setIsDropdownOpen(true)}
-                onMouseLeave={() => setIsDropdownOpen(false)}
+                onMouseEnter={() => setIsServiciosDropdownOpen(true)}
+                onMouseLeave={() => setIsServiciosDropdownOpen(false)}
               >
                 <button
                   className={`flex items-center text-white px-4 py-2 rounded-md transition-all duration-300 relative group text-sm uppercase tracking-wide font-medium
-                    ${isActivePage('/equipos') ? 'text-red-400' : 'hover:text-red-400'}`}
+                    ${isActivePage('/servicios') ? 'text-red-400' : 'hover:text-red-400'}`}
                 >
-                  Equipos
+                  Servicios
                   <motion.span
-                    animate={{ rotate: isDropdownOpen ? 180 : 0 }}
+                    animate={{ rotate: isServiciosDropdownOpen ? 180 : 0 }}
                     transition={{ duration: 0.2 }}
                     className="ml-1"
                   >
@@ -141,9 +146,61 @@ const socialLinks = [
                   </motion.span>
                   <div className="absolute inset-0 bg-red-500/0 group-hover:bg-red-500/10 rounded-md transition-all duration-300" />
                 </button>
-  
+
                 <AnimatePresence>
-                  {isDropdownOpen && (
+                  {isServiciosDropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute right-0 mt-2 w-60 bg-zinc-900/95 backdrop-blur-lg rounded-lg shadow-xl border border-zinc-700/30 overflow-hidden"
+                    >
+                      {serviciosItems.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={handleNavigation}
+                          className="flex items-center px-5 py-4 hover:bg-zinc-800 transition-all duration-200 group border-b border-zinc-800/50 last:border-0"
+                        >
+                          <div className="bg-zinc-800 p-2 rounded-md mr-3 group-hover:bg-zinc-700 transition-colors duration-200">
+                            <img
+                              src={item.icon}
+                              alt={item.label}
+                              className="w-6 h-6 object-contain group-hover:scale-110 transition-transform duration-300"
+                            />
+                          </div>
+                          <span className="text-white/90 group-hover:text-white text-sm font-medium">{item.label}</span>
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.li>
+              
+              {/* Dropdown Equipos */}
+              <motion.li
+                className="relative"
+                onMouseEnter={() => setIsEquiposDropdownOpen(true)}
+                onMouseLeave={() => setIsEquiposDropdownOpen(false)}
+              >
+                <button
+                  className={`flex items-center text-white px-4 py-2 rounded-md transition-all duration-300 relative group text-sm uppercase tracking-wide font-medium
+                    ${isActivePage('/equipos') ? 'text-red-400' : 'hover:text-red-400'}`}
+                >
+                  Equipos
+                  <motion.span
+                    animate={{ rotate: isEquiposDropdownOpen ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="ml-1"
+                  >
+                    <ChevronDown className="h-4 w-4" />
+                  </motion.span>
+                  <div className="absolute inset-0 bg-red-500/0 group-hover:bg-red-500/10 rounded-md transition-all duration-300" />
+                </button>
+
+                <AnimatePresence>
+                  {isEquiposDropdownOpen && (
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -218,7 +275,7 @@ const socialLinks = [
 
             <div className="h-8 w-px bg-zinc-700/50"></div>
             
-           {/* Redes Sociales */}
+            {/* Redes Sociales */}
             <div className="flex items-center space-x-4">
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
@@ -239,8 +296,7 @@ const socialLinks = [
               })}
             </div>
           </nav>
-          
-  
+
           {/* Mobile Menu Button */}
           <motion.div className="md:hidden" whileTap={{ scale: 0.95 }}>
             <Button
@@ -254,16 +310,16 @@ const socialLinks = [
             </Button>
           </motion.div>
         </div>
-  
+
         {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.nav
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden overflow-hidden backdrop-blur-sm"
-          >
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden overflow-hidden backdrop-blur-sm"
+            >
               {/* Mobile Search Bar */}
               <div className="px-4 pb-4">
                 <div className="flex items-center space-x-2 mt-4">
@@ -287,8 +343,8 @@ const socialLinks = [
               </div>
 
               {/* Mobile Navigation Links */}
-              <motion.ul className="flex flex-col space-y-1 py-2"
-
+              <motion.ul 
+                className="flex flex-col space-y-1 py-2"
                 initial="closed"
                 animate="open"
                 variants={{
@@ -318,6 +374,38 @@ const socialLinks = [
                   </motion.li>
                 ))}
 
+                {/* Sección de Servicios */}
+                <motion.li
+                  variants={{
+                    open: { y: 0, opacity: 1 },
+                    closed: { y: 20, opacity: 0 }
+                  }}
+                  className="mt-2"
+                >
+                  <div className="px-6 py-2">
+                    <div className="text-red-500 font-semibold uppercase text-xs tracking-wider mb-3">Servicios</div>
+                    <div className="ml-2 space-y-1">
+                      {serviciosItems.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={handleNavigation}
+                          className="flex items-center py-2 px-3 rounded-lg text-white bg-zinc-800/50 hover:bg-zinc-800 mb-1 group"
+                        >
+                          <div className="bg-zinc-800 p-2 rounded-md group-hover:bg-zinc-700 transition-colors duration-200">
+                            <img
+                              src={item.icon}
+                              alt={item.label}
+                              className="w-5 h-5 object-contain group-hover:scale-110 transition-transform duration-300"
+                            />
+                          </div>
+                          <span className="ml-2 font-medium text-sm">{item.label}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </motion.li>
+
                 {/* Sección de Equipos */}
                 <motion.li
                   variants={{
@@ -328,42 +416,41 @@ const socialLinks = [
                 >
                   <div className="px-6 py-2">
                     <div className="text-red-500 font-semibold uppercase text-xs tracking-wider mb-3">Equipos</div>
-
                     <div className="ml-2 space-y-1">
-  {equiposItems.map((item) => (
-    item.href.startsWith('http') ? (
-      <a
-        key={item.href}
-        href={item.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center py-2 px-3 rounded-lg text-white bg-zinc-800/50 hover:bg-zinc-800 mb-1 group" // Cambiado py-3 a py-2
-        onClick={handleNavigation}
-      >
-                            <div className="bg-zinc-800 p-2 rounded-md group-hover:bg-zinc-700 transition-colors duration-200"> {/* p-2 a p-1 */}
-                            <img
-            src={item.icon}
-            alt={item.label}
-            className="w-5 h-5 object-contain group-hover:scale-110 transition-transform duration-300" // w-6 a w-5
+                      {equiposItems.map((item) => (
+                        item.href.startsWith('http') ? (
+                          <a
+                            key={item.href}
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center py-2 px-3 rounded-lg text-white bg-zinc-800/50 hover:bg-zinc-800 mb-1 group"
+                            onClick={handleNavigation}
+                          >
+                            <div className="bg-zinc-800 p-2 rounded-md group-hover:bg-zinc-700 transition-colors duration-200">
+                              <img
+                                src={item.icon}
+                                alt={item.label}
+                                className="w-5 h-5 object-contain group-hover:scale-110 transition-transform duration-300"
                               />
                             </div>
-                            <span className="ml-2 font-medium text-sm">{item.label}</span> {/* ml-3 a ml-2, añadido text-sm */}
+                            <span className="ml-2 font-medium text-sm">{item.label}</span>
                           </a>
                         ) : (
                           <Link
                             key={item.href}
                             href={item.href}
                             onClick={handleNavigation}
-                            className="flex items-center py-2 px-3 rounded-lg text-white bg-zinc-800/50 hover:bg-zinc-800 mb-1 group" // Cambiado py-3 a py-2
+                            className="flex items-center py-2 px-3 rounded-lg text-white bg-zinc-800/50 hover:bg-zinc-800 mb-1 group"
                           >
                             <div className="bg-zinc-800 p-2 rounded-md group-hover:bg-zinc-700 transition-colors duration-200">
                               <img
                                 src={item.icon}
                                 alt={item.label}
-                                className="w-5 h-5 object-contain group-hover:scale-110 transition-transform duration-300" // w-6 a w-5
+                                className="w-5 h-5 object-contain group-hover:scale-110 transition-transform duration-300"
                               />
                             </div>
-                            <span className="ml-2 font-medium text-sm">{item.label}</span> {/* ml-3 a ml-2, añadido text-sm */}
+                            <span className="ml-2 font-medium text-sm">{item.label}</span>
                           </Link>
                         )
                       ))}

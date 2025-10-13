@@ -1,3 +1,4 @@
+// src/app/servicios/case/page.tsx
 'use client'
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -216,104 +217,8 @@ export default function Servicios() {
             </div>
           </div>
         </motion.div>
-        {/* JCB Live Link */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-16 relative"
-        >
-          
-          
-         {/* Main content */}
-        <div className="relative p-8">
-          <h3 className="text-4xl font-bold text-white text-center mb-8 border-b-2 border-yellow-500 inline-block">
-            JCB LiveLink
-          </h3>
-            
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Carrusel de imágenes - Ahora primero en el orden */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="relative w-full max-w-7xl mx-auto"
-            >
-              <Carousel className="w-full">
-                <CarouselContent className="-ml-4">
-                  {imagesjcb.map((image, index) => (
-                    <CarouselItem key={index} className="pl-4 basis-full">
-                      <motion.div 
-                        whileHover={{ scale: 1.02 }}
-                        className="relative overflow-hidden rounded-2xl shadow-2xl aspect-[4/4]"
-                      >
-                        <img 
-                          src={image}
-                          alt={`Imagen ${index + 1}`}
-                          className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
-                      </motion.div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="absolute -left-4 lg:-left-10 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white border-none shadow-xl hover:shadow-2xl transition-all duration-300" />
-                <CarouselNext className="absolute -right-4 lg:-right-10 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white border-none shadow-xl hover:shadow-2xl transition-all duration-300" />
-              </Carousel>
-            </motion.div>
-            
-            {/* Texto - Ahora segundo en el orden */}
-            <div className="space-y-8">
-              <p className="text-gray-200 text-lg leading-relaxed">
-                JCB LiveLink es una innovadora solución telemática que le ofrece el máximo control sobre su flota en un solo lugar. 
-                Con LiveLink, puedes administrar toda tu flota de forma remota y adoptar un enfoque proactivo para el mantenimiento de las máquinas, 
-                identificando áreas de posible tiempo de inactividad antes de que sucedan.
-              </p>
-                
-              <div className="space-y-4">
-                <h4 className="text-yellow-500 font-semibold text-xl mb-4">Beneficios Principales</h4>
-                <ul className="space-y-4">
-                  {[
-                    {
-                      title: "Seguridad Avanzada",
-                      desc: "Establezca horarios de operación, geoperímetros y reciba alertas en caso de uso no autorizado."
-                    },
-                    {
-                      title: "Gestión Inteligente de Flotas",
-                      desc: "Acceda a análisis avanzados, informes programados y alertas de seguridad en tiempo real."
-                    },
-                    {
-                      title: "Mayor Tiempo de Actividad",
-                      desc: "Diagnóstico remoto y mantenimiento predictivo para minimizar el tiempo de inactividad."
-                    },
-                    {
-                      title: "Optimización de Administración",
-                      desc: "Monitoreo en tiempo real, programación de servicios y almacenamiento seguro de documentos."
-                    }
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start space-x-3">
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-yellow-600 flex items-center justify-center mt-1">
-                        <div className="w-2 h-2 bg-white rounded-full" />
-                      </div>
-                      <div>
-                        <h5 className="text-yellow-400 font-medium">{item.title}</h5>
-                        <p className="text-gray-300">{item.desc}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-                
-              <Button className="bg-yellow-600 hover:bg-yellow-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-yellow-600/25 text-lg">
-                <a href="https://www.youtube.com/watch?v=BJlAb6UdTz8" target="_blank" rel="noopener noreferrer">
-                  Descubre JCB LiveLink
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-        </motion.div>
+        
+        
         {/* Testimonios */}
 <motion.div
   initial={{ opacity: 0, y: 20 }}

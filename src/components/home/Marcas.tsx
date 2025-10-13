@@ -91,7 +91,7 @@ export default function Marcas() {
             className="bg-red-500 hover:bg-red-600 text-white px-8 py-6 text-lg shadow-lg hover:shadow-red-700/40 transform hover:-translate-y-1 transition-all duration-300"
           >
             <a href="https://web.whatsapp.com/send?phone=3814674252&text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20solicitar%20asesoramiento!%20" target="_blank" rel="noopener noreferrer" className="w-full block text-center">
-            Contactar Gerente de Ventas
+            Contactar a un asesor de Ventas
             </a>
           </Button>
         </motion.div>
