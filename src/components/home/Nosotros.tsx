@@ -17,13 +17,13 @@ export default function Nosotros() {
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24">
       <div className="relative z-10 container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Imagen con overlay de stats */}
+          {/* Imagen con overlay de stats - Solo en desktop */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative"
+            className="space-y-4"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
               <Image
@@ -35,8 +35,8 @@ export default function Nosotros() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
               
-              {/* Stats superpuestos */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 grid grid-cols-2 gap-4">
+              {/* Stats superpuestos - Solo visible en desktop */}
+              <div className="hidden lg:grid absolute bottom-0 left-0 right-0 p-6 grid-cols-2 gap-4">
                 {stats.slice(0, 2).map((stat, idx) => {
                   const Icon = stat.icon
                   return (
@@ -49,6 +49,20 @@ export default function Nosotros() {
                 })}
               </div>
             </div>
+
+            {/* Stats debajo de la imagen - Solo visible en mobile */}
+            <div className="grid lg:hidden grid-cols-2 gap-4">
+              {stats.slice(0, 2).map((stat, idx) => {
+                const Icon = stat.icon
+                return (
+                  <div key={idx} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
+                    <Icon className="w-6 h-6 text-red-500 mb-2" />
+                    <div className="text-2xl font-bold text-white">{stat.value}</div>
+                    <div className="text-xs text-gray-300">{stat.label}</div>
+                  </div>
+                )
+              })}
+            </div>
           </motion.div>
 
           {/* Contenido */}
@@ -57,7 +71,7 @@ export default function Nosotros() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6 lg:space-y-8"
           >
             <div>
               <motion.p
@@ -69,31 +83,31 @@ export default function Nosotros() {
                 | Sobre nosotros
               </motion.p>
               
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight">
+              <h2 className="text-3xl lg:text-5xl font-bold mb-4 lg:mb-6 text-white leading-tight">
                 Líderes en maquinaria
                 <span className="block text-red-500">agrícola y vial</span>
               </h2>
               
-              <p className="text-lg text-gray-300 leading-relaxed mb-6">
+              <p className="text-base lg:text-lg text-gray-300 leading-relaxed mb-4 lg:mb-6">
                 Somos concesionario oficial de las marcas <strong className="text-white">CASE IH</strong> y <strong className="text-white">JCB</strong>. 
                 Comercializamos toda la línea de sus productos y diversas marcas de maquinarias agrícolas y de construcción usadas.
               </p>
               
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-base lg:text-lg text-gray-300 leading-relaxed">
                 Contamos con una sólida estructura en administración, venta de repuestos y servicio de posventa, 
                 manteniendo nuestro compromiso con la <strong className="text-white">Responsabilidad Social Empresaria</strong>.
               </p>
             </div>
 
             {/* Stats grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 lg:gap-4">
               {stats.slice(2).map((stat, idx) => {
                 const Icon = stat.icon
                 return (
-                  <div key={idx} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:bg-white/10 transition-all">
-                    <Icon className="w-6 h-6 text-red-500 mb-2" />
-                    <div className="text-2xl font-bold text-white">{stat.value}</div>
-                    <div className="text-sm text-gray-400">{stat.label}</div>
+                  <div key={idx} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 lg:p-5 hover:bg-white/10 transition-all">
+                    <Icon className="w-5 h-5 lg:w-6 lg:h-6 text-red-500 mb-2" />
+                    <div className="text-xl lg:text-2xl font-bold text-white">{stat.value}</div>
+                    <div className="text-xs lg:text-sm text-gray-400">{stat.label}</div>
                   </div>
                 )
               })}
@@ -101,7 +115,7 @@ export default function Nosotros() {
 
             <Link href="/nosotros">
               <Button 
-                className="mt-6 bg-red-600 hover:bg-red-700 text-white text-lg px-8 py-6 shadow-xl hover:shadow-red-500/50 transition-all duration-300 group"
+                className="mt-6 w-full lg:w-auto bg-red-600 hover:bg-red-700 text-white text-base lg:text-lg px-6 lg:px-8 py-5 lg:py-6 shadow-xl hover:shadow-red-500/50 transition-all duration-300 group"
                 size="lg"
               >
                 Conoce más sobre nosotros

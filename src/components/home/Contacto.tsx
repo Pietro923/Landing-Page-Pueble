@@ -83,7 +83,7 @@ export default function Contact() {
   }
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden py-12 lg:py-24">
       <div className="relative z-10 container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -91,41 +91,41 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 lg:mb-16"
         >
-          <p className="text-red-500 font-semibold uppercase tracking-wider mb-4">| Hablemos</p>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+          <p className="text-red-500 font-semibold uppercase tracking-wider mb-2 text-sm lg:text-base">| Hablemos</p>
+          <h2 className="text-3xl lg:text-5xl font-bold text-white mb-3 lg:mb-4">
             Contáctanos
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-base lg:text-xl text-gray-300 max-w-2xl mx-auto px-4">
             Estamos aquí para responder tus consultas y brindarte la mejor atención
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12">
           {/* Formulario */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 shadow-2xl"
+            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl lg:rounded-3xl p-5 lg:p-8 shadow-2xl"
           >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
-                <Send className="w-6 h-6 text-white" />
+            <div className="flex items-center gap-3 mb-6 lg:mb-8">
+              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <Send className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-white">Envía un mensaje</h3>
+              <h3 className="text-xl lg:text-2xl font-bold text-white">Envía un mensaje</h3>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6">
+              <div className="grid md:grid-cols-2 gap-3 lg:gap-4">
                 <Input 
                   placeholder="Tu nombre" 
                   name="nombre"
                   value={formData.nombre}
                   onChange={handleChange}
-                  className="bg-white/10 text-white border-white/20 focus:border-red-500 placeholder:text-white/50 h-12 rounded-xl"
+                  className="bg-white/10 text-white border-white/20 focus:border-red-500 placeholder:text-white/50 h-11 lg:h-12 rounded-xl text-sm lg:text-base"
                   required
                   disabled={isLoading}
                 />
@@ -135,7 +135,7 @@ export default function Contact() {
                   name="correo"
                   value={formData.correo}
                   onChange={handleChange}
-                  className="bg-white/10 text-white border-white/20 focus:border-red-500 placeholder:text-white/50 h-12 rounded-xl"
+                  className="bg-white/10 text-white border-white/20 focus:border-red-500 placeholder:text-white/50 h-11 lg:h-12 rounded-xl text-sm lg:text-base"
                   required
                   disabled={isLoading}
                 />
@@ -146,7 +146,7 @@ export default function Contact() {
                 name="asunto"
                 value={formData.asunto}
                 onChange={handleChange}
-                className="bg-white/10 text-white border-white/20 focus:border-red-500 placeholder:text-white/50 h-12 rounded-xl"
+                className="bg-white/10 text-white border-white/20 focus:border-red-500 placeholder:text-white/50 h-11 lg:h-12 rounded-xl text-sm lg:text-base"
                 required
                 disabled={isLoading}
               />
@@ -156,29 +156,29 @@ export default function Contact() {
                 name="mensaje"
                 value={formData.mensaje}
                 onChange={handleChange}
-                className="bg-white/10 text-white border-white/20 focus:border-red-500 placeholder:text-white/50 min-h-[160px] rounded-xl resize-none"
+                className="bg-white/10 text-white border-white/20 focus:border-red-500 placeholder:text-white/50 min-h-[120px] lg:min-h-[160px] rounded-xl resize-none text-sm lg:text-base"
                 required
                 disabled={isLoading}
               />
               
               <Button 
                 type="submit"
-                className="w-full bg-red-600 hover:bg-red-700 text-white text-lg py-6 rounded-xl shadow-lg hover:shadow-red-500/50 transition-all duration-300"
+                className="w-full bg-red-600 hover:bg-red-700 text-white text-base lg:text-lg py-5 lg:py-6 rounded-xl shadow-lg hover:shadow-red-500/50 transition-all duration-300"
                 disabled={isLoading}
               >
                 {isLoading ? (
                   <>
-                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    <Loader2 className="w-4 h-4 lg:w-5 lg:h-5 mr-2 animate-spin" />
                     Enviando...
                   </>
                 ) : submitStatus === 'success' ? (
                   <>
-                    <CheckCircle2 className="w-5 h-5 mr-2" />
+                    <CheckCircle2 className="w-4 h-4 lg:w-5 lg:h-5 mr-2" />
                     ¡Enviado!
                   </>
                 ) : (
                   <>
-                    <Send className="w-5 h-5 mr-2" />
+                    <Send className="w-4 h-4 lg:w-5 lg:h-5 mr-2" />
                     Enviar Mensaje
                   </>
                 )}
@@ -190,7 +190,7 @@ export default function Contact() {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="p-4 bg-green-500/20 border border-green-500/30 rounded-xl text-green-300 text-center"
+                    className="p-3 lg:p-4 bg-green-500/20 border border-green-500/30 rounded-xl text-green-300 text-center text-sm lg:text-base"
                   >
                     ✅ Tu mensaje ha sido enviado exitosamente
                   </motion.div>
@@ -200,7 +200,7 @@ export default function Contact() {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="p-4 bg-red-500/20 border border-red-500/30 rounded-xl text-red-300 text-center"
+                    className="p-3 lg:p-4 bg-red-500/20 border border-red-500/30 rounded-xl text-red-300 text-center text-sm lg:text-base"
                   >
                     ❌ Hubo un error. Por favor intenta nuevamente.
                   </motion.div>
@@ -215,11 +215,11 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-4 lg:space-y-6"
           >
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 shadow-2xl">
-              <h3 className="text-2xl font-bold text-white mb-6">Información de contacto</h3>
-              <div className="space-y-6">
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl lg:rounded-3xl p-5 lg:p-8 shadow-2xl">
+              <h3 className="text-xl lg:text-2xl font-bold text-white mb-4 lg:mb-6">Información de contacto</h3>
+              <div className="space-y-3 lg:space-y-6">
                 {contactInfo.map((item, idx) => {
                   const Icon = item.icon
                   return (
@@ -228,14 +228,14 @@ export default function Contact() {
                       href={item.link}
                       target={item.link.startsWith('http') ? '_blank' : undefined}
                       rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="flex items-start gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all group"
+                      className="flex items-start gap-3 lg:gap-4 p-3 lg:p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all group"
                     >
-                      <div className="w-12 h-12 bg-red-600/20 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-red-600/30 transition-colors">
-                        <Icon className="w-6 h-6 text-red-500" />
+                      <div className="w-10 h-10 lg:w-12 lg:h-12 bg-red-600/20 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-red-600/30 transition-colors">
+                        <Icon className="w-5 h-5 lg:w-6 lg:h-6 text-red-500" />
                       </div>
-                      <div>
-                        <h4 className="text-white font-semibold mb-1">{item.title}</h4>
-                        <p className="text-gray-300 text-sm">{item.content}</p>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="text-white font-semibold mb-1 text-sm lg:text-base">{item.title}</h4>
+                        <p className="text-gray-300 text-xs lg:text-sm break-words">{item.content}</p>
                       </div>
                     </a>
                   )
@@ -244,9 +244,9 @@ export default function Contact() {
             </div>
 
             {/* Horarios */}
-            <div className="bg-gradient-to-br from-red-600/20 to-red-800/20 backdrop-blur-sm border border-red-500/30 rounded-3xl p-8 shadow-2xl">
-              <h3 className="text-xl font-bold text-white mb-4">Horarios de atención</h3>
-              <div className="space-y-3 text-gray-300">
+            <div className="bg-gradient-to-br from-red-600/20 to-red-800/20 backdrop-blur-sm border border-red-500/30 rounded-2xl lg:rounded-3xl p-5 lg:p-8 shadow-2xl">
+              <h3 className="text-lg lg:text-xl font-bold text-white mb-3 lg:mb-4">Horarios de atención</h3>
+              <div className="space-y-2 lg:space-y-3 text-sm lg:text-base text-gray-300">
                 <div className="flex justify-between">
                   <span>Lunes - Viernes</span>
                   <span className="font-semibold text-white">8:00 - 18:00</span>
@@ -255,8 +255,8 @@ export default function Contact() {
                   <span>Sábados</span>
                   <span className="font-semibold text-white">9:00 - 12:00</span>
                 </div>
-                <div className="pt-3 border-t border-white/10">
-                  <span className="text-red-400 font-semibold">Servicio de emergencias 24/7</span>
+                <div className="pt-2 lg:pt-3 border-t border-white/10">
+                  <span className="text-red-400 font-semibold text-xs lg:text-sm">Servicio de emergencias 24/7</span>
                 </div>
               </div>
             </div>
