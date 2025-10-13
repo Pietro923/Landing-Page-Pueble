@@ -74,10 +74,10 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ─── CONTACTO ─────────────────────────────── */}
-          <div className="space-y-4 text-center md:text-left">
+                    {/* ─── CONTACTO ─────────────────────────────── */}
+          <div className="space-y-4 text-center md:text-left flex flex-col items-center md:items-start">
             <h3 className="font-black text-xl mb-6 text-white border-b-2 border-red-500 inline-block">CONTACTO</h3>
-            <ul className="space-y-4 text-gray-300 font-medium">
+            <ul className="space-y-4 text-gray-300 font-medium flex flex-col items-center md:items-start">
               <li className="flex items-center justify-center md:justify-start space-x-3">
                 <a href="tel:+543815897858" 
                 className="text-white hover:underline flex gap-3 items-center">
@@ -92,15 +92,15 @@ export default function Footer() {
                   recepcion@pueblemaquinarias.com.ar
                 </a>
               </li>
-              <li className="flex gap-3 items-start text-gray-300">
+              <li className="flex gap-3 items-center md:items-start text-gray-300">
                 <a 
                   href="https://www.google.com/maps/place/PUEBLE+S.A./@-26.7684015,-65.2193973"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:underline flex gap-3 items-center"
                 >
-                  <MapPin className="w-5 h-5 text-red-500" />
-                  Ruta Nacional 9 KM 1301, Tucumán
+                  <MapPin className="w-5 h-5 text-red-500 flex-shrink-0" />
+                  <span className="text-center md:text-left">Ruta Nacional 9 KM 1301, Tucumán</span>
                 </a>
               </li>
             </ul>

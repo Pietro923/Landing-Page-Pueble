@@ -43,6 +43,7 @@ export default function TrabajaConNosotros() {
     "Atención al Cliente",
     "Logística",
     "Sistemas",
+    "Pasantias",
     "Otro"
   ];
   

@@ -15,20 +15,19 @@ import {
   Image as ImageIcon,
   Calendar
 } from 'lucide-react'
+
 export default function About() {
   const milestones = [
     { 
       year: 2003, 
       title: 'Fundación', 
       description: 'Nace PUEBLE S.A. con el propósito de representar y dedicarse a la venta específica de fertilizantes para todo el NOA.',
-      
       imageAlt: 'Fundación de Pueble S.A. en 2003'
     },
     { 
       year: 2006, 
       title: 'Concesionario Oficial', 
       description: 'PUEBLE S.A. es nombrado concesionario oficial CASE IH en Tucumán, convirtiéndose en su actividad principal.',
-     
       imageAlt: 'Nombramiento como concesionario oficial CASE IH'
     },
     { 
@@ -53,6 +52,7 @@ export default function About() {
       imageAlt: 'Nueva expansión y crecimiento 2025'
     }
   ];
+
   const values = [
     { icon: Shield, title: 'Confianza y Honestidad', description: 'Construimos relaciones basadas en la transparencia y el respeto mutuo.' },
     { icon: Target, title: 'Compromiso', description: 'Con nuestros clientes, empleados, accionistas y resultados.' },
@@ -61,38 +61,70 @@ export default function About() {
     { icon: Wrench, title: 'Responsabilidad', description: 'Cumplimos con nuestras obligaciones fiscales, sociales y ambientales.' },
     { icon: Award, title: 'Innovación', description: 'Apostamos a las nuevas tendencias y avances tecnológicos que facilitan el trabajo del agricultor.' },
   ];
+
   return (
-    <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto px-4">
-        {/* Hero Section con Imagen y Texto lado a lado */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col lg:flex-row items-center gap-8 mb-16"
-        >
-          {/* Contenido de texto */}
-          <div className="lg:w-1/2 text-left">
-            <h1 className="text-4xl font-bold mb-6 text-white border-b-2 border-red-500 inline-block">Nosotros</h1>
-            <p className="text-xl text-gray-300 leading-relaxed mb-6">
-              Desde nuestra fundación en 2003, nos dedicamos a comercializar maquinaria de máxima calidad y avanzada tecnología.
-            </p>
-            <p className="text-lg text-gray-300 leading-relaxed">
-              Con más de 20 años en el mercado, nuestra estrategia se basa en la inversión constante en tecnología y en mantener una relación cercana con nuestros clientes, ofreciendo atención las 24 horas y cumpliendo siempre con nuestra palabra.
-            </p>
-          </div>
-          
-          {/* Imagen */}
-          <div className="lg:w-1/2">
-            <Image
-              src="/imagenes/inauguracion/gp1.webp"
-              alt="Equipo Pueble S.A."
-              width={1280}
-              height={853}
-              className="rounded-3xl w-full h-auto object-cover shadow-lg"
-            />
-          </div>
-        </motion.div>
+    <main className="relative overflow-hidden min-h-screen">
+      {/* Fondo general con gradiente */}
+      <div className="absolute inset-0 bg-gradient-to-br from-red-900 via-black to-gray-900" />
+
+      {/* Patrón SVG global (rejilla + puntos) */}
+      <div className="absolute inset-0 opacity-10">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern
+              id="global-pattern"
+              width="50"
+              height="50"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 50 0 L 0 0 0 50"
+                fill="none"
+                stroke="white"
+                strokeWidth="0.5"
+              />
+              <circle cx="0" cy="0" r="1.5" fill="white" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#global-pattern)" />
+        </svg>
+      </div>
+
+      {/* Contenido original */}
+      <section className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4">
+
+          {/* --- todo tu contenido tal cual --- */}
+          {/* Hero Section con Imagen y Texto lado a lado */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col lg:flex-row items-center gap-8 mb-16"
+          >
+            {/* Contenido de texto */}
+            <div className="lg:w-1/2 text-left">
+              <h1 className="text-4xl font-bold mb-6 text-white border-b-2 border-red-500 inline-block">Nosotros</h1>
+              <p className="text-xl text-gray-300 leading-relaxed mb-6">
+                Desde nuestra fundación en 2003, nos dedicamos a comercializar maquinaria de máxima calidad y avanzada tecnología.
+              </p>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Con más de 20 años en el mercado, nuestra estrategia se basa en la inversión constante en tecnología y en mantener una relación cercana con nuestros clientes, ofreciendo atención las 24 horas y cumpliendo siempre con nuestra palabra.
+              </p>
+            </div>
+            
+            {/* Imagen */}
+            <div className="lg:w-1/2">
+              <Image
+                src="/imagenes/inauguracion/gp1.webp"
+                alt="Equipo Pueble S.A."
+                width={1280}
+                height={853}
+                className="rounded-3xl w-full h-auto object-cover shadow-lg"
+              />
+            </div>
+          </motion.div>
+
         
         {/* Cita del CEO */}
         <div className="bg-gradient-to-r from-red-900/40 to-black/40 backdrop-blur-sm mt-6 mb-12 p-6 rounded-lg shadow-lg">
@@ -370,6 +402,7 @@ export default function About() {
           </Card>
         </motion.div>
       </div>
-    </section>
+      </section>
+    </main>
   );
 }
