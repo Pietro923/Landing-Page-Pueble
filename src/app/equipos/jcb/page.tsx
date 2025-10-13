@@ -94,25 +94,27 @@ export default function JCBEquipmentPage() {
   return (
     <section className="min-h-screen bg-gradient-to-br from-yellow-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       {/* Hero Section */}
-      <div className="container mx-auto px-4">
-        <motion.div 
-          className="flex items-center justify-center mb-8"
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-        >
+      <div className="container mx-auto px-4 text-center mb-16">
+                <motion.div
+                  initial={{ y: -20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="flex justify-center mb-6"
+                >
           <img 
             src="/imagenes/equipment/jcb/jcb.svg" 
             alt="JCB Logo" 
-            className="h-16"
+            className="h-12 md:h-16"
           />
         </motion.div>
         <motion.p 
-          className="text-gray-300 text-center text-xl max-w-3xl mx-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="text-gray-300 text-xl max-w-3xl mx-auto"
+                  >
           Somos distribuidor oficial JCB en Argentina. JCB es líder en retroexcavadoras en el mercado 
           global, une fuerza, robustez, estabilidad y seguridad en toda su amplia gama de equipos. 
           Máxima eficiencia con el consumo más bajo y optimizado del mercado.
@@ -120,31 +122,32 @@ export default function JCBEquipmentPage() {
       </div>
       
       {/* Categories Grid */}
-      <div className="container mx-auto px-4 py-16">
-        <motion.div 
-          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {categories.map((category) => (
-            <motion.div key={category.id} variants={itemVariants}>
-              <Link href={category.href} className="h-full">
-                <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-all duration-300 text-white h-full flex flex-col">
-                  <CardHeader className="flex flex-col items-center justify-between text-center p-8 h-full">
-                    <div className="flex items-center justify-center h-32 text-[#fcb026] group-hover:text-[#ffc251] transition-colors duration-300">
-                      {category.icon}
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-300 mt-4">
-                      {category.name}
-                    </h3>
-                  </CardHeader>
-                </Card>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {categories.map((category) => (
+              <motion.div key={category.id} variants={itemVariants}>
+                <Link href={category.href} className="block h-full">
+                  <Card className="group bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-all duration-300 text-white h-full flex flex-col hover:shadow-xl hover:shadow-yellow-500/20">
+                    <CardHeader className="flex flex-col items-center justify-between text-center p-8 h-full">
+                      <div className="flex items-center justify-center h-32 transition-transform duration-300 group-hover:scale-110">
+                        {category.icon}
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-300 mt-4 group-hover:text-white transition-colors duration-300">
+                        {category.name}
+                      </h3>
+                    </CardHeader>
+                  </Card>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
   );
 }

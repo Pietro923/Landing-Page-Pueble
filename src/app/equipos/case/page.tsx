@@ -30,7 +30,7 @@ const categories = [
     name: 'SEMBRADORAS',
     icon: <img 
       src="/maquinaslogos/case/sembradora.webp" 
-      alt="Cosechadora" 
+      alt="Sembradora" 
       className="h-20 w-auto my-3 [filter:brightness(0)_saturate(100%)_invert(15%)_sepia(84%)_saturate(5937%)_hue-rotate(357deg)_brightness(98%)_contrast(115%)]" 
     />,
     href: '/equipos/case/sembradoras'
@@ -90,59 +90,63 @@ const itemVariants = {
 
 export default function CaseEquipmentPage() {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto px-4">
-        <motion.div 
-          className="flex items-center justify-center mb-8"
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-        >
-          <img 
-            src="/imagenes/equipment/case/case.webp"
-            alt="Case IH Logo" 
-            className="h-12 md:h-16"
-          />
-        </motion.div>
-        <motion.p 
-          className="text-gray-300 text-center text-xl max-w-3xl mx-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          Somos concesionario oficial de la marca CASE IH, comercializamos toda su línea de productos; 
-          teniendo una sólida estructura en administración, venta de repuestos y servicio de posventa.
-        </motion.p>
-      </div>
-      
-      {/* Categories Grid */}
-      <div className="container mx-auto px-4 py-16">
-        <motion.div 
-          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
 
+      <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+        {/* Hero Section - Logo y Texto */}
+        <div className="container mx-auto px-4 text-center mb-16">
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex justify-center mb-6"
+          >
+            <img 
+              src="/imagenes/equipment/case/case.webp"
+              alt="Case IH Logo" 
+              className="h-12 md:h-16"
+            />
+          </motion.div>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-gray-300 text-xl max-w-3xl mx-auto"
+          >
+            Somos concesionario oficial de la marca CASE IH, comercializamos toda su línea de productos; 
+            teniendo una sólida estructura en administración, venta de repuestos y servicio de posventa.
+          </motion.p>
+        </div>
         
-          {categories.map((category) => (
-            <motion.div key={category.id} variants={itemVariants}>
-            <Link href={category.href} className="h-full">
-              <Card className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-all duration-300 text-white h-full flex flex-col">
-                                <CardHeader className="flex flex-col items-center justify-between text-center p-8 h-full">
-                  <div className="flex items-center justify-center h-32 text-[#8f131a] group-hover:text-[#b71921] transition-colors duration-300">
-                    {category.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-300 mt-4">
-                      {category.name}
-                    </h3>
+        {/* Categories Grid */}
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {categories.map((category) => (
+              <motion.div key={category.id} variants={itemVariants}>
+                <Link href={category.href} className="block h-full">
+                  <Card className="group bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-all duration-300 text-white h-full flex flex-col hover:shadow-xl hover:shadow-red-500/20">
+                    <CardHeader className="flex flex-col items-center justify-between text-center p-8 h-full">
+                      <div className="flex items-center justify-center h-32 transition-transform duration-300 group-hover:scale-110">
+                        {category.icon}
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-300 mt-4 group-hover:text-white transition-colors duration-300">
+                        {category.name}
+                      </h3>
                     </CardHeader>
-                </Card>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+                  </Card>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
   );
 }

@@ -470,7 +470,7 @@ const Navbar = () => {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-white hover:text-red-400 transition-colors duration-200"
+                        className="text-white hover:text-red-400"
                         aria-label={social.label}
                       >
                         <Icon className="w-6 h-6" />

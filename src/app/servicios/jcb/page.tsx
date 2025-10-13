@@ -59,7 +59,34 @@ export default function ServiciosJCB() {
   ];
   
   return (
-    <section className="min-h-screen bg-gradient-to-br from-yellow-900 via-black to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+    <main className="relative overflow-hidden min-h-screen">
+
+      {/* Fondo general con gradiente */}
+      <div className="absolute inset-0 bg-gradient-to-br from-yellow-900 via-black to-gray-900" />
+
+      {/* Patrón SVG global (rejilla + puntos) */}
+      <div className="absolute inset-0 opacity-10">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern
+              id="global-pattern"
+              width="50"
+              height="50"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 50 0 L 0 0 0 50"
+                fill="none"
+                stroke="white"
+                strokeWidth="0.5"
+              />
+              <circle cx="0" cy="0" r="1.5" fill="white" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#global-pattern)" />
+        </svg>
+      </div>
+    <section className="min-h-screen bg-gradient-to-br  py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto px-4 relative">
         {/* Título y descripción */}
         <motion.div
@@ -264,5 +291,6 @@ export default function ServiciosJCB() {
         </motion.div>
       </div>
     </section>
+    </main>
   );
 }

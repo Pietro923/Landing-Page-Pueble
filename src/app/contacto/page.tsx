@@ -333,7 +333,7 @@ export default function ContactPage() {
             <CardContent className="space-y-6">
               <div className="aspect-video rounded-lg overflow-hidden bg-white/10 relative z-0 shadow-md">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3562.2553370575342!2d-65.2169265!3d-26.768129599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225d003948aec7%3A0x5aca876c4fba6d96!2sJCB%20PUEBLE%20SA!5e0!3m2!1ses-419!2sar!4v1742484690853!5m2!1ses-419!2sar" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1259.4430790144108!2d-65.21637952744011!3d-26.768524027075227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225e94c0835bbf%3A0x8568c458ceb402c1!2sCase%20IH%20-%20Pueble%20SA!5e0!3m2!1ses-419!2sar!4v1760376738722!5m2!1ses-419!2sar"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

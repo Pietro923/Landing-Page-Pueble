@@ -54,6 +54,30 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${inter.className} overflow-x-hidden`}>
         <Navbar />
+
+      {/* Patrón SVG global (rejilla + puntos) */}
+      <div className="absolute inset-0 opacity-10">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern
+              id="global-pattern"
+              width="50"
+              height="50"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 50 0 L 0 0 0 50"
+                fill="none"
+                stroke="white"
+                strokeWidth="0.5"
+              />
+              <circle cx="0" cy="0" r="1.5" fill="white" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#global-pattern)" />
+        </svg>
+      </div>
+      
         <main className="min-h-screen pt-20 font-titillium">
           {children}
         </main>
