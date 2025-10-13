@@ -14,7 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Upload, FileText, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Upload, FileText, Loader2, CheckCircle2, AlertCircle, Briefcase, Users, Zap, BookOpen } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
 
@@ -26,6 +26,7 @@ export default function TrabajaConNosotros() {
     email: "",
     telefono: "",
     areaInteres: "",
+    tipoPostulacion: "empleo",
     experiencia: "",
     nivelEstudio: "",
     disponibilidad: "",
@@ -43,7 +44,15 @@ export default function TrabajaConNosotros() {
     "Atención al Cliente",
     "Logística",
     "Sistemas",
-    "Pasantias",
+    "Otro"
+  ];
+
+  const areasInteresPasantia = [
+    "Administración",
+    "Sistemas",
+    "Logística",
+    "Ventas",
+    "Atención al Cliente",
     "Otro"
   ];
   
@@ -59,6 +68,34 @@ export default function TrabajaConNosotros() {
   const disponibilidadHoraria = [
     "Full Time",
     "Part Time"
+  ];
+
+  const tiposPostulacion = [
+    { id: "empleo", label: "Empleo" },
+    { id: "pasantia", label: "Pasantía" }
+  ];
+
+  const oportunidades = [
+    {
+      icon: Briefcase,
+      titulo: "Empleos",
+      descripcion: "Únete a nuestro equipo de profesionales experimentados en un ambiente dinámico y colaborativo."
+    },
+    {
+      icon: Users,
+      titulo: "Pasantías",
+      descripcion: "Gana experiencia práctica mientras estudias. Aprende de profesionales y contribuye al equipo."
+    },
+    {
+      icon: Zap,
+      titulo: "Crecimiento",
+      descripcion: "Oportunidades de capacitación continua y desarrollo profesional para tu carrera."
+    },
+    {
+      icon: BookOpen,
+      titulo: "Mentoría",
+      descripcion: "Acceso a mentores experimentados que te guiarán en tu desarrollo laboral."
+    }
   ];
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -97,43 +134,37 @@ export default function TrabajaConNosotros() {
       });
       return;
     }
-
     setIsSubmitting(true);
     setSubmitStatus('idle');
     
     try {
-      // Crear FormData para enviar archivo
       const submitFormData = new FormData();
       Object.entries(formData).forEach(([key, value]) => {
         submitFormData.append(key, value);
       });
       submitFormData.append('cv', cvFile);
-
       const response = await fetch('/api/job-application', {
         method: 'POST',
         body: submitFormData,
       });
-
       const data = await response.json();
-
       if (!response.ok) {
         throw new Error(data.error || 'Error al enviar la postulación');
       }
-
-      // Éxito
+      
       setSubmitStatus('success');
       toast({
         title: "✅ Postulación enviada",
         description: "Gracias por tu interés. Revisaremos tu postulación y nos pondremos en contacto contigo pronto.",
       });
       
-      // Limpiar formulario
       setFormData({
         nombre: "",
         apellido: "",
         email: "",
         telefono: "",
         areaInteres: "",
+        tipoPostulacion: "empleo",
         experiencia: "",
         nivelEstudio: "",
         disponibilidad: "",
@@ -141,8 +172,7 @@ export default function TrabajaConNosotros() {
       });
       setCvFile(null);
       setFileName("");
-
-      // Resetear estado después de 5 segundos
+      
       setTimeout(() => {
         setSubmitStatus('idle');
       }, 5000);
@@ -160,66 +190,131 @@ export default function TrabajaConNosotros() {
   };
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-5 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-red-950 via-slate-950 to-black py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        {/* Header Section - Sin cambios */}
+        {/* Header Section */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-12 lg:mb-16"
         >
-          <div className="flex items-center justify-center flex-col">
-            <Image
-              src="/imagenes/logos/LogoPueble.webp"
-              alt="Logo de Pueble S.A"
-              width={420}
-              height={160}
-            />
+          <div className="flex items-center justify-center flex-col mb-6 lg:mb-8">
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              <Image
+                src="/imagenes/logos/LogoPueble.webp"
+                alt="Logo de Pueble S.A"
+                width={300}
+                height={100}
+                className="w-auto h-20 sm:h-24 lg:h-32 object-contain"
+                priority
+              />
+            </motion.div>
           </div>
           
-          <motion.h2 
+          <motion.h1 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-4xl font-bold text-white mb-4"
+            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-400 to-red-600 mb-4"
           >
             Únete a Nuestro Equipo
-          </motion.h2>
+          </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-2"
           >
             En Pueble SA creemos que nuestro mayor activo son las personas. Buscamos profesionales 
-            comprometidos que quieran crecer junto a nosotros y contribuir al desarrollo del sector 
-            agrícola y de construcción.
+            comprometidos que quieran crecer junto a nosotros.
           </motion.p>
+        </motion.div>
+
+        {/* Oportunidades Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.6 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-12 lg:mb-16"
+        >
+          {oportunidades.map((oportunidad, idx) => {
+            const Icon = oportunidad.icon;
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 + idx * 0.1, duration: 0.6 }}
+                whileHover={{ translateY: -8 }}
+                className="group"
+              >
+                <div className="bg-gradient-to-br from-red-900/20 to-red-950/20 border border-red-500/20 hover:border-red-500/50 rounded-lg sm:rounded-xl p-4 sm:p-6 transition-all duration-300 backdrop-blur-sm h-full">
+                  <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-red-600 to-red-800 mb-3 sm:mb-4 group-hover:shadow-lg group-hover:shadow-red-500/50 transition-all">
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-2">{oportunidad.titulo}</h3>
+                  <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{oportunidad.descripcion}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         {/* Application Form */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className="max-w-2xl mx-auto"
+          transition={{ delay: 0.9, duration: 0.6 }}
+          className="w-full"
         >
-          <Card className="bg-white/10 backdrop-blur-sm border-0 shadow-xl">
-            <CardHeader className="text-center space-y-2">
-              <CardTitle className="text-3xl font-bold bg-gradient-to-r from-red-600 to-red-800 text-transparent bg-clip-text">
+          <Card className="bg-gradient-to-br from-slate-900/50 to-slate-950/50 backdrop-blur-xl border border-red-500/20 shadow-2xl rounded-xl sm:rounded-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-red-600/5 to-transparent pointer-events-none"></div>
+            
+            <CardHeader className="text-center space-y-2 pb-6 sm:pb-8 relative z-10 px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8">
+              <CardTitle className="text-2xl sm:text-3xl lg:text-4xl font-black bg-gradient-to-r from-red-500 to-red-600 text-transparent bg-clip-text">
                 Formulario de Postulación
               </CardTitle>
-              <CardDescription className="text-gray-300 text-lg">
-                Completa el formulario y adjunta tu CV. Nos pondremos en contacto contigo pronto.
+              <CardDescription className="text-gray-300 text-sm sm:text-base lg:text-lg">
+                Completa el formulario, adjunta tu CV y envía tu postulación.
+                <span className="block text-gray-400 text-xs sm:text-sm mt-1">Nos pondremos en contacto contigo pronto.</span>
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4"> 
+            
+            <CardContent className="relative z-10 px-4 sm:px-6 lg:px-8 pb-6 sm:pb-8">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                {/* Tipo de Postulación */}
+                <div className="space-y-2">
+                  <Label className="text-gray-300 font-semibold text-sm sm:text-base">Tipo de Postulación *</Label>
+                  <div className="grid grid-cols-2 gap-3">
+                    {tiposPostulacion.map((tipo) => (
+                      <motion.button
+                        key={tipo.id}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, tipoPostulacion: tipo.id })}
+                        className={`py-2 sm:py-3 px-3 sm:px-4 rounded-lg font-semibold transition-all duration-200 border-2 text-xs sm:text-sm lg:text-base ${
+                          formData.tipoPostulacion === tipo.id
+                            ? 'bg-red-600 border-red-500 text-white shadow-lg shadow-red-500/50'
+                            : 'bg-white/5 border-gray-600 text-gray-300 hover:border-red-500/50'
+                        }`}
+                      >
+                        {tipo.label}
+                      </motion.button>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Nombre y Apellido */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="nombre" className="text-gray-300">Nombre Completo</Label>
+                    <Label htmlFor="nombre" className="text-gray-300 font-medium text-xs sm:text-sm">Nombre Completo</Label>
                     <Input
                       id="nombre"
                       type="text"
@@ -227,13 +322,13 @@ export default function TrabajaConNosotros() {
                       placeholder="Tu nombre completo"
                       value={formData.nombre}
                       onChange={handleChange}
-                      className="bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
+                      className="bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg [&::placeholder]:text-white/50 transition-all text-sm"
                       required
                       disabled={isSubmitting}
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="apellido" className="text-gray-300">Apellido</Label>
+                    <Label htmlFor="apellido" className="text-gray-300 font-medium text-xs sm:text-sm">Apellido</Label>
                     <Input
                       id="apellido"
                       type="text"
@@ -241,16 +336,17 @@ export default function TrabajaConNosotros() {
                       placeholder="Apellido"
                       value={formData.apellido}
                       onChange={handleChange}
-                      className="bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
+                      className="bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg [&::placeholder]:text-white/50 transition-all text-sm"
                       required
                       disabled={isSubmitting}
                     />
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Email y Teléfono */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-gray-300">Email</Label>
+                    <Label htmlFor="email" className="text-gray-300 font-medium text-xs sm:text-sm">Email</Label>
                     <Input
                       id="email"
                       type="email"
@@ -258,13 +354,13 @@ export default function TrabajaConNosotros() {
                       placeholder="tu@email.com"
                       value={formData.email}
                       onChange={handleChange}
-                      className="bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
+                      className="bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg [&::placeholder]:text-white/50 transition-all text-sm"
                       required
                       disabled={isSubmitting}
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="telefono" className="text-gray-300">Teléfono</Label>
+                    <Label htmlFor="telefono" className="text-gray-300 font-medium text-xs sm:text-sm">Teléfono</Label>
                     <Input
                       id="telefono"
                       type="tel"
@@ -272,62 +368,67 @@ export default function TrabajaConNosotros() {
                       placeholder="Tu teléfono"
                       value={formData.telefono}
                       onChange={handleChange}
-                      className="bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
+                      className="bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg [&::placeholder]:text-white/50 transition-all text-sm"
                       required
                       disabled={isSubmitting}
                     />
                   </div>
                 </div>
-                
+
+                {/* Área de Interés */}
                 <div className="space-y-2">
-                  <Label htmlFor="areaInteres" className="text-gray-300">Área de Interés</Label>
+                  <Label htmlFor="areaInteres" className="text-gray-300 font-medium text-xs sm:text-sm">Área de Interés</Label>
                   <Select 
                     onValueChange={handleSelectChange('areaInteres')} 
                     value={formData.areaInteres}
                     disabled={isSubmitting}
                   >
-                    <SelectTrigger className="w-full bg-white/20 text-white placeholder-gray-300 border-0 focus:ring-2 focus:ring-red-500">
+                    <SelectTrigger className="w-full bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg hover:border-red-500/50 transition-all text-sm">
                       <SelectValue placeholder="Selecciona un área" />
                     </SelectTrigger>
-                    <SelectContent className="bg-gray-800 border-0 text-gray-300">
-                      {areasInteres.map((area) => (
-                        <SelectItem key={area} value={area} className="hover:bg-white/10">
+                    <SelectContent className="bg-slate-900 border border-gray-600 text-gray-300 rounded-lg">
+                      {(formData.tipoPostulacion === "pasantia" ? areasInteresPasantia : areasInteres).map((area) => (
+                        <SelectItem key={area} value={area} className="hover:bg-red-600/30">
                           {area}
                         </SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
                 </div>
-                
+
+                {/* Experiencia Laboral */}
                 <div className="space-y-2">
-                  <Label htmlFor="experiencia" className="text-gray-300">Experiencia Laboral</Label>
+                  <Label htmlFor="experiencia" className="text-gray-300 font-medium text-xs sm:text-sm">
+                    {formData.tipoPostulacion === "pasantia" ? "Experiencia Previa" : "Experiencia Laboral"}
+                  </Label>
                   <Input
                     id="experiencia"
                     type="text"
                     name="experiencia"
-                    placeholder="Resume tu experiencia laboral relevante"
+                    placeholder={formData.tipoPostulacion === "pasantia" ? "Resume cualquier experiencia previa relevante" : "Resume tu experiencia laboral relevante"}
                     value={formData.experiencia}
                     onChange={handleChange}
-                    className="bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
+                    className="bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg [&::placeholder]:text-white/50 transition-all text-sm"
                     required
                     disabled={isSubmitting}
                   />
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Nivel de Estudios y Disponibilidad */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="nivelEstudio" className="text-gray-300">Nivel de Estudios</Label>
+                    <Label htmlFor="nivelEstudio" className="text-gray-300 font-medium text-xs sm:text-sm">Nivel de Estudios</Label>
                     <Select 
                       onValueChange={handleSelectChange('nivelEstudio')} 
                       value={formData.nivelEstudio}
                       disabled={isSubmitting}
                     >
-                      <SelectTrigger className="w-full bg-white/20 text-white placeholder-gray-300 border-0 focus:ring-2 focus:ring-red-500">
-                        <SelectValue placeholder="Selecciona tu nivel de estudios" />
+                      <SelectTrigger className="w-full bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg hover:border-red-500/50 transition-all text-sm">
+                        <SelectValue placeholder="Selecciona tu nivel" />
                       </SelectTrigger>
-                      <SelectContent className="bg-gray-800 border-0 text-gray-300">
+                      <SelectContent className="bg-slate-900 border border-gray-600 text-gray-300 rounded-lg">
                         {nivelesEstudio.map((nivel) => (
-                          <SelectItem key={nivel} value={nivel} className="hover:bg-white/10">
+                          <SelectItem key={nivel} value={nivel} className="hover:bg-red-600/30">
                             {nivel}
                           </SelectItem>
                         ))}
@@ -335,19 +436,19 @@ export default function TrabajaConNosotros() {
                     </Select>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="disponibilidad" className="text-gray-300">Disponibilidad Horaria</Label>
+                    <Label htmlFor="disponibilidad" className="text-gray-300 font-medium text-xs sm:text-sm">Disponibilidad Horaria</Label>
                     <Select 
                       onValueChange={handleSelectChange('disponibilidad')} 
                       value={formData.disponibilidad}
                       disabled={isSubmitting}
                     >
-                      <SelectTrigger className="w-full bg-white/20 text-white placeholder-gray-300 border-0 focus:ring-2 focus:ring-red-500">
-                        <SelectValue placeholder="Selecciona tu disponibilidad" />
+                      <SelectTrigger className="w-full bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg hover:border-red-500/50 transition-all text-sm">
+                        <SelectValue placeholder="Selecciona disponibilidad" />
                       </SelectTrigger>
-                      <SelectContent className="bg-gray-800 border-0 text-gray-300">
-                        {disponibilidadHoraria.map((disponibilidad) => (
-                          <SelectItem key={disponibilidad} value={disponibilidad} className="hover:bg-white/10">
-                            {disponibilidad}
+                      <SelectContent className="bg-slate-900 border border-gray-600 text-gray-300 rounded-lg">
+                        {disponibilidadHoraria.map((disp) => (
+                          <SelectItem key={disp} value={disp} className="hover:bg-red-600/30">
+                            {disp}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -355,27 +456,29 @@ export default function TrabajaConNosotros() {
                   </div>
                 </div>
                 
+                {/* Mensaje Personal */}
                 <div className="space-y-2">
-                  <Label htmlFor="mensaje" className="text-gray-300">Mensaje Personal</Label>
+                  <Label htmlFor="mensaje" className="text-gray-300 font-medium text-xs sm:text-sm">Mensaje Personal</Label>
                   <Textarea
                     id="mensaje"
                     name="mensaje"
-                    placeholder="Cuéntanos sobre ti, tus motivaciones y por qué te gustaría formar parte del equipo de Pueble SA..."
+                    placeholder="Cuéntanos sobre ti, tus motivaciones..."
                     value={formData.mensaje}
                     onChange={handleChange}
-                    className="min-h-[120px] bg-white/20 text-white border-0 focus:ring-2 focus:ring-red-500 [&::placeholder]:text-white/70"
+                    className="min-h-[120px] sm:min-h-[140px] bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg [&::placeholder]:text-white/50 transition-all resize-none text-sm"
                     required
                     disabled={isSubmitting}
                   />
                 </div>
                 
+                {/* File Upload */}
                 <div className="space-y-2">
-                  <Label htmlFor="cv" className="text-gray-300 flex items-center gap-2">
-                    <FileText className="h-5 w-5" />
+                  <Label htmlFor="cv" className="text-gray-300 font-medium flex items-center gap-2 text-xs sm:text-sm">
+                    <FileText className="h-4 w-4 sm:h-5 sm:w-5 text-red-500" />
                     Curriculum Vitae (PDF) *
                   </Label>
                   <div className="relative">
-                    <div className="relative border-2 border-dashed border-gray-400 rounded-lg p-6 hover:border-red-500 transition-colors">
+                    <div className="relative border-2 border-dashed border-gray-500 rounded-lg p-6 sm:p-8 hover:border-red-500 hover:bg-red-500/5 transition-all duration-300 group">
                       <Input
                         id="cv"
                         type="file"
@@ -385,93 +488,116 @@ export default function TrabajaConNosotros() {
                         required
                         disabled={isSubmitting}
                       />
-                      <div className="text-center">
+                      <div className="text-center pointer-events-none">
                         {fileName ? (
-                          <div className="space-y-2">
-                            <FileText className="h-12 w-12 mx-auto text-red-500" />
-                            <div className="flex items-center justify-center gap-2">
+                          <motion.div 
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            className="space-y-2 sm:space-y-3"
+                          >
+                            <div className="flex justify-center">
+                              <FileText className="h-10 w-10 sm:h-14 sm:w-14 text-red-500 group-hover:text-red-400" />
+                            </div>
+                            <div className="flex items-center justify-center gap-2 sm:gap-3">
                               <div className="flex-1 truncate max-w-xs">
-                                <p className="text-gray-300 font-medium truncate">{fileName}</p>
-                                <p className="text-sm text-gray-400">
-                                  Haz clic para cambiar el archivo
+                                <p className="text-gray-200 font-semibold truncate text-xs sm:text-sm">{fileName}</p>
+                                <p className="text-xs text-gray-400">
+                                  Haz clic para cambiar
                                 </p>
                               </div>
                             </div>
-                          </div>
+                          </motion.div>
                         ) : (
-                          <div className="space-y-2">
-                            <Upload className="h-12 w-12 mx-auto text-gray-400" />
+                          <motion.div 
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            className="space-y-2 sm:space-y-3"
+                          >
+                            <Upload className="h-10 w-10 sm:h-14 sm:w-14 mx-auto text-gray-400 group-hover:text-red-400 transition-colors" />
                             <div>
-                              <p className="text-gray-300">
-                                <span className="font-semibold text-red-500">
+                              <p className="text-gray-200 text-xs sm:text-sm">
+                                <span className="font-bold text-red-500">
                                   Haz clic para subir
                                 </span>{" "}
                                 o arrastra y suelta
                               </p>
-                              <p className="text-sm text-gray-400">
+                              <p className="text-xs text-gray-400 mt-1">
                                 Sólo archivos PDF (máximo 10MB)
                               </p>
                             </div>
-                          </div>
+                          </motion.div>
                         )}
                       </div>
                     </div>
                   </div>
                 </div>
                 
-                <Button
-                  type="submit"
-                  className="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-3 rounded-lg transition-all duration-200 flex items-center justify-center gap-2"
-                  disabled={isSubmitting}
+                {/* Submit Button */}
+                <motion.div
+                  whileHover={{ scale: 0.98 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="animate-spin w-5 h-5" />
-                      Enviando Postulación...
-                    </>
-                  ) : submitStatus === 'success' ? (
-                    <>
-                      <CheckCircle2 className="w-5 h-5" />
-                      ¡Enviado Exitosamente!
-                    </>
-                  ) : (
-                    <>
-                      <Upload className="w-5 h-5" />
-                      Enviar Postulación
-                    </>
-                  )}
-                </Button>
+                  <Button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold py-3 sm:py-4 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-red-500/30 hover:shadow-red-500/50 text-sm sm:text-base"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="animate-spin w-4 h-4 sm:w-5 sm:h-5" />
+                        Enviando Postulación...
+                      </>
+                    ) : submitStatus === 'success' ? (
+                      <>
+                        <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                        ¡Enviado Exitosamente!
+                      </>
+                    ) : (
+                      <>
+                        <Upload className="w-4 h-4 sm:w-5 sm:h-5" />
+                        Enviar Postulación
+                      </>
+                    )}
+                  </Button>
+                </motion.div>
                 
+                {/* Status Messages */}
                 <AnimatePresence>
                   {submitStatus === 'success' && (
                     <motion.div
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.8 }}
-                      className="text-center p-4 bg-green-600/20 rounded-lg border border-green-500/30"
+                      initial={{ opacity: 0, scale: 0.8, y: -10 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.8, y: -10 }}
+                      className="text-center p-4 sm:p-6 bg-gradient-to-r from-green-600/20 to-green-700/20 rounded-lg border border-green-500/30 backdrop-blur-sm"
                     >
-                      <CheckCircle2 className="w-12 h-12 mx-auto text-green-400 mb-2" />
-                      <p className="text-green-400 font-medium">
+                      <motion.div
+                        animate={{ scale: [1, 1.1, 1] }}
+                        transition={{ duration: 0.5 }}
+                        className="inline-block"
+                      >
+                        <CheckCircle2 className="w-10 h-10 sm:w-12 sm:h-12 mx-auto text-green-400 mb-2 sm:mb-3" />
+                      </motion.div>
+                      <p className="text-green-400 font-bold text-base sm:text-lg">
                         ¡Postulación enviada con éxito! 
                       </p>
-                      <p className="text-green-300 text-sm mt-1">
-                        Gracias por tu interés en Pueble SA. Revisaremos tu postulación y nos pondremos en contacto contigo pronto.
+                      <p className="text-green-300 text-xs sm:text-sm mt-2">
+                        Gracias por tu interés en Pueble SA. Revisaremos tu postulación y nos pondremos en contacto pronto.
                       </p>
                     </motion.div>
                   )}
                   
                   {submitStatus === 'error' && (
                     <motion.div
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.8 }}
-                      className="text-center p-4 bg-red-600/20 rounded-lg border border-red-500/30"
+                      initial={{ opacity: 0, scale: 0.8, y: -10 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.8, y: -10 }}
+                      className="text-center p-4 sm:p-6 bg-gradient-to-r from-red-600/20 to-red-700/20 rounded-lg border border-red-500/30 backdrop-blur-sm"
                     >
-                      <AlertCircle className="w-12 h-12 mx-auto text-red-400 mb-2" />
-                      <p className="text-red-400 font-medium">
+                      <AlertCircle className="w-10 h-10 sm:w-12 sm:h-12 mx-auto text-red-400 mb-2 sm:mb-3" />
+                      <p className="text-red-400 font-bold text-base sm:text-lg">
                         Hubo un error al enviar tu postulación
                       </p>
-                      <p className="text-red-300 text-sm mt-1">
+                      <p className="text-red-300 text-xs sm:text-sm mt-2">
                         Por favor, verifica tu conexión e intenta nuevamente.
                       </p>
                     </motion.div>

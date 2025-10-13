@@ -49,7 +49,7 @@ export default function Marcas() {
   };
 
   return (
-    <section id="marcas" className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24">
+    <section id="marcas" className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-16">
       <div className="relative z-10 container mx-auto px-4">
         {/* Header */}
         <motion.div

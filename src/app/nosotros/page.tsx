@@ -13,7 +13,9 @@ import {
   Shield,
   Handshake,
   Image as ImageIcon,
-  Calendar
+  Calendar,
+  Lightbulb,
+  ArrowRight
 } from 'lucide-react'
 
 export default function About() {
@@ -40,14 +42,14 @@ export default function About() {
     { 
       year: 2016, 
       title: 'Reconocimiento Mundial', 
-      description: 'PUEBLE S.A. obtiene la categoría Premium Pro en la evaluación mundial de World Class Dealer de CASE IH y se mantiene hasta la fecha.',
+      description: 'PUEBLE S.A. obtiene la categoría Premium Pro en la evaluación mundial de World Class Dealer de CASE IH.',
       image: '/imagenes/inauguracion/dealer.webp',
       imageAlt: 'Reconocimiento Premium Pro de CASE IH'
     },
     { 
       year: 2025, 
       title: 'Expansión y Crecimiento', 
-      description: 'PUEBLE S.A. traslada su concesionaria a una nueva sede, reafirmando su compromiso con la innovación y el crecimiento en la región.',
+      description: 'PUEBLE S.A. traslada su concesionaria a una nueva sede, reafirmando su compromiso con la innovación.',
       image: '/imagenes/inauguracion/conse4.webp', 
       imageAlt: 'Nueva expansión y crecimiento 2025'
     }
@@ -59,30 +61,20 @@ export default function About() {
     { icon: Handshake, title: 'Actitud de Servicio', description: 'Brindamos atención y soluciones con responsabilidad y empatía.' },
     { icon: Gem, title: 'Autocrítica', description: 'Compromiso con la excelencia y la mejora continua.' },
     { icon: Wrench, title: 'Responsabilidad', description: 'Cumplimos con nuestras obligaciones fiscales, sociales y ambientales.' },
-    { icon: Award, title: 'Innovación', description: 'Apostamos a las nuevas tendencias y avances tecnológicos que facilitan el trabajo del agricultor.' },
+    { icon: Award, title: 'Innovación', description: 'Apostamos a las nuevas tendencias y avances tecnológicos.' },
   ];
 
   return (
     <main className="relative overflow-hidden min-h-screen">
-      {/* Fondo general con gradiente */}
-      <div className="absolute inset-0 bg-gradient-to-br from-red-900 via-black to-gray-900" />
-
-      {/* Patrón SVG global (rejilla + puntos) */}
-      <div className="absolute inset-0 opacity-10">
+      {/* Fondo con gradiente mejorado */}
+      <div className="absolute inset-0 bg-gradient-to-br from-red-950 via-slate-950 to-black" />
+      
+      {/* Patrón SVG sutil */}
+      <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <pattern
-              id="global-pattern"
-              width="50"
-              height="50"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M 50 0 L 0 0 0 50"
-                fill="none"
-                stroke="white"
-                strokeWidth="0.5"
-              />
+            <pattern id="global-pattern" width="50" height="50" patternUnits="userSpaceOnUse">
+              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="white" strokeWidth="0.5" />
               <circle cx="0" cy="0" r="1.5" fill="white" />
             </pattern>
           </defs>
@@ -90,318 +82,437 @@ export default function About() {
         </svg>
       </div>
 
-      {/* Contenido original */}
-      <section className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto px-4">
-
-          {/* --- todo tu contenido tal cual --- */}
-          {/* Hero Section con Imagen y Texto lado a lado */}
+      <section className="relative z-10 py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-0 sm:px-4">
+          
+          {/* Header Section */}
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col lg:flex-row items-center gap-8 mb-16"
+            className="text-center mb-12 lg:mb-16"
+          >
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="text-red-500 font-semibold uppercase tracking-wider mb-3 text-xs sm:text-sm"
+            >
+              | Quiénes Somos
+            </motion.p>
+            
+            <motion.h1 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="text-3xl sm:text-4xl lg:text-6xl font-black mb-4 sm:mb-6 bg-gradient-to-r from-white via-gray-100 to-white text-transparent bg-clip-text px-2"
+            >
+              Nosotros
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="text-sm sm:text-base lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-2"
+            >
+              Más de 20 años liderando el sector agrícola y de construcción en la región, 
+              con compromiso, innovación y dedicación al servicio.
+            </motion.p>
+          </motion.div>
+
+          {/* Hero Section con Imagen y Texto */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-12 lg:mb-20 items-center"
           >
             {/* Contenido de texto */}
-            <div className="lg:w-1/2 text-left">
-              <h1 className="text-4xl font-bold mb-6 text-white border-b-2 border-red-500 inline-block">Nosotros</h1>
-              <p className="text-xl text-gray-300 leading-relaxed mb-6">
-                Desde nuestra fundación en 2003, nos dedicamos a comercializar maquinaria de máxima calidad y avanzada tecnología.
-              </p>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                Con más de 20 años en el mercado, nuestra estrategia se basa en la inversión constante en tecnología y en mantener una relación cercana con nuestros clientes, ofreciendo atención las 24 horas y cumpliendo siempre con nuestra palabra.
-              </p>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="space-y-4 sm:space-y-6 order-2 lg:order-1"
+            >
+              <div className="space-y-3 sm:space-y-4">
+                <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
+                  Desde nuestra fundación en 2003, nos dedicamos a comercializar maquinaria de 
+                  <span className="text-white font-semibold"> máxima calidad y avanzada tecnología.</span>
+                </p>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
+                  Con más de 20 años en el mercado, nuestra estrategia se basa en la 
+                  <span className="text-white font-semibold"> inversión constante en tecnología</span> y en 
+                  mantener una relación cercana con nuestros clientes, ofreciendo 
+                  <span className="text-white font-semibold"> atención las 24 horas</span> y cumpliendo 
+                  siempre con nuestra palabra.
+                </p>
+              </div>
+
+              <div className="pt-3 sm:pt-4 border-t border-white/10">
+                <p className="text-xs sm:text-sm text-gray-400 mb-2 sm:mb-3">Concesionarios Oficiales de:</p>
+                <div className="flex flex-wrap gap-2 sm:gap-4">
+                  <div className="px-3 sm:px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:border-red-500/50 transition-colors">
+                    <span className="text-white font-semibold text-xs sm:text-sm">CASE IH</span>
+                  </div>
+                  <div className="px-3 sm:px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:border-red-500/50 transition-colors">
+                    <span className="text-white font-semibold text-xs sm:text-sm">JCB</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
             
-            {/* Imagen */}
-            <div className="lg:w-1/2">
+            {/* Imagen con overlay */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl order-1 lg:order-2"
+            >
               <Image
                 src="/imagenes/inauguracion/gp1.webp"
                 alt="Equipo Pueble S.A."
                 width={1280}
                 height={853}
-                className="rounded-3xl w-full h-auto object-cover shadow-lg"
+                className="rounded-xl sm:rounded-2xl w-full h-auto object-cover transition-transform duration-700 hover:scale-105"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-xl sm:rounded-2xl" />
+            </motion.div>
+          </motion.div>
+
+          {/* Cita del CEO */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-red-600/10 to-red-900/10 backdrop-blur-sm mb-12 lg:mb-20 p-6 sm:p-8 lg:p-12 rounded-xl sm:rounded-2xl shadow-xl border border-red-500/20 hover:border-red-500/40 transition-all"
+          >
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
+              {/* Imagen */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2 }}
+                viewport={{ once: true }}
+                className="flex justify-center lg:justify-start"
+              >
+                <Image 
+                  src="/imagenes/bedey.webp" 
+                  width={200}
+                  height={200}
+                  className="w-32 h-32 sm:w-44 sm:h-44 lg:w-56 lg:h-56 rounded-full object-cover border-4 border-red-500/30 shadow-lg" 
+                  alt="Javier Rojas" 
+                />
+              </motion.div>
+
+              {/* Texto */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+                viewport={{ once: true }}
+                className="space-y-3 sm:space-y-4 text-center lg:text-left"
+              >
+                <p className="text-lg sm:text-xl lg:text-2xl italic text-gray-200 leading-relaxed font-light">
+                  "El campo no se detiene, y nosotros tampoco. Trabajamos con quienes siembran el futuro, brindando la mejor maquinaria para cada desafío."
+                </p>
+                <div>
+                  <p className="text-base sm:text-lg text-white font-bold">Javier Rojas</p>
+                  <p className="text-sm text-red-400 font-semibold">CEO - Pueble S.A.</p>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
 
-        
-        {/* Cita del CEO */}
-        <div className="bg-gradient-to-r from-red-900/40 to-black/40 backdrop-blur-sm mt-6 mb-12 p-6 rounded-lg shadow-lg">
-          <div className="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
-            {/* Imagen */}
-            <Image 
-              src="/imagenes/bedey.webp" 
-              width={32}
-              height={32}
-              className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-red-600/30" 
-              alt="Javier Rojas" 
-            />
-            {/* Texto */}
-            <div>
-              <p className="text-white text-xl md:text-2xl italic font-light">
-                "El campo no se detiene, y nosotros tampoco. Trabajamos con quienes siembran el futuro, brindando la mejor maquinaria para cada desafío."
-              </p>
-              <p className="text-gray-300 font-semibold mt-3 text-lg">Javier Rojas</p>
-              <p className="text-gray-400">CEO</p>
-            </div>
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          {/* Quiénes Somos y Objetivo */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="h-full"
+            className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-12 lg:mb-20"
           >
-            <Card className="h-full bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-gradient-to-br from-red-600 to-red-800 rounded-lg shadow-md">
-                    <Users className="w-6 h-6 text-white" />
-                  </div>
-                  <CardTitle className="text-xl font-bold text-white">Quiénes Somos</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-gray-300 leading-relaxed">
-                  Somos una empresa <span className="text-white font-semibold">líder en la venta y servicio</span> de maquinaria agrícola y de construcción, 
-                  con más de 20 años de experiencia en el sector. Nuestro compromiso 
-                  con la excelencia y la innovación nos ha permitido convertirnos en un 
-                  referente en la industria.
-                </p>
-                <p className="text-gray-300 leading-relaxed">
-                  Contamos con un <span className="text-white font-semibold">equipo altamente capacitado</span> y la tecnología más avanzada 
-                  para brindar soluciones integrales que optimizan la producción agrícola 
-                  de nuestros clientes.
-                </p>
-              </CardContent>
-            </Card>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="h-full"
-          >
-            <Card className=" h-full bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-gradient-to-br from-red-600 to-red-800 rounded-lg shadow-md">
-                    <Target className="w-6 h-6 text-white" />
-                  </div>
-                  <CardTitle className="text-xl font-bold ">Nuestro Objetivo</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-gray-300 leading-relaxed">
-                  Nuestro principal objetivo es proporcionar <span className="text-white font-semibold">soluciones integrales y de 
-                  alta calidad</span> que impulsen la productividad y eficiencia del <span className="text-white font-semibold">sector agrícola y de construcción</span>. 
-                  Nos esforzamos por:
-                </p>
-                <ul className="space-y-3">
-                  {[
-                    'Ofrecer maquinaria de última generación',
-                    'Brindar soporte técnico especializado',
-                    'Garantizar la satisfacción de nuestros clientes',
-                    'Contribuir al desarrollo del sector agrícola y de construcción'
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-red-600 rounded-full" />
-                      <span className="text-gray-300">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
-        
-        {/* Valores */}
-        <h2 className="text-3xl font-bold text-white mb-8 border-b-2 border-red-500 w-fit mx-auto">
-          Nuestros <span className="text-red-500 ">Valores</span>
-        </h2>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
-        >
-          {values.map((value, index) => {
-            const Icon = value.icon;
-            return (
-              <Card key={index} className="bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white">
-                <CardHeader>
-                  <div className="flex items-center gap-3">
-                  <div className="p-2 bg-gradient-to-br from-red-600 to-red-800 rounded-lg shadow-md">
-                      <Icon className="w-6 h-6 text-white" />
+            {/* Quiénes Somos */}
+            <div className="group relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-red-600/20 to-red-900/20 rounded-lg sm:rounded-2xl opacity-0 group-hover:opacity-100 blur transition-all duration-500" />
+              <Card className="relative bg-white/5 backdrop-blur-xl border border-white/10 hover:border-red-500/30 rounded-lg sm:rounded-2xl shadow-xl transition-all duration-300 h-full">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="p-2 sm:p-3 bg-gradient-to-br from-red-600 to-red-800 rounded-lg sm:rounded-xl shadow-lg">
+                      <Users className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                    <CardTitle className="text-lg">{value.title}</CardTitle>
+                    <CardTitle className="text-lg sm:text-2xl font-bold text-white">Quiénes Somos</CardTitle>
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300">{value.description}</p>
+                <CardContent className="space-y-3 sm:space-y-4 px-4 sm:px-6">
+                  <p className="text-xs sm:text-base text-gray-300 leading-relaxed">
+                    Somos una empresa <span className="text-white font-semibold">líder en la venta y servicio</span> de maquinaria agrícola y de construcción, 
+                    con más de 20 años de experiencia en el sector.
+                  </p>
+                  <p className="text-xs sm:text-base text-gray-300 leading-relaxed">
+                    Contamos con un <span className="text-white font-semibold">equipo altamente capacitado</span> y la tecnología más avanzada 
+                    para brindar soluciones integrales que optimizan la producción agrícola de nuestros clientes.
+                  </p>
+                  <div className="pt-2 flex items-center text-red-400 font-semibold text-xs sm:text-sm">
+                    <span>Compromiso con la excelencia</span>
+                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2" />
+                  </div>
                 </CardContent>
               </Card>
-            );
-          })}
-        </motion.div>
-        {/* Nuestra Filosofía */}
-        <h2 className="text-3xl font-bold text-white mb-8 border-b-2 border-red-500 w-fit mx-auto">
-          Nuestra Filosofia
-        </h2>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-16 rounded-lg p-8 bg-white/10 backdrop-blur-sm border-0 hover:bg-white/15 transition-colors duration-300 text-white max-w-2xl mx-auto"
-        >
-          <p className="text-lg text-gray-300 leading-relaxed">
-            Desde nuestra fundación en 2003, comprendimos que el crecimiento solo sería posible comercializando maquinaria de <span className="font-bold">máxima calidad y avanzada tecnología.</span> Tras casi 8 años de experiencia, descubrimos que nuestra mayor inversión debía centrarse en el servicio <span className="font-bold">Post Venta</span>, convirtiéndose en la unidad de negocio más importante de la empresa. Actualmente, nuestra estrategia se basa en la inversión constante en tecnología y en mantener una relación cercana con nuestros clientes, ofreciendo atención las 24 horas y cumpliendo siempre con nuestra palabra.
-          </p>
-        </motion.div>
-        
-        {/* Nuestra Historia con Popovers */}
-        <h2 className="text-3xl font-bold text-white mb-8 border-b-2 border-red-500 w-fit mx-auto">
-          Nuestra Historia
-        </h2>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <Card className="bg-white/10 backdrop-blur-sm border-0 text-white">
-            <CardContent className="py-8">
-              <div className="relative">
-                {/* Línea central - visible solo en desktop */}
-                <div className="absolute left-1/2 top-0 h-full w-0.5 bg-red-600/50 hidden md:block" />
-                
-                {/* Línea lateral - visible solo en mobile */}
-                <div className="absolute left-4 top-0 h-full w-0.5 bg-red-600/50 md:hidden" />
-                
-                <div className="space-y-10">
-                  {milestones.map((milestone, index) => (
-                    <div key={index} 
-                      className={`relative flex md:items-center gap-4 md:gap-6  
-                        ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} 
-                        flex-row items-start`}
-                    >
-                      {/* Punto de tiempo para mobile */}
-                      <div className="absolute left-4 flex items-center justify-center w-8 h-8 md:hidden -translate-x-1/2 ">
-                        <div className="w-8 h-8 bg-black/50 rounded-full border-2 border-red-600 flex items-center justify-center">
-                          <div className="w-3 h-3 bg-red-600 rounded-full" />
-                        </div>
-                      </div>
-                      
-                      {/* Contenido en mobile (siempre a la derecha) */}
-                      <div className="md:hidden ml-10 w-full">
-                        <div className="bg-black/30 p-4 rounded-lg border-l-2 border-red-600">
-                          <div className="flex items-center justify-between mb-2">
-                            <h3 className="font-bold text-xl text-red-600">{milestone.year}</h3>
-                            {milestone.image && (
-                              <Popover>
-                                <PopoverTrigger asChild>
-                                  <Button 
-                                    variant="ghost" 
-                                    size="sm"
-                                    className="text-gray-300 hover:text-white hover:bg-white/10 p-1 h-auto"
-                                  >
-                                    <ImageIcon className="w-4 h-4" />
-                                  </Button>
-                                </PopoverTrigger>
-                                <PopoverContent className="w-80 p-0 bg-black/90 border-red-600/30">
-                                  <div className="relative">
-                                    <Image
-                                      src={milestone.image}
-                                      alt={milestone.imageAlt}
-                                      width={320}
-                                      height={240}
-                                      className="w-full h-48 object-cover rounded-t-lg"
-                                    />
-                                    <div className="p-4">
-                                      <div className="flex items-center gap-2 mb-2">
-                                        <Calendar className="w-4 h-4 text-red-500" />
-                                        <span className="text-red-500 font-semibold">{milestone.year}</span>
-                                      </div>
-                                      <h4 className="font-bold text-white mb-2">{milestone.title}</h4>
-                                      <p className="text-gray-300 text-sm">{milestone.description}</p>
-                                    </div>
-                                  </div>
-                                </PopoverContent>
-                              </Popover>
-                            )}
-                          </div>
-                          <h4 className="font-semibold mb-1">{milestone.title}</h4>
-                          <p className="text-gray-300 text-sm">{milestone.description}</p>
-                        </div>
-                      </div>
-                      
-                      {/* Contenido para desktop (alternando lados) */}
-                      <div className={`md:w-5/12 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'} text-center hidden md:block `}>
-                        <div className={`bg-black/30 p-4 rounded-lg ${index % 2 === 0 ? 'border-r-2' : 'border-l-2'} border-red-600 hover:bg-white/5 transition-colors duration-200`}>
-                          <div className={`flex items-center gap-3 mb-2 ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
-                            <h3 className="font-bold text-xl text-red-600">{milestone.year}</h3>
-                            {milestone.image && (
-                              <Popover>
-                                <PopoverTrigger asChild>
-                                  <Button 
-                                    variant="ghost" 
-                                    size="sm"
-                                    className="text-gray-300 hover:text-white hover:bg-white/10 p-2 h-auto"
-                                  >
-                                    <ImageIcon className="w-5 h-5" />
-                                  </Button>
-                                </PopoverTrigger>
-                                <PopoverContent className="w-80 p-0 bg-black/90 border-red-600/30" side={index % 2 === 0 ? 'left' : 'right'}>
-                                  <div className="relative">
-                                    <Image
-                                      src={milestone.image}
-                                      alt={milestone.imageAlt}
-                                      width={320}
-                                      height={240}
-                                      className="w-full h-48 object-cover rounded-t-lg"
-                                    />
-                                    <div className="p-4">
-                                      <div className="flex items-center gap-2 mb-2">
-                                        <Calendar className="w-4 h-4 text-red-500" />
-                                        <span className="text-red-500 font-semibold">{milestone.year}</span>
-                                      </div>
-                                      <h4 className="font-bold text-white mb-2">{milestone.title}</h4>
-                                      <p className="text-gray-300 text-sm">{milestone.description}</p>
-                                    </div>
-                                  </div>
-                                </PopoverContent>
-                              </Popover>
-                            )}
-                          </div>
-                          <h4 className="font-semibold mb-1">{milestone.title}</h4>
-                          <p className="text-gray-300">{milestone.description}</p>
-                        </div>
-                      </div>
-                      
-                      {/* Punto central para desktop */}
-                      <div className="absolute left-1/2 -translate-x-1/2 items-center justify-center w-10 h-10 hidden md:flex">
-                        <div className="w-10 h-10 bg-black/50 rounded-full border-2 border-red-600 flex items-center justify-center">
-                          <div className="w-4 h-4 bg-red-600 rounded-full" />
-                        </div>
-                      </div>
-                      
-                      <div className="md:w-5/12 hidden md:block"></div>
+            </div>
+
+            {/* Objetivo */}
+            <div className="group relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-red-600/20 to-red-900/20 rounded-lg sm:rounded-2xl opacity-0 group-hover:opacity-100 blur transition-all duration-500" />
+              <Card className="relative bg-white/5 backdrop-blur-xl border border-white/10 hover:border-red-500/30 rounded-lg sm:rounded-2xl shadow-xl transition-all duration-300 h-full">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="p-2 sm:p-3 bg-gradient-to-br from-red-600 to-red-800 rounded-lg sm:rounded-xl shadow-lg">
+                      <Target className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                  ))}
+                    <CardTitle className="text-lg sm:text-2xl font-bold text-white">Nuestro Objetivo</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-3 sm:space-y-4 px-4 sm:px-6">
+                  <p className="text-xs sm:text-base text-gray-300 leading-relaxed">
+                    Proporcionar <span className="text-white font-semibold">soluciones integrales y de alta calidad</span> que impulsen 
+                    la productividad del sector agrícola y de construcción.
+                  </p>
+                  <ul className="space-y-2 sm:space-y-3">
+                    {[
+                      'Ofrecer maquinaria de última generación',
+                      'Brindar soporte técnico especializado',
+                      'Garantizar la satisfacción de nuestros clientes',
+                      'Contribuir al desarrollo sostenible'
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2 sm:gap-3">
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-500 rounded-full mt-1.5 sm:mt-2 flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-gray-300">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </motion.div>
+
+          {/* Valores */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-12 lg:mb-20"
+          >
+            <div className="text-center mb-8 sm:mb-12">
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="text-red-500 font-semibold uppercase tracking-wider mb-2 sm:mb-3 text-xs sm:text-sm"
+              >
+                | Nuestros Valores
+              </motion.p>
+              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white px-2">
+                Principios que nos <span className="text-red-500">definen</span>
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              {values.map((value, idx) => {
+                const Icon = value.icon;
+                return (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    viewport={{ once: true }}
+                    className="group relative"
+                  >
+                    <div className="absolute -inset-1 bg-gradient-to-r from-red-600/10 to-red-900/10 rounded-lg opacity-0 group-hover:opacity-100 blur transition-all duration-500" />
+                    <Card className="relative bg-white/5 backdrop-blur-sm border border-white/10 hover:border-red-500/30 rounded-lg transition-all duration-300 h-full">
+                      <CardHeader className="pb-3">
+                        <div className="flex items-start gap-3 sm:gap-4">
+                          <div className="p-2 sm:p-3 bg-gradient-to-br from-red-600 to-red-800 rounded-lg shadow-lg flex-shrink-0">
+                            <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                          </div>
+                          <CardTitle className="text-sm sm:text-lg font-bold text-white">{value.title}</CardTitle>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="px-4 sm:px-6">
+                        <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{value.description}</p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          {/* Filosofía */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-12 lg:mb-20"
+          >
+            <div className="text-center mb-6 sm:mb-10">
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="text-red-500 font-semibold uppercase tracking-wider mb-2 sm:mb-3 text-xs sm:text-sm"
+              >
+                | Nuestra Filosofía
+              </motion.p>
+              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white px-2">
+                El camino hacia la <span className="text-red-500">excelencia</span>
+              </h2>
+            </div>
+
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-red-600/20 to-red-900/20 rounded-lg sm:rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-700" />
+              <div className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-lg sm:rounded-2xl p-6 sm:p-10 border border-white/10 hover:border-red-500/20 transition-all duration-300">
+                <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+                  <Lightbulb className="w-6 h-6 sm:w-8 sm:h-8 text-red-500 flex-shrink-0 mt-1" />
+                  <div className="space-y-3 sm:space-y-4">
+                    <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
+                      Desde nuestra fundación en 2003, comprendimos que el crecimiento solo sería posible comercializando maquinaria de 
+                      <span className="text-white font-bold"> máxima calidad y avanzada tecnología.</span>
+                    </p>
+                    <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
+                      Tras casi 8 años de experiencia, descubrimos que nuestra mayor inversión debía centrarse en el servicio 
+                      <span className="text-white font-bold"> Post Venta</span>, convirtiéndose en la unidad de negocio más importante. 
+                      Actualmente, nuestra estrategia se basa en la 
+                      <span className="text-white font-bold"> inversión constante en tecnología</span> y en mantener una 
+                      <span className="text-white font-bold"> relación cercana con nuestros clientes</span>, ofreciendo 
+                      <span className="text-white font-bold"> atención las 24 horas</span> y cumpliendo siempre con nuestra palabra.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </div>
+            </div>
+          </motion.div>
+
+          {/* Timeline - Nuestra Historia */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-8 sm:mb-12"
+          >
+            <div className="text-center mb-8 sm:mb-12">
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="text-red-500 font-semibold uppercase tracking-wider mb-2 sm:mb-3 text-xs sm:text-sm"
+              >
+                | Nuestro Recorrido
+              </motion.p>
+              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white px-2">
+                Una Historia de <span className="text-red-500">Crecimiento</span>
+              </h2>
+            </div>
+
+            <div className="relative">
+              {/* Línea central */}
+              <div className="absolute left-2 sm:left-1/2 top-0 h-full w-1 bg-gradient-to-b from-red-600 via-red-500 to-transparent sm:block hidden sm:-translate-x-1/2" />
+
+              <div className="space-y-8 sm:space-y-12 lg:space-y-16 pl-12 sm:pl-0">
+                {milestones.map((milestone, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    viewport={{ once: true }}
+                    className={`relative flex gap-4 sm:gap-6 lg:gap-12 items-start lg:items-center
+                      ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
+                  >
+                    {/* Punto en timeline mobile */}
+                    <div className="absolute -left-10 sm:hidden flex items-center justify-center">
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        transition={{ delay: idx * 0.1 + 0.2 }}
+                        viewport={{ once: true }}
+                        className="w-5 h-5 bg-black rounded-full border-3 border-red-600 flex items-center justify-center"
+                      >
+                        <div className="w-2 h-2 bg-red-600 rounded-full" />
+                      </motion.div>
+                    </div>
+
+                    {/* Punto en timeline desktop */}
+                    <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center justify-center">
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        transition={{ delay: idx * 0.1 + 0.2 }}
+                        viewport={{ once: true }}
+                        className="w-6 h-6 bg-black rounded-full border-4 border-red-600 flex items-center justify-center"
+                      >
+                        <div className="w-2 h-2 bg-red-600 rounded-full" />
+                      </motion.div>
+                    </div>
+
+                    {/* Contenido */}
+                    <div className={`lg:w-5/12 ${idx % 2 === 0 ? 'lg:text-right' : 'lg:text-left'} w-full`}>
+                      <div className="bg-gradient-to-br from-white/10 to-white/5 border border-white/10 hover:border-red-500/30 rounded-lg p-4 sm:p-6 transition-all duration-300 group">
+                        <div className="flex items-start justify-between gap-3 mb-2 sm:mb-3">
+                          <div>
+                            <h3 className="font-black text-2xl sm:text-3xl text-red-500">{milestone.year}</h3>
+                            <h4 className="font-bold text-white text-base sm:text-lg mt-2">{milestone.title}</h4>
+                          </div>
+                          {milestone.image && (
+                            <Popover>
+                              <PopoverTrigger asChild>
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  className="text-gray-400 hover:text-red-500 hover:bg-red-600/10 p-2 h-auto flex-shrink-0"
+                                >
+                                  <ImageIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                                </Button>
+                              </PopoverTrigger>
+                              <PopoverContent className="w-72 sm:w-80 p-0 bg-black/95 border border-red-600/30 rounded-xl overflow-hidden">
+                                <div className="relative">
+                                  <Image
+                                    src={milestone.image}
+                                    alt={milestone.imageAlt}
+                                    width={320}
+                                    height={240}
+                                    className="w-full h-40 sm:h-48 object-cover"
+                                  />
+                                  <div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
+                                    <div className="flex items-center gap-2">
+                                      <Calendar className="w-4 h-4 text-red-500" />
+                                      <span className="text-red-500 font-bold text-sm">{milestone.year}</span>
+                                    </div>
+                                    <h4 className="font-bold text-white text-sm sm:text-base">{milestone.title}</h4>
+                                    <p className="text-gray-300 text-xs sm:text-sm">{milestone.description}</p>
+                                  </div>
+                                </div>
+                              </PopoverContent>
+                            </Popover>
+                          )}
+                        </div>
+                        <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">{milestone.description}</p>
+                      </div>
+                    </div>
+
+                    <div className="lg:w-5/12 hidden lg:block" />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
       </section>
     </main>
   );
