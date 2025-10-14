@@ -407,7 +407,7 @@ const socialLinks = [
                   className="mt-2"
                 >
                   <div className="px-6 py-2">
-                    <div className="text-red-500 font-semibold uppercase text-xs tracking-wider mb-3">Servicios</div>
+                    <div className="text-red-500 font-semibold uppercase text-xs tracking-wider mb-3">{t("nav.services")}</div>
 
                     <div className="ml-2 space-y-1">
                       {serviciosItems.map((item) => (
@@ -459,7 +459,7 @@ const socialLinks = [
                   className="mt-2"
                 >
                   <div className="px-6 py-2">
-                    <div className="text-red-500 font-semibold uppercase text-xs tracking-wider mb-3">Equipos</div>
+                    <div className="text-red-500 font-semibold uppercase text-xs tracking-wider mb-3">{t("nav.equipment")}</div>
 
                     <div className="ml-2 space-y-1">
                       {equiposItems.map((item) => (

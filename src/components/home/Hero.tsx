@@ -2,8 +2,10 @@
 import { Button } from "@/components/ui/button"
 import { ChevronRight, Play } from 'lucide-react'
 import { motion } from "framer-motion"
+import { useTranslation } from "react-i18next";
 
 export default function HeroPreview() {
+  const { t } = useTranslation();
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -41,7 +43,7 @@ export default function HeroPreview() {
             className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/30 backdrop-blur-sm rounded-full px-6 py-3"
           >
             <Play className="w-4 h-4 text-red-400" fill="currentColor" />
-            <span className="text-red-300 font-medium">Más de 20 años de excelencia</span>
+            <span className="text-red-300 font-medium">{t("hero.excellence")}</span>
           </motion.div>
 
           {/* Título principal */}

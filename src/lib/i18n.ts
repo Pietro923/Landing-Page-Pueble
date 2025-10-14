@@ -17,6 +17,7 @@ const resources = {
       'nav.used': 'Usados',
       
       // Hero
+      'hero.excellence': 'Más de 20 años de excelencia',
       'hero.welcome': 'Bienvenido a',
       'hero.description': 'Líderes en maquinaria agrícola y de construcción. Innovación, calidad y servicio excepcional desde 2003.',
       'hero.explore': 'Explorar productos',
@@ -45,6 +46,7 @@ const resources = {
       'nav.used': 'Used',
       
       // Hero
+      'hero.excellence': 'Over 20 years of excellence',
       'hero.welcome': 'Welcome to',
       'hero.description': 'Leaders in agricultural and construction machinery. Innovation, quality and exceptional service since 2003.',
       'hero.explore': 'Explore products',
