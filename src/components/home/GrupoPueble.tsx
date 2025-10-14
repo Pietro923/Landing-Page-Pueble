@@ -31,14 +31,14 @@ const empresasGrupo = [
     link: 'https://www.instagram.com/kia.tucuman/?hl=es',
     color: 'from-red-100 to-red-300'
   },
-  {/*
+  /*{
     id: 'semage-sa',
     title: 'Semage S.A',
     description: 'Servicio de posventa de maquinarias agrícolas y viales CASE IH y CASE (servicio y repuestos originales)',
     image: '/imagenes/grupo/empresa3.webp', // Cambia por tu imagen
     link: 'https://www.instagram.com/semage_unimil/',
     color: 'from-blue-600 to-blue-800'
-  */},
+  },*/
   {
     id: 'masi-sa',
     title: 'Masi S.A - Ducati',

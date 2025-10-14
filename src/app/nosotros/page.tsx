@@ -17,58 +17,59 @@ import {
   Lightbulb,
   ArrowRight
 } from 'lucide-react'
-
+import { useTranslation } from "react-i18next";
 export default function About() {
+  const { t } = useTranslation();
   const milestones = [
-    { 
-      year: 2003, 
-      title: 'Fundación', 
-      description: 'Nace PUEBLE S.A. con el propósito de representar y dedicarse a la venta específica de fertilizantes para todo el NOA.',
-      imageAlt: 'Fundación de Pueble S.A. en 2003'
+    {
+      year: t('page.nosotros.timeline.m1.year'),
+      title: t('page.nosotros.timeline.m1.title'),
+      description: t('page.nosotros.timeline.m1.desc'),
+      imageAlt: t('page.nosotros.timeline.m1.alt'),
     },
-    { 
-      year: 2006, 
-      title: 'Concesionario Oficial', 
-      description: 'PUEBLE S.A. es nombrado concesionario oficial CASE IH en Tucumán, convirtiéndose en su actividad principal.',
-      imageAlt: 'Nombramiento como concesionario oficial CASE IH'
+    {
+      year: t('page.nosotros.timeline.m2.year'),
+      title: t('page.nosotros.timeline.m2.title'),
+      description: t('page.nosotros.timeline.m2.desc'),
+      imageAlt: t('page.nosotros.timeline.m2.alt'),
     },
-    { 
-      year: 2012, 
-      title: 'Nueva Sede', 
-      description: 'Inauguración de la nueva concesionaria en el Parque Industrial de Tucumán, en Av. de Circunvalación km 1294.',
+    {
+      year: t('page.nosotros.timeline.m3.year'),
+      title: t('page.nosotros.timeline.m3.title'),
+      description: t('page.nosotros.timeline.m3.desc'),
       image: '/imagenes/inauguracion/a2.webp',
-      imageAlt: 'Inauguración de la nueva sede en 2012'
+      imageAlt: t('page.nosotros.timeline.m3.alt'),
     },
-    { 
-      year: 20, 
-      title: 'Importadores Oficiales de JCB', 
-      description: 'Nos convertimos en Importadores Oficiales de JCB.',
+    {
+      year: t('page.nosotros.timeline.m4.year'),
+      title: t('page.nosotros.timeline.m4.title'),
+      description: t('page.nosotros.timeline.m4.desc'),
       //image: '/imagenes/inauguracion/a2.webp',
-      imageAlt: 'Importadores Oficiales de JCB'
+      imageAlt: t('page.nosotros.timeline.m4.alt'),
     },
-    { 
-      year: 2016, 
-      title: 'Reconocimiento Mundial', 
-      description: 'PUEBLE S.A. obtiene la categoría Premium Pro en la evaluación mundial de World Class Dealer de CASE IH.',
+    {
+      year: t('page.nosotros.timeline.m5.year'),
+      title: t('page.nosotros.timeline.m5.title'),
+      description: t('page.nosotros.timeline.m5.desc'),
       image: '/imagenes/inauguracion/dealer.webp',
-      imageAlt: 'Reconocimiento Premium Pro de CASE IH'
+      imageAlt: t('page.nosotros.timeline.m5.alt'),
     },
-    { 
-      year: 2025, 
-      title: 'Expansión y Crecimiento', 
-      description: 'PUEBLE S.A. traslada su concesionaria a una nueva sede, reafirmando su compromiso con la innovación.',
+    {
+      year: t('page.nosotros.timeline.m6.year'),
+      title: t('page.nosotros.timeline.m6.title'),
+      description: t('page.nosotros.timeline.m6.desc'),
       image: '/imagenes/inauguracion/conse4.webp', 
-      imageAlt: 'Nueva expansión y crecimiento 2025'
-    }
+      imageAlt: t('page.nosotros.timeline.m6.alt'),
+    },
   ];
 
   const values = [
-    { icon: Shield, title: 'Confianza y Honestidad', description: 'Construimos relaciones basadas en la transparencia y el respeto mutuo.' },
-    { icon: Target, title: 'Compromiso', description: 'Con nuestros clientes, empleados, accionistas y resultados.' },
-    { icon: Handshake, title: 'Actitud de Servicio', description: 'Brindamos atención y soluciones con responsabilidad y empatía.' },
-    { icon: Gem, title: 'Autocrítica', description: 'Compromiso con la excelencia y la mejora continua.' },
-    { icon: Wrench, title: 'Responsabilidad', description: 'Cumplimos con nuestras obligaciones fiscales, sociales y ambientales.' },
-    { icon: Award, title: 'Innovación', description: 'Apostamos a las nuevas tendencias y avances tecnológicos.' },
+    { icon: Shield, title: t('page.nosotros.val.item1'), description: t('page.nosotros.val.item1desc')},
+    { icon: Target, title: t('page.nosotros.val.item2'), description: t('page.nosotros.val.item2desc')},
+    { icon: Handshake, title: t('page.nosotros.val.item2'), description: t('page.nosotros.val.item3desc')},
+    { icon: Gem, title: t('page.nosotros.val.item3'), description: t('page.nosotros.val.item4desc')},
+    { icon: Wrench, title: t('page.nosotros.val.item4'), description: t('page.nosotros.val.item5desc')},
+    { icon: Award, title: t('page.nosotros.val.item5'), description: t('page.nosotros.val.item6desc')},
   ];
 
   return (
@@ -105,7 +106,7 @@ export default function About() {
               transition={{ delay: 0.2 }}
               className="text-red-500 font-semibold uppercase tracking-wider mb-3 text-xs sm:text-sm"
             >
-              | Quiénes Somos
+              | {t('page.nosotros.badge')}
             </motion.p>
             
             <motion.h1 
@@ -114,7 +115,7 @@ export default function About() {
               transition={{ delay: 0.3 }}
               className="text-3xl sm:text-4xl lg:text-6xl font-black mb-4 sm:mb-6 bg-gradient-to-r from-white via-gray-100 to-white text-transparent bg-clip-text px-2"
             >
-              Nosotros
+              {t('page.nosotros.title')}
             </motion.h1>
             
             <motion.p 
@@ -123,8 +124,7 @@ export default function About() {
               transition={{ delay: 0.4 }}
               className="text-sm sm:text-base lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-2"
             >
-              Más de 20 años liderando el sector agrícola y de construcción en la región, 
-              con compromiso, innovación y dedicación al servicio.
+              {t('page.nosotros.subtitle')}
             </motion.p>
           </motion.div>
 
@@ -144,20 +144,18 @@ export default function About() {
             >
               <div className="space-y-3 sm:space-y-4">
                 <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
-                  Desde nuestra fundación en 2003, nos dedicamos a comercializar maquinaria de 
-                  <span className="text-white font-semibold"> máxima calidad y avanzada tecnología.</span>
+                  {t('page.nosotros.description1')}
+                  <span className="text-white font-semibold">  {t('page.nosotros.description1.2')}</span>
                 </p>
                 <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
-                  Con más de 20 años en el mercado, nuestra estrategia se basa en la 
-                  <span className="text-white font-semibold"> inversión constante en tecnología</span> y en 
-                  mantener una relación cercana con nuestros clientes, ofreciendo 
-                  <span className="text-white font-semibold"> atención las 24 horas</span> y cumpliendo 
-                  siempre con nuestra palabra.
+                   {t('page.nosotros.description2')}
+                  <span className="text-white font-semibold">  {t('page.nosotros.description2.1')}</span>  {t('page.nosotros.description2.2')}
+                  <span className="text-white font-semibold">  {t('page.nosotros.description2.3')}</span>  {t('page.nosotros.description2.4')}
                 </p>
               </div>
 
               <div className="pt-3 sm:pt-4 border-t border-white/10">
-                <p className="text-xs sm:text-sm text-gray-400 mb-2 sm:mb-3">Concesionarios Oficiales de:</p>
+                <p className="text-xs sm:text-sm text-gray-400 mb-2 sm:mb-3"> {t('page.nosotros.concesionarios')}</p>
                 <div className="flex flex-wrap gap-2 sm:gap-4">
                   <div className="px-3 sm:px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:border-red-500/50 transition-colors">
                     <span className="text-white font-semibold text-xs sm:text-sm">CASE IH</span>
@@ -222,7 +220,7 @@ export default function About() {
                 className="space-y-3 sm:space-y-4 text-center lg:text-left"
               >
                 <p className="text-lg sm:text-xl lg:text-2xl italic text-gray-200 leading-relaxed font-light">
-                  "El campo no se detiene, y nosotros tampoco. Trabajamos con quienes siembran el futuro, brindando la mejor maquinaria para cada desafío."
+                  {t('page.nosotros.bedey')}
                 </p>
                 <div>
                   <p className="text-base sm:text-lg text-white font-bold">Javier Rojas</p>
@@ -249,20 +247,18 @@ export default function About() {
                     <div className="p-2 sm:p-3 bg-gradient-to-br from-red-600 to-red-800 rounded-lg sm:rounded-xl shadow-lg">
                       <Users className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                    <CardTitle className="text-lg sm:text-2xl font-bold text-white">Quiénes Somos</CardTitle>
+                    <CardTitle className="text-lg sm:text-2xl font-bold text-white">{t('page.nosotros.card1')}</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-3 sm:space-y-4 px-4 sm:px-6">
                   <p className="text-xs sm:text-base text-gray-300 leading-relaxed">
-                    Somos una empresa <span className="text-white font-semibold">líder en la venta y servicio</span> de maquinaria agrícola y de construcción, 
-                    con más de 20 años de experiencia en el sector.
+                    {t('page.nosotros.card1.2')} <span className="text-white font-semibold">{t('page.nosotros.card1.3')}</span> {t('page.nosotros.card1.4')}
                   </p>
                   <p className="text-xs sm:text-base text-gray-300 leading-relaxed">
-                    Contamos con un <span className="text-white font-semibold">equipo altamente capacitado</span> y la tecnología más avanzada 
-                    para brindar soluciones integrales que optimizan la producción agrícola de nuestros clientes.
+                    {t('page.nosotros.card1.5')} <span className="text-white font-semibold">{t('page.nosotros.card1.6')}</span> {t('page.nosotros.card1.7')}
                   </p>
                   <div className="pt-2 flex items-center text-red-400 font-semibold text-xs sm:text-sm">
-                    <span>Compromiso con la excelencia</span>
+                    <span>{t('page.nosotros.card1.8')}</span>
                     <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2" />
                   </div>
                 </CardContent>
@@ -278,20 +274,19 @@ export default function About() {
                     <div className="p-2 sm:p-3 bg-gradient-to-br from-red-600 to-red-800 rounded-lg sm:rounded-xl shadow-lg">
                       <Target className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                    <CardTitle className="text-lg sm:text-2xl font-bold text-white">Nuestro Objetivo</CardTitle>
+                    <CardTitle className="text-lg sm:text-2xl font-bold text-white">{t('page.nosotros.card2.1')}</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-3 sm:space-y-4 px-4 sm:px-6">
                   <p className="text-xs sm:text-base text-gray-300 leading-relaxed">
-                    Proporcionar <span className="text-white font-semibold">soluciones integrales y de alta calidad</span> que impulsen 
-                    la productividad del sector agrícola y de construcción.
+                    {t('page.nosotros.card2.2')} <span className="text-white font-semibold">{t('page.nosotros.card2.3')}</span> {t('page.nosotros.card2.4')}
                   </p>
                   <ul className="space-y-2 sm:space-y-3">
                     {[
-                      'Ofrecer maquinaria de última generación',
-                      'Brindar soporte técnico especializado',
-                      'Garantizar la satisfacción de nuestros clientes',
-                      'Contribuir al desarrollo sostenible'
+                      t('page.nosotros.item1'),
+                      t('page.nosotros.item2'),
+                      t('page.nosotros.item3'),
+                      t('page.nosotros.item4'),
                     ].map((item, idx) => (
                       <li key={idx} className="flex items-start gap-2 sm:gap-3">
                         <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-500 rounded-full mt-1.5 sm:mt-2 flex-shrink-0" />
@@ -319,10 +314,10 @@ export default function About() {
                 transition={{ delay: 0.2 }}
                 className="text-red-500 font-semibold uppercase tracking-wider mb-2 sm:mb-3 text-xs sm:text-sm"
               >
-                | Nuestros Valores
+                | {t('page.nosotros.val')}
               </motion.p>
               <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white px-2">
-                Principios que nos <span className="text-red-500">definen</span>
+                {t('page.nosotros.val1')} <span className="text-red-500">{t('page.nosotros.val2')}</span>
               </h2>
             </div>
 
@@ -373,10 +368,10 @@ export default function About() {
                 transition={{ delay: 0.2 }}
                 className="text-red-500 font-semibold uppercase tracking-wider mb-2 sm:mb-3 text-xs sm:text-sm"
               >
-                | Nuestra Filosofía
+                | {t('page.nosotros.filo.badge')}
               </motion.p>
               <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white px-2">
-                El camino hacia la <span className="text-red-500">excelencia</span>
+                {t('page.nosotros.filo.title')} <span className="text-red-500">{t('page.nosotros.filo.title2')}</span>
               </h2>
             </div>
 
@@ -387,16 +382,15 @@ export default function About() {
                   <Lightbulb className="w-6 h-6 sm:w-8 sm:h-8 text-red-500 flex-shrink-0 mt-1" />
                   <div className="space-y-3 sm:space-y-4">
                     <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
-                      Desde nuestra fundación en 2003, comprendimos que el crecimiento solo sería posible comercializando maquinaria de 
-                      <span className="text-white font-bold"> máxima calidad y avanzada tecnología.</span>
+                      {t('page.nosotros.filo.desc')}
+                      <span className="text-white font-bold"> {t('page.nosotros.filo.desc2')}</span>
                     </p>
                     <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
-                      Tras casi 8 años de experiencia, descubrimos que nuestra mayor inversión debía centrarse en el servicio 
-                      <span className="text-white font-bold"> Post Venta</span>, convirtiéndose en la unidad de negocio más importante. 
-                      Actualmente, nuestra estrategia se basa en la 
-                      <span className="text-white font-bold"> inversión constante en tecnología</span> y en mantener una 
-                      <span className="text-white font-bold"> relación cercana con nuestros clientes</span>, ofreciendo 
-                      <span className="text-white font-bold"> atención las 24 horas</span> y cumpliendo siempre con nuestra palabra.
+                      {t('page.nosotros.filo.desc2.1')}
+                      <span className="text-white font-bold">  {t('page.nosotros.filo.desc2.2')}</span>{t('page.nosotros.filo.desc2.3')}
+                      <span className="text-white font-bold"> {t('page.nosotros.filo.desc2.4')}</span> {t('page.nosotros.filo.desc2.5')}
+                      <span className="text-white font-bold"> {t('page.nosotros.filo.desc2.6')}</span>{t('page.nosotros.filo.desc2.7')} 
+                      <span className="text-white font-bold"> {t('page.nosotros.filo.desc2.8')}</span> {t('page.nosotros.filo.desc2.9')}
                     </p>
                   </div>
                 </div>
@@ -419,10 +413,10 @@ export default function About() {
                 transition={{ delay: 0.2 }}
                 className="text-red-500 font-semibold uppercase tracking-wider mb-2 sm:mb-3 text-xs sm:text-sm"
               >
-                | Nuestro Recorrido
+                | {t('page.nosotros.timeline.badge')}
               </motion.p>
               <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white px-2">
-                Una Historia de <span className="text-red-500">Crecimiento</span>
+                {t('page.nosotros.timeline.title')} <span className="text-red-500">{t('page.nosotros.timeline.title2')}</span>
               </h2>
             </div>
 
