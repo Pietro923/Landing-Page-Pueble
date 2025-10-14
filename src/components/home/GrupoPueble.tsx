@@ -12,7 +12,7 @@ const empresasGrupo = [
     title: 'Pueble S.A.',
     description: 'Maquinaria agrícola de primera línea',
     image: "/imagenes/inicio/carousel3.webp", // Cambia por tu imagen
-    link: '/',
+    link: 'https://landing-page-pueble.vercel.app/',
     color: 'from-red-600 to-red-800'
   },
   {
@@ -20,7 +20,7 @@ const empresasGrupo = [
     title: 'JCB',
     description: 'Maquinaria de construcción de primera línea',
     image: '/imagenes/inicio/asd1.webp', // Cambia por tu imagen
-    link: '#',
+    link: 'https://landing-page-pueble.vercel.app/',
     color: 'from-yellow-600 to-yellow-800'
   },
   {
@@ -28,23 +28,23 @@ const empresasGrupo = [
     title: 'CP Motors - KIA',
     description: 'Concesionario oficial KIA',
     image: '/imagenes/empresas/kia.jpeg', // Cambia por tu imagen
-    link: '#',
+    link: 'https://www.instagram.com/kia.tucuman/?hl=es',
     color: 'from-red-100 to-red-300'
   },
-  {
+  {/*
     id: 'semage-sa',
     title: 'Semage S.A',
     description: 'Servicio de posventa de maquinarias agrícolas y viales CASE IH y CASE (servicio y repuestos originales)',
     image: '/imagenes/grupo/empresa3.webp', // Cambia por tu imagen
-    link: '#',
+    link: 'https://www.instagram.com/semage_unimil/',
     color: 'from-blue-600 to-blue-800'
-  },
+  */},
   {
     id: 'masi-sa',
     title: 'Masi S.A - Ducati',
     description: 'Concesionario oficial DUCATI',
     image: '/imagenes/grupo/empresa4.webp', // Cambia por tu imagen
-    link: '#',
+    link: 'https://www.instagram.com/ducatitucuman/?hl=es-la',
     color: 'from-purple-600 to-purple-800'
   },
   {
@@ -52,7 +52,7 @@ const empresasGrupo = [
     title: 'UB Motors - Audi',
     description: 'Concesionario oficial AUDI',
     image: '/imagenes/grupo/empresa5.webp', // Cambia por tu imagen
-    link: '#',
+    link: 'https://ubmotors.com.ar/',
     color: 'from-yellow-600 to-yellow-800'
   }
 ];
@@ -105,6 +105,8 @@ const EmpresaCard = ({ empresa, index, active, handleClick }: any) => {
           
           <a
             href={empresa.link}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300"
             onClick={(e) => e.stopPropagation()}
           >
