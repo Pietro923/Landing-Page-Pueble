@@ -265,14 +265,13 @@ export default function ContactPage() {
             </form>
           </motion.div>
 
-          {/* Columna derecha: Mapa + Horarios */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="space-y-4 lg:space-y-6"
-          >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl lg:rounded-3xl p-6 lg:p-8 shadow-2xl"
+        >
             {/* Mapa */}
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl lg:rounded-3xl p-5 lg:p-6 shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
@@ -306,7 +305,7 @@ export default function ContactPage() {
             </div>
 
             {/* Horarios */}
-            <div className="bg-gradient-to-br from-red-600/20 to-red-800/20 backdrop-blur-sm border border-red-500/30 rounded-2xl lg:rounded-3xl p-5 lg:p-8 shadow-2xl">
+            <div className="mt-6 bg-gradient-to-br from-red-600/20 to-red-800/20 backdrop-blur-sm border border-red-500/30 rounded-2xl lg:rounded-3xl p-5 lg:p-8 shadow-2xl">
               <div className="flex items-center gap-3 mb-4 lg:mb-6">
                 <div className="w-10 h-10 bg-red-600/20 rounded-full flex items-center justify-center">
                   <Clock className="w-5 h-5 text-red-500" />
