@@ -8,8 +8,10 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import Image from 'next/image'
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
+  const { t } = useTranslation(); 
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isServiciosDropdownOpen, setIsServiciosDropdownOpen] = useState(false)
@@ -19,10 +21,10 @@ const Navbar = () => {
   const router = useRouter()
 
   const navItems = [
-    { href: '/', label: 'Inicio' },
-    { href: '/nosotros', label: 'Nosotros' },
-    { href: '/empresa', label: 'Empresa' },
-    { href: '/contacto', label: 'Contacto' },
+    { href: "/", label: t("nav.home") },
+    { href: '/nosotros', label: t("nav.about") },
+    { href: '/empresa', label: t("nav.company") },
+    { href: '/contacto', label: t("nav.contact") },
   ]
 
   const serviciosItems = [
@@ -33,7 +35,7 @@ const Navbar = () => {
   const equiposItems = [
     { href: '/equipos/case', label: 'Case IH', icon: '/imagenes/equipment/case/case.webp' },
     { href: '/equipos/jcb', label: 'JCB', icon: '/imagenes/equipment/jcb/jcb.svg' },
-    { href: 'https://www.agroads.com.ar/e/pueble-sa/', label: 'Usados', icon: '/imagenes/equipment/agroads/agroads.webp', target: "_blank" },
+    { href: 'https://www.agroads.com.ar/e/pueble-sa/', label: t("nav.used"), icon: '/imagenes/equipment/agroads/agroads.webp', target: "_blank" },
   ]
 
   // Define los enlaces de redes sociales
@@ -137,7 +139,7 @@ const socialLinks = [
                   className={`flex items-center text-white px-4 py-2 rounded-md transition-all duration-300 relative group text-sm uppercase tracking-wide font-medium
                     ${isActivePage('/servicios') ? 'text-red-400' : 'hover:text-red-400'}`}
                 >
-                  Servicios
+                  {t("nav.services")}
                   <motion.span
                     animate={{ rotate: isServiciosDropdownOpen  ? 180 : 0 }}
                     transition={{ duration: 0.2 }}
@@ -209,7 +211,7 @@ const socialLinks = [
                   className={`flex items-center text-white px-4 py-2 rounded-md transition-all duration-300 relative group text-sm uppercase tracking-wide font-medium
                     ${isActivePage('/equipos') ? 'text-red-400' : 'hover:text-red-400'}`}
                 >
-                  Equipos
+                  {t("nav.equipment")}
                   <motion.span
                     animate={{ rotate: isEquiposDropdownOpen ? 180 : 0 }}
                     transition={{ duration: 0.2 }}
