@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 // Define las empresas del Grupo Pueble
 const empresasGrupo = [
@@ -58,6 +59,7 @@ const empresasGrupo = [
 
 // Componente de tarjeta individual
 const EmpresaCard = ({ empresa, index, active, handleClick }: any) => {
+  const { t } = useTranslation();
   const isActive = active === empresa.id;
 
   return (
@@ -98,7 +100,7 @@ const EmpresaCard = ({ empresa, index, active, handleClick }: any) => {
           className={`${isActive ? 'block' : 'hidden'} mt-4`}
         >
           <p className="text-white/90 text-lg mb-6 max-w-lg">
-            {empresa.description}
+            {t(`grupoPueble.${empresa.id}`)}
           </p>
           
           <a
@@ -106,7 +108,7 @@ const EmpresaCard = ({ empresa, index, active, handleClick }: any) => {
             className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300"
             onClick={(e) => e.stopPropagation()}
           >
-            Conocer más
+            {t("grupoPueble.learnMore")}
             <ExternalLink className="w-4 h-4" />
           </a>
         </motion.div>
@@ -136,6 +138,7 @@ const EmpresaCard = ({ empresa, index, active, handleClick }: any) => {
 // Componente principal
 export default function GrupoPueble() {
   const [active, setActive] = useState('pueble-sa');
+  const { t } = useTranslation();
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 ">
@@ -154,11 +157,11 @@ export default function GrupoPueble() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-red-400 text-lg uppercase tracking-wider mb-4"
           >
-            | Grupo Empresarial
+            | {t("grupoPueble.badge")}
           </motion.p>
           
           <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-white">
-            Empresas que forman parte del
+             {t("grupoPueble.title")}
             <br className="hidden md:block" />
             <span className="text-red-500"> Grupo Pueble</span>
           </h2>
@@ -169,7 +172,7 @@ export default function GrupoPueble() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-gray-300 text-xl max-w-3xl mx-auto"
           >
-            Un grupo empresarial consolidado que trabaja en conjunto para brindar soluciones integrales
+             {t("grupoPueble.description")}
           </motion.p>
         </motion.div>
 
@@ -201,7 +204,7 @@ export default function GrupoPueble() {
           className="text-center mt-8"
         >
           <p className="text-gray-400 text-sm">
-            Haz clic en cada empresa para conocer más detalles
+             {t("grupoPueble.detail")}
           </p>
         </motion.div>
       </div>

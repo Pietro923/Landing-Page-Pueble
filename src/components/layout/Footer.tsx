@@ -15,8 +15,11 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Pietrobutton } from "@/components/layout/p-popover";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   const handleWhatsApp = () => {
     window.open('https://wa.me/543815897858?text=¡Hola! Tengo una consulta sobre Pueble S.A', '_blank');
   };
@@ -47,8 +50,9 @@ export default function Footer() {
             </div>
 
             <p className="text-gray-300 font-medium leading-relaxed">
-              Líder en maquinaria agrícola y de construcción.  
-              Más de 20 años brindando soluciones confiables al campo argentino.
+              {t('footer.description')}
+              <br />
+              {t('footer.description2')}
             </p>
 
             <div className="flex justify-center md:justify-start space-x-4 pt-4">
@@ -76,7 +80,7 @@ export default function Footer() {
 
                     {/* ─── CONTACTO ─────────────────────────────── */}
           <div className="space-y-4 text-center md:text-left flex flex-col items-center md:items-start">
-            <h3 className="font-black text-xl mb-6 text-white border-b-2 border-red-500 inline-block">CONTACTO</h3>
+            <h3 className="font-black text-xl mb-6 text-white border-b-2 border-red-500 inline-block">{t('footer.contact')}</h3>
             <ul className="space-y-4 text-gray-300 font-medium flex flex-col items-center md:items-start">
               <li className="flex items-center justify-center md:justify-start space-x-3">
                 <a href="tel:+543815897858" 
@@ -110,10 +114,10 @@ export default function Footer() {
           <div className="space-y-6 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
               <Briefcase className="w-5 h-5 text-red-500" />
-              <h3 className="font-black text-xl">TRABAJA CON NOSOTROS</h3>
+              <h3 className="font-black text-xl">{t('footer.job')}</h3>
             </div>
             <p className="text-gray-300 font-medium">
-              ¿Querés formar parte de nuestro equipo? Dejanos tus datos y te contactaremos.
+              {t('footer.job.description')}
             </p>
 
             <Link href="/trabaja-con-nosotros">
@@ -121,15 +125,15 @@ export default function Footer() {
                 className="mt-3 w-full font-black border-2 border-white shadow-[2px_2px_0px_0px_white] hover:shadow-[4px_4px_0px_0px_white] transition-all bg-red-600 hover:bg-red-700"
                 size="sm"
               >
-                POSTULARME
+                {t('footer.job.button')}
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
             {/* CTA WhatsApp */}
             <div className="mt-8 p-5 border-3 border-white shadow-[4px_4px_0px_0px_white] bg-red-600">
-              <h5 className="font-black mb-3 text-white text-lg">¿NECESITÁS ASESORAMIENTO?</h5>
+              <h5 className="font-black mb-3 text-white text-lg">{t('footer.info')}</h5>
               <p className="text-sm font-medium mb-4">
-                Contactanos por WhatsApp
+                {t('footer.info.description')}
               </p>
               <Button 
                 onClick={handleWhatsApp}
@@ -137,7 +141,7 @@ export default function Footer() {
                 size="sm"
               >
                 <MessageCircle className="h-4 w-4 mr-2" />
-                CHATEAR AHORA
+                {t('footer.info.button')}
               </Button>
             </div>
           </div>
@@ -145,7 +149,7 @@ export default function Footer() {
 
 {/* ─── COPYRIGHT ─────────────────────────────── */}
        <div className="py-6 mt-6 border-t border-white/10 text-center text-gray-400 text-sm">
-          <p className="mb-2">&copy; {new Date().getFullYear()} Pueble S.A. Todos los derechos reservados.</p>
+          <p className="mb-2">&copy; {new Date().getFullYear()} Pueble S.A. {t('footer.copyright')}</p>
           <Pietrobutton/>
         </div>
     </div>

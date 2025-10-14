@@ -4,13 +4,15 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from 'next/image'
 import { Award, Users, Clock, TrendingUp } from 'lucide-react'
+import { useTranslation } from "react-i18next";
 
 export default function Nosotros() {
+  const { t } = useTranslation();
   const stats = [
-    { icon: Award, label: "Años de experiencia", value: "20+" },
-    { icon: Users, label: "Clientes satisfechos", value: "1000+" },
-    { icon: Clock, label: "Soporte", value: "24/7" },
-    { icon: TrendingUp, label: "Crecimiento anual", value: "15%" }
+    { icon: Award, label: t('nosotros.stats1'), value: "20+" },
+    { icon: Users, label: t('nosotros.stats2'), value: "1000+" },
+    { icon: Clock, label: t('nosotros.stats3'), value: "24/7" },
+    { icon: TrendingUp, label: t('nosotros.stats4'), value: "15%" }
   ]
 
   return (
@@ -80,22 +82,21 @@ export default function Nosotros() {
                 transition={{ delay: 0.3 }}
                 className="text-red-500 font-semibold uppercase tracking-wider mb-4"
               >
-                | Sobre nosotros
+                | {t('nosotros.badge')}
               </motion.p>
               
               <h2 className="text-3xl lg:text-5xl font-bold mb-4 lg:mb-6 text-white leading-tight">
-                Líderes en maquinaria
-                <span className="block text-red-500">agrícola y vial</span>
+                {t('nosotros.title')}
+                <span className="block text-red-500">{t('nosotros.subtitle')}</span>
               </h2>
               
               <p className="text-base lg:text-lg text-gray-300 leading-relaxed mb-4 lg:mb-6">
-                Somos concesionario oficial de las marcas <strong className="text-white">CASE IH</strong> y <strong className="text-white">JCB</strong>. 
-                Comercializamos toda la línea de sus productos y diversas marcas de maquinarias agrícolas y de construcción usadas.
+               {t('nosotros.description1')} <strong className="text-white">CASE IH</strong> y <strong className="text-white">JCB</strong>.
+                {t('nosotros.description1.3')}
               </p>
               
               <p className="text-base lg:text-lg text-gray-300 leading-relaxed">
-                Contamos con una sólida estructura en administración, venta de repuestos y servicio de posventa, 
-                manteniendo nuestro compromiso con la <strong className="text-white">Responsabilidad Social Empresaria</strong>.
+                {t('nosotros.description2')} <strong className="text-white">{t('nosotros.description2.1')}</strong>.
               </p>
             </div>
 
@@ -118,7 +119,7 @@ export default function Nosotros() {
                 className="mt-6 w-full lg:w-auto bg-red-600 hover:bg-red-700 text-white text-base lg:text-lg px-6 lg:px-8 py-5 lg:py-6 shadow-xl hover:shadow-red-500/50 transition-all duration-300 group"
                 size="lg"
               >
-                Conoce más sobre nosotros
+                {t('nosotros.button')}
                 <motion.span
                   className="ml-2 inline-block"
                   animate={{ x: [0, 5, 0] }}

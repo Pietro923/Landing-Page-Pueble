@@ -40,7 +40,7 @@ export default function HeroPreview() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/30 backdrop-blur-sm rounded-full px-6 py-3"
+            className="mt-3 inline-flex items-center gap-2 bg-red-500/20 border border-red-500/30 backdrop-blur-sm rounded-full px-6 py-3"
           >
             <Play className="w-4 h-4 text-red-400" fill="currentColor" />
             <span className="text-red-300 font-medium">{t("hero.excellence")}</span>
@@ -48,22 +48,21 @@ export default function HeroPreview() {
 
           {/* Título principal */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
-            Bienvenido a
+            {t('hero.welcome')}
             <br />
             <span className="text-red-500 italic">Pueble S.A</span>
           </h1>
 
           {/* Título Secundario */}
           <p className="text-xl md:text-2xl font-bold text-white leading-tight">
-            Una Empresa de
+            {t('hero.gp')}
             <br />
             <span className="text-red-500 italic">Grupo Pueble</span>
           </p>
 
           {/* Descripción */}
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Líderes en maquinaria agrícola y de construcción. 
-            Innovación, calidad y servicio excepcional desde 2003.
+            {t('hero.description')}
           </p>
 
           {/* Botones de acción */}
@@ -73,7 +72,7 @@ export default function HeroPreview() {
               className="bg-red-600 hover:bg-red-700 shadow-2xl hover:shadow-red-500/50 transition-all duration-300 transform hover:scale-105 text-lg px-8 py-7 font-semibold"
               onClick={() => scrollToSection("marcas")}
             >
-              Explorar productos
+              {t('hero.explore')}
               <ChevronRight className="ml-2 h-5 w-5" />
             </Button>
             
@@ -83,7 +82,7 @@ export default function HeroPreview() {
               className="border-2 border-white/30 bg-white/10 hover:bg-white/20 backdrop-blur-sm shadow-2xl text-white hover:text-white text-lg px-8 py-7 font-semibold transition-all duration-300"
               asChild
             >
-              <a href="/contacto">Contactar ahora</a>
+              <a href="/contacto">{t('hero.contact')}</a>
             </Button>
           </div>
 
@@ -96,15 +95,15 @@ export default function HeroPreview() {
           >
             <div className="text-center">
               <div className="text-4xl font-bold text-red-500 mb-2">20+</div>
-              <div className="text-sm text-gray-400">Años de experiencia</div>
+              <div className="text-sm text-gray-400">{t('stats.experience')}</div>
             </div>
             <div className="text-center border-x border-white/10">
               <div className="text-4xl font-bold text-red-500 mb-2">24/7</div>
-              <div className="text-sm text-gray-400">Soporte técnico</div>
+              <div className="text-sm text-gray-400">{t('stats.support')}</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-red-500 mb-2">100%</div>
-              <div className="text-sm text-gray-400">Compromiso</div>
+              <div className="text-sm text-gray-400">{t('stats.commitment')}</div>
             </div>
           </motion.div>
         </motion.div>

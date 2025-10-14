@@ -6,8 +6,10 @@ import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin, Loader2, CheckCircle2, Send } from 'lucide-react'
 import { motion, AnimatePresence } from "framer-motion"
 import { useToast } from "@/hooks/use-toast"
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+  const { t } = useTranslation();
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
@@ -21,19 +23,19 @@ export default function Contact() {
   const contactInfo = [
     {
       icon: Phone,
-      title: "Teléfono",
+      title: t('contacto.phone'),
       content: "+54 381 589-7858",
       link: "tel:+543815897858"
     },
     {
       icon: Mail,
-      title: "Email",
+      title: t('contacto.emailInfo'),
       content: "recepcion@pueblemaquinarias.com.ar",
       link: "mailto:recepcion@pueblemaquinarias.com.ar"
     },
     {
       icon: MapPin,
-      title: "Ubicación",
+      title: t('contacto.address'),
       content: "Ruta Nacional 9 KM 1301, Tucumán",
       link: "https://maps.app.goo.gl/Q8uDt7ZbTKY8JFeN7"
     }
@@ -93,12 +95,12 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-center mb-8 lg:mb-16"
         >
-          <p className="text-red-500 font-semibold uppercase tracking-wider mb-2 text-sm lg:text-base">| Hablemos</p>
+          <p className="text-red-500 font-semibold uppercase tracking-wider mb-2 text-sm lg:text-base">| {t('contacto.badge')}</p>
           <h2 className="text-3xl lg:text-5xl font-bold text-white mb-3 lg:mb-4">
-            Contáctanos
+            {t('contacto.title')}
           </h2>
           <p className="text-base lg:text-xl text-gray-300 max-w-2xl mx-auto px-4">
-            Estamos aquí para responder tus consultas y brindarte la mejor atención
+            {t('contacto.description')}
           </p>
         </motion.div>
 
@@ -115,13 +117,13 @@ export default function Contact() {
               <div className="w-10 h-10 lg:w-12 lg:h-12 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
                 <Send className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
               </div>
-              <h3 className="text-xl lg:text-2xl font-bold text-white">Envía un mensaje</h3>
+              <h3 className="text-xl lg:text-2xl font-bold text-white">{t('contacto.form.title')}</h3>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6">
               <div className="grid md:grid-cols-2 gap-3 lg:gap-4">
                 <Input 
-                  placeholder="Tu nombre" 
+                  placeholder={t('contacto.name')}
                   name="nombre"
                   value={formData.nombre}
                   onChange={handleChange}
@@ -131,7 +133,7 @@ export default function Contact() {
                 />
                 <Input 
                   type="email" 
-                  placeholder="Tu email" 
+                  placeholder={t('contacto.email')} 
                   name="correo"
                   value={formData.correo}
                   onChange={handleChange}
@@ -142,7 +144,7 @@ export default function Contact() {
               </div>
               
               <Input 
-                placeholder="Asunto" 
+                placeholder={t('contacto.asunto')} 
                 name="asunto"
                 value={formData.asunto}
                 onChange={handleChange}
@@ -152,7 +154,7 @@ export default function Contact() {
               />
               
               <Textarea 
-                placeholder="Tu mensaje" 
+                placeholder={t('contacto.message')} 
                 name="mensaje"
                 value={formData.mensaje}
                 onChange={handleChange}
@@ -218,7 +220,7 @@ export default function Contact() {
             className="space-y-4 lg:space-y-6"
           >
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl lg:rounded-3xl p-5 lg:p-8 shadow-2xl">
-              <h3 className="text-xl lg:text-2xl font-bold text-white mb-4 lg:mb-6">Información de contacto</h3>
+              <h3 className="text-xl lg:text-2xl font-bold text-white mb-4 lg:mb-6">{t('contacto.informacion')}</h3>
               <div className="space-y-3 lg:space-y-6">
                 {contactInfo.map((item, idx) => {
                   const Icon = item.icon
@@ -245,18 +247,18 @@ export default function Contact() {
 
             {/* Horarios */}
             <div className="bg-gradient-to-br from-red-600/20 to-red-800/20 backdrop-blur-sm border border-red-500/30 rounded-2xl lg:rounded-3xl p-5 lg:p-8 shadow-2xl">
-              <h3 className="text-lg lg:text-xl font-bold text-white mb-3 lg:mb-4">Horarios de atención</h3>
+              <h3 className="text-lg lg:text-xl font-bold text-white mb-3 lg:mb-4">{t('contacto.horarios.title')}</h3>
               <div className="space-y-2 lg:space-y-3 text-sm lg:text-base text-gray-300">
                 <div className="flex justify-between">
-                  <span>Lunes - Viernes</span>
+                  <span>{t('contacto.horarios.days')}</span>
                   <span className="font-semibold text-white">8:00 - 18:00</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Sábados</span>
-                  <span className="font-semibold text-white">9:00 - 12:00</span>
+                  <span>{t('contacto.horarios.sab')}</span>
+                  <span className="font-semibold text-white">8:00 - 12:00</span>
                 </div>
                 <div className="pt-2 lg:pt-3 border-t border-white/10">
-                  <span className="text-red-400 font-semibold text-xs lg:text-sm">Servicio de emergencias 24/7</span>
+                  <span className="text-red-400 font-semibold text-xs lg:text-sm">{t('contacto.horarios.emer')}</span>
                 </div>
               </div>
             </div>

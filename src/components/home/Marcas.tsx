@@ -5,26 +5,28 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { ArrowRight, CheckCircle2 } from "lucide-react"
+import { useTranslation } from "react-i18next";
 
 export default function Marcas() {
+  const { t } = useTranslation();
   const marcas = [
     {
       marca: "Case IH",
-      descripcion: "Máquinas confiables diseñadas para maximizar la productividad.",
+      descripcion: t('marcas.case.description'),
       imagen: "/imagenes/inicio/carousel1.webp",
       logo: "/imagenes/equipment/case/case.webp",
       ruta: "/equipos/case",
       color: "#dc2626", // 🔴 rojo de Tailwind (red-600)
-      features: ["Maquinaria agrícola", "Alta productividad", "Última tecnología"]
+      features: [t('marcas.case.features1'), t('marcas.case.features2'), t('marcas.case.features3')]
     },
     {
       marca: "JCB",
-      descripcion: "Equipos innovadores y duraderos para construcción y Vialidad.",
+      descripcion: t('marcas.jcb.description'),
       imagen: "/imagenes/inicio/asd1.webp",
       logo: "/imagenes/equipment/jcb/jcb.svg",
       ruta: "/equipos/jcb",
       color: "#ca8a04", // 🟡 amarillo (yellow-600)
-      features: ["Construcción", "Vialidad", "Tecnología avanzada"]
+      features: [t('marcas.jcb.features1'), t('marcas.jcb.features2'), t('marcas.jcb.features3')]
     },
   ];
 
@@ -65,13 +67,13 @@ export default function Marcas() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-red-400 text-lg uppercase tracking-wider mb-4"
           >
-            | Nuestras Marcas
+            | {t('marcas.badge')}
           </motion.p>
           
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white">
-            Maquinaria Agrícola y
+            {t('marcas.title')}
             <br className="hidden md:block" />
-            <span className="text-red-500"> de Construcción</span>
+            <span className="text-red-500">{t('marcas.subtitle')}</span>
           </h2>
           
           <motion.p
@@ -80,8 +82,7 @@ export default function Marcas() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-gray-300 text-xl max-w-3xl mx-auto"
           >
-            Representantes oficiales de las marcas más destacadas en cada segmento. 
-            Soluciones integrales para tu campo y construcción.
+            {t('marcas.description')}
           </motion.p>
         </motion.div>
 
@@ -138,7 +139,8 @@ export default function Marcas() {
                     <div className="space-y-2 mb-6">
                       {marca.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-sm text-gray-400">
-                          <CheckCircle2 className="w-4 h-4 text-red-500 flex-shrink-0" />
+                          <CheckCircle2 className="w-4 h-4 flex-shrink-0" 
+                          style={{ color: marca.color }}/>
                           <span>{feature}</span>
                         </div>
                       ))}
@@ -157,7 +159,7 @@ export default function Marcas() {
                         e.currentTarget.style.backgroundColor = marca.color
                       }}
                     >
-                      Explorar productos
+                      {t('marcas.explore')}
                       <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
                     </Button>
 
@@ -177,11 +179,11 @@ export default function Marcas() {
           className="max-w-4xl mx-auto bg-gradient-to-br from-red-900/30 to-red-800/30 backdrop-blur-sm border border-red-500/20 rounded-2xl p-8 md:p-12 text-center"
         >
           <h3 className="text-3xl lg:text-4xl font-bold mb-4 text-white">
-            ¿Necesitás asesoramiento personalizado?
+            {t('marcas.cta')}
           </h3>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Nuestro equipo de expertos está disponible 24/7 para brindarte 
-            la mejor atención y asesoramiento profesional.
+            {t('marcas.cta2')}
+            
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -190,7 +192,7 @@ export default function Marcas() {
                 size="lg" 
                 className="bg-white text-red-600 hover:bg-gray-100 px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
               >
-                Contactar ahora
+                {t('marcas.ctaButton')}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>

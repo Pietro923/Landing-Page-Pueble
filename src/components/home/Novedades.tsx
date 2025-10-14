@@ -1,11 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
 import React, { useEffect, useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 const NovedadesLazy = () => {
   const [mostrar, setMostrar] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-
+  const { t } = useTranslation();
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -29,6 +30,7 @@ export default NovedadesLazy;
 
 // Importamos el componente original
 const Novedades = () => {
+  const { t } = useTranslation();
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://static.elfsight.com/platform/platform.js";
@@ -48,11 +50,11 @@ const Novedades = () => {
                 transition={{ delay: 0.3 }}
                 className="text-red-500 font-semibold uppercase tracking-wider mb-4"
               >
-                | Novedades
+                | {t('novedades.badge')}
               </motion.p>
               
               <h2 className="text-3xl lg:text-5xl font-bold mb-4 lg:mb-6 text-white leading-tight">
-                Nuestras novedades en el sector
+                {t('novedades.title')}
                 
               </h2>
         <div
