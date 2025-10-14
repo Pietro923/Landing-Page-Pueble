@@ -162,6 +162,7 @@ export default function Company() {
                 <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white">Sede Central</h2>
               </div>
 
+                <a href="https://maps.app.goo.gl/6AeGKLUSqDNhNyuF9" target="_blank" rel="noopener noreferrer" className="inline-block w-full hover:bg-white/10 transition-all duration-300 rounded-lg">
               <div className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-white/5 rounded-lg border border-white/10">
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-red-500 flex-shrink-0 mt-1" />
                 <div>
@@ -169,6 +170,7 @@ export default function Company() {
                   <p className="text-white font-semibold text-sm sm:text-base">Ruta Nacional 9 KM 1301, Tucumán</p>
                 </div>
               </div>
+                </a>
 
               <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
                 Nuestra sede central cuenta con más de 

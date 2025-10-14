@@ -94,7 +94,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-3 items-center md:items-start text-gray-300">
                 <a 
-                  href="https://www.google.com/maps/place/PUEBLE+S.A./@-26.7684015,-65.2193973"
+                  href="https://maps.app.goo.gl/6AeGKLUSqDNhNyuF9"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:underline flex gap-3 items-center"

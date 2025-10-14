@@ -53,6 +53,13 @@ export default function HeroPreview() {
             <span className="text-red-500 italic">Pueble S.A</span>
           </h1>
 
+          {/* Título Secundario */}
+          <p className="text-xl md:text-2xl font-bold text-white leading-tight">
+            Una Empresa de
+            <br />
+            <span className="text-red-500 italic">Grupo Pueble</span>
+          </p>
+
           {/* Descripción */}
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Líderes en maquinaria agrícola y de construcción. 
@@ -85,7 +92,7 @@ export default function HeroPreview() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="grid grid-cols-3 gap-6 pt-12 max-w-2xl mx-auto"
+            className="grid grid-cols-3 gap-6 pt-12 pb-4 max-w-2xl mx-auto"
           >
             <div className="text-center">
               <div className="text-4xl font-bold text-red-500 mb-2">20+</div>

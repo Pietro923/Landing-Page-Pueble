@@ -9,22 +9,22 @@ import { ArrowRight, CheckCircle2 } from "lucide-react"
 export default function Marcas() {
   const marcas = [
     {
-      marca: "JCB",
-      descripcion: "Equipos innovadores y duraderos para construcción y agricultura.",
-      imagen: "/imagenes/inicio/asd1.webp",
-      logo: "/imagenes/equipment/jcb/jcb.svg",
-      ruta: "/equipos/jcb",
-      color: "from-yellow-600 to-yellow-800",
-      features: ["Construcción", "Agricultura", "Tecnología avanzada"]
-    },
-    {
       marca: "Case IH",
       descripcion: "Máquinas confiables diseñadas para maximizar la productividad.",
       imagen: "/imagenes/inicio/carousel1.webp",
       logo: "/imagenes/equipment/case/case.webp",
       ruta: "/equipos/case",
-      color: "from-red-600 to-red-800",
-      features: ["Maquinaria agrícola", "Alta productividad", "Servicio 24/7"]
+      color: "#dc2626", // 🔴 rojo de Tailwind (red-600)
+      features: ["Maquinaria agrícola", "Alta productividad", "Última tecnología"]
+    },
+    {
+      marca: "JCB",
+      descripcion: "Equipos innovadores y duraderos para construcción y Vialidad.",
+      imagen: "/imagenes/inicio/asd1.webp",
+      logo: "/imagenes/equipment/jcb/jcb.svg",
+      ruta: "/equipos/jcb",
+      color: "#ca8a04", // 🟡 amarillo (yellow-600)
+      features: ["Construcción", "Vialidad", "Tecnología avanzada"]
     },
   ];
 
@@ -108,7 +108,7 @@ export default function Marcas() {
                     />
                     
                     {/* Overlay con gradiente */}
-                    <div className={`absolute inset-0 bg-gradient-to-t ${marca.color} opacity-80 group-hover:opacity-90 transition-opacity duration-300`} />
+                    <div className={`absolute inset-0 bg-gradient-to-t ${marca.color}? opacity-80 group-hover:opacity-90 transition-opacity duration-300`} />
                     
                     {/* Logo de la marca */}
                     <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg">
@@ -123,7 +123,10 @@ export default function Marcas() {
                   </div>
 
                   <CardContent className="relative bg-gradient-to-br from-gray-900 to-black p-6">
-                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-red-400 transition-colors">
+                    <h3
+                      className="text-2xl font-bold text-white mb-3 transition-colors group-hover:opacity-90"
+                      style={{ color: marca.color }}
+                    >
                       {marca.marca}
                     </h3>
                     
@@ -142,12 +145,22 @@ export default function Marcas() {
                     </div>
 
                     {/* Botón */}
-                    <Button 
-                      className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-6 text-lg group-hover:shadow-lg group-hover:shadow-red-500/50 transition-all duration-300"
+                    <Button
+                      className="w-full text-white font-semibold py-6 text-lg transition-all duration-300 group-hover:shadow-lg"
+                      style={{
+                        backgroundColor: marca.color,
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = `${marca.color}CC` // 🔹 mismo color con transparencia (CC = ~80%)
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = marca.color
+                      }}
                     >
                       Explorar productos
                       <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
                     </Button>
+
                   </CardContent>
                 </Card>
               </Link>

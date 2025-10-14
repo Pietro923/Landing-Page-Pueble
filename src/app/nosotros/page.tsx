@@ -40,6 +40,13 @@ export default function About() {
       imageAlt: 'Inauguración de la nueva sede en 2012'
     },
     { 
+      year: 20, 
+      title: 'Importadores Oficiales de JCB', 
+      description: 'Nos convertimos en Importadores Oficiales de JCB.',
+      //image: '/imagenes/inauguracion/a2.webp',
+      imageAlt: 'Importadores Oficiales de JCB'
+    },
+    { 
       year: 2016, 
       title: 'Reconocimiento Mundial', 
       description: 'PUEBLE S.A. obtiene la categoría Premium Pro en la evaluación mundial de World Class Dealer de CASE IH.',

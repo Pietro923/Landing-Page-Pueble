@@ -62,7 +62,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          {/*<ThemeLanguageControls />*/}
+          <ThemeLanguageControls />
 
           {/* Patrón SVG global */}
           <div className="absolute inset-0 opacity-10">
