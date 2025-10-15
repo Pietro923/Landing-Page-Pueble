@@ -4,7 +4,10 @@ import Link from 'next/link';
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
+export default function CaseEquipmentPage() {
+const { t } = useTranslation();
 const categories = [
   {
     id: 1,
@@ -76,7 +79,6 @@ const itemVariants = {
   }
 };
 
-export default function CaseEquipmentPage() {
   return (
     <section className="min-h-screen bg-gradient-to-br from-red-900 via-black to-gray-900 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-7xl">

@@ -92,9 +92,11 @@ const Navbar = () => {
     i18n.changeLanguage(newLang)
   }
 
+  /* 
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
+  */
 
   return (
     <div className="fixed w-full z-50">
@@ -331,7 +333,7 @@ const Navbar = () => {
 
                 {/* Toggle Tema */}
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button
+                  {/*<Button
                     variant="ghost"
                     size="icon"
                     className="h-8 w-8 rounded-md bg-zinc-800/50 hover:bg-zinc-700 text-white border border-zinc-700/50"
@@ -361,7 +363,7 @@ const Navbar = () => {
                         </motion.div>
                       )}
                     </AnimatePresence>
-                  </Button>
+                  </Button>*/}
                 </motion.div>
               </div>
             )}
@@ -447,18 +449,20 @@ const Navbar = () => {
                       <span className="text-xs font-semibold">{i18n.language.toUpperCase()}</span>
                     </Button>
 
+                    {/*
                     <Button
                       variant="outline"
                       size="sm"
                       className="bg-zinc-800/50 hover:bg-zinc-700 text-white border-zinc-700"
                       onClick={toggleTheme}
                     >
+                       
                       {theme === 'dark' ? (
                         <Sun className="h-4 w-4" />
                       ) : (
                         <Moon className="h-4 w-4" />
                       )}
-                    </Button>
+                    </Button>*/}
                   </div>
                 )}
               </div>

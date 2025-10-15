@@ -375,6 +375,21 @@ const resources = {
       'page.servicios.jcb.title5':'ios',
       'page.servicios.jcb.subtitle':'Conoce las experiencias de nuestros clientes y descubre por qué confían en nosotros',
 
+      // Equipos - Case
+
+      'page.equipos.case.categories1':'TRACTORES',
+      'page.equipos.case.categories1.desc':'Potencia y eficiencia para tu campo',
+      'page.equipos.case.categories2':'COSECHADORAS',
+      'page.equipos.case.categories2.desc':'Tecnología de cosecha avanzada',
+      'page.equipos.case.categories3':'SEMBRADORAS',
+      'page.equipos.case.categories3.desc':'Precisión en cada siembra',
+      'page.equipos.case.categories4':'PULVERIZADORAS',
+      'page.equipos.case.categories4.desc':'Aplicación eficiente y uniforme',
+      'page.equipos.case.categories5':'AGRICULTURA DE PRECISIÓN',
+      'page.equipos.case.categories5.desc':'Tecnología para maximizar rendimientos',
+      'page.equipos.case.categories6':'HENO Y FORRAJE',
+      'page.equipos.case.categories6.desc':'Equipamiento para producción ganadera',
+      
 
 
 
