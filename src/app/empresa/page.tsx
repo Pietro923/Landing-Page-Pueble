@@ -18,74 +18,76 @@ import {
   CheckCircle2
 } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { useTranslation } from "react-i18next";
 
 export default function Company() {
+  const { t } = useTranslation();
   const [contactLink, setContactLink] = useState("");
   
   const facilities = [
     {
       icon: Factory,
-      title: 'Planta Principal',
-      description: 'Moderna planta de producción con tecnología de última generación para maquinaria agrícola'
+      title: t('page.empresa.card1'),
+      description: t('page.empresa.card1.desc'),
     },
     {
       icon: Wrench,
-      title: 'Taller Especializado',
-      description: 'Centro de servicio técnico y mantenimiento certificado con personal capacitado'
+      title: t('page.empresa.card2'),
+      description: t('page.empresa.card2.desc'),
     },
     {
       icon: Shield,
-      title: 'Control de Calidad',
-      description: 'Laboratorio de pruebas y certificación de equipos de máxima precisión'
+      title: t('page.empresa.card3'),
+      description: t('page.empresa.card3.desc'),
     }
   ];
 
   const teams = [
     {
-      name: "Equipo de Postventa",
+      name: t('page.empresa.gerente1.equipo'),
       managerImage: "/imagenes/gerentes/gerentedeventas.jpeg",
-      managerName: "Angel Ortiz",
-      managerTitle: "Gerente de Post Venta",
-      description: "Expertos en mantenimiento y soporte técnico para garantizar el máximo rendimiento de tus equipos."
+      managerName: t('page.empresa.gerente1.nombre'),
+      managerTitle: t('page.empresa.gerente1.puesto'),
+      description: t('page.empresa.gerente1.desc'),
     },
     {
-      name: "Equipo AFS",
+      name: t('page.empresa.gerente2.equipo'),
       managerImage: "/imagenes/gerentes/gerentedeafs.jpg",
-      managerName: "Guido Meier",
-      managerTitle: "Gerente de AFS",
-      description: "Especialistas en sistemas de agricultura de precisión para optimizar tus cosechas."
+      managerName: t('page.empresa.gerente2.nombre'),
+      managerTitle: t('page.empresa.gerente2.puesto'),
+      description: t('page.empresa.gerente2.desc'),
     },
     {
-      name: "Administración",
+      name: t('page.empresa.gerente3.equipo'),
       managerImage: "/imagenes/gerentes/gerentedeadministracion.jpeg",
-      managerName: "Fátima Zamorano",
-      managerTitle: "Gerente de Administración",
-      description: "Nuestro equipo administrativo asegura una gestión eficiente y transparente."
+      managerName: t('page.empresa.gerente3.nombre'),
+      managerTitle: t('page.empresa.gerente3.puesto'),
+      description: t('page.empresa.gerente3.desc'),
     },
     {
-      name: "Equipo Comercial",
+      name: t('page.empresa.gerente4.equipo'),
       managerImage: "/imagenes/gerentes/gerentedeequipocomercial.jpeg",
-      managerName: "Christian de la Vega",
-      managerTitle: "Gerente General",
-      description: "Enfocados en brindar soluciones a medida, acompañamos a cada cliente en todo el proceso."
+      managerName: t('page.empresa.gerente4.nombre'),
+      managerTitle: t('page.empresa.gerente4.puesto'),
+      description: t('page.empresa.gerente4.desc'),
     }
   ];
 
   const visitHighlights = [
     {
       icon: Users,
-      title: "Equipos Especializados",
-      description: "Conocé a nuestros técnicos y especialistas en acción"
+      title: t('page.empresa.card.visita.item1'),
+      description: t('page.empresa.card.visita.item1.desc'),
     },
     {
       icon: Factory,
-      title: "Tecnología de Vanguardia",
-      description: "Descubrí nuestra maquinaria y procesos de última generación"
+      title: t('page.empresa.card.visita.item2'),
+      description: t('page.empresa.card.visita.item2.desc'),
     },
     {
       icon: Clock,
-      title: "Flexibilidad Horaria",
-      description: "Adaptamos los horarios según tu disponibilidad académica"
+      title: t('page.empresa.card.visita.item3'),
+      description: t('page.empresa.card.visita.item3.desc'),
     }
   ];
   
@@ -115,7 +117,7 @@ export default function Company() {
             transition={{ delay: 0.2 }}
             className="text-red-500 font-semibold uppercase tracking-wider mb-3 text-xs sm:text-sm"
           >
-            | Conoce Nuestras Instalaciones
+            | {t('page.empresa.badge')}
           </motion.p>
           
           <motion.h1
@@ -124,7 +126,7 @@ export default function Company() {
             transition={{ delay: 0.3 }}
             className="text-3xl sm:text-4xl lg:text-6xl font-black mb-4 sm:mb-6 bg-gradient-to-r from-white via-gray-100 to-white text-transparent bg-clip-text px-2"
           >
-            Nuestra Empresa
+            {t('page.empresa.title')}
           </motion.h1>
           
           <motion.p
@@ -133,8 +135,7 @@ export default function Company() {
             transition={{ delay: 0.4 }}
             className="text-sm sm:text-base lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-2"
           >
-            Infraestructura de primer nivel con tecnología de punta para garantizar la mejor calidad 
-            en productos y servicios para el sector agrícola
+            {t('page.empresa.subtitle')}
           </motion.p>
         </motion.div>
 
@@ -159,35 +160,33 @@ export default function Company() {
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-600 rounded-lg flex items-center justify-center">
                   <Building2 className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white">Sede Central</h2>
+                <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white">{t('page.empresa.title2')}</h2>
               </div>
 
                 <a href="https://maps.app.goo.gl/6AeGKLUSqDNhNyuF9" target="_blank" rel="noopener noreferrer" className="inline-block w-full hover:bg-white/10 transition-all duration-300 rounded-lg">
               <div className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-white/5 rounded-lg border border-white/10">
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-red-500 flex-shrink-0 mt-1" />
                 <div>
-                  <p className="text-gray-300 text-xs sm:text-sm">Ubicación</p>
+                  <p className="text-gray-300 text-xs sm:text-sm">{t('page.empresa.ubi')}</p>
                   <p className="text-white font-semibold text-sm sm:text-base">Ruta Nacional 9 KM 1301, Tucumán</p>
                 </div>
               </div>
                 </a>
 
               <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
-                Nuestra sede central cuenta con más de 
-                <span className="text-white font-bold"> 5000m²</span> dedicados a la 
-                exhibición, venta y mantenimiento de 
-                <span className="text-white font-bold"> maquinaria agrícola y de construcción</span> de 
-                primera línea.
+                {t('page.empresa.desc')}
+                <span className="text-white font-bold"> {t('page.empresa.desc1')}</span> {t('page.empresa.desc1.2')}
+                <span className="text-white font-bold"> {t('page.empresa.desc1.3')}</span> {t('page.empresa.desc1.4')}
               </p>
 
               <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-3 sm:pt-4">
                 <div className="p-3 sm:p-4 bg-gradient-to-br from-red-600/20 to-red-900/20 rounded-lg border border-red-500/20">
                   <div className="text-2xl sm:text-3xl font-bold text-red-500 mb-1">5000m²</div>
-                  <p className="text-xs sm:text-sm text-gray-300">Área total</p>
+                  <p className="text-xs sm:text-sm text-gray-300">{t('page.empresa.desc1.5')}</p>
                 </div>
                 <div className="p-3 sm:p-4 bg-gradient-to-br from-red-600/20 to-red-900/20 rounded-lg border border-red-500/20">
                   <div className="text-2xl sm:text-3xl font-bold text-red-500 mb-1">24/7</div>
-                  <p className="text-xs sm:text-sm text-gray-300">Atención</p>
+                  <p className="text-xs sm:text-sm text-gray-300">{t('page.empresa.desc1.6')}</p>
                 </div>
               </div>
             </div>
@@ -201,7 +200,7 @@ export default function Company() {
               className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-red-500/50 text-sm sm:text-base w-full sm:w-auto justify-center"
             >
               <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-              Contactar Ahora
+              {t('page.empresa.button')}
               <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
             </motion.a>
           </motion.div>
@@ -243,10 +242,10 @@ export default function Company() {
               transition={{ delay: 0.2 }}
               className="text-red-500 font-semibold uppercase tracking-wider mb-2 sm:mb-3 text-xs sm:text-sm"
             >
-              | Nuestras Instalaciones
+              | {t('page.empresa.badge2')}
             </motion.p>
             <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white px-2">
-              Infraestructura de <span className="text-red-500">Calidad</span>
+              {t('page.empresa.title3')} <span className="text-red-500">{t('page.empresa.title4')}</span>
             </h2>
           </div>
 
@@ -299,13 +298,11 @@ export default function Company() {
                 </div>
                 <div>
                   <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3">
-                    ¡Conectamos con la Educación!
+                    {t('page.empresa.card4')}
                   </h3>
                   <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
-                    En Pueble valoramos la formación de futuros profesionales. Si sos docente universitario o secundario, 
-                    te invitamos a que tus estudiantes vivan una 
-                    <span className="text-red-300 font-semibold"> experiencia real</span> en 
-                    el mundo de la maquinaria agrícola y de construcción.
+                    {t('page.empresa.card4.1')}
+                    <span className="text-red-300 font-semibold"> {t('page.empresa.card4.2')}</span> {t('page.empresa.card4.3')}
                   </p>
                 </div>
               </div>
@@ -319,7 +316,7 @@ export default function Company() {
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-red-500/50 text-sm sm:text-base"
               >
                 <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
-                Agendar Visita Educativa
+                {t('page.empresa.card4.3.button')}
                 <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
               </motion.a>
             </div>
@@ -341,10 +338,10 @@ export default function Company() {
               transition={{ delay: 0.2 }}
               className="text-red-500 font-semibold uppercase tracking-wider mb-2 sm:mb-3 text-xs sm:text-sm"
             >
-              | El Talento Detrás Del Éxito
+              | {t('page.empresa.badge3')}
             </motion.p>
             <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white px-2">
-              Nuestros <span className="text-red-500">Equipos</span>
+              {t('page.empresa.title5')} <span className="text-red-500">{t('page.empresa.title6')}</span>
             </h2>
           </div>
 
@@ -418,14 +415,13 @@ export default function Company() {
               transition={{ delay: 0.2 }}
               className="text-red-500 font-semibold uppercase tracking-wider mb-2 sm:mb-3 text-xs sm:text-sm"
             >
-              | Visita Nuestras Instalaciones
+              | {t('page.empresa.badge4')}
             </motion.p>
             <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 px-2">
-              Experiencia Inmersiva en <span className="text-red-500">Pueble</span>
+              {t('page.empresa.title7')} <span className="text-red-500">{t('page.empresa.title8')}</span>
             </h2>
             <p className="text-xs sm:text-base lg:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed px-2">
-              Descubrí el corazón de nuestra operación y conocé de primera mano cómo la innovación 
-              y la pasión se combinan para crear soluciones excepcionales
+              {t('page.empresa.desc2')}
             </p>
           </div>
 
@@ -439,11 +435,9 @@ export default function Company() {
               className="space-y-4 sm:space-y-6"
             >
               <div className="bg-gradient-to-br from-white/10 to-transparent backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-6 border border-white/20">
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">¿Qué incluye tu visita?</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">{t('page.empresa.card.visita.title')}</h3>
                 <p className="text-xs sm:text-base text-gray-300 mb-4 sm:mb-6 leading-relaxed">
-                  Sumérgete en una experiencia educativa única donde la teoría cobra vida. 
-                  Nuestras visitas guiadas están diseñadas para inspirar y educar, ofreciendo 
-                  una perspectiva integral de la industria agrícola moderna.
+                  {t('page.empresa.card.visita.desc')}
                 </p>
 
                 <div className="space-y-2 sm:space-y-3">
@@ -491,7 +485,7 @@ export default function Company() {
                     poster="/videos/thumbnail.webp"
                     className="w-full h-full object-cover"
                   >
-                    Tu navegador no soporta la reproducción de videos.
+                    {t('page.empresa.card.visita.error')}
                   </video>
                 </div>
               </div>
@@ -515,11 +509,11 @@ export default function Company() {
               className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 via-red-700 to-red-800 hover:from-red-700 hover:via-red-800 hover:to-red-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base lg:text-lg transition-all duration-300 shadow-2xl hover:shadow-red-500/40"
             >
               <Calendar className="w-5 h-5 sm:w-6 sm:h-6" />
-              Reservá Tu Visita Ahora
+              {t('page.empresa.card.visita.button')}
               <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </motion.a>
             <p className="text-gray-400 mt-3 sm:mt-4 text-xs sm:text-sm">
-              Respuesta inmediata • Sin costo • Horarios flexibles
+              {t('page.empresa.card.visita.detail')}
             </p>
           </motion.div>
         </motion.div>

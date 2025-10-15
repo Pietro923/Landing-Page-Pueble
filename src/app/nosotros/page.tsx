@@ -66,10 +66,10 @@ export default function About() {
   const values = [
     { icon: Shield, title: t('page.nosotros.val.item1'), description: t('page.nosotros.val.item1desc')},
     { icon: Target, title: t('page.nosotros.val.item2'), description: t('page.nosotros.val.item2desc')},
-    { icon: Handshake, title: t('page.nosotros.val.item2'), description: t('page.nosotros.val.item3desc')},
-    { icon: Gem, title: t('page.nosotros.val.item3'), description: t('page.nosotros.val.item4desc')},
-    { icon: Wrench, title: t('page.nosotros.val.item4'), description: t('page.nosotros.val.item5desc')},
-    { icon: Award, title: t('page.nosotros.val.item5'), description: t('page.nosotros.val.item6desc')},
+    { icon: Handshake, title: t('page.nosotros.val.item3'), description: t('page.nosotros.val.item3desc')},
+    { icon: Gem, title: t('page.nosotros.val.item4'), description: t('page.nosotros.val.item4desc')},
+    { icon: Wrench, title: t('page.nosotros.val.item5'), description: t('page.nosotros.val.item5desc')},
+    { icon: Award, title: t('page.nosotros.val.item6'), description: t('page.nosotros.val.item6desc')},
   ];
 
   return (

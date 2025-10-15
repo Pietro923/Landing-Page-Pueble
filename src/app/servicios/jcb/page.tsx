@@ -1,41 +1,42 @@
 'use client'
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardContent, CardTitle, CardDescription } from "@/components/ui/card"
 import Image from 'next/image'
 import { Wrench, ShoppingCart, Smartphone, Shield, PhoneCall, Star, ArrowRight, Zap } from 'lucide-react'
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
+import { useTranslation } from "react-i18next";
 
 export default function ServiciosJCB() {
+  const { t } = useTranslation();
   const services = [
     {
       icon: ShoppingCart,
-      title: "Venta y Postventa",
-      description: "Asesoramiento, mantenimiento y soporte técnico 24/7 para tu maquinaria JCB.",
+      title: t('page.servicios.jcb.service.items1'),
+      description: t('page.servicios.jcb.service.items1.desc'),
       contact: "https://wa.me/"
     },
     {
       icon: Wrench,
-      title: "Guardia de Repuestos",
-      description: "Lunes a Viernes 18:00 HS a 08:00 HS. Sábados y Domingos 24 HS.",
+      title: t('page.servicios.jcb.service.items2'),
+      description: t('page.servicios.jcb.service.items2.desc'),
       contact: "https://wa.me/3815821998?text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta%20sobre%20la%20guardia%20de%20Repuestos%20JCB!"
     },
     {
       icon: PhoneCall,
-      title: "Guardia de Servicios",
-      description: "Lunes a Viernes 18:00 HS a 08:00 HS. Sábados y Domingos 24 HS",
+      title: t('page.servicios.jcb.service.items3'),
+      description: t('page.servicios.jcb.service.items3.desc'),
       contact: "https://wa.me/3814901111?text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta%20sobre%20la%20guardia%20de%20Servicios%20JCB!"
     },
     {
       icon: Smartphone,
-      title: "JCB LiveLink",
-      description: "Supervisa y gestiona tu flota de construcción de forma remota con tecnología avanzada.",
+      title: t('page.servicios.jcb.service.items4'),
+      description: t('page.servicios.jcb.service.items4.desc'),
       contact: "https://wa.me/"
     },
     {
       icon: Shield,
-      title: "Garantía y Soporte",
-      description: "Garantía extendida y soporte técnico permanente para optimizar el rendimiento de tu equipo JCB.",
+      title: t('page.servicios.jcb.service.items5'),
+      description: t('page.servicios.jcb.service.items5.desc'),
       contact: "https://wa.me/"
     }
   ];  
@@ -48,34 +49,34 @@ export default function ServiciosJCB() {
   const testimonials = [
     {
       name: "José Lauro Medina",
-      role: "Productor Agrícola",
-      comment: "El servicio de postventa de Pueble es increíble. Siempre están disponibles cuando los necesito.",
+      role: t('page.servicios.jcb.testimonios.1.role'),
+      comment: t('page.servicios.jcb.testimonios.1.comment'),
       image: "/imagenes/servicios/productor1.webp"
     },
     {
       name: "Fabersani SA",
-      role: "Empresa Agrícola",
-      comment: "JCB LiveLink ha revolucionado la forma en que gestiono mi flota de construcción. ¡Lo recomiendo totalmente!",
+      role: t('page.servicios.jcb.testimonios.2.role'),
+      comment: t('page.servicios.jcb.testimonios.2.comment'),
       image: "/imagenes/servicios/empresaagricola.webp"
     }
   ];
 
   const benefits = [
     {
-      title: "Seguridad Avanzada",
-      desc: "Establezca horarios de operación, geoperímetros y reciba alertas en caso de uso no autorizado."
+      title: t('page.servicios.jcb.beneficios.1.title'),
+      desc: t('page.servicios.jcb.beneficios.1.desc'),
     },
     {
-      title: "Gestión Inteligente",
-      desc: "Acceda a análisis avanzados, informes programados y alertas de seguridad en tiempo real."
+      title: t('page.servicios.jcb.beneficios.2.title'),
+      desc: t('page.servicios.jcb.beneficios.2.desc'),
     },
     {
-      title: "Mayor Tiempo de Actividad",
-      desc: "Diagnóstico remoto y mantenimiento predictivo para minimizar el tiempo de inactividad."
+      title: t('page.servicios.jcb.beneficios.3.title'),
+      desc: t('page.servicios.jcb.beneficios.3.desc'),
     },
     {
-      title: "Optimización Total",
-      desc: "Monitoreo en tiempo real, programación de servicios y almacenamiento seguro de documentos."
+      title: t('page.servicios.jcb.beneficios.4.title'),
+      desc: t('page.servicios.jcb.beneficios.4.desc'),
     }
   ];
   
@@ -96,7 +97,7 @@ export default function ServiciosJCB() {
             transition={{ delay: 0.2 }}
             className="text-yellow-500 font-semibold uppercase tracking-wider mb-3 text-xs sm:text-sm"
           >
-            | Nuestros Servicios
+            | {t('page.servicios.jcb.badge')}
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 10 }}
@@ -104,7 +105,7 @@ export default function ServiciosJCB() {
             transition={{ delay: 0.3 }}
             className="text-3xl sm:text-4xl lg:text-6xl font-black mb-4 sm:mb-6 bg-gradient-to-r from-white via-gray-100 to-white text-transparent bg-clip-text px-2"
           >
-            Soluciones JCB
+            {t('page.servicios.jcb.title')}
           </motion.h1>
           
           <motion.p 
@@ -113,7 +114,7 @@ export default function ServiciosJCB() {
             transition={{ delay: 0.4 }}
             className="text-sm sm:text-base lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-2"
           >
-            Asistencia especializada y permanente las 24 horas, los 365 días del año. Vehículos equipados para soluciones a campo y un taller totalmente preparado.
+            {t('page.servicios.jcb.desc')}
           </motion.p>
         </motion.div>
 
@@ -136,7 +137,7 @@ export default function ServiciosJCB() {
                 viewport={{ once: true }}
                 className="group relative h-full"
               >
-                <div className="absolute -inset-1 bg-gradient-to-r from-yellow-600/20 to-yellow-900/20 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 blur transition-all duration-500" />
+                <div className="pointer-events-none absolute -inset-1 bg-gradient-to-r from-yellow-600/20 to-yellow-900/20 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 blur transition-all duration-500" />
                 <Card className="relative bg-white/5 backdrop-blur-xl border border-white/10 hover:border-yellow-500/30 rounded-lg sm:rounded-xl transition-all duration-300 h-full flex flex-col">
                   <CardContent className="flex flex-col justify-between h-full p-4 sm:p-6">
                     <div>
@@ -159,7 +160,7 @@ export default function ServiciosJCB() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-600 to-yellow-700 hover:from-yellow-700 hover:to-yellow-800 text-black px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg shadow-lg hover:shadow-yellow-500/50 transition-all duration-300 mt-4 font-semibold text-xs sm:text-sm w-full"
                       >
-                        Contactar
+                        {t('page.servicios.jcb.button')}
                         <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                       </motion.a>
                     )}
@@ -185,10 +186,10 @@ export default function ServiciosJCB() {
               transition={{ delay: 0.2 }}
               className="text-yellow-500 font-semibold uppercase tracking-wider mb-2 sm:mb-3 text-xs sm:text-sm"
             >
-              | Tecnología Avanzada
+              | {t('page.servicios.jcb.badge2')}
             </motion.p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white px-2">
-              JCB <span className="text-yellow-500">LiveLink</span>
+              JCB <span className="text-yellow-500">{t('page.servicios.jcb.title2')}</span>
             </h2>
           </div>
           
@@ -202,12 +203,10 @@ export default function ServiciosJCB() {
               className="space-y-6 sm:space-y-8 order-2 lg:order-1"
             >
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-yellow-600/20 to-yellow-900/20 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-700" />
-                <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-lg sm:rounded-xl p-6 sm:p-8 border border-white/10 hover:border-yellow-500/20 transition-all duration-300">
+                <div className="pointer-events-none absolute -inset-1 bg-gradient-to-r from-yellow-600/20 to-yellow-900/20 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-700" />
+                <div className="pointer-events-none relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-lg sm:rounded-xl p-6 sm:p-8 border border-white/10 hover:border-yellow-500/20 transition-all duration-300">
                   <p className="text-sm sm:text-base lg:text-lg text-gray-200 leading-relaxed">
-                    JCB LiveLink es una innovadora solución telemática que le ofrece el máximo control sobre su flota en un solo lugar. 
-                    Con LiveLink, puedes administrar toda tu flota de forma remota y adoptar un enfoque proactivo para el mantenimiento de las máquinas, 
-                    identificando áreas de posible tiempo de inactividad antes de que sucedan.
+                    {t('page.servicios.jcb.desc2')}
                   </p>
                 </div>
               </div>
@@ -215,7 +214,7 @@ export default function ServiciosJCB() {
               <div className="space-y-3 sm:space-y-4">
                 <h3 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
                   <Zap className="w-5 h-5 text-yellow-500" />
-                  Beneficios Principales
+                  {t('page.servicios.jcb.card.title')}
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {benefits.map((benefit, idx) => (
@@ -247,14 +246,14 @@ export default function ServiciosJCB() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-600 to-yellow-700 hover:from-yellow-700 hover:to-yellow-800 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-yellow-500/50 text-sm sm:text-base w-full sm:w-auto justify-center"
               >
-                Descubre JCB LiveLink
+                {t('page.servicios.jcb.card.button')}
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.a>
             </motion.div>
 
             {/* Carrusel de imágenes */}
            
-              <div className="absolute -inset-1 rounded-lg sm:rounded-2xl blur opacity-30" />
+              <div className="pointer-events-none absolute -inset-1 rounded-lg sm:rounded-2xl blur opacity-30" />
               <Carousel className="w-full relative">
                 <CarouselContent className="-ml-2 sm:-ml-4">
                   {imagesjcb.map((image, index) => (
@@ -292,10 +291,10 @@ export default function ServiciosJCB() {
               transition={{ delay: 0.2 }}
               className="text-yellow-500 font-semibold uppercase tracking-wider mb-2 sm:mb-3 text-xs sm:text-sm"
             >
-              | Lo Que Dicen Nuestros Clientes
+              | {t('page.servicios.jcb.badge3')}
             </motion.p>
             <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 px-2">
-              Testimon<span className="text-yellow-500">ios</span>
+              {t('page.servicios.jcb.title4')}<span className="text-yellow-500">{t('page.servicios.jcb.title5')}</span>
             </h2>
             <motion.p 
               initial={{ opacity: 0, y: 10 }}
@@ -304,7 +303,7 @@ export default function ServiciosJCB() {
               viewport={{ once: true }}
               className="text-xs sm:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto px-2"
             >
-              Conoce las experiencias de nuestros clientes y descubre por qué confían en nosotros
+              {t('page.servicios.jcb.subtitle')}
             </motion.p>
           </div>
           

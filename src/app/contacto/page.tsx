@@ -18,8 +18,10 @@ import {
 } from 'lucide-react'
 import { motion, AnimatePresence } from "framer-motion"
 import { useToast } from "@/hooks/use-toast"
+import { useTranslation } from "react-i18next";
 
 export default function ContactPage() {
+  const { t } = useTranslation();
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
@@ -33,21 +35,21 @@ export default function ContactPage() {
   const contactInfo = [
     {
       icon: Phone,
-      title: "Teléfono",
+      title: t('page.contacto.items1'),
       content: "+54 381 589-7858",
-      description: "Atención al cliente",
+      description: t('page.contacto.items1.desc'),
       link: "tel:+543815897858"
     },
     {
       icon: Mail,
-      title: "Email",
+      title: t('page.contacto.items2'),
       content: "recepcion@pueblemaquinarias.com.ar",
-      description: "Consultas generales y soporte",
+      description: t('page.contacto.items2.desc'),
       link: "mailto:recepcion@pueblemaquinarias.com.ar"
     },
     {
       icon: MapPin,
-      title: "Ubicación",
+      title: t('page.contacto.items3'),
       content: "Ruta Nacional 9 KM 1301, Tucumán",
       description: "San Miguel de Tucumán",
       link: "https://maps.app.goo.gl/Q8uDt7ZbTKY8JFeN7"
@@ -116,12 +118,12 @@ export default function ContactPage() {
           viewport={{ once: true }}
           className="text-center mb-8 lg:mb-16"
         >
-          <p className="text-red-500 font-semibold uppercase tracking-wider mb-2 text-sm lg:text-base">| Hablemos</p>
+          <p className="text-red-500 font-semibold uppercase tracking-wider mb-2 text-sm lg:text-base">| {t('page.contacto.badge')}</p>
           <h2 className="text-3xl lg:text-5xl font-bold text-white mb-3 lg:mb-4">
-            Contáctanos
+            {t('page.contacto.title')}
           </h2>
           <p className="text-base lg:text-xl text-gray-300 max-w-2xl mx-auto px-4">
-            Estamos aquí para responder tus consultas y brindarte la mejor atención
+            {t('page.contacto.subtitle')}
           </p>
         </motion.div>
 
@@ -171,13 +173,13 @@ export default function ContactPage() {
               <div className="w-10 h-10 lg:w-12 lg:h-12 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
                 <Send className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
               </div>
-              <h3 className="text-xl lg:text-2xl font-bold text-white">Envía un mensaje</h3>
+              <h3 className="text-xl lg:text-2xl font-bold text-white"> {t('page.contacto.form.title')}</h3>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6">
               <div className="grid md:grid-cols-2 gap-3 lg:gap-4">
                 <Input 
-                  placeholder="Tu nombre" 
+                  placeholder= {t('page.contacto.form.placeholder.name')}
                   name="nombre"
                   value={formData.nombre}
                   onChange={handleChange}
@@ -187,7 +189,7 @@ export default function ContactPage() {
                 />
                 <Input 
                   type="email" 
-                  placeholder="Tu email" 
+                  placeholder={t('page.contacto.form.placeholder.email')}
                   name="correo"
                   value={formData.correo}
                   onChange={handleChange}
@@ -198,7 +200,7 @@ export default function ContactPage() {
               </div>
               
               <Input 
-                placeholder="Asunto" 
+                placeholder={t('page.contacto.form.placeholder.subjet')}
                 name="asunto"
                 value={formData.asunto}
                 onChange={handleChange}
@@ -208,7 +210,7 @@ export default function ContactPage() {
               />
               
               <Textarea 
-                placeholder="Tu mensaje" 
+                placeholder={t('page.contacto.form.placeholder.men')}
                 name="mensaje"
                 value={formData.mensaje}
                 onChange={handleChange}
@@ -278,7 +280,7 @@ export default function ContactPage() {
                 <div className="w-10 h-10 bg-red-600/20 rounded-full flex items-center justify-center">
                   <MapPin className="w-5 h-5 text-red-500" />
                 </div>
-                <h3 className="text-xl lg:text-2xl font-bold text-white">Nuestra ubicación</h3>
+                <h3 className="text-xl lg:text-2xl font-bold text-white">{t('page.contacto.card.ubi')}</h3>
               </div>
               
               <div className="aspect-video rounded-xl overflow-hidden bg-white/10 mb-4">
@@ -299,7 +301,7 @@ export default function ContactPage() {
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center bg-red-600 hover:bg-red-700 text-white px-4 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-red-500/50"
               >
-                Cómo llegar
+                {t('page.contacto.card.ubi.button')}
                 <ArrowRight className="ml-2 w-4 h-4" />
               </a>
             </div>
@@ -310,20 +312,20 @@ export default function ContactPage() {
                 <div className="w-10 h-10 bg-red-600/20 rounded-full flex items-center justify-center">
                   <Clock className="w-5 h-5 text-red-500" />
                 </div>
-                <h3 className="text-lg lg:text-xl font-bold text-white">Horarios de atención</h3>
+                <h3 className="text-lg lg:text-xl font-bold text-white">{t('page.contacto.card.horario')}</h3>
               </div>
               
               <div className="space-y-2 lg:space-y-3 text-sm lg:text-base text-gray-300">
                 <div className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
-                  <span>Lunes - Viernes</span>
+                  <span>{t('page.contacto.card.horario.days')}</span>
                   <span className="font-semibold text-white">8:00 - 18:00</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
-                  <span>Sábados</span>
+                  <span>{t('page.contacto.card.horario.days1')}</span>
                   <span className="font-semibold text-white">9:00 - 12:00</span>
                 </div>
                 <div className="mt-4 pt-3 border-t border-white/10 text-center">
-                  <span className="text-red-400 font-bold text-sm lg:text-base">Servicio de emergencias 24/7</span>
+                  <span className="text-red-400 font-bold text-sm lg:text-base">{t('page.contacto.horario.details')}</span>
                 </div>
               </div>
             </div>
@@ -340,10 +342,10 @@ export default function ContactPage() {
         >
           <div className="text-center mb-6 lg:mb-8">
             <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2">
-              ¡Síguenos en redes sociales!
+              {t('page.contacto.card.horario.redes')}
             </h3>
             <p className="text-gray-300 text-sm lg:text-base">
-              Mantente al día con nuestras novedades y promociones
+              {t('page.contacto.card.horario.desc')}
             </p>
           </div>
           
