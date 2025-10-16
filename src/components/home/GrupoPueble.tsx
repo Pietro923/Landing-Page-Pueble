@@ -201,7 +201,7 @@ export default function GrupoPueble() {
       brands: [
         {
           name: 'KIA',
-          logo: '/imagenes/grupo_Pueble/logos_empresas/kia_logo.png',
+          logo: '/imagenes/grupo_Pueble/logos_empresas/kia_logo.jpg',
           image: '/imagenes/grupo_Pueble/vehiculos/kia_vehiculo.webp',
           color: 'from-red-100 to-red-300'
         }
