@@ -14,8 +14,7 @@ import {
   Clock,
   Star,
   Calendar,
-  Lightbulb,
-  CheckCircle2
+  Mail
 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useTranslation } from "react-i18next";
@@ -49,6 +48,10 @@ export default function Company() {
       managerName: t('page.empresa.gerente1.nombre'),
       managerTitle: t('page.empresa.gerente1.puesto'),
       description: t('page.empresa.gerente1.desc'),
+      email: "aortiz@pueblemaquinarias.com.ar",
+      correo: "Mandar Email",
+      numero: "Contactar",
+      number: "3815822365",
     },
     {
       name: t('page.empresa.gerente2.equipo'),
@@ -56,6 +59,10 @@ export default function Company() {
       managerName: t('page.empresa.gerente2.nombre'),
       managerTitle: t('page.empresa.gerente2.puesto'),
       description: t('page.empresa.gerente2.desc'),
+      email: "gmeier@pueblemaquinarias.com.ar",
+      correo: "Mandar Email",
+      numero: "Contactar",
+      number: "3816248641",
     },
     {
       name: t('page.empresa.gerente3.equipo'),
@@ -63,6 +70,10 @@ export default function Company() {
       managerName: t('page.empresa.gerente3.nombre'),
       managerTitle: t('page.empresa.gerente3.puesto'),
       description: t('page.empresa.gerente3.desc'),
+      email: "fzamorano@pueblemaquinarias.com.ar",
+      correo: "Mandar Email",
+      numero: "Contactar",
+      number: "3816285165",
     },
     {
       name: t('page.empresa.gerente4.equipo'),
@@ -70,6 +81,10 @@ export default function Company() {
       managerName: t('page.empresa.gerente4.nombre'),
       managerTitle: t('page.empresa.gerente4.puesto'),
       description: t('page.empresa.gerente4.desc'),
+      email: "cdelavega@pueblemaquinarias.com.ar",
+      correo: "Mandar Email",
+      numero: "Contactar",
+      number: "3814674252",
     }
   ];
 
@@ -101,8 +116,8 @@ export default function Company() {
   }, []);
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-red-950 via-slate-950 to-black py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto px-0 sm:px-4 relative">
+    <section className="min-h-screen bg-gradient-to-br from-red-950 via-slate-950 to-black py-8 sm:py-12 lg:py-16 px-6 sm:px-6 lg:px-8">
+      <div className="relative z-10 container mx-auto px-4">
         
         {/* Header Section */}
         <motion.div
@@ -348,55 +363,84 @@ export default function Company() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {teams.map((team, idx) => (
               <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1 }}
-                viewport={{ once: true }}
-                className="group relative"
-              >
-                <div className="absolute -inset-1 bg-gradient-to-r from-red-600/20 to-red-900/20 rounded-lg opacity-0 group-hover:opacity-100 blur transition-all duration-500" />
-                <Card className="relative bg-white/5 backdrop-blur-xl border border-white/10 hover:border-red-500/30 rounded-lg overflow-hidden transition-all duration-300 h-full">
-                  {/* Team name header */}
-                  <div className="bg-gradient-to-r from-red-600/20 to-red-900/20 border-b border-red-500/20 px-4 sm:px-6 py-3 sm:py-4">
-                    <h4 className="text-sm sm:text-base font-bold text-white text-center">{team.name}</h4>
-                  </div>
+  key={idx}
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ delay: idx * 0.1 }}
+  viewport={{ once: true }}
+  className="group relative"
+>
+  <div className="absolute -inset-1 bg-gradient-to-r from-red-600/20 to-red-900/20 rounded-lg opacity-0 group-hover:opacity-100 blur transition-all duration-500" />
+  <Card className="relative bg-white/5 backdrop-blur-xl border border-white/10 hover:border-red-500/30 rounded-lg overflow-hidden transition-all duration-300 h-full flex flex-col">
+    {/* Team name header */}
+    <div className="bg-gradient-to-r from-red-600/20 to-red-900/20 border-b border-red-500/20 px-4 sm:px-6 py-3 sm:py-4">
+      <h4 className="text-sm sm:text-base font-bold text-white text-center">{team.name}</h4>
+    </div>
+    <CardContent className="p-4 sm:p-6 space-y-3 sm:space-y-4 flex flex-col items-center text-center flex-grow">
+      {/* Manager image */}
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        transition={{ delay: idx * 0.1 + 0.2 }}
+        viewport={{ once: true }}
+        className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden border-3 border-red-500 shadow-lg flex-shrink-0"
+      >
+        <Image
+          src={team.managerImage}
+          alt={team.managerName}
+          fill
+          className="object-cover"
+        />
+      </motion.div>
+      
+      {/* Manager info */}
+      <div className="space-y-0.5 sm:space-y-1 flex-shrink-0">
+        <p className="text-sm sm:text-base font-bold text-white">{team.managerName}</p>
+        <p className="text-xs sm:text-sm text-red-400 font-semibold">{team.managerTitle}</p>
+      </div>
+      
+      {/* Description - con altura fija y scroll si es necesario */}
+      <div className="pt-2 sm:pt-3 border-t border-white/10 w-full flex-grow">
+        <div className="h-20 sm:h-24 overflow-y-auto scrollbar-thin scrollbar-thumb-red-500/50 scrollbar-track-white/5">
+          <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">{team.description}</p>
+        </div>
+      </div>
+      
+      {/* Contact Info - altura fija */}
+      <div className="pt-3 sm:pt-4 space-y-2 w-full flex-shrink-0">
+        {/* Email */}
+        <motion.a
+          href={`mailto:${team.email}`}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="flex items-center gap-2 p-2 sm:p-3 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 hover:border-red-500/30 transition-all duration-300 group min-h-[44px]"
+        >
+          <div className="p-1.5 bg-red-600/20 rounded-md group-hover:bg-red-600 transition-colors flex-shrink-0">
+            <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-red-400 group-hover:text-white" />
+          </div>
+          <span className="text-xs sm:text-sm text-gray-300 group-hover:text-white transition-colors truncate">
+            {team.correo}
+          </span>
+        </motion.a>
 
-                  <CardContent className="p-4 sm:p-6 space-y-3 sm:space-y-4 flex flex-col items-center text-center">
-                    {/* Manager image */}
-                    <motion.div
-                      initial={{ scale: 0.8, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
-                      transition={{ delay: idx * 0.1 + 0.2 }}
-                      viewport={{ once: true }}
-                      className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden border-3 border-red-500 shadow-lg"
-                    >
-                      <Image
-                        src={team.managerImage}
-                        alt={team.managerName}
-                        fill
-                        className="object-cover"
-                      />
-                    </motion.div>
-
-                    {/* Manager info */}
-                    <div className="space-y-0.5 sm:space-y-1">
-                      <p className="text-sm sm:text-base font-bold text-white">{team.managerName}</p>
-                      <p className="text-xs sm:text-sm text-red-400 font-semibold">{team.managerTitle}</p>
-                    </div>
-
-                    {/* Description */}
-                    <div className="pt-2 sm:pt-3 border-t border-white/10">
-                      <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">{team.description}</p>
-                    </div>
-
-                    {/* Checkmark accent */}
-                    <div className="mt-2">
-                      <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-red-500" />
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+        {/* Phone */}
+        <motion.a
+          href={`tel:+54${team.number.replace(/\s/g, '')}`}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="flex items-center gap-2 p-2 sm:p-3 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 hover:border-red-500/30 transition-all duration-300 group min-h-[44px]"
+        >
+          <div className="p-1.5 bg-red-600/20 rounded-md group-hover:bg-red-600 transition-colors flex-shrink-0">
+            <Phone className="w-3 h-3 sm:w-4 sm:h-4 text-red-400 group-hover:text-white" />
+          </div>
+          <span className="text-xs sm:text-sm text-gray-300 group-hover:text-white transition-colors">
+            {team.numero}
+          </span>
+        </motion.a>
+      </div>
+    </CardContent>
+  </Card>
+</motion.div>
             ))}
           </div>
         </motion.div>

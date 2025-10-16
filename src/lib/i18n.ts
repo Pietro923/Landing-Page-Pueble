@@ -40,7 +40,7 @@ const resources = {
       'grupoPueble.description': 'Un grupo empresarial consolidado que trabaja en conjunto para brindar soluciones integrales',
       'grupoPueble.learnMore': 'Conocer más',
       'grupoPueble.detail': 'Haz clic en cada empresa para conocer más detalles',
-      'grupoPueble.pueble-sa': 'Maquinaria agrícola de primera línea y soluciones integrales para el sector agroindustrial',
+      'grupoPueble.pueble-sa': 'Maquinaria agrícola y de construccion de primera línea y soluciones integrales para el sector agroindustrial',
       'grupoPueble.jcb': 'Maquinaria de construcción de primera línea y soluciones integrales para el sector de la construcción',
       'grupoPueble.kia': 'Vehículos comerciales y de pasajeros confiables y eficientes para todas las necesidades',
       'grupoPueble.semage-sa': 'Servicio de posventa de maquinarias agrícolas y viales CASE IH y CASE (servicio y repuestos originales)',
@@ -194,9 +194,9 @@ const resources = {
       "page.nosotros.timeline.m3.desc": "Inauguración de la nueva concesionaria en el Parque Industrial de Tucumán, en Av. de Circunvalación km 1294.",
       "page.nosotros.timeline.m3.alt": "Inauguración de la nueva sede en 2012",
 
-      "page.nosotros.timeline.m4.year": "20",
-      "page.nosotros.timeline.m4.title": "Importadores Oficiales de JCB",
-      "page.nosotros.timeline.m4.desc": "Nos convertimos en Importadores Oficiales de JCB.",
+      "page.nosotros.timeline.m4.year": "2021",
+      "page.nosotros.timeline.m4.title": "Importadores Oficiales de JCB ",
+      "page.nosotros.timeline.m4.desc": "Nos convertimos en Importadores Oficiales de JCB para el Noa. Lider en maquinaria de construcción y vial, también con aplicación agricola",
       "page.nosotros.timeline.m4.alt": "Importadores Oficiales de JCB",
 
       "page.nosotros.timeline.m5.year": "2016",
@@ -423,7 +423,20 @@ const resources = {
       'page.equipos.jcb.desc':'Nuestros especialistas JCB están listos para ayudarte a elegir el equipo perfecto para tu proyecto',
       'page.equipos.jcb.button2':'Contactar especialista',
 
-      
+      // Whatsapp Button
+      'wsp.op.title1':'Consultas',
+      'wsp.op.title1.desc':'Información general y atención al cliente',
+      'wsp.op.title1.men':'Hola, estoy en la página web y quiero hacer una consulta general.',
+      'wsp.op.title2':'Servicios',
+      'wsp.op.title2.desc':'Respuesta 24/7',
+      'wsp.op.title2.men':'Hola, necesito asistencia del servicio de guardia.',
+      'wsp.op.title3':'Repuestos',
+      'wsp.op.title3.desc':'Consultas sobre disponibilidad y precios',
+      'wsp.op.title3.men':'Hola, estoy en la página web y quiero consultar sobre repuestos.',
+      'wsp.button':'Contáctanos',
+      'wsp.title':'Contacto',
+      'wsp.desc':'Seleccione una opción para contactarnos vía WhatsApp',
+
 
 
 

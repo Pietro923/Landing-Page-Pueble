@@ -6,32 +6,34 @@ import {
   } from "@/components/ui/popover"
   import { useState } from "react"
   import { Phone, MessageSquare, Settings, ChevronRight } from "lucide-react"
-  
+  import { useTranslation } from "react-i18next";
+
   export function WhatsAppButton() {
+    const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false)
     
     const options = [
       {
-        title: "Servicio de Guardia",
-        description: "Respuesta 24/7",
+        title: t('wsp.op.title1'),
+        description: t('wsp.op.title1.desc'),
+        phone: "543814901111",
+        message: t('wsp.op.title1.men'),
+        icon: <MessageSquare className="w-5 h-5 text-green-600" />
+      },
+      {
+        title: t('wsp.op.title2'),
+        description:t('wsp.op.title2.desc'),
         phone: "5493814901111",
-        message: "Hola, necesito asistencia del servicio de guardia.",
+        message: t('wsp.op.title2.men'),
         icon: <Phone className="w-5 h-5 text-green-600" />
       },
       {
-        title: "Servicio de Repuestos",
-        description: "Respuesta 24/7 - Consultas sobre disponibilidad y precios",
+        title: t('wsp.op.title3'),
+        description: t('wsp.op.title3.desc'),
         phone: "543815821998",
-        message: "Hola, estoy en la página web y quiero consultar sobre repuestos.",
+        message: t('wsp.op.title3.men'),
         icon: <Settings className="w-5 h-5 text-green-600" />
       },
-      {
-        title: "Recepción / Consultas",
-        description: "Información general y atención al cliente",
-        phone: "543814901111",
-        message: "Hola, estoy en la página web y quiero hacer una consulta general.",
-        icon: <MessageSquare className="w-5 h-5 text-green-600" />
-      }
     ]
     
     const handleOptionClick = (phone: string, message: string) => {
@@ -54,7 +56,7 @@ import {
               </span>
             </div>
             <span className="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2 transition-all duration-500 ease-in-out whitespace-nowrap text-sm md:text-base font-medium">
-              Contáctanos
+             {t('wsp.button')}
             </span>
           </button>
         </PopoverTrigger>
@@ -65,15 +67,15 @@ import {
           align="end"
         >
           <div className="p-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-t-xl">
-            <h3 className="font-bold text-lg">Contacto <span className="italic">Pueble S.A</span></h3>
-            <p className="text-green-100 text-sm">Seleccione una opción para contactarnos vía WhatsApp</p>
+            <h3 className="font-bold text-lg">{t('wsp.title')} <span className="italic">Pueble S.A</span></h3>
+            <p className="text-green-100 text-sm">{t('wsp.desc')}</p>
           </div>
           <div className="divide-y divide-gray-100">
             {options.map((option, index) => (
               <button
                 key={index}
                 onClick={() => handleOptionClick(option.phone, option.message)}
-                className="w-full p-4 text-left hover:bg-gray-50 transition-colors flex items-start group"
+                className="w-full p-4 text-left hover:bg-gray-50 hover:rounded-b-xl transition-colors flex items-start group"
               >
                 <div className="mr-3 mt-1 bg-green-50 p-2 rounded-full">
                   {option.icon}
@@ -88,9 +90,7 @@ import {
               </button>
             ))}
           </div>
-          <div className="p-3 bg-gray-50 rounded-b-xl text-xs text-center text-gray-500">
-            Lunes-Viernes 8:00-18:00
-          </div>
+
         </PopoverContent>
       </Popover>
     )

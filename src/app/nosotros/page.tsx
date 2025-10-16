@@ -40,19 +40,21 @@ export default function About() {
       image: '/imagenes/inauguracion/a2.webp',
       imageAlt: t('page.nosotros.timeline.m3.alt'),
     },
-    {
-      year: t('page.nosotros.timeline.m4.year'),
-      title: t('page.nosotros.timeline.m4.title'),
-      description: t('page.nosotros.timeline.m4.desc'),
-      //image: '/imagenes/inauguracion/a2.webp',
-      imageAlt: t('page.nosotros.timeline.m4.alt'),
-    },
+    
     {
       year: t('page.nosotros.timeline.m5.year'),
       title: t('page.nosotros.timeline.m5.title'),
       description: t('page.nosotros.timeline.m5.desc'),
       image: '/imagenes/inauguracion/dealer.webp',
       imageAlt: t('page.nosotros.timeline.m5.alt'),
+    },
+    //JCB 2021  
+    {
+      year: t('page.nosotros.timeline.m4.year'),
+      title: t('page.nosotros.timeline.m4.title'),
+      description: t('page.nosotros.timeline.m4.desc'),
+      image: '/imagenes/inauguracion/jcb-2001-hito.webp',
+      imageAlt: t('page.nosotros.timeline.m4.alt'),
     },
     {
       year: t('page.nosotros.timeline.m6.year'),
@@ -462,7 +464,7 @@ export default function About() {
                     </div>
 
                     {/* Contenido */}
-                    <div className={`lg:w-5/12 ${idx % 2 === 0 ? 'lg:text-right' : 'lg:text-left'} w-full`}>
+                    <div className={`lg:w-5/12 ${idx % 6 === 0 ? 'lg:text-right' : 'lg:text-left'} w-full`}>
                       <div className="bg-gradient-to-br from-white/10 to-white/5 border border-white/10 hover:border-red-500/30 rounded-lg p-4 sm:p-6 transition-all duration-300 group">
                         <div className="flex items-start justify-between gap-3 mb-2 sm:mb-3">
                           <div>

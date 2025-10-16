@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { ChevronRight, Play } from 'lucide-react'
 import { motion } from "framer-motion"
 import { useTranslation } from "react-i18next";
+import Image from 'next/image'
 
 export default function HeroPreview() {
   const { t } = useTranslation();
@@ -54,11 +55,19 @@ export default function HeroPreview() {
           </h1>
 
           {/* Título Secundario */}
-          <p className="text-xl md:text-2xl font-bold text-white leading-tight">
+          <p className="text-xl md:text-2xl font-bold text-white leading-tight text-center">
             {t('hero.gp')}
             <br />
-            <span className="text-red-500 italic">Grupo Pueble</span>
+            <Image 
+              src="/imagenes/logos/LogoPueble.webp" 
+              alt="Logo de Pueble S.A."
+              width={184}
+              height={164}
+              priority
+              className="mx-auto"
+            />
           </p>
+          
 
           {/* Descripción */}
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
