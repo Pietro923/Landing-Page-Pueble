@@ -376,7 +376,6 @@ const resources = {
       'page.servicios.jcb.subtitle':'Conoce las experiencias de nuestros clientes y descubre por qué confían en nosotros',
 
       // Equipos - Case
-
       'page.equipos.case.categories1':'TRACTORES',
       'page.equipos.case.categories1.desc':'Potencia y eficiencia para tu campo',
       'page.equipos.case.categories2':'COSECHADORAS',
@@ -389,6 +388,41 @@ const resources = {
       'page.equipos.case.categories5.desc':'Tecnología para maximizar rendimientos',
       'page.equipos.case.categories6':'HENO Y FORRAJE',
       'page.equipos.case.categories6.desc':'Equipamiento para producción ganadera',
+      'page.equipos.case.model':'modelos',
+      'page.equipos.case.title1':'Equipamiento',
+      'page.equipos.case.title2':'Case IH',
+      'page.equipos.case.desc1':'Concesionario oficial de',
+      'page.equipos.case.desc2':'CASE IH',
+      'page.equipos.case.desc3':'Comercializamos toda su línea de productos con una sólida estructura en administración, venta de repuestos y servicio de posventa.',
+      'page.equipos.case.button':'Ver modelos',
+      'page.equipos.case.quest':'¿No encontrás lo que buscás?',
+      'page.equipos.case.desc':'Nuestro equipo está listo para asesorarte y encontrar el equipo perfecto para tus necesidades',
+      'page.equipos.case.button2':'Contactar asesor',
+
+      // Equipos - JCB
+      'page.equipos.jcb.categories1':'EXCAVADORAS',
+      'page.equipos.jcb.categories1.desc':'Potencia y precisión en excavación',
+      'page.equipos.jcb.categories2':'CARGADORES FRONTALES',
+      'page.equipos.jcb.categories2.desc':'Máxima capacidad de carga',
+      'page.equipos.jcb.categories3':'MINICARGADORES',
+      'page.equipos.jcb.categories3.desc':'Versatilidad en espacios reducidos',
+      'page.equipos.jcb.categories4':'ROLOS COMPACTADORES',
+      'page.equipos.jcb.categories4.desc':'Compactación eficiente del terreno',
+      'page.equipos.jcb.categories5':'RETROEXCAVADORAS',
+      'page.equipos.jcb.categories5.desc':'Líderes mundiales del mercado',
+      'page.equipos.jcb.categories6':'MANIPULADORES TELESCÓPICOS',
+      'page.equipos.jcb.categories6.desc':'Alcance y versatilidad extrema',
+      'page.equipos.jcb.model':'modelos',
+      'page.equipos.jcb.title1':'Equipamiento',
+      'page.equipos.jcb.title2':'JCB',
+      'page.equipos.jcb.desc1':'Distribuidor Oficial',
+      'page.equipos.jcb.desc2':'JCB',
+      'page.equipos.jcb.desc3':'en el NOA. Lideres en retroexcavadoras a nivel globa, combinando fuerza, robustez y eficiencia con el menor consumo del mercado',
+      'page.equipos.jcb.button':'Ver modelos',
+      'page.equipos.jcb.quest':'¿No encontrás lo que buscás?',
+      'page.equipos.jcb.desc':'Nuestros especialistas JCB están listos para ayudarte a elegir el equipo perfecto para tu proyecto',
+      'page.equipos.jcb.button2':'Contactar especialista',
+
       
 
 

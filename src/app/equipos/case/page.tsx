@@ -11,51 +11,51 @@ const { t } = useTranslation();
 const categories = [
   {
     id: 1,
-    name: 'TRACTORES',
-    description: 'Potencia y eficiencia para tu campo',
+    name: t('page.equipos.case.categories1'),
+    description: t('page.equipos.case.categories1.desc'),
     icon: '/maquinaslogos/case/tractor.webp',
     href: '/equipos/case/tractores',
-    count: '15+ modelos'
+    count: ' 15+ '+t('page.equipos.case.model'),
   },
   {
     id: 2,
-    name: 'COSECHADORAS',
-    description: 'Tecnología de cosecha avanzada',
+    name: t('page.equipos.case.categories2'),
+    description: t('page.equipos.case.categories2.desc'),
     icon: '/maquinaslogos/case/cosechadora.webp',
     href: '/equipos/case/cosechadoras',
-    count: '7+ modelos'
+    count: '7+ '+t('page.equipos.case.model'),
   },
   {
     id: 3,
-    name: 'SEMBRADORAS',
-    description: 'Precisión en cada siembra',
+    name: t('page.equipos.case.categories3'),
+    description: t('page.equipos.case.categories3.desc'),
     icon: '/maquinaslogos/case/sembradora.webp',
     href: '/equipos/case/sembradoras',
-    count: '1+ modelos'
+    count: '1+ ' +t('page.equipos.case.model'),
   },
   {
     id: 4,
-    name: 'PULVERIZADORAS',
-    description: 'Aplicación eficiente y uniforme',
+    name: t('page.equipos.case.categories4'),
+    description: t('page.equipos.case.categories4.desc'),
     icon: '/maquinaslogos/case/pulverizadora.webp',
     href: '/equipos/case/pulverizadoras',
-    count: '4+ modelos'
+    count: '4+ '+t('page.equipos.case.model'),
   },
   {
     id: 5,
-    name: 'AGRICULTURA DE PRECISIÓN',
-    description: 'Tecnología para maximizar rendimientos',
+    name: t('page.equipos.case.categories5'),
+    description: t('page.equipos.case.categories5.desc'),
     icon: '/maquinaslogos/case/monitores-i.webp',
     href: '/equipos/case/agricultura-precision',
-    count: '2+ soluciones'
+    count: '2+ ' +t('page.equipos.case.model'),
   },
   {
     id: 6,
-    name: 'HENO Y FORRAJE',
-    description: 'Equipamiento para producción ganadera',
+    name: t('page.equipos.case.categories6'),
+    description: t('page.equipos.case.categories6.desc'),
     icon: '/maquinaslogos/case/heno.webp',
     href: '/equipos/case/heno-forraje',
-    count: '3+ modelos'
+    count: '3+ '+t('page.equipos.case.model'),
   }
 ];
 
@@ -110,7 +110,7 @@ const itemVariants = {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
           >
-            Equipamiento <span className="text-red-500">Case IH</span>
+            {t('page.equipos.case.title1')} <span className="text-red-500"> {t('page.equipos.case.title2')}</span>
           </motion.h1>
           
           <motion.p 
@@ -119,8 +119,7 @@ const itemVariants = {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-gray-300 text-base sm:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed"
           >
-            Concesionario oficial de <strong className="text-white">CASE IH</strong>. Comercializamos toda su línea de productos 
-            con una sólida estructura en administración, venta de repuestos y servicio de posventa.
+             {t('page.equipos.case.desc1')} <strong className="text-white">{t('page.equipos.case.desc2')}</strong>. {t('page.equipos.case.desc3')}
           </motion.p>
         </motion.div>
         
@@ -167,7 +166,7 @@ const itemVariants = {
                   {/* Footer con CTA */}
                   <CardContent className="relative p-6 pt-0">
                     <div className="flex items-center justify-center gap-2 text-white group-hover:text-red-600 transition-colors duration-300 font-semibold">
-                      <span>Ver modelos</span>
+                      <span>{t('page.equipos.case.button')}</span>
                       <ChevronRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </CardContent>
@@ -186,14 +185,14 @@ const itemVariants = {
         >
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl lg:rounded-3xl p-8 lg:p-12">
             <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
-              ¿No encontrás lo que buscás?
+              {t('page.equipos.case.quest')}
             </h3>
             <p className="text-gray-300 text-base lg:text-lg mb-6 max-w-2xl mx-auto">
-              Nuestro equipo está listo para asesorarte y encontrar el equipo perfecto para tus necesidades
+              {t('page.equipos.case.desc')}
             </p>
             <Link href="/contacto">
               <button className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-red-500/50 transition-all duration-300 hover:scale-105">
-                Contactar asesor
+                {t('page.equipos.case.button2')}
                 <ArrowRight className="w-5 h-5" />
               </button>
             </Link>

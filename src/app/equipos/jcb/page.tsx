@@ -4,55 +4,58 @@ import Link from 'next/link';
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
+export default function JCBEquipmentPage() {
+const { t } = useTranslation();
 const categories = [
   {
     id: 1,
-    name: 'EXCAVADORAS',
-    description: 'Potencia y precisión en excavación',
+    name: t('page.equipos.jcb.categories1'),
+    description: t('page.equipos.jcb.categories1.desc'),
     icon: '/maquinaslogos/jcb/miniexcavadora.webp',
     href: '/equipos/jcb/excavadoras',
-    count: '12+ modelos'
+    count: '12+ ' +t('page.equipos.jcb.model')
   },
   {
     id: 2,
-    name: 'CARGADORES FRONTALES',
-    description: 'Máxima capacidad de carga',
+    name: t('page.equipos.jcb.categories2'),
+    description: t('page.equipos.jcb.categories2.desc'),
     icon: '/maquinaslogos/jcb/cargador.webp',
     href: '/equipos/jcb/cargadores-frontales',
-    count: '8+ modelos'
+    count: '8+ ' +t('page.equipos.jcb.model')
   },
   {
     id: 3,
-    name: 'MINICARGADORES',
-    description: 'Versatilidad en espacios reducidos',
+    name: t('page.equipos.jcb.categories3'),
+    description: t('page.equipos.jcb.categories3.desc'),
     icon: '/maquinaslogos/jcb/manipulador.webp',
     href: '/equipos/jcb/minicargadores',
-    count: '6+ modelos'
+    count: '6+ ' +t('page.equipos.jcb.model'),
   },
   {
     id: 4,
-    name: 'ROLOS COMPACTADORES',
-    description: 'Compactación eficiente del terreno',
+    name: t('page.equipos.jcb.categories4'),
+    description: t('page.equipos.jcb.categories4.desc'),
     icon: '/maquinaslogos/jcb/compactadores.webp',
     href: '/equipos/jcb/rolos-compactadores',
-    count: '2+ modelos'
+    count: '2+ ' +t('page.equipos.jcb.model'),
   },
   {
     id: 5,
-    name: 'RETROEXCAVADORAS',
-    description: 'Líderes mundiales del mercado',
+    name: t('page.equipos.jcb.categories5'),
+    description: t('page.equipos.jcb.categories5.desc'),
     icon: '/maquinaslogos/jcb/retroexcavadora.webp',
     href: '/equipos/jcb/retroexcavadora',
-    count: '3+ modelos'
+    count: '3+ ' +t('page.equipos.jcb.model')
   },
   {
     id: 6,
-    name: 'MANIPULADORES TELESCÓPICOS',
-    description: 'Alcance y versatilidad extrema',
+    name: t('page.equipos.jcb.categories6'),
+    description: t('page.equipos.jcb.categories6.desc'),
     icon: '/maquinaslogos/jcb/manipulador-telescopico.webp',
     href: '/equipos/jcb/manipuladores-telescopicos',
-    count: '5+ modelos'
+    count: '5+ ' +t('page.equipos.jcb.model')
   }
 ];
 
@@ -76,7 +79,6 @@ const itemVariants = {
   }
 };
 
-export default function JCBEquipmentPage() {
   return (
     <section className="min-h-screen bg-gradient-to-br from-yellow-900 via-black to-gray-900 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-7xl">
@@ -108,7 +110,7 @@ export default function JCBEquipmentPage() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
           >
-            Equipamiento <span className="text-yellow-500">JCB</span>
+            {t('page.equipos.jcb.title1')} <span className="text-yellow-500">JCB</span>
           </motion.h1>
           
           <motion.p 
@@ -117,8 +119,7 @@ export default function JCBEquipmentPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-gray-300 text-base sm:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed"
           >
-            Distribuidor oficial <strong className="text-white">JCB</strong> en Argentina. Líderes en retroexcavadoras a nivel global, 
-            combinando fuerza, robustez y eficiencia con el menor consumo del mercado.
+            {t('page.equipos.jcb.desc1')} <strong className="text-white">JCB</strong>  {t('page.equipos.jcb.desc3')}
           </motion.p>
 
           {/* Stats rápidos 
@@ -186,7 +187,7 @@ export default function JCBEquipmentPage() {
                   {/* Footer con CTA */}
                   <CardContent className="relative p-6 pt-0">
                     <div className="flex items-center justify-center gap-2 text-yellow-500 group-hover:text-yellow-400 transition-colors duration-300 font-semibold">
-                      <span>Ver modelos</span>
+                      <span> {t('page.equipos.jcb.button')}</span>
                       <ChevronRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </CardContent>
@@ -205,15 +206,15 @@ export default function JCBEquipmentPage() {
         >
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl lg:rounded-3xl p-8 lg:p-12">
             <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
-              ¿Necesitás asesoramiento técnico?
+               {t('page.equipos.jcb.quest')}
             </h3>
             <p className="text-gray-300 text-base lg:text-lg mb-6 max-w-2xl mx-auto">
-              Nuestros especialistas JCB están listos para ayudarte a elegir el equipo perfecto para tu proyecto
+               {t('page.equipos.jcb.desc')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contacto">
                 <button className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-700 text-black px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-yellow-500/50 transition-all duration-300 hover:scale-105">
-                  Contactar especialista
+                   {t('page.equipos.jcb.button2')}
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </Link>
