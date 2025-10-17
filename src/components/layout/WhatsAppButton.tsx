@@ -16,7 +16,7 @@ import {
       {
         title: t('wsp.op.title1'),
         description: t('wsp.op.title1.desc'),
-        phone: "543814901111",
+        phone: "543815897858",
         message: t('wsp.op.title1.men'),
         icon: <MessageSquare className="w-5 h-5 text-green-600" />
       },

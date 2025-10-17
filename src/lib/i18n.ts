@@ -43,7 +43,7 @@ const resources = {
       'grupoPueble.pueble-sa': 'Maquinaria agrícola y de construccion de primera línea y soluciones integrales para el sector agroindustrial',
       'grupoPueble.jcb': 'Maquinaria de construcción de primera línea y soluciones integrales para el sector de la construcción',
       'grupoPueble.kia': 'Vehículos comerciales y de pasajeros confiables y eficientes para todas las necesidades',
-      'grupoPueble.semage-sa': 'Servicio de posventa de maquinarias agrícolas y viales CASE IH y CASE (servicio y repuestos originales)',
+      'grupoPueble.semage-sa': 'Servicio de venta de repuestos de maquinarias agrícolas y viales CASE IH y JCB.',
       'grupoPueble.masi-sa': 'Concesionario oficial DUCATI, ofreciendo motocicletas de alto rendimiento y estilo inigualable',
       'grupoPueble.ubmotors': 'Concesionario oficial AUDI, brindando vehículos de lujo con tecnología avanzada y diseño sofisticado',
 
@@ -437,6 +437,26 @@ const resources = {
       'wsp.title':'Contacto',
       'wsp.desc':'Seleccione una opción para contactarnos vía WhatsApp',
 
+      // Equipos Case Tractores
+
+      'case.tractores.badge':'',
+      'case.tractores.category':'Tractores',
+      'case.tractores.subtitle':'',
+      'case.tractores.type1.desc':'Los tractores Farmall son versátiles y confiables, ideales para una amplia gama de aplicaciones agrícolas. Combinan potencia y maniobrabilidad con eficiencia en el consumo de combustible.',
+      'case.tractores.type2.desc':'La línea Quantum está diseñada específicamente para trabajos en viñedos y frutales, con un diseño compacto y gran maniobrabilidad.',
+      'case.tractores.type3.desc':'Los tractores Puma ofrecen la combinación perfecta de potencia y precisión para operaciones agrícolas de mediana y gran escala.',
+      'case.tractores.type4.desc':'Potencia y robustez definen a la línea Steiger, diseñada para las operaciones más demandantes y de gran escala.',
+      'case.tractores.type5.desc':'La línea Magnum AFS Connect combina potencia superior con tecnología de punta para una agricultura de precisión.',
+      'case.tractores.type6.desc':'Los tractores Quadtrac AFS Connect ofrecen máxima tracción y mínima compactación del suelo con tecnología avanzada.',
+      'case.tractores.card.badge':'',
+      'case.tractores.card.title':'',
+      'case.tractores.card.desc':'',
+      'case.tractores.card.button1':'',
+      'case.tractores.card.button2':'',
+
+
+
+
 
 
 
@@ -807,6 +827,68 @@ const resources = {
       'page.servicios.jcb.title4': 'Testimon',
       'page.servicios.jcb.title5': 'ials',
       'page.servicios.jcb.subtitle': 'Learn about our clients’ experiences and why they trust us.',
+
+      // Equipment - Case
+      'page.equipos.case.categories1':'TRACTORS',
+      'page.equipos.case.categories1.desc':'Power and efficiency for your field',
+      'page.equipos.case.categories2':'HARVESTERS',
+      'page.equipos.case.categories2.desc':'Advanced harvesting technology',
+      'page.equipos.case.categories3':'SEEDERS',
+      'page.equipos.case.categories3.desc':'Precision in every planting',
+      'page.equipos.case.categories4':'SPRAYERS',
+      'page.equipos.case.categories4.desc':'Efficient and uniform application',
+      'page.equipos.case.categories5':'PRECISION FARMING',
+      'page.equipos.case.categories5.desc':'Technology to maximize yields',
+      'page.equipos.case.categories6':'HAY AND FORAGE',
+      'page.equipos.case.categories6.desc':'Equipment for livestock production',
+      'page.equipos.case.model':'models',
+      'page.equipos.case.title1':'Equipment',
+      'page.equipos.case.title2':'Case IH',
+      'page.equipos.case.desc1':'Official dealer of',
+      'page.equipos.case.desc2':'CASE IH',
+      'page.equipos.case.desc3':'We market their entire product line with a solid structure in administration, spare parts sales, and after-sales service.',
+      'page.equipos.case.button':'View Models',
+      'page.equipos.case.quest':'Can’t find what you’re looking for?',
+      'page.equipos.case.desc':'Our team is ready to advise you and find the perfect equipment for your needs',
+      'page.equipos.case.button2':'Contact Advisor',
+
+      // Equipment - JCB
+      'page.equipos.jcb.categories1':'EXCAVATORS',
+      'page.equipos.jcb.categories1.desc':'Power and precision in excavation',
+      'page.equipos.jcb.categories2':'FRONT LOADERS',
+      'page.equipos.jcb.categories2.desc':'Maximum loading capacity',
+      'page.equipos.jcb.categories3':'SKID STEER LOADERS',
+      'page.equipos.jcb.categories3.desc':'Versatility in tight spaces',
+      'page.equipos.jcb.categories4':'COMPACTOR ROLLERS',
+      'page.equipos.jcb.categories4.desc':'Efficient soil compaction',
+      'page.equipos.jcb.categories5':'BACKHOE LOADERS',
+      'page.equipos.jcb.categories5.desc':'World market leaders',
+      'page.equipos.jcb.categories6':'TELEHANDLERS',
+      'page.equipos.jcb.categories6.desc':'Extreme reach and versatility',
+      'page.equipos.jcb.model':'models',
+      'page.equipos.jcb.title1':'Equipment',
+      'page.equipos.jcb.title2':'JCB',
+      'page.equipos.jcb.desc1':'Official Distributor',
+      'page.equipos.jcb.desc2':'JCB',
+      'page.equipos.jcb.desc3':'in the NOA region. Leaders in backhoe loaders worldwide, combining strength, robustness, and efficiency with the lowest fuel consumption on the market.',
+      'page.equipos.jcb.button':'View Models',
+      'page.equipos.jcb.quest':'Can’t find what you’re looking for?',
+      'page.equipos.jcb.desc':'Our JCB specialists are ready to help you choose the perfect equipment for your project',
+      'page.equipos.jcb.button2':'Contact Specialist',
+
+      // WhatsApp Button
+      'wsp.op.title1':'Inquiries',
+      'wsp.op.title1.desc':'General information and customer service',
+      'wsp.op.title1.men':'Hi, I’m on the website and I’d like to make a general inquiry.',
+      'wsp.op.title2':'Services',
+      'wsp.op.title2.desc':'24/7 Response',
+      'wsp.op.title2.men':'Hi, I need assistance from the on-call service.',
+      'wsp.op.title3':'Spare Parts',
+      'wsp.op.title3.desc':'Inquiries about availability and prices',
+      'wsp.op.title3.men':'Hi, I’m on the website and I’d like to inquire about spare parts.',
+      'wsp.button':'Contact Us',
+      'wsp.title':'Contact',
+      'wsp.desc':'Select an option to contact us via WhatsApp',
 
     },
   },

@@ -216,7 +216,7 @@ export default function GrupoPueble() {
           name: 'Ducati',
           logo: '/imagenes/grupo_Pueble/logos_empresas/ducati_logo2.png',
           image: '/imagenes/grupo_Pueble/vehiculos/ducati_vehiculo.webp',
-          color: 'from-red-600 to-red-800'
+          color: 'from-red-600 to-red-700'
         }
       ],
       link: 'https://www.instagram.com/ducatitucuman/?hl=es-la',
@@ -233,6 +233,19 @@ export default function GrupoPueble() {
         }
       ],
       link: 'https://ubmotors.com.ar/',
+    },
+    {
+      id: 'semage-sa',
+      title: 'Semage S.A',
+      brands: [
+        {
+          name: 'Acobra',
+          logo: '/imagenes/grupo_Pueble/logos_empresas/Semage.PNG',
+          image: '/imagenes/grupo_Pueble/vehiculos/semage_vehiculo.webp',
+          color: 'from-blue-700 to-blue-800'
+        }
+      ],
+      link: 'https://www.instagram.com/semage_unimil/',
     }
   ];
 
@@ -260,13 +273,13 @@ export default function GrupoPueble() {
             {t("grupoPueble.title")}
             <br className="hidden md:block" />
             <Image 
-                          src="/imagenes/logos/LogoPueble.webp" 
-                          alt="Logo de Pueble S.A."
-                          width={184}
-                          height={164}
-                          priority
-                          className="mx-auto"
-                        />
+              src="/imagenes/logos/LogoPueble.webp" 
+              alt="Logo de Pueble S.A."
+              width={184}
+              height={164}
+              priority
+              className="mx-auto"
+            />
           </h2>
           
           <motion.p

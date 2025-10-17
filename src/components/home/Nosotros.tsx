@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from 'next/image'
-import { Award, Users, Clock, TrendingUp } from 'lucide-react'
+import { Award, Users } from 'lucide-react'
 import { useTranslation } from "react-i18next";
 
 export default function Nosotros() {
@@ -11,8 +11,6 @@ export default function Nosotros() {
   const stats = [
     { icon: Award, label: t('nosotros.stats1'), value: "20+" },
     { icon: Users, label: t('nosotros.stats2'), value: "1000+" },
-    { icon: Clock, label: t('nosotros.stats3'), value: "24/7" },
-    { icon: TrendingUp, label: t('nosotros.stats4'), value: "15%" }
   ]
 
   return (
@@ -116,7 +114,7 @@ export default function Nosotros() {
 
             <Link href="/nosotros">
               <Button 
-                className="mt-6 w-full lg:w-auto bg-red-600 hover:bg-red-700 text-white text-base lg:text-lg px-6 lg:px-8 py-5 lg:py-6 shadow-xl hover:shadow-red-500/50 transition-all duration-300 group"
+                className="mt-2 w-full lg:w-auto bg-red-600 hover:bg-red-700 text-white text-base lg:text-lg px-6 lg:px-8 py-5 lg:py-6 shadow-xl hover:shadow-red-500/50 transition-all duration-300 group"
                 size="lg"
               >
                 {t('nosotros.button')}

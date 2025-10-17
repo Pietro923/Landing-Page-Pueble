@@ -322,10 +322,10 @@ export default function ContactPage() {
                 </div>
                 <div className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
                   <span>{t('page.contacto.card.horario.days1')}</span>
-                  <span className="font-semibold text-white">9:00 - 12:00</span>
+                  <span className="font-semibold text-white">8:00 - 12:00</span>
                 </div>
                 <div className="mt-4 pt-3 border-t border-white/10 text-center">
-                  <span className="text-red-400 font-bold text-sm lg:text-base">{t('page.contacto.horario.details')}</span>
+                  <span className="text-red-400 font-bold text-sm lg:text-base">{t('page.contacto.card.horario.datails')}</span>
                 </div>
               </div>
             </div>

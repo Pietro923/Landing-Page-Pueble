@@ -1,11 +1,15 @@
 // app/equipos/case/tractores/page.tsx
+"use client"
 import ProductLinesPage from '@/components/equipo/ProductLinesPage';
+import { useTranslation } from "react-i18next";
 
+const CaseTractorsPage = () => {
+  const { t } = useTranslation();
 const tractorLines = [
   {
     id: 'farmall',
     name: 'Farmall',
-    description: 'Los tractores Farmall son versátiles y confiables, ideales para una amplia gama de aplicaciones agrícolas. Combinan potencia y maniobrabilidad con eficiencia en el consumo de combustible.',
+    description: t('case.tractores.type1.desc'),
     image: '/imagenes/equipment/case/lines/tractores/farmall-line.webp',
     href: '/equipos/case/tractores/farmall'
   },
@@ -46,10 +50,11 @@ const tractorLines = [
   }
 ];
 
-const CaseTractorsPage = () => {
+
+  
   return <ProductLinesPage 
     brand="Case"
-    category="Tractores"
+    category={t('case.tractores.category')}
     lines={tractorLines}
   />;
 };
