@@ -594,6 +594,17 @@ const resources = {
       'case.tractores.quadtrac.categoryDescription': 'Descubra la versatilidad y confiabilidad de nuestros tractores Quadtrac.',
       'case.tractores.quadtrac.description1': 'El nuevo Quadtrac AFS Connect ofrece toda la fuerza y robustez que ya conoces con las ventajas y adicionales agronómicos que solo la agricultura de precisión puede proporcionar.',
 
+      // Español
+      'case.cosechadoras.categoryTitles': 'Cosechadoras',
+      'case.cosechadoras.line1.name': 'Cosechadora de Caña',
+      'case.cosechadoras.line2.name': 'Axial-Flow',
+      'case.cosechadoras.line3.name': 'Arrocera',
+      'case.cosechadoras.line4.name': 'Plataformas de Granos',
+      'case.cosechadoras.description1': 'Las cosechadoras Austoft de Case IH aumentan la calidad y productividad de tu cosecha mecanizada de caña de azúcar. Su potente motor asociado a un sistema hidráulico inteligente, te brinda una mayor capacidad de trabajo con el menor costo operativo. Cuenta con las más modernas tecnologías, como AFS Autopilot y el nuevo sistema de telemetría con conectividad 4G. Todo esto para mejorar la productividad de tu explotación de caña.',
+      'case.cosechadoras.description2': 'Case IH ha diseñado, creado y desarrollado el mejor sistema de cosecha del mundo. Sus cosechadoras son reconocidas por el gran rendimiento, la calidad superior de los granos y la excelente productividad en todas las condiciones. Diseñadas para aquellos que exigen más, las cosechadoras Case IH son referencia. Conozca los detalles en las páginas de los productos.',
+      'case.cosechadoras.description3': 'Con la cosechadoras Axial-Flow es posible realizar una cosecha mucho más fácil, independientemente de la condición en campo. Destaca para la simplicidad en la descarga del tanque granelero, debido a las nuevas longitudes del tubo de descarga, siendo 32 segundos más rápido frente al principal competidor. La Mesa de Sinfines también puede alcanzar hasta un 26% más de capacidad de transporte y distribución del material cosechado.',
+      'case.cosechadoras.description4': 'MAYOR ALIMENTACIÓN, MEJOR DESEMPEÑO. Las plataformas de granos Case IH poseen comprobado histórico de excelente desempeño en innumerables tipos de cosecha y en diferentes condiciones. Las mismas vienen con enganche rápido - hidráulico y eléctrico - además de dedos retráctiles en toda la extensión del sinfín, lo que promueve una alimentación continua y uniforme.',
+      
     }
   },
   en: {
@@ -1178,6 +1189,17 @@ const resources = {
       'case.tractores.quadtrac.categoryTitles': 'Quadtrac Line',
       'case.tractores.quadtrac.categoryDescription': 'Discover the versatility and reliability of our Quadtrac tractors.',
       'case.tractores.quadtrac.description1': 'The new Quadtrac AFS Connect provides all the strength and robustness you know, with agronomic advantages and extras that only precision agriculture can deliver.',
+
+      // Inglés
+      'case.cosechadoras.categoryTitles': 'Harvesters',
+      'case.cosechadoras.line1.name': 'Sugarcane Harvester',
+      'case.cosechadoras.line2.name': 'Axial-Flow',
+      'case.cosechadoras.line3.name': 'Rice Harvester',
+      'case.cosechadoras.line4.name': 'Grain Platforms',
+      'case.cosechadoras.description1': 'The Austoft harvesters from Case IH increase the quality and productivity of your mechanized sugarcane harvest. Its powerful engine combined with an intelligent hydraulic system provides greater work capacity at the lowest operating cost. Equipped with the latest technologies, such as AFS Autopilot and the new telemetry system with 4G connectivity, all to improve the productivity of your sugarcane operation.',
+      'case.cosechadoras.description2': 'Case IH has designed, created, and developed the world’s best harvesting system. Its harvesters are recognized for high performance, superior grain quality, and excellent productivity under all conditions. Designed for those who demand more, Case IH harvesters set the standard. Learn more on the product pages.',
+      'case.cosechadoras.description3': 'With the Axial-Flow harvesters, harvesting is much easier regardless of field conditions. It stands out for the simplicity of unloading the grain tank, due to the new auger lengths, being 32 seconds faster than the main competitor. The Auger Table can also achieve up to 26% more material transport and distribution capacity.',
+      'case.cosechadoras.description4': 'GREATER FEEDING, BETTER PERFORMANCE. Case IH grain platforms have a proven history of excellent performance in countless harvest types and under different conditions. They come with quick couplers – hydraulic and electric – as well as retractable fingers along the entire auger, promoting continuous and uniform feeding.',
 
       
 
