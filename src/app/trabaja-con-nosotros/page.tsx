@@ -17,8 +17,9 @@ import {
 import { Upload, FileText, Loader2, CheckCircle2, AlertCircle, Briefcase, Users, Zap, BookOpen } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
-
+import { useTranslation} from "react-i18next";
 export default function TrabajaConNosotros() {
+  const { t } = useTranslation();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     nombre: "",
@@ -38,31 +39,31 @@ export default function TrabajaConNosotros() {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   
   const areasInteres = [
-    "Ventas",
-    "Mecánica",
-    "Administración",
-    "Atención al Cliente",
-    "Logística",
-    "Sistemas",
-    "Otro"
+    t('tcn.form.areas.interes1'),
+    t('tcn.form.areas.interes2'),
+    t('tcn.form.areas.interes3'),
+    t('tcn.form.areas.interes4'),
+    t('tcn.form.areas.interes5'),
+    t('tcn.form.areas.interes6'),
+    t('tcn.form.areas.interes7'),
   ];
 
   const areasInteresPasantia = [
-    "Administración",
-    "Sistemas",
-    "Logística",
-    "Ventas",
-    "Atención al Cliente",
-    "Otro"
+    t('tcn.form.areas.pasantia1'),
+    t('tcn.form.areas.pasantia2'),
+    t('tcn.form.areas.pasantia3'),
+    t('tcn.form.areas.pasantia4'),
+    t('tcn.form.areas.pasantia5'),
+    t('tcn.form.areas.pasantia6'),
   ];
   
   const nivelesEstudio = [
-    "Secundario en Curso",
-    "Secundario Finalizado",
-    "Terciario en Curso",
-    "Terciario Finalizado",
-    "Universitario en Curso",
-    "Universitario Finalizado"
+    t('tcn.form.nivel.estudio1'),
+    t('tcn.form.nivel.estudio2'),
+    t('tcn.form.nivel.estudio3'),
+    t('tcn.form.nivel.estudio4'),
+    t('tcn.form.nivel.estudio5'),
+    t('tcn.form.nivel.estudio6'),
   ];
   
   const disponibilidadHoraria = [
@@ -71,30 +72,30 @@ export default function TrabajaConNosotros() {
   ];
 
   const tiposPostulacion = [
-    { id: "empleo", label: "Empleo" },
-    { id: "pasantia", label: "Pasantía" }
+    { id: "empleo", label: t('tcn.form.type1') },
+    { id: "pasantia", label: t('tcn.form.type2') },
   ];
 
   const oportunidades = [
     {
       icon: Briefcase,
-      titulo: "Empleos",
-      descripcion: "Únete a nuestro equipo de profesionales experimentados en un ambiente dinámico y colaborativo."
+      titulo: t('tcn.card1.title'),
+      descripcion:  t('tcn.card1.desc'),
     },
     {
       icon: Users,
-      titulo: "Pasantías",
-      descripcion: "Gana experiencia práctica mientras estudias. Aprende de profesionales y contribuye al equipo."
+      titulo: t('tcn.card2.title'),
+      descripcion: t('tcn.card2.desc'),
     },
     {
       icon: Zap,
-      titulo: "Crecimiento",
-      descripcion: "Oportunidades de capacitación continua y desarrollo profesional para tu carrera."
+      titulo: t('tcn.card3.title'),
+      descripcion: t('tcn.card3.desc'),
     },
     {
       icon: BookOpen,
-      titulo: "Mentoría",
-      descripcion: "Acceso a mentores experimentados que te guiarán en tu desarrollo laboral."
+      titulo: t('tcn.card4.title'),
+      descripcion: t('tcn.card4.desc'),
     }
   ];
   
@@ -222,7 +223,7 @@ export default function TrabajaConNosotros() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-400 to-red-600 mb-4"
           >
-            Únete a Nuestro Equipo
+            {t('tcn.title')}
           </motion.h1>
           
           <motion.p 
@@ -231,8 +232,7 @@ export default function TrabajaConNosotros() {
             transition={{ delay: 0.5, duration: 0.6 }}
             className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-2"
           >
-            En Pueble SA creemos que nuestro mayor activo son las personas. Buscamos profesionales 
-            comprometidos que quieran crecer junto a nosotros.
+            {t('tcn.subtitle')}
           </motion.p>
         </motion.div>
 
@@ -273,16 +273,16 @@ export default function TrabajaConNosotros() {
           transition={{ delay: 0.9, duration: 0.6 }}
           className="w-full"
         >
-          <Card className="bg-gradient-to-br from-slate-900/50 to-slate-950/50 backdrop-blur-xl border border-red-500/20 shadow-2xl rounded-xl sm:rounded-2xl overflow-hidden">
+          <Card className="bg-gradient-to-br from-slate-900 to-slate-900 backdrop-blur-xl border border-red-500/20 shadow-2xl rounded-xl sm:rounded-2xl overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-red-600/5 to-transparent pointer-events-none"></div>
             
             <CardHeader className="text-center space-y-2 pb-6 sm:pb-8 relative z-10 px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8">
               <CardTitle className="text-2xl sm:text-3xl lg:text-4xl font-black bg-gradient-to-r from-red-500 to-red-600 text-transparent bg-clip-text">
-                Formulario de Postulación
+                {t('tcn.form.title')}
               </CardTitle>
               <CardDescription className="text-gray-300 text-sm sm:text-base lg:text-lg">
-                Completa el formulario, adjunta tu CV y envía tu postulación.
-                <span className="block text-gray-400 text-xs sm:text-sm mt-1">Nos pondremos en contacto contigo pronto.</span>
+                {t('tcn.form.subtitle')}
+                <span className="block text-gray-400 text-xs sm:text-sm mt-1">{t('tcn.form.subtitle2')}</span>
               </CardDescription>
             </CardHeader>
             
@@ -290,7 +290,7 @@ export default function TrabajaConNosotros() {
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 {/* Tipo de Postulación */}
                 <div className="space-y-2">
-                  <Label className="text-gray-300 font-semibold text-sm sm:text-base">Tipo de Postulación *</Label>
+                  <Label className="text-gray-300 font-semibold text-sm sm:text-base">{t('tcn.form.type.title')}</Label>
                   <div className="grid grid-cols-2 gap-3">
                     {tiposPostulacion.map((tipo) => (
                       <motion.button
@@ -314,12 +314,12 @@ export default function TrabajaConNosotros() {
                 {/* Nombre y Apellido */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="nombre" className="text-gray-300 font-medium text-xs sm:text-sm">Nombre Completo</Label>
+                    <Label htmlFor="nombre" className="text-gray-300 font-medium text-xs sm:text-sm">{t('tcn.form.name.title')}</Label>
                     <Input
                       id="nombre"
                       type="text"
                       name="nombre"
-                      placeholder="Tu nombre completo"
+                      placeholder={t('tcn.form.name.placeholder')}
                       value={formData.nombre}
                       onChange={handleChange}
                       className="bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg [&::placeholder]:text-white/50 transition-all text-sm"
@@ -328,12 +328,12 @@ export default function TrabajaConNosotros() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="apellido" className="text-gray-300 font-medium text-xs sm:text-sm">Apellido</Label>
+                    <Label htmlFor="apellido" className="text-gray-300 font-medium text-xs sm:text-sm">{t('tcn.form.surname.title')}</Label>
                     <Input
                       id="apellido"
                       type="text"
                       name="apellido"
-                      placeholder="Apellido"
+                      placeholder={t('tcn.form.surname.placeholder')}
                       value={formData.apellido}
                       onChange={handleChange}
                       className="bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg [&::placeholder]:text-white/50 transition-all text-sm"
@@ -346,12 +346,12 @@ export default function TrabajaConNosotros() {
                 {/* Email y Teléfono */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-gray-300 font-medium text-xs sm:text-sm">Email</Label>
+                    <Label htmlFor="email" className="text-gray-300 font-medium text-xs sm:text-sm">{t('tcn.form.email.title')}</Label>
                     <Input
                       id="email"
                       type="email"
                       name="email"
-                      placeholder="tu@email.com"
+                      placeholder={t('tcn.form.email.placeholder')}
                       value={formData.email}
                       onChange={handleChange}
                       className="bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg [&::placeholder]:text-white/50 transition-all text-sm"
@@ -360,12 +360,12 @@ export default function TrabajaConNosotros() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="telefono" className="text-gray-300 font-medium text-xs sm:text-sm">Teléfono</Label>
+                    <Label htmlFor="telefono" className="text-gray-300 font-medium text-xs sm:text-sm">{t('tcn.form.tel.title')}</Label>
                     <Input
                       id="telefono"
                       type="tel"
                       name="telefono"
-                      placeholder="Tu teléfono"
+                      placeholder={t('tcn.form.tel.placeholder')}
                       value={formData.telefono}
                       onChange={handleChange}
                       className="bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg [&::placeholder]:text-white/50 transition-all text-sm"
@@ -377,14 +377,14 @@ export default function TrabajaConNosotros() {
 
                 {/* Área de Interés */}
                 <div className="space-y-2">
-                  <Label htmlFor="areaInteres" className="text-gray-300 font-medium text-xs sm:text-sm">Área de Interés</Label>
+                  <Label htmlFor="areaInteres" className="text-gray-300 font-medium text-xs sm:text-sm">{t('tcn.form.area.title')}</Label>
                   <Select 
                     onValueChange={handleSelectChange('areaInteres')} 
                     value={formData.areaInteres}
                     disabled={isSubmitting}
                   >
                     <SelectTrigger className="w-full bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg hover:border-red-500/50 transition-all text-sm">
-                      <SelectValue placeholder="Selecciona un área" />
+                      <SelectValue placeholder={t('tcn.form.area.placeholder')} />
                     </SelectTrigger>
                     <SelectContent className="bg-slate-900 border border-gray-600 text-gray-300 rounded-lg">
                       {(formData.tipoPostulacion === "pasantia" ? areasInteresPasantia : areasInteres).map((area) => (
@@ -398,14 +398,24 @@ export default function TrabajaConNosotros() {
 
                 {/* Experiencia Laboral */}
                 <div className="space-y-2">
-                  <Label htmlFor="experiencia" className="text-gray-300 font-medium text-xs sm:text-sm">
-                    {formData.tipoPostulacion === "pasantia" ? "Experiencia Previa" : "Experiencia Laboral"}
+                  <Label
+                    htmlFor="experiencia"
+                    className="text-gray-300 font-medium text-xs sm:text-sm"
+                  >
+                    {formData.tipoPostulacion === "pasantia"
+                      ? t('tcn.form.exp.prev') // nueva key para "Experiencia Previa"
+                      : t('tcn.form.exp.title')} {/* ya definida como "Experiencia Laboral/previa" */}
                   </Label>
+
                   <Input
                     id="experiencia"
                     type="text"
                     name="experiencia"
-                    placeholder={formData.tipoPostulacion === "pasantia" ? "Resume cualquier experiencia previa relevante" : "Resume tu experiencia laboral relevante"}
+                    placeholder={
+                      formData.tipoPostulacion === "pasantia"
+                        ? t('tcn.form.exp.placeholderPrev') // nueva key para "Resume cualquier experiencia previa relevante"
+                        : t('tcn.form.exp.placeholder')    // nueva key para "Resume tu experiencia laboral relevante"
+                    }
                     value={formData.experiencia}
                     onChange={handleChange}
                     className="bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg [&::placeholder]:text-white/50 transition-all text-sm"
@@ -413,18 +423,19 @@ export default function TrabajaConNosotros() {
                     disabled={isSubmitting}
                   />
                 </div>
+
                 
                 {/* Nivel de Estudios y Disponibilidad */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="nivelEstudio" className="text-gray-300 font-medium text-xs sm:text-sm">Nivel de Estudios</Label>
+                    <Label htmlFor="nivelEstudio" className="text-gray-300 font-medium text-xs sm:text-sm">{t('tcn.form.level.title')}</Label>
                     <Select 
                       onValueChange={handleSelectChange('nivelEstudio')} 
                       value={formData.nivelEstudio}
                       disabled={isSubmitting}
                     >
                       <SelectTrigger className="w-full bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg hover:border-red-500/50 transition-all text-sm">
-                        <SelectValue placeholder="Selecciona tu nivel" />
+                        <SelectValue placeholder={t('tcn.form.level.placeholder')} />
                       </SelectTrigger>
                       <SelectContent className="bg-slate-900 border border-gray-600 text-gray-300 rounded-lg">
                         {nivelesEstudio.map((nivel) => (
@@ -436,14 +447,14 @@ export default function TrabajaConNosotros() {
                     </Select>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="disponibilidad" className="text-gray-300 font-medium text-xs sm:text-sm">Disponibilidad Horaria</Label>
+                    <Label htmlFor="disponibilidad" className="text-gray-300 font-medium text-xs sm:text-sm">{t('tcn.form.disp.title')}</Label>
                     <Select 
                       onValueChange={handleSelectChange('disponibilidad')} 
                       value={formData.disponibilidad}
                       disabled={isSubmitting}
                     >
                       <SelectTrigger className="w-full bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg hover:border-red-500/50 transition-all text-sm">
-                        <SelectValue placeholder="Selecciona disponibilidad" />
+                        <SelectValue placeholder={t('tcn.form.disp.placeholder')} />
                       </SelectTrigger>
                       <SelectContent className="bg-slate-900 border border-gray-600 text-gray-300 rounded-lg">
                         {disponibilidadHoraria.map((disp) => (
@@ -458,11 +469,11 @@ export default function TrabajaConNosotros() {
                 
                 {/* Mensaje Personal */}
                 <div className="space-y-2">
-                  <Label htmlFor="mensaje" className="text-gray-300 font-medium text-xs sm:text-sm">Mensaje Personal</Label>
+                  <Label htmlFor="mensaje" className="text-gray-300 font-medium text-xs sm:text-sm">{t('tcn.form.text.title')}</Label>
                   <Textarea
                     id="mensaje"
                     name="mensaje"
-                    placeholder="Cuéntanos sobre ti, tus motivaciones..."
+                    placeholder={t('tcn.form.text.placeholder')}
                     value={formData.mensaje}
                     onChange={handleChange}
                     className="min-h-[120px] sm:min-h-[140px] bg-white/10 text-white border border-gray-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 rounded-lg [&::placeholder]:text-white/50 transition-all resize-none text-sm"
@@ -475,7 +486,7 @@ export default function TrabajaConNosotros() {
                 <div className="space-y-2">
                   <Label htmlFor="cv" className="text-gray-300 font-medium flex items-center gap-2 text-xs sm:text-sm">
                     <FileText className="h-4 w-4 sm:h-5 sm:w-5 text-red-500" />
-                    Curriculum Vitae (PDF) *
+                      
                   </Label>
                   <div className="relative">
                     <div className="relative border-2 border-dashed border-gray-500 rounded-lg p-6 sm:p-8 hover:border-red-500 hover:bg-red-500/5 transition-all duration-300 group">
@@ -502,7 +513,7 @@ export default function TrabajaConNosotros() {
                               <div className="flex-1 truncate max-w-xs">
                                 <p className="text-gray-200 font-semibold truncate text-xs sm:text-sm">{fileName}</p>
                                 <p className="text-xs text-gray-400">
-                                  Haz clic para cambiar
+                                  {t('tcn.form.click.cambiar')}
                                 </p>
                               </div>
                             </div>
@@ -517,12 +528,12 @@ export default function TrabajaConNosotros() {
                             <div>
                               <p className="text-gray-200 text-xs sm:text-sm">
                                 <span className="font-bold text-red-500">
-                                  Haz clic para subir
+                                  {t('tcn.form.click.title')}
                                 </span>{" "}
-                                o arrastra y suelta
+                                {t('tcn.form.click.title2')}
                               </p>
                               <p className="text-xs text-gray-400 mt-1">
-                                Sólo archivos PDF (máximo 10MB)
+                                {t('tcn.form.click.desc')}
                               </p>
                             </div>
                           </motion.div>
@@ -555,7 +566,7 @@ export default function TrabajaConNosotros() {
                     ) : (
                       <>
                         <Upload className="w-4 h-4 sm:w-5 sm:h-5" />
-                        Enviar Postulación
+                        {t('tcn.form.click.button')}
                       </>
                     )}
                   </Button>

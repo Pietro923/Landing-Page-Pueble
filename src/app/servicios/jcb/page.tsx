@@ -48,17 +48,29 @@ export default function ServiciosJCB() {
   
   const testimonials = [
     {
-      name: "José Lauro Medina",
+      name: "CASS",
       role: t('page.servicios.jcb.testimonios.1.role'),
       comment: t('page.servicios.jcb.testimonios.1.comment'),
-      image: "/imagenes/servicios/productor1.webp"
+      image: "/imagenes/servicios/testimonios/cass_logo.jpg"
     },
     {
-      name: "Fabersani SA",
+      name: "Rodagel SRL",
       role: t('page.servicios.jcb.testimonios.2.role'),
       comment: t('page.servicios.jcb.testimonios.2.comment'),
-      image: "/imagenes/servicios/empresaagricola.webp"
-    }
+      image: "/imagenes/servicios/testimonios/rodagel_logo.jpg"
+    },
+    {
+      name: "Comuna de Raco",
+      role: t('page.servicios.jcb.testimonios.3.role'),
+      comment: t('page.servicios.jcb.testimonios.3.comment'),
+      image: "/imagenes/servicios/testimonios/comunaderaco.png"
+    },
+    {
+      name: "SAT - Sociedad Aguas de Tucumán",
+      role: t('page.servicios.jcb.testimonios.4.role'),
+      comment: t('page.servicios.jcb.testimonios.4.comment'),
+      image: "/imagenes/servicios/testimonios/satlogo.jpg"
+    },
   ];
 
   const benefits = [

@@ -50,17 +50,17 @@ export default function Servicios() {
 
   const testimonials = [
     {
-      name: "José Lauro Medina",
+      name: "CASS",
       role: t('page.servicios.case.testimonios.1.role'),
       comment: t('page.servicios.case.testimonios.1.comment'),
-      image: "/imagenes/servicios/productor1.webp"
+      image: "/imagenes/servicios/testimonios/cass_logo.jpg"
     },
     {
-      name: "Fabersani SA",
+      name: "Agropecuaria Don Eduardo SA",
       role: t('page.servicios.case.testimonios.2.role'),
       comment: t('page.servicios.case.testimonios.2.comment'),
-      image: "/imagenes/servicios/empresaagricola.webp"
-    }
+      image: "/imagenes/servicios/testimonios/doneduardosa_logo.png"
+    },
   ];
 
   const benefits = [
