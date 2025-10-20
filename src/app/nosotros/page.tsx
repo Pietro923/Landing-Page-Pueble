@@ -18,6 +18,8 @@ import {
   ArrowRight
 } from 'lucide-react'
 import { useTranslation } from "react-i18next";
+import Link from "next/link"
+
 export default function About() {
   const { t } = useTranslation();
   const milestones = [
@@ -157,16 +159,26 @@ export default function About() {
               </div>
 
               <div className="pt-3 sm:pt-4 border-t border-white/10">
-                <p className="text-xs sm:text-sm text-gray-400 mb-2 sm:mb-3"> {t('page.nosotros.concesionarios')}</p>
+                <p className="text-xs sm:text-sm text-gray-400 mb-2 sm:mb-3">
+                  {t('page.nosotros.concesionarios')}
+                </p>
                 <div className="flex flex-wrap gap-2 sm:gap-4">
-                  <div className="px-3 sm:px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:border-red-500/50 transition-colors">
+                  <Link
+                    href="/equipos/case"
+                    className="px-3 sm:px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:border-red-500/50 transition-colors"
+                  >
                     <span className="text-white font-semibold text-xs sm:text-sm">CASE IH</span>
-                  </div>
-                  <div className="px-3 sm:px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:border-red-500/50 transition-colors">
+                  </Link>
+
+                  <Link
+                    href="/equipos/jcb"
+                    className="px-3 sm:px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:border-yellow-500/50 transition-colors"
+                  >
                     <span className="text-white font-semibold text-xs sm:text-sm">JCB</span>
-                  </div>
+                  </Link>
                 </div>
               </div>
+
             </motion.div>
             
             {/* Imagen con overlay */}

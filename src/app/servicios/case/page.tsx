@@ -197,7 +197,7 @@ export default function Servicios() {
             </h2>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-1 gap-6 sm:gap-8 lg:gap-12 items-center">
             {/* Contenido */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -255,7 +255,7 @@ export default function Servicios() {
               </motion.a>
             </motion.div>
 
-            {/* Carrusel de imágenes */}
+            {/* Carrusel de imágenes 
             
               <div className="pointer-events-none absolute -inset-1 rounded-lg sm:rounded-2xl blur opacity-30" />
               <Carousel className="w-full relative">
@@ -276,6 +276,7 @@ export default function Servicios() {
                 <CarouselPrevious className=" absolute -left-2 sm:-left-10 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white border-none shadow-xl hover:shadow-2xl transition-all duration-300" />
                 <CarouselNext className=" absolute -right-2 sm:-right-10 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white border-none shadow-xl hover:shadow-2xl transition-all duration-300" />
               </Carousel>
+              */}
             
           </div>
         </motion.div>
