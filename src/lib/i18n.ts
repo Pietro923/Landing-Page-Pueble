@@ -502,28 +502,97 @@ const resources = {
       'tcn.form.nivel.estudio5':'Universitario en Curso',
       'tcn.form.nivel.estudio6':'Universitario Finalizado',
 
+      // ProductLinesPage - Español
+
+      'productLines.hero.brandPrefix':'| Asesoramiento Profesional',
+      'productLines.hero.needHelp':'¿Necesitás ayuda para elegir?',
+      'productLines.hero.ctaInfo':'Nuestro equipo de expertos está disponible para ayudarte a seleccionar los ',
+      'productLines.hero.ctaInfo2':' ideales para tus operaciones específicas.',
+
+      'productLines.hero.exp':'Explorá nuestras diferentes líneas de ',
+      'productLines.hero.exp2':' y encontrá el equipo perfecto para tus necesidades específicas.',
+
+      'productLines.empty.title':'Sin líneas disponibles',
+      'productLines.empty.desc':'Actualmente no hay líneas de',
+      'productLines.empty.desc2':' disponibles. Pronto agregaremos nuevos productos.',
+      'productLines.empty.button':'Contáctenos para más información',
+      'productLines.card.button':'Ver Productos',
+      'productLines.cta.contact':'Contactar Ahora',
+      
+      // EquipmentBrandPage
+
+      'ebp.empty':'Sin productos disponibles',
+      'ebp.empty2':'Actualmente no hay ',
+      'ebp.empty3':' disponibles. Pronto agregaremos nuevos modelos.',
+      'ebp.contact':'Contáctenos para más información',
+      'ebp.especs':'Contáctenos para más información',
+      'ebp.poten':'Potencia:',
+      'ebp.peso':'Peso:',
+      'ebp.cap':'Capacidad:',
+      'ebp.ficha':'Ficha Técnica:',
+      'ebp.consul':'Consultar',
+      'ebp.text':'Nuestro equipo de expertos está disponible para ayudarte a seleccionar el modelo de ',
+      'ebp.text2':'ideal para tus necesidades específicas.',
+
       // Equipos Case Tractores
 
-      'case.tractores.badge':'',
       'case.tractores.category':'Tractores',
-      'case.tractores.subtitle':'',
       'case.tractores.type1.desc':'Los tractores Farmall son versátiles y confiables, ideales para una amplia gama de aplicaciones agrícolas. Combinan potencia y maniobrabilidad con eficiencia en el consumo de combustible.',
       'case.tractores.type2.desc':'La línea Quantum está diseñada específicamente para trabajos en viñedos y frutales, con un diseño compacto y gran maniobrabilidad.',
       'case.tractores.type3.desc':'Los tractores Puma ofrecen la combinación perfecta de potencia y precisión para operaciones agrícolas de mediana y gran escala.',
       'case.tractores.type4.desc':'Potencia y robustez definen a la línea Steiger, diseñada para las operaciones más demandantes y de gran escala.',
       'case.tractores.type5.desc':'La línea Magnum AFS Connect combina potencia superior con tecnología de punta para una agricultura de precisión.',
       'case.tractores.type6.desc':'Los tractores Quadtrac AFS Connect ofrecen máxima tracción y mínima compactación del suelo con tecnología avanzada.',
-      'case.tractores.card.badge':'',
-      'case.tractores.card.title':'',
-      'case.tractores.card.desc':'',
-      'case.tractores.card.button1':'',
-      'case.tractores.card.button2':'',
 
+      // Tractores Farmall Case 
 
+      'case.tractores.farmall.categoryTitles':'Línea Farmall',
+      'case.tractores.farmall.categoryDescription':'Descubra la versatilidad y confiabilidad de nuestros tractores Farmall.',
+      'case.tractores.farmall.description1': 'Los tractores Farmall® M ActiveDrive 4 de Case IH ofrecen un paquete único en el que cada detalle ha sido meticulosamente diseñado, con características superiores e innovaciones diseñadas para satisfacer las necesidades futuras.',
+      'case.tractores.farmall.description2': 'Los tractores Farmall tienen un rendimiento inigualable en cualquier actividad. Con un sistema hidráulico de alta capacidad, ofrecen la máxima flexibilidad en las operaciones.',
+      'case.tractores.farmall.description3': 'La alta tecnología y la confiabilidad que sólo la marca Case IH ofrece llegan a los tractores de baja potencia. La línea Farmall es reconocida mundialmente por la robustez, simplicidad de operación y flexibilidad de uso.',
+      'case.tractores.farmall.description4': 'La alta tecnología y la confiabilidad que sólo la marca Case IH ofrece llegan a los tractores de baja potencia. La línea Farmall es reconocida mundialmente por la robustez, simplicidad de operación y flexibilidad de uso.',
+      'case.tractores.farmall.description5': 'La alta tecnología y la confiabilidad que sólo la marca Case IH ofrece llegan a los tractores de baja potencia. La línea Farmall es reconocida mundialmente por la robustez, simplicidad de operación y flexibilidad de uso.',
+      'case.tractores.farmall.description6': 'Los nuevos tractores Case IH Farmall Serie JXM suministran la potencia y el rendimiento que sus dueños esperan, con el diseño de primera calidad distintivo de Case IH.',
+      'case.tractores.farmall.description7': 'Los nuevos tractores Case IH Farmall Serie JXM se ajustan a la demanda de equipos robustos pero cómodos y fáciles de operar. Los modelos vienen en una versión 2WD o 4WD y cuentan con opciones de transmisión',
+      'case.tractores.farmall.description8': 'Los tractores Farmall son la mejor opción para las economías regionales y con los años, se han ido renovando. Tienen un rendimiento inigualable en cualquier actividad.',
+      'case.tractores.farmall.description9': 'Toda la potencia que necesita, ya sea en la agricultura o la ganadería, la puede encontrar en Farmall 130A.',
+      'case.tractores.farmall.description10': 'Los tractores Farmall tienen un rendimiento inigualable en cualquier actividad. Con un sistema hidráulico de alta capacidad, ofrecen la máxima flexibilidad en las operaciones.',
 
+      // Tractores Case - Quantum
 
+      'case.tractores.quantum.categoryTitles':'Línea Quantum',
+      'case.tractores.quantum.categoryDescription':'Descubra el rendimiento y la versatilidad de nuestros tractores Quantum, especialmente diseñados para viñedos y huertos.',
+      'case.tractores.quantum.description1':'Tanto si trabaja viñas, cultiva frutales o requiere un tractor estrecho para otras tareas, las dimensiones reducidas del nuevo Quantum, su radio de giro cerrado y su renovado diseño le proporcionarán las mejores prestaciones.',
+      'case.tractores.quantum.description2':'Diseñados para trabajar de manera eficiente en espacios reducidos, los tractores Quantum combinan tamaño compacto, potencia y precisión para una productividad máxima.',
+      'case.tractores.quantum.description3':'Los tractores Quantum se destacan por su excepcional maniobrabilidad, confort avanzado y tecnología innovadora que facilitan cada tarea.',
+      'case.tractores.quantum.description4':'Compactos, potentes y eficientes — los tractores Case IH Quantum están construidos para ofrecer resultados sobresalientes en viñedos y huertos.',
+      
+      // Tractores Case - Puma
 
+      'case.tractores.puma.categoryTitles':'Línea Puma',
+      'case.tractores.puma.categoryDescription':'Descubra la versatilidad y confiabilidad de nuestros tractores Puma.',
+      'case.tractores.puma.description1':'Los tractores Puma ofrecen la combinación perfecta de potencia y precisión para operaciones agrícolas de mediana y gran escala.',
+      'case.tractores.puma.description2':'Equipados con tecnología avanzada, los Puma garantizan eficiencia y comodidad durante largas jornadas de trabajo.',
+      'case.tractores.puma.description3':'Su diseño robusto y confiable asegura un rendimiento constante en distintas condiciones y terrenos.',
+      'case.tractores.puma.description4':'Los tractores Puma están preparados para maximizar la productividad mientras minimizan el consumo de combustible.',
+      'case.tractores.puma.description5':'Con sistemas hidráulicos y de transmisión de última generación, los Puma facilitan las tareas más exigentes.',
 
+      // Tractores Case - Steiger
+      'case.tractores.steiger.categoryTitles': 'Línea Steiger',
+      'case.tractores.steiger.categoryDescription': 'Descubra la versatilidad y confiabilidad de nuestros tractores Steiger.',
+      'case.tractores.steiger.description1': 'Ideal para las condiciones de suelo más difíciles, la administración de potencia de su motor proporciona un adicional de hasta 63 cv, un 10% de su potencia.',
+
+      // Tractores Case - Magnum
+      'case.tractores.magnum.categoryTitles': 'Línea Magnum',
+      'case.tractores.magnum.categoryDescription': 'Descubra la versatilidad y confiabilidad de nuestros tractores Magnum.',
+      'case.tractores.magnum.description1': 'El nuevo Magnum AFS Connect llegó para ser tu principal aliado en esta evolución de la agricultura digital, para garantizar el control total de tus operaciones, a cada momento, desde donde tú y tu equipo estén.',
+
+      // Tractores Case Quadtrac
+      // Español
+      'case.tractores.quadtrac.categoryTitles': 'Línea Quadtrac',
+      'case.tractores.quadtrac.categoryDescription': 'Descubra la versatilidad y confiabilidad de nuestros tractores Quadtrac.',
+      'case.tractores.quadtrac.description1': 'El nuevo Quadtrac AFS Connect ofrece toda la fuerza y robustez que ya conoces con las ventajas y adicionales agronómicos que solo la agricultura de precisión puede proporcionar.',
 
     }
   },
@@ -1020,6 +1089,97 @@ const resources = {
       'tcn.form.nivel.estudio4':'Tertiary Completed',
       'tcn.form.nivel.estudio5':'University in Progress',
       'tcn.form.nivel.estudio6':'University Completed',
+
+      // ProductLinesPage - English
+
+      'productLines.hero.brandPrefix':'| Professional Advice',
+      'productLines.hero.needHelp':'Need help choosing?',
+      'productLines.hero.ctaInfo':'Our team of experts is available to help you select the ',
+      'productLines.hero.ctaInfo2':' ideal for your specific operations.',
+
+      'productLines.hero.exp':'Explore our different lines of ',
+      'productLines.hero.exp2':' and find the perfect equipment for your specific needs.',
+
+      'productLines.empty.title':'No lines available',
+      'productLines.empty.desc':'Currently there are no lines of ',
+      'productLines.empty.desc2':' available. We will add new products soon.',
+      'productLines.empty.button':'Contact us for more information',
+      'productLines.card.button':'View Products',
+      'productLines.cta.contact':'Contact Now',
+
+      'ebp.empty':'No products available',
+      'ebp.empty2':'Currently there are no ',
+      'ebp.empty3':' available. We will be adding new models soon.',
+      'ebp.contact':'Contact us for more information',
+      'ebp.especs':'Contact us for more information',
+      'ebp.poten':'Power:',
+      'ebp.peso':'Weight:',
+      'ebp.cap':'Capacity:',
+      'ebp.ficha':'Technical Sheet:',
+      'ebp.consul':'Consult',
+      'ebp.text':'Our team of experts is available to help you select the ',
+      'ebp.text2':'ideal model for your specific needs.',
+
+
+      // Case Tractores Equipo
+      'case.tractores.category':'Tractors',
+      'case.tractores.type1.desc':'Farmall tractors are versatile and reliable, ideal for a wide range of agricultural applications. They combine power and maneuverability with fuel efficiency.',
+      'case.tractores.type2.desc':'The Quantum line is specifically designed for vineyard and orchard work, featuring a compact design and excellent maneuverability.',
+      'case.tractores.type3.desc':'Puma tractors offer the perfect combination of power and precision for medium- and large-scale agricultural operations.',
+      'case.tractores.type4.desc':'Power and robustness define the Steiger line, designed for the most demanding and large-scale operations.',
+      'case.tractores.type5.desc':'The Magnum AFS Connect line combines superior power with cutting-edge technology for precision agriculture.',
+      'case.tractores.type6.desc':'Quadtrac AFS Connect tractors provide maximum traction and minimal soil compaction with advanced technology.',
+
+      // Case Tractors Farmall
+
+      'case.tractores.farmall.categoryTitles':'Farmall Line',
+      'case.tractores.farmall.categoryDescription':'Discover the versatility and reliability of our Farmall tractors.',
+      'case.tractores.farmall.description1': 'The Farmall® M ActiveDrive 4 tractors from Case IH offer a unique package where every detail has been meticulously designed, with superior features and innovations aimed at meeting future needs.',
+      'case.tractores.farmall.description2': 'Farmall tractors deliver unmatched performance in any activity. With a high-capacity hydraulic system, they offer maximum operational flexibility.',
+      'case.tractores.farmall.description3': 'The high technology and reliability that only Case IH offers reach low-power tractors. The Farmall line is globally recognized for robustness, ease of operation, and flexible use.',
+      'case.tractores.farmall.description4': 'The high technology and reliability that only Case IH offers reach low-power tractors. The Farmall line is globally recognized for robustness, ease of operation, and flexible use.',
+      'case.tractores.farmall.description5': 'The high technology and reliability that only Case IH offers reach low-power tractors. The Farmall line is globally recognized for robustness, ease of operation, and flexible use.',
+      'case.tractores.farmall.description6': 'The new Case IH Farmall JXM Series tractors deliver the power and performance their owners expect, with the distinctive premium design of Case IH.',
+      'case.tractores.farmall.description7': 'The new Case IH Farmall JXM Series tractors meet the demand for robust yet comfortable and easy-to-operate equipment. Models come in 2WD or 4WD versions and offer transmission options.',
+      'case.tractores.farmall.description8': 'Farmall tractors are the best choice for regional economies and have been continuously updated over the years. They deliver unmatched performance in any activity.',
+      'case.tractores.farmall.description9': 'All the power you need, whether in agriculture or livestock, can be found in the Farmall 130A.',
+      'case.tractores.farmall.description10': 'Farmall tractors deliver unmatched performance in any activity. With a high-capacity hydraulic system, they offer maximum operational flexibility.',
+
+      // Case Tractors - Quantum
+
+      'case.tractores.quantum.categoryTitles':'Quantum Line',
+      'case.tractores.quantum.categoryDescription':'Discover the performance and versatility of our Quantum tractors, specially designed for vineyards and orchards.',
+      'case.tractores.quantum.description1':'Whether you work in vineyards, grow fruit, or need a narrow tractor for other tasks, the reduced dimensions of the new Quantum, its tight turning radius, and its renewed design will provide the best performance.',
+      'case.tractores.quantum.description2':'Designed to work efficiently in narrow spaces, the Quantum line combines compact size, power, and precision for maximum productivity.',
+      'case.tractores.quantum.description3':'Quantum tractors stand out for their exceptional maneuverability, advanced comfort, and innovative technology that make every job easier.',
+      'case.tractores.quantum.description4':'Compact, powerful, and efficient — the Case IH Quantum tractors are built to deliver outstanding results in vineyards and orchards.',
+
+      // Inglés - Case Puma Tractors
+      'case.tractores.puma.categoryTitles':'Puma Line',
+      'case.tractores.puma.categoryDescription':'Discover the versatility and reliability of our Puma tractors.',
+      'case.tractores.puma.description1':'Puma tractors offer the perfect combination of power and precision for medium and large-scale farming operations.',
+      'case.tractores.puma.description2':'Equipped with advanced technology, the Puma ensures efficiency and comfort during long working hours.',
+      'case.tractores.puma.description3':'Their robust and reliable design guarantees consistent performance in various conditions and terrains.',
+      'case.tractores.puma.description4':'Puma tractors are built to maximize productivity while minimizing fuel consumption.',
+      'case.tractores.puma.description5':'With state-of-the-art hydraulic and transmission systems, the Puma makes even the toughest tasks easier.',
+
+      // Case Steiger Tractors
+      'case.tractores.steiger.categoryTitles': 'Steiger Line',
+      'case.tractores.steiger.categoryDescription': 'Discover the versatility and reliability of our Steiger tractors.',
+      'case.tractores.steiger.description1': 'Ideal for the toughest soil conditions, the engine power management provides an additional 63 HP, which is 10% of its power.',
+
+      // Magnum
+      'case.tractores.magnum.categoryTitles': 'Magnum Line',
+      'case.tractores.magnum.categoryDescription': 'Discover the versatility and reliability of our Magnum tractors.',
+      'case.tractores.magnum.description1': 'The new Magnum AFS Connect is here to be your main ally in this evolution of digital agriculture, ensuring full control of your operations at every moment, from wherever you and your team are.',
+
+      //Quadtrac
+      // Ingles
+      'case.tractores.quadtrac.categoryTitles': 'Quadtrac Line',
+      'case.tractores.quadtrac.categoryDescription': 'Discover the versatility and reliability of our Quadtrac tractors.',
+      'case.tractores.quadtrac.description1': 'The new Quadtrac AFS Connect provides all the strength and robustness you know, with agronomic advantages and extras that only precision agriculture can deliver.',
+
+      
 
 
     },

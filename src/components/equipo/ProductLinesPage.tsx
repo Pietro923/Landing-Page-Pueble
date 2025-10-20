@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ChevronRight, Info, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface ProductLine {
   id: string;
@@ -90,6 +91,7 @@ const ProductLinesPage: React.FC<ProductLinesPageProps> = ({
       transition: { type: "spring", stiffness: 80, damping: 12 }
     }
   };
+  const { t } = useTranslation();
 
   return (
     <div className={`min-h-screen bg-gradient-to-br ${style.bg}  px-4 sm:px-6 lg:px-8`}>
@@ -142,8 +144,7 @@ const ProductLinesPage: React.FC<ProductLinesPageProps> = ({
               transition={{ duration: 0.5, delay: 0.5 }}
               className="text-sm sm:text-base lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
             >
-              Explorá nuestras diferentes líneas de {category.toLowerCase()} y encontrá 
-              el equipo perfecto para tus necesidades específicas.
+              {t('productLines.hero.exp')}{category.toLowerCase()} {t('productLines.hero.exp2')}
             </motion.p>
           </motion.div>
         </div>
@@ -161,10 +162,9 @@ const ProductLinesPage: React.FC<ProductLinesPageProps> = ({
             <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white/10 rounded-full flex items-center justify-center mb-6">
               <Info className="w-10 h-10 sm:w-12 sm:h-12 text-white/70" />
             </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">Sin líneas disponibles</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">{t('productLines.empty.title')}</h3>
             <p className="text-sm sm:text-base text-gray-400 max-w-md mb-8">
-              Actualmente no hay líneas de {category.toLowerCase()} disponibles. 
-              Pronto agregaremos nuevos productos.
+              {t('productLines.empty.desc')} {category.toLowerCase()} {t('productLines.empty.desc2')}
             </p>
             <Link href="/contacto">
               <Button 
@@ -172,7 +172,7 @@ const ProductLinesPage: React.FC<ProductLinesPageProps> = ({
                 className="font-semibold"
                 style={{ backgroundColor: style.accent, color: style.buttonText === "text-black" ? "#000" : "#fff" }}
               >
-                Contáctenos para más información
+                {t('productLines.empty.button')}
               </Button>
             </Link>
           </motion.div>
@@ -231,7 +231,7 @@ const ProductLinesPage: React.FC<ProductLinesPageProps> = ({
                             color: style.buttonText === "text-black" ? "#000" : "#fff",
                           }}
                         >
-                          <span>Ver Productos</span>
+                          <span>{t('productLines.card.button')}</span>
                           <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover/btn:translate-x-1 transition-transform duration-300" />
                         </Button>
                       </CardFooter>
@@ -262,16 +262,16 @@ const ProductLinesPage: React.FC<ProductLinesPageProps> = ({
               transition={{ delay: 0.8 }}
               className={`${style.lightText} font-semibold uppercase tracking-wider mb-3 text-xs sm:text-sm`}
             >
-              | Asesoramiento Profesional
+              {t('productLines.hero.brandPrefix')}
             </motion.p>
             
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4 sm:mb-6">
-              ¿Necesitás ayuda para elegir?
+              {t('productLines.hero.needHelp')}
             </h2>
             
             <p className="text-sm sm:text-base lg:text-lg text-gray-300 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
-              Nuestro equipo de expertos está disponible para ayudarte a seleccionar 
-              el {category.toLowerCase()} ideal para tus operaciones específicas.
+              {t('productLines.hero.ctaInfo')}
+              {category.toLowerCase()} {t('productLines.hero.ctaInfo2')}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -285,7 +285,7 @@ const ProductLinesPage: React.FC<ProductLinesPageProps> = ({
                       color: style.buttonText === "text-black" ? "#000" : "#fff"
                     }}
                   >
-                    Contactar Ahora
+                    {t('productLines.cta.contact')}
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </motion.div>

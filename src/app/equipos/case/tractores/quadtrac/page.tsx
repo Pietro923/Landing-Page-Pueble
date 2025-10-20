@@ -1,12 +1,16 @@
 // app/equipos/case/tractores/quadtrac/page.tsx
+"use client"
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
+import { useTranslation } from 'react-i18next';
 
+const QuadtracLinePage = () => {
+const { t } = useTranslation();
 const quadtracProducts = [
   {
     id: 1,
     name: "Quadtrac 500",
-    category: "Tractores",
-    description: "El nuevo Quadtrac AFS Connect ofrece toda la fuerza y robustez que ya conoces con las ventajas y adicionales agronómicos que solo la agricultura de precisión puede proporcionar.",
+    category: t('page.equipos.case.categories1'),
+    description: t('case.tractores.quadtrac.description1'),
     image: "/imagenes/equipment/case/tractores/quadtrac/quadtrac500.webp",
     specs: {
       power: "",
@@ -17,13 +21,13 @@ const quadtracProducts = [
   },
 ]; // Array vacío para simular que no hay productos
 
-const QuadtracLinePage = () => {
+
   return (
     <EquipmentBrandPage
       brand="Case"
       products={quadtracProducts}
-      categoryTitle="Línea Quadtrac"
-      categoryDescription="Descubra la versatilidad y confiabilidad de nuestros tractores Quadtrac."
+      categoryTitle={t('case.tractores.quadtrac.categoryTitles')}
+      categoryDescription={t('case.tractores.quadtrac.categoryDescription')}
     />
   );
 };

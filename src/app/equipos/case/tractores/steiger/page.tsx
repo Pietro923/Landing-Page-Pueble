@@ -1,12 +1,17 @@
 // app/equipos/case/tractores/steiger/page.tsx
+"use client"
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
+import { useTranslation } from 'react-i18next';
+
+const SteigerLinePage = () => {
+const { t } = useTranslation();
 
 const steigerProducts = [
   {
     id: 1,
     name: "Steiger 450",
-    category: "Tractores",
-    description: "Ideal para las condiciones de suelo más difíciles, la administración de potencia de su motor proporciona un adicional de hasta 63 cv, un 10% de su potencia.",
+    category: t('page.equipos.case.categories1'),
+    description: t('case.tractores.steiger.description1'),
     image: "/imagenes/equipment/case/tractores/steiger/steiger450.webp",
     specs: {
       power: "",
@@ -17,13 +22,13 @@ const steigerProducts = [
   },
 ]; // Array vacío para simular que no hay productos
 
-const SteigerLinePage = () => {
+
   return (
     <EquipmentBrandPage
       brand="Case"
       products={steigerProducts}
-      categoryTitle="Línea Steiger"
-      categoryDescription="Descubra la versatilidad y confiabilidad de nuestros tractores Steiger."
+      categoryTitle={t('case.tractores.steiger.categoryTitles')}
+      categoryDescription={t('case.tractores.steiger.categoryDescription')}
     />
   );
 };

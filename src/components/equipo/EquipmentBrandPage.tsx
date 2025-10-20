@@ -3,9 +3,10 @@ import React from "react";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { FileDown, Phone, Info, ExternalLink, Zap, ArrowRight } from "lucide-react";
+import { FileDown, Phone, Info, Zap, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { t } from "i18next";
 
 interface Product {
   id: number;
@@ -168,10 +169,9 @@ const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({
             <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white/10 rounded-full flex items-center justify-center mb-6">
               <Info className="w-10 h-10 sm:w-12 sm:h-12 text-white/70" />
             </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">Sin productos disponibles</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">{t('ebp.empty')}</h3>
             <p className="text-sm sm:text-base text-gray-400 max-w-md mb-8">
-              Actualmente no hay {categoryTitle.toLowerCase()} disponibles. 
-              Pronto agregaremos nuevos modelos.
+              {t('ebp.empty2')} {categoryTitle.toLowerCase()} {t('ebp.empty3')}
             </p>
             <Link href="/contacto">
               <Button 
@@ -179,7 +179,7 @@ const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({
                 className="font-semibold"
                 style={{ backgroundColor: style.accent, color: style.buttonText === "text-black" ? "#000" : "#fff" }}
               >
-                Contáctenos para más información
+                {t('ebp.contact')}
               </Button>
             </Link>
           </motion.div>
@@ -241,24 +241,24 @@ const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({
                         <div className="mt-auto">
                           <div className={`flex items-center gap-2 mb-3 ${style.lightText}`}>
                             <Zap className="w-4 h-4" />
-                            <span className="font-semibold text-sm">Especificaciones</span>
+                            <span className="font-semibold text-sm">{t('ebp.especs')}</span>
                           </div>
                           <div className="space-y-2 text-xs sm:text-sm bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10">
                             {product.specs.power && (
                               <div className="flex justify-between items-center py-1">
-                                <span className="text-gray-400">Potencia:</span>
+                                <span className="text-gray-400">{t('ebp.poten')}</span>
                                 <span className="text-white font-semibold">{product.specs.power}</span>
                               </div>
                             )}
                             {product.specs.weight && (
                               <div className="flex justify-between items-center py-1 border-t border-white/10">
-                                <span className="text-gray-400">Peso:</span>
+                                <span className="text-gray-400">{t('ebp.peso')}</span>
                                 <span className="text-white font-semibold">{product.specs.weight}</span>
                               </div>
                             )}
                             {product.specs.capacity && (
                               <div className="flex justify-between items-center py-1 border-t border-white/10">
-                                <span className="text-gray-400">Capacidad:</span>
+                                <span className="text-gray-400">{t('ebp.cap')}</span>
                                 <span className="text-white font-semibold">{product.specs.capacity}</span>
                               </div>
                             )}
@@ -275,7 +275,7 @@ const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({
                           onClick={() => window.open(product.pdfUrl, "_blank")}
                         >
                           <FileDown className="w-4 h-4" />
-                          Ficha Técnica
+                          {t('ebp.ficha')}
                         </Button>
                       )}
                       <Link
@@ -291,7 +291,7 @@ const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({
                           }}
                         >
                           <Phone className="w-4 h-4 mr-2" />
-                          Consultar
+                          {t('ebp.consul')}
                         </Button>
                       </Link>
                     </CardFooter>
@@ -321,17 +321,17 @@ const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({
               transition={{ delay: 0.8 }}
               className={`${style.lightText} font-semibold uppercase tracking-wider mb-3 text-xs sm:text-sm`}
             >
-              | Asesoramiento Profesional
+              {t('productLines.hero.brandPrefix')}
             </motion.p>
             
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4 sm:mb-6">
-              ¿Necesitás ayuda para elegir?
+              {t('productLines.hero.needHelp')}
             </h2>
             
             <p className="text-sm sm:text-base lg:text-lg text-gray-300 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
-              Nuestro equipo de expertos está disponible para ayudarte a seleccionar 
-              el {categoryTitle.toLowerCase()} ideal para tus necesidades específicas.
-            </p>
+              {t('ebp.text')}
+              {categoryTitle.toLowerCase()} {t('ebp.text2')}
+            </p>  
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contacto" className="flex-1 sm:flex-initial">
@@ -344,7 +344,7 @@ const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({
                       color: style.buttonText === "text-black" ? "#000" : "#fff"
                     }}
                   >
-                    Contactar Ahora
+                    {t('productLines.cta.contact')}
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </motion.div>

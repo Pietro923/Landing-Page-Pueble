@@ -1,12 +1,16 @@
 // app/equipos/case/tractores/magnum/page.tsx
+"use client"
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
+import { useTranslation } from 'react-i18next';
 
+const MagnumLinePage = () => {
+  const { t } = useTranslation();
 const magnumProducts = [
   {
     id: 1,
     name: "MAGNUM 260/290/315/340/380/400",
-    category: "Tractores",
-    description: "El nuevo Magnum AFS Connect llegó para ser tu principal aliado en esta evolución de la agricultura digital, para garantizar el control total de tus operaciones, a cada momento, desde donde tú y tu equipo estén.",
+    category: t('page.equipos.case.categories1'),
+    description: t('case.tractores.magnum.description1'),
     image: "/imagenes/equipment/case/tractores/magnum/magnum340.webp",
     specs: {
       power: "",
@@ -17,13 +21,13 @@ const magnumProducts = [
   },
 ]; 
 
-const MagnumLinePage = () => {
+
   return (
     <EquipmentBrandPage
       brand="Case"
       products={magnumProducts}
-      categoryTitle="Línea Magnum"
-      categoryDescription="Descubra la versatilidad y confiabilidad de nuestros tractores Magnum."
+      categoryTitle={t('case.tractores.magnum.categoryTitles')}
+      categoryDescription={t('case.tractores.magnum.categoryDescription')}
     />
   );
 };

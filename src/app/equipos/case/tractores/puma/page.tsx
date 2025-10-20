@@ -1,12 +1,18 @@
 // app/equipos/case/tractores/puma/page.tsx
+"use client"
+
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
+import { useTranslation } from 'react-i18next';
+
+const PumaLinePage = () => {
+const { t } = useTranslation();
 
 const pumaProducts = [
   {
     id: 1,
     name: "Puma 190/200/215/230",
-    category: "Tractores",
-    description: "Ahora con el nuevo software APM y el cambio Full Powershift, su tractor Puma tendrá un consumo de combustible 14% menor. A su vez, la nueva barra de tracción con mayor robustez permite más capacidad de carga vertical. Su nuevo caudal hidráulico de 180 L/Min, le proporciona más rapidez y capacidad en el accionar de los implementos. Con la nueva serie Puma, usted podrá trabajar en cualquier momento del día y la noche, ya que cuentan con nuevas luces LED, 6 delanteras y 6 traseras.",
+    category: t('page.equipos.case.categories1'),
+    description: t('case.tractores.puma.description1'),
     image: "/imagenes/equipment/case/tractores/puma/puma190.webp",
     specs: {
       power: "",
@@ -18,8 +24,8 @@ const pumaProducts = [
   {
     id: 2,
     name: "Puma 140",
-    category: "Tractores",
-    description: "Siguiendo su estrategia de ofrecer un sistema de mecanización agrícola completa, Case IH presenta al mercado una línea de tractores de media potencia de la familia Puma.",
+    category: t('page.equipos.case.categories1'),
+    description: t('case.tractores.puma.description2'),
     image: "/imagenes/equipment/case/tractores/puma/puma140.webp",
     specs: {
       power: "",
@@ -31,8 +37,8 @@ const pumaProducts = [
   {
     id: 3,
     name: "Puma 155",
-    category: "Tractores",
-    description: "En busca de crear soluciones cada vez más completas, Case IH presenta los nuevos tractores Puma 155.",
+    category: t('page.equipos.case.categories1'),
+    description: t('case.tractores.puma.description3'),
     image: "/imagenes/equipment/case/tractores/puma/puma155.webp",
     specs: {
       power: "",
@@ -44,8 +50,8 @@ const pumaProducts = [
   {
     id: 4,
     name: "Puma 170",
-    category: "Tractores",
-    description: "En busca de crear soluciones cada vez más completas, Case IH presenta los nuevos tractores Puma 170.",
+    category: t('page.equipos.case.categories1'),
+    description: t('case.tractores.puma.description4'),
     image: "/imagenes/equipment/case/tractores/puma/puma170.webp",
     specs: {
       power: "",
@@ -57,8 +63,8 @@ const pumaProducts = [
   {
     id: 5,
     name: "Puma 185",
-    category: "Tractores",
-    description: "En busca de crear soluciones cada vez más completas, Case IH presenta los nuevos tractores Puma 170.",
+    category: t('page.equipos.case.categories1'),
+    description: t('case.tractores.puma.description5'),
     image: "/imagenes/equipment/case/tractores/puma/puma185.webp",
     specs: {
       power: "",
@@ -69,7 +75,7 @@ const pumaProducts = [
   },
 ]; 
 
-const PumaLinePage = () => {
+
   return (
     <EquipmentBrandPage
       brand="Case"

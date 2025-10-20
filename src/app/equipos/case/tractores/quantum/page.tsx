@@ -1,12 +1,16 @@
 // app/equipos/case/tractores/quantum/page.tsx
+"use client"
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
+import { useTranslation } from 'react-i18next';
 
+const QuantumLinePage = () => {
+const { t } = useTranslation();
 const quantumProducts = [
   {
     id: 1,
     name: "Quantum 65V",
-    category: "Tractores",
-    description: "Tanto si trabaja viñas, cultiva frutales o requiere un tractor estrecho para otras tareas, las dimensiones reducidas del nuevo Quantum, su radio de giro cerrado y su renovado diseño le proporcionarán las mejores prestaciones.",
+    category: t('page.equipos.case.categories1'),
+    description: t('case.tractores.quantum.description1'),
     image: "/imagenes/equipment/case/tractores/quantum/quantum65.webp",
     specs: {
       power: "",
@@ -18,8 +22,8 @@ const quantumProducts = [
   {
     id: 2,
     name: "Quantum 85V",
-    category: "Tractores",
-    description: "Tanto si trabaja viñas, cultiva frutales o requiere un tractor estrecho para otras tareas, las dimensiones reducidas del nuevo Quantum, su radio de giro cerrado y su renovado diseño le proporcionarán las mejores prestaciones.",
+    category: t('page.equipos.case.categories1'),
+    description: t('case.tractores.quantum.description2'),
     image: "/imagenes/equipment/case/tractores/quantum/quantum85.webp",
     specs: {
       power: "",
@@ -31,8 +35,8 @@ const quantumProducts = [
   {
     id: 3,
     name: "Quantum 85F",
-    category: "Tractores",
-    description: "Tanto si trabaja viñas, cultiva frutales o requiere un tractor estrecho para otras tareas, las dimensiones reducidas del nuevo Quantum, su radio de giro cerrado y su renovado diseño le proporcionarán las mejores prestaciones.",
+    category: t('page.equipos.case.categories1'),
+    description: t('case.tractores.quantum.description3'),
     image: "/imagenes/equipment/case/tractores/quantum/quantum85f.webp",
     specs: {
       power: "",
@@ -44,8 +48,8 @@ const quantumProducts = [
   {
     id: 4,
     name: "Quantum 75N",
-    category: "Tractores",
-    description: "Tanto si trabaja viñas, cultiva frutales o requiere un tractor estrecho para otras tareas, las dimensiones reducidas del nuevo Quantum, su radio de giro cerrado y su renovado diseño le proporcionarán las mejores prestaciones.",
+    category: t('page.equipos.case.categories1'),
+     description: t('case.tractores.quantum.description4'),
     image: "/imagenes/equipment/case/tractores/quantum/quantum75.webp",
     specs: {
       power: "",
@@ -56,13 +60,13 @@ const quantumProducts = [
   },
 ];
 
-const QuantumLinePage = () => {
+
   return (
     <EquipmentBrandPage
       brand="Case"
       products={quantumProducts}
-      categoryTitle="Línea Quantum"
-      categoryDescription="Descubra la versatilidad y confiabilidad de nuestros tractores Quantum."
+      categoryTitle={t('case.tractores.quantum.categoryTitles')}
+      categoryDescription={t('case.tractores.quantum.categoryDescription')}
     />
   );
 };
