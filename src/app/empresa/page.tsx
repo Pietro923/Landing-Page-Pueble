@@ -43,6 +43,17 @@ export default function Company() {
 
   const teams = [
     {
+      name: t('page.empresa.gerente4.equipo'),
+      managerImage: "/imagenes/gerentes/gerentedeequipocomercial.jpeg",
+      managerName: t('page.empresa.gerente4.nombre'),
+      managerTitle: t('page.empresa.gerente4.puesto'),
+      description: t('page.empresa.gerente4.desc'),
+      email: "cdelavega@pueblemaquinarias.com.ar",
+      correo: "Mandar Email",
+      numero: "Contactar",
+      number: "3814674252",
+    },
+    {
       name: t('page.empresa.gerente1.equipo'),
       managerImage: "/imagenes/gerentes/gerentedeventas.jpeg",
       managerName: t('page.empresa.gerente1.nombre'),
@@ -75,17 +86,6 @@ export default function Company() {
       numero: "Contactar",
       number: "3816285165",
     },
-    {
-      name: t('page.empresa.gerente4.equipo'),
-      managerImage: "/imagenes/gerentes/gerentedeequipocomercial.jpeg",
-      managerName: t('page.empresa.gerente4.nombre'),
-      managerTitle: t('page.empresa.gerente4.puesto'),
-      description: t('page.empresa.gerente4.desc'),
-      email: "cdelavega@pueblemaquinarias.com.ar",
-      correo: "Mandar Email",
-      numero: "Contactar",
-      number: "3814674252",
-    }
   ];
 
   const visitHighlights = [
@@ -406,9 +406,9 @@ export default function Company() {
         </div>
       </div>
       
-      {/* Contact Info - altura fija */}
+      {/* Contact Info - altura fija 
       <div className="pt-3 sm:pt-4 space-y-2 w-full flex-shrink-0">
-        {/* Email */}
+        {/* Email 
         <motion.a
           href={`mailto:${team.email}`}
           whileHover={{ scale: 1.02 }}
@@ -423,7 +423,7 @@ export default function Company() {
           </span>
         </motion.a>
 
-        {/* Phone */}
+        {/* Phone 
         <motion.a
           href={`tel:+54${team.number.replace(/\s/g, '')}`}
           whileHover={{ scale: 1.02 }}
@@ -437,7 +437,8 @@ export default function Company() {
             {team.numero}
           </span>
         </motion.a>
-      </div>
+        </div>
+      */}
     </CardContent>
   </Card>
 </motion.div>
