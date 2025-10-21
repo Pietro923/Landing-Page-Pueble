@@ -13,14 +13,17 @@ const EmpresaCard = ({ empresa, index, active, handleClick }: any) => {
 
   // Alternar imágenes automáticamente cuando hay múltiples brands
   useEffect(() => {
-    if (empresa.brands.length > 1 && isActive) {
-      const interval = setInterval(() => {
-        setCurrentImageIndex((prev) => (prev + 1) % empresa.brands.length);
-      }, 4000); // Cambia cada 4 segundos
-
-      return () => clearInterval(interval);
-    }
-  }, [empresa.brands.length, isActive]);
+  if (empresa.brands.length <= 1 || !isActive) {
+    setCurrentImageIndex(0) // Reset cuando no esté activo
+    return
+  }
+  
+  const interval = setInterval(() => {
+    setCurrentImageIndex((prev) => (prev + 1) % empresa.brands.length)
+  }, 4000)
+  
+  return () => clearInterval(interval)
+}, [empresa.brands.length, isActive])
 
   const currentBrand = empresa.brands[currentImageIndex];
 
