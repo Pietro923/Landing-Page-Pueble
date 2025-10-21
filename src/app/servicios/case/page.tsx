@@ -14,7 +14,7 @@ export default function Servicios() {
       icon: ShoppingCart,
       title: t('page.servicios.case.service.items1'),
       description: t('page.servicios.case.service.items1.desc'),
-      contact: "https://wa.me/"
+      contact: "https://wa.me/3815822365?text=Hola%20quisiera%20contactar%20con%20un%20asesor%20de%20ventas%20por%20favor"
     },
     {
       icon: Wrench,
@@ -32,7 +32,7 @@ export default function Servicios() {
       icon: Smartphone,
       title: t('page.servicios.case.service.items4'),
       description: t('page.servicios.case.service.items4.desc'),
-      contact: "https://wa.me/"
+      contact: "https://wa.me/3816248641?text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta%20sobre%20AFS!"
     },
   ];  
 
