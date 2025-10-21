@@ -423,57 +423,52 @@ const Navbar = () => {
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden overflow-hidden backdrop-blur-sm"
             >
-              {/* Mobile Search Bar y Controles */}
-              <div className="px-4 pb-4">
-                <div className="flex items-center space-x-2 mt-4">
-                  <Input 
-                    type="text" 
-                    placeholder="Buscar..." 
-                    className="flex-1 text-white bg-zinc-800/50 border-zinc-700 focus:border-red-500 focus:ring-red-500"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    onKeyPress={handleKeyPress}
-                  />
-                  <Button 
-                    variant="outline" 
-                    size="icon" 
-                    className="text-white hover:bg-red-700 border-zinc-700 bg-red-800 hover:text-white"
-                    onClick={handleSearch}
-                  >
-                    <Search className="w-5 h-5" />
-                  </Button>
-                </div>
+              {/* Mobile Search Bar y Controles - COMPACTOS */}
+<div className="p-4 border-b border-border/50">
+  {/* Barra de búsqueda con controles integrados */}
+  <div className="flex items-center gap-2">
+    {/* Search Input - toma el espacio disponible */}
+    <div className="relative flex-1">
+      <Input
+        type="text"
+        placeholder={t("nav.search")}
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        onKeyPress={handleKeyPress}
+        className="w-full pr-10"
+      />
+      <Button
+        size="sm"
+        variant="ghost"
+        onClick={handleSearch}
+        className="absolute right-0 top-0 h-full px-3"
+      >
+        <Search className="h-4 w-4" />
+      </Button>
+    </div>
 
-                {/* Controles Tema e Idioma en Mobile */}
-                {mounted && (
-                  <div className="flex items-center justify-center space-x-3 mt-4 pt-4 border-t border-zinc-700/50">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="flex items-center gap-2 bg-zinc-800/50 hover:bg-zinc-700 text-white border-zinc-700"
-                      onClick={toggleLanguage}
-                    >
-                      <Languages className="h-4 w-4" />
-                      <span className="text-xs font-semibold">{i18n.language.toUpperCase()}</span>
-                    </Button>
-
-                    {/*
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="bg-zinc-800/50 hover:bg-zinc-700 text-white border-zinc-700"
-                      onClick={toggleTheme}
-                    >
-                       
-                      {theme === 'dark' ? (
-                        <Sun className="h-4 w-4" />
-                      ) : (
-                        <Moon className="h-4 w-4" />
-                      )}
-                    </Button>*/}
-                  </div>
-                )}
-              </div>
+    {/* Controles de Idioma - Compactos */}
+    {mounted && (
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={toggleLanguage}
+        className="flex-shrink-0 px-2 min-w-[50px]"
+        aria-label="Cambiar idioma"
+      >
+        {i18n.language === "es" && (
+          <ReactCountryFlag countryCode="AR" svg className="w-5 h-5" />
+        )}
+        {i18n.language === "en" && (
+          <ReactCountryFlag countryCode="US" svg className="w-5 h-5" />
+        )}
+        {i18n.language === "pt" && (
+          <ReactCountryFlag countryCode="BR" svg className="w-5 h-5" />
+        )}
+      </Button>
+    )}
+  </div>
+</div>
 
               {/* Mobile Navigation Links */}
               <motion.ul 

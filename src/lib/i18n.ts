@@ -8,6 +8,7 @@ const resources = {
   es: {
     translation: {
       // Navegación
+      'nav.search':'Buscar...',
       'nav.home': 'Inicio',
       'nav.about': 'Nosotros',
       'nav.company': 'Empresa',
@@ -743,6 +744,7 @@ const resources = {
   pt: {
   translation: {
     // Navegação
+    "nav.search": "Pesquisar...",
     'nav.home': 'Início',
     'nav.about': 'Sobre Nós',
     'nav.company': 'Empresa',
@@ -1442,6 +1444,7 @@ const resources = {
   en: {
     translation: {
       // Navigation
+      "nav.search": "Search...",
       'nav.home': 'Home',
       'nav.about': 'About Us',
       'nav.company': 'Company',
