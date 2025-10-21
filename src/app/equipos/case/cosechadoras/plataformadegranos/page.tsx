@@ -1,12 +1,16 @@
 // app/equipos/case/cosechadoras/plataformadegranos/page.tsx
+"use client"
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
+import { useTranslation } from 'react-i18next';
 
+const plataformadegranosLinePage = () => {
+const { t } = useTranslation();
 const plataformadegranosproducts = [
   {
     id: 1,
     name: "Plataforma 3020",
-    category: "Cosechadoras",
-    description: "Los nuevos cabezales 3020 Series proporcionan lo último en tecnologías flex head. Además, este modelo cuenta con el servicio premium de atención MAX Case IH®",
+    category: t('page.equipos.case.categories2'),
+    description: t('case.cosechadora.grano.desc1'),
     image: "/imagenes/equipment/case/cosechadoras/plataformadegranos/plataforma3020.webp",
     specs: {
       power: "",
@@ -18,8 +22,8 @@ const plataformadegranosproducts = [
   {
     id: 2,
     name: "Plataforma 3162",
-    category: "Cosechadoras",
-    description: "El Draper Terraflex 3162 ™, con CentraCut, barra de corte flexible, y la gama de anchos de corte, ofrece la máxima productividad y rendimiento.",
+    category: t('page.equipos.case.categories2'),
+    description: t('case.cosechadora.grano.desc2'),
     image: "/imagenes/equipment/case/cosechadoras/plataformadegranos/plataforma3162.webp",
     specs: {
       power: "",
@@ -30,13 +34,13 @@ const plataformadegranosproducts = [
   },
 ]; 
 
-const plataformadegranosLinePage = () => {
+
   return (
     <EquipmentBrandPage
       brand="Case"
       products={plataformadegranosproducts}
-      categoryTitle="Línea Plataformas de Granos"
-      categoryDescription="Descubra la versatilidad y confiabilidad de nuestras cosechadoras Plataformas de Granos."
+      categoryTitle={t('case.cosechadora.grano.categoryTitle')}
+      categoryDescription={t('case.cosechadora.grano.categoryDescription')}
     />
   );
 };

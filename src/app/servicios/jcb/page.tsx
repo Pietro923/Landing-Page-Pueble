@@ -33,12 +33,6 @@ export default function ServiciosJCB() {
       description: t('page.servicios.jcb.service.items4.desc'),
       contact: "https://wa.me/"
     },
-    {
-      icon: Shield,
-      title: t('page.servicios.jcb.service.items5'),
-      description: t('page.servicios.jcb.service.items5.desc'),
-      contact: "https://wa.me/"
-    }
   ];  
   
   const imagesjcb = [
@@ -136,7 +130,7 @@ export default function ServiciosJCB() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 mb-12 lg:mb-20"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 lg:mb-20"
         >
           {services.map((service, index) => {
             const Icon = service.icon;

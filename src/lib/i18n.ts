@@ -605,6 +605,69 @@ const resources = {
       'case.cosechadoras.description3': 'Con la cosechadoras Axial-Flow es posible realizar una cosecha mucho más fácil, independientemente de la condición en campo. Destaca para la simplicidad en la descarga del tanque granelero, debido a las nuevas longitudes del tubo de descarga, siendo 32 segundos más rápido frente al principal competidor. La Mesa de Sinfines también puede alcanzar hasta un 26% más de capacidad de transporte y distribución del material cosechado.',
       'case.cosechadoras.description4': 'MAYOR ALIMENTACIÓN, MEJOR DESEMPEÑO. Las plataformas de granos Case IH poseen comprobado histórico de excelente desempeño en innumerables tipos de cosecha y en diferentes condiciones. Las mismas vienen con enganche rápido - hidráulico y eléctrico - además de dedos retráctiles en toda la extensión del sinfín, lo que promueve una alimentación continua y uniforme.',
       
+      // Cosechadora de caña
+
+      'case.cosechadora.caña.desc':'Aumentá la productividad de tu cosecha de caña de azúcar con la Cosechadora Austoft A9000 y obtené la máxima versatilidad. Su eficiente tracción, incluso en terrenos de poco agarre, te proporciona una conducción más suave y estable con una baja compactación del suelo. A esto se suma un mantenimiento simplificado, piloto automático AFS y mucho más.',
+      'case.cosechadora.caña.categoryTitle':'Cosechadoras de Caña',
+      'case.cosechadora.caña.categoryDescription':'Con el foco puesto en la cosecha y en la rentabilidad de tu negocio.',
+
+      // Cosechadora Axial Flow
+
+      'case.cosechadora.axial.desc1':'La serie de cosechadoras 150 se creó para proporcionar una atención de excelencia a todos los perfiles de productores de granos que desean profesionalizar más sus negocios.',
+      'case.cosechadora.axial.desc2':'Las nuevas cosechadoras Axial Flow Serie 250 Automation están equipadas con el sistema AFS Harvest Command, un sistema inteligente que se autorregula a través de varios sen​sores en la máquina, con cuatro modos de cosecha, que proporciona hasta un 15% más de productividad.',
+      'case.cosechadora.axial.categoryTitle':'Línea Axial-Flow',
+      'case.cosechadora.axial.categoryDescription':'Descubra la versatilidad y confiabilidad de nuestras cosechadoras Axial-Flow.',
+
+      // Cosechadora Axial Flow
+
+      'case.cosechadora.arrocera.desc1':'Con la cosechadora 5130 RI es posible realizar una cosecha mucho más fácil, independientemente de la condición en campo.',
+      'case.cosechadora.arrocera.desc2':'Con la cosechadora 7130, la robustez y el menor costo operacional son destaques en su cosecha.',
+      'case.cosechadora.arrocera.categoryTitle':'Línea Arrocera',
+      'case.cosechadora.arrocera.categoryDescription':'Descubra la versatilidad y confiabilidad de nuestras cosechadoras Arroceras',
+
+      // Cosechadora Axial Flow
+
+      'case.cosechadora.grano.desc1':'Los nuevos cabezales 3020 Series proporcionan lo último en tecnologías flex head. Además, este modelo cuenta con el servicio premium de atención MAX Case IH®',
+      'case.cosechadora.grano.desc2':'El Draper Terraflex 3162 ™, con CentraCut, barra de corte flexible, y la gama de anchos de corte, ofrece la máxima productividad y rendimiento.',
+      'case.cosechadora.grano.categoryTitle':'Línea Plataformas de Granos',
+      'case.cosechadora.grano.categoryDescription':'Descubra la versatilidad y confiabilidad de nuestras cosechadoras Plataformas de Granos.',
+
+      // Sembradora Case 
+
+      'case.sembradora.desc1':'La familia de sembradoras neumáticas Case IH Precision Disk presentan diseños que maximizan tu productividad, sin importar las condiciones de los residuos con los que está tratando o los cultivos que siembra.',
+      'case.sembradora.categoryTitle':'Sembradora Precision Disk',
+      'case.sembradora.categoryDescription':'Descubra la versatilidad y confiabilidad de nuestras Sembradoras Precision Disk.',
+
+      // Sembradora Case 
+
+      'case.pulv.desc1':'El nuevo Patriot 3330 cuenta con un mayor confort operacional gracias a su cabina más amplia logrando un trabajo más eficiente.',
+      'case.pulv.desc2':'El Patriot 250 ahora con nueva motorización Tier 3 de 177 cv y 6 cilindros, viene para brindar más potencia, tracción y alto rendimiento, que junto al nuevo Modo Economy brinda hasta 15% de economía de combustible.',
+      'case.pulv.desc3':'El nuevo Patriot 300 fue diseñado bajo el concepto de Agronomic Design, con el objetivo de ofrecer una mayor capacidad operacional y mejor tecnología de aplicación.',
+      'case.pulv.desc4':'Case IH también es referencia en productividad cuando se trata de pulverizar. Su suspensión activa asegura la mejor respuesta de partida, el mejor rendimiento en pendientes ascendentes y la mejor uniformidad en la aplicación.',
+      'case.pulv.categoryTitle':'Pulverizadoras',
+      'case.pulv.categoryDescription':'Descubra la versatilidad y confiabilidad de nuestras Pulverizadoras.',
+
+      // agricultura y precision
+
+      'case.agricul.equipos.name':'Pantallas',
+      'case.agricul.equipos.desc1':'AFS Connect: Nuestra tecnología más avanzada, al servicio de su campo. AFS Connect es el sistema de administración agrícola que le brinda acceso instantáneo a la información correspondiente a cada máquina de su flota, incluida la ubicación de la máquina, diagnósticos y estadísticas de combustible y motor. De esta forma, es posible monitorear los datos en tiempo real para tomar decisiones sobre la administración del desempeño tanto del operador como del equipo.',
+      'case.agricul.equipos.desc2':'Explore las pantallas y descubra el mejor modelo para controlar las funciones del equipo y rastrear información importante, todo desde la silla de su operador.',
+      'case.agricul.equipos.category':'Agricultura y Precisión',
+
+      // agricultura y precision
+      'case.pantalla.desc1':'AFS usa una única pantalla integrada con una interfaz común para todas las plataformas de su equipo Case IH.',
+      'case.pantalla.desc2':'La pantalla XCN-1050 es delgada y fácil de usar; posee un procesador quad-core y el software de aplicación de campo Precision-IQ™.',
+      'case.pantalla.desc3':'La FM-750 es una pantalla accesible, de guía multi-función que ofrece una característica clave de precisión de agricultura.',
+      'case.pantalla.desc4':'La XCN-2050 es una pantalla táctil avanzada que se ubica dentro de la cabina, construida sobre sistema operativo Android™.',
+      'case.pantalla.categoryTitle':'Pantallas',
+      'case.pantalla.categoryDescription':'Descubra todas las funciones y posibilidades que brindan nuestras Pantallas.',
+      
+      // agricultura y precision
+      'case.afs.desc1':'Case IH Advanced Farming Systems® (AFS) le devuelve el control, con tecnología de precisión que permite lograr productividad y eficiencia en cada campaña.Los nuevos cabezales 3020 Series proporcionan lo último en tecnologías flex head. Además, este modelo cuenta con el servicio premium de atención MAX Case IH®',
+      'case.afs.categoryTitle':'AFS Connect',
+      'case.afs.categoryDescription':'Descubra todas las funciones que trae AFS Connect',
+      
+
     }
   },
   en: {
@@ -1185,12 +1248,11 @@ const resources = {
       'case.tractores.magnum.description1': 'The new Magnum AFS Connect is here to be your main ally in this evolution of digital agriculture, ensuring full control of your operations at every moment, from wherever you and your team are.',
 
       //Quadtrac
-      // Ingles
       'case.tractores.quadtrac.categoryTitles': 'Quadtrac Line',
       'case.tractores.quadtrac.categoryDescription': 'Discover the versatility and reliability of our Quadtrac tractors.',
       'case.tractores.quadtrac.description1': 'The new Quadtrac AFS Connect provides all the strength and robustness you know, with agronomic advantages and extras that only precision agriculture can deliver.',
 
-      // Inglés
+      // Cosechadoras 
       'case.cosechadoras.categoryTitles': 'Harvesters',
       'case.cosechadoras.line1.name': 'Sugarcane Harvester',
       'case.cosechadoras.line2.name': 'Axial-Flow',
@@ -1201,7 +1263,69 @@ const resources = {
       'case.cosechadoras.description3': 'With the Axial-Flow harvesters, harvesting is much easier regardless of field conditions. It stands out for the simplicity of unloading the grain tank, due to the new auger lengths, being 32 seconds faster than the main competitor. The Auger Table can also achieve up to 26% more material transport and distribution capacity.',
       'case.cosechadoras.description4': 'GREATER FEEDING, BETTER PERFORMANCE. Case IH grain platforms have a proven history of excellent performance in countless harvest types and under different conditions. They come with quick couplers – hydraulic and electric – as well as retractable fingers along the entire auger, promoting continuous and uniform feeding.',
 
-      
+      // Sugarcane Harvester
+
+      'case.cosechadora.caña.desc':'Increase the productivity of your sugarcane harvest with the Austoft A9000 Harvester and achieve maximum versatility. Its efficient traction, even on low-grip terrain, provides smoother and more stable handling with minimal soil compaction. Additionally, it offers simplified maintenance, AFS autopilot, and much more.',
+      'case.cosechadora.caña.categoryTitle':'Sugarcane Harvesters',
+      'case.cosechadora.caña.categoryDescription':'Focused on your harvest and the profitability of your business.',
+
+      // Axial-Flow Harvester
+
+      'case.cosechadora.axial.desc1':'The 150 Series combines superior technology with high performance, designed for grain producers seeking to professionalize their operations.',
+      'case.cosechadora.axial.desc2':'The new Axial-Flow 250 Series Automation Harvesters are equipped with the AFS Harvest Command system, an intelligent self-regulating system that uses multiple sensors and offers four harvesting modes, providing up to 15% higher productivity.',
+      'case.cosechadora.axial.categoryTitle':'Axial-Flow Line',
+      'case.cosechadora.axial.categoryDescription':'Discover the versatility and reliability of our Axial-Flow harvesters.',
+
+      // Rice Harvester
+
+      'case.cosechadora.arrocera.desc1':'With the 5130 RI harvester, you can achieve an easier harvest, regardless of field conditions.',
+      'case.cosechadora.arrocera.desc2':'The 7130 harvester stands out for its robustness and low operating costs.',
+      'case.cosechadora.arrocera.categoryTitle':'Rice Line',
+      'case.cosechadora.arrocera.categoryDescription':'Discover the versatility and reliability of our Rice harvesters.',
+
+      // Grain Platforms
+
+      'case.cosechadora.grano.desc1':'The new 3020 Series headers deliver the latest in flex head technology. This model also includes MAX Case IH® premium service support.',
+      'case.cosechadora.grano.desc2':'The Draper Terraflex 3162™, featuring CentraCut, a flexible cutting bar, and a wide range of cutting widths, delivers maximum productivity and performance.',
+      'case.cosechadora.grano.categoryTitle':'Grain Platforms Line',
+      'case.cosechadora.grano.categoryDescription':'Discover the versatility and reliability of our Grain Platform harvesters.',
+
+      // Case Planter
+
+      'case.sembradora.desc1':'The Case IH Precision Disk Air Drill family features designs that maximize your productivity, regardless of residue conditions or the crops you plant.',
+      'case.sembradora.categoryTitle':'Precision Disk Planter',
+      'case.sembradora.categoryDescription':'Discover the versatility and reliability of our Precision Disk Planters.',
+
+      // Case Sprayers
+
+      'case.pulv.desc1':'The new Patriot 3330 offers greater operational comfort thanks to its larger cab, enabling more efficient work.',
+      'case.pulv.desc2':'The Patriot 250, now with a new Tier 3 engine delivering 177 hp and 6 cylinders, provides more power, traction, and high performance. Along with the new Economy Mode, it offers up to 15% fuel savings.',
+      'case.pulv.desc3':'The new Patriot 300 was designed under the Agronomic Design concept, aiming to deliver greater operational capacity and improved application technology.',
+      'case.pulv.desc4':'Case IH is also a benchmark in productivity when it comes to spraying. Its active suspension ensures the best start response, superior performance on slopes, and the most uniform application.',
+      'case.pulv.categoryTitle':'Sprayers',
+      'case.pulv.categoryDescription':'Discover the versatility and reliability of our Sprayers.',
+
+      // Agriculture and Precision
+
+      'case.agricul.equipos.name':'Displays',
+      'case.agricul.equipos.desc1':'AFS Connect: Our most advanced technology, serving your field. AFS Connect is the farm management system that provides instant access to key machine data, including machine location, diagnostics, and fuel and engine statistics. This allows you to monitor real-time data to make informed decisions about both operator and equipment performance management.',
+      'case.agricul.equipos.desc2':'Explore the displays and find the best model to control equipment functions and track important information — all from the operator’s seat.',
+      'case.agricul.equipos.category':'Agriculture and Precision',
+
+      // Displays
+
+      'case.pantalla.desc1':'AFS uses a single integrated display with a common interface across all Case IH equipment platforms.',
+      'case.pantalla.desc2':'The XCN-1050 display is thin and user-friendly, featuring a quad-core processor and Precision-IQ™ field application software.',
+      'case.pantalla.desc3':'The FM-750 is an affordable, multifunctional guidance display that provides key precision agriculture capabilities.',
+      'case.pantalla.desc4':'The XCN-2050 is an advanced touchscreen display built on the Android™ operating system, mounted inside the cab.',
+      'case.pantalla.categoryTitle':'Displays',
+      'case.pantalla.categoryDescription':'Discover all the functions and possibilities our Displays offer.',
+
+      // AFS Connect
+
+      'case.afs.desc1':'Case IH Advanced Farming Systems® (AFS) puts you back in control with precision technology that delivers productivity and efficiency every season. The new 3020 Series headers offer the latest in flex head technologies and include MAX Case IH® premium service support.',
+      'case.afs.categoryTitle':'AFS Connect',
+      'case.afs.categoryDescription':'Discover all the features that AFS Connect brings.',
 
 
     },

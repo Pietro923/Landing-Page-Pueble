@@ -1,12 +1,16 @@
 // app/equipos/case/case/agricultura-precision/pantallas.tsx'
+"use client"
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
+import { useTranslation } from 'react-i18next';
 
+const pantallasLinePage = () => {
+const { t } = useTranslation();
 const pantallasproducts = [
   {
     id: 1,
     name: "Pro 700",
-    category: "Agricultura y Precisión",
-    description: "AFS usa una única pantalla integrada con una interfaz común para todas las plataformas de su equipo Case IH.",
+    category: t('page.equipos.case.categories5'),
+    description: t('case.pantalla.desc1'),
     image: "/imagenes/equipment/case/agriculturayprecision/pantallas/pro700.webp",
     specs: {
       power: "",
@@ -18,8 +22,8 @@ const pantallasproducts = [
   {
     id: 2,
     name: "XCN-1050",
-    category: "Agricultura y Precisión",
-    description: "La pantalla XCN-1050 es delgada y fácil de usar; posee un procesador quad-core y el software de aplicación de campo Precision-IQ™.",
+    category: t('page.equipos.case.categories5'),
+    description: t('case.pantalla.desc2'),
     image: "/imagenes/equipment/case/agriculturayprecision/pantallas/xcn.webp",
     specs: {
       power: "",
@@ -31,8 +35,8 @@ const pantallasproducts = [
   {
     id: 3,
     name: "FM-750",
-    category: "Agricultura y Precisión",
-    description: "La FM-750 es una pantalla accesible, de guía multi-función que ofrece una característica clave de precisión de agricultura.",
+    category: t('page.equipos.case.categories5'),
+    description: t('case.pantalla.desc3'),
     image: "/imagenes/equipment/case/agriculturayprecision/pantallas/fm.webp",
     specs: {
       power: "",
@@ -44,8 +48,8 @@ const pantallasproducts = [
   {
     id: 4,
     name: "XCN-2050",
-    category: "Agricultura y Precisión",
-    description: "La XCN-2050 es una pantalla táctil avanzada que se ubica dentro de la cabina, construida sobre sistema operativo Android™.",
+    category: t('page.equipos.case.categories5'),
+    description: t('case.pantalla.desc4'),
     image: "/imagenes/equipment/case/agriculturayprecision/pantallas/xcn2050.webp",
     specs: {
       power: "",
@@ -57,13 +61,13 @@ const pantallasproducts = [
   
 ]; 
 
-const pantallasLinePage = () => {
+
   return (
     <EquipmentBrandPage
       brand="Case"
       products={pantallasproducts}
-      categoryTitle="Pantallas"
-      categoryDescription="Descubra todas las funciones y posibilidades que brindan nuestras Pantallas."
+      categoryTitle={t('case.pantalla.categoryTitle')}
+      categoryDescription={t('case.pantalla.categoryDescription')}
     />
   );
 };

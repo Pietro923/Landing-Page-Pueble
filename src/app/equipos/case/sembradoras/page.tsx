@@ -1,12 +1,16 @@
 // app/equipos/case/sembradora/precisiondisk/page.tsx
+"use client"
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
+import { useTranslation } from 'react-i18next';
 
+const precisiondiskLinePage = () => {
+const { t } = useTranslation();
 const precisiondiskProducts = [
   {
     id: 1,
     name: "Precision Disk",
-    category: "Sembradoras",
-    description: "La familia de sembradoras neumáticas Case IH Precision Disk presentan diseños que maximizan tu productividad, sin importar las condiciones de los residuos con los que está tratando o los cultivos que siembra.",
+    category: t('page.equipos.case.categories3'),
+    description: t('case.sembradora.desc1'),
     image: "/imagenes/equipment/case/sembradoras/precisiondisk.webp",
     specs: {
       power: "",
@@ -17,13 +21,13 @@ const precisiondiskProducts = [
   },
 ]; 
 
-const precisiondiskLinePage = () => {
+
   return (
     <EquipmentBrandPage
       brand="Case"
       products={precisiondiskProducts}
-      categoryTitle="Sembradora Precision Disk"
-      categoryDescription="Descubra la versatilidad y confiabilidad de nuestras Sembradoras Precision Disk."
+      categoryTitle={t('case.sembradora.categoryTitle')}
+      categoryDescription={t('case.sembradora.categoryDescription')}
     />
   );
 };

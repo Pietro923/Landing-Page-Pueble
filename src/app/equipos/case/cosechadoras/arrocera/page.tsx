@@ -1,12 +1,16 @@
 // app/equipos/case/cosechadoras/arrocera/page.tsx
+"use client"
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
+import { useTranslation } from 'react-i18next';
 
+const arroceraLinePage = () => {
+const { t } = useTranslation();
 const arroceraproducts = [
   {
     id: 1,
     name: "Arrocera 5130 RI",
-    category: "Cosechadoras",
-    description: "Con la cosechadora 5130 RI es posible realizar una cosecha mucho más fácil, independientemente de la condición en campo.",
+    category: t('page.equipos.case.categories2'),
+    description: t('case.cosechadora.arrocera.desc1'),
     image: "/imagenes/equipment/case/cosechadoras/arrocera/arrocera7130.webp",
     specs: {
       power: "",
@@ -18,8 +22,8 @@ const arroceraproducts = [
   {
     id: 2,
     name: "Arrocera 7130 RI",
-    category: "Cosechadoras",
-    description: "Con la cosechadora 7130, la robustez y el menor costo operacional son destaques en su cosecha.",
+    category: t('page.equipos.case.categories2'),
+    description: t('case.cosechadora.arrocera.desc2'),
     image: "/imagenes/equipment/case/cosechadoras/arrocera/arrocera5130.webp",
     specs: {
       power: "",
@@ -30,13 +34,13 @@ const arroceraproducts = [
   },
 ]; 
 
-const arroceraLinePage = () => {
+
   return (
     <EquipmentBrandPage
       brand="Case"
       products={arroceraproducts}
-      categoryTitle="Línea Arrocera"
-      categoryDescription="Descubra la versatilidad y confiabilidad de nuestras cosechadoras Arroceras"
+      categoryTitle={t('case.cosechadora.arrocera.categoryTitle')}
+      categoryDescription={t('case.cosechadora.arrocera.categoryDescription')}
     />
   );
 };

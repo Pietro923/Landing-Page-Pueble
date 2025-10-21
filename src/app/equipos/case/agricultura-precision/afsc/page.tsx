@@ -1,12 +1,16 @@
 // app/equipos/case/case/agricultura-precision/afsc.tsx'
+"use client"
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
+import { useTranslation } from 'react-i18next';
 
+const afscproductsLinePage = () => {
+const { t } = useTranslation();
 const afscproducts = [
   {
     id: 1,
     name: "Monitor AFS Connect",
-    category: "Agricultura y Precisión",
-    description: "Case IH Advanced Farming Systems® (AFS) le devuelve el control, con tecnología de precisión que permite lograr productividad y eficiencia en cada campaña.Los nuevos cabezales 3020 Series proporcionan lo último en tecnologías flex head. Además, este modelo cuenta con el servicio premium de atención MAX Case IH®",
+    category: t('page.equipos.case.categories5'),
+    description: t('case.afs.desc1'),
     image: "/imagenes/equipment/case/agriculturayprecision/afsc/monitorafsc.webp",
     specs: {
       power: "",
@@ -17,13 +21,13 @@ const afscproducts = [
   },
 ]; 
 
-const afscproductsLinePage = () => {
+
   return (
     <EquipmentBrandPage
       brand="Case"
       products={afscproducts}
-      categoryTitle="AFS Connect"
-      categoryDescription="Descubra todas las funciones que trae AFS Connect"
+      categoryTitle={t('case.afs.categoryTitle')}
+      categoryDescription={t('case.afs.categoryDescription')}
     />
   );
 };
