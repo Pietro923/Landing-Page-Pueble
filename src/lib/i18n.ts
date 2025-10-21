@@ -667,6 +667,76 @@ const resources = {
       'case.afs.categoryTitle':'AFS Connect',
       'case.afs.categoryDescription':'Descubra todas las funciones que trae AFS Connect',
       
+      // JCB - Equipos
+      
+      'jcb.excavadora.name':'Excavadora',
+      'jcb.excavadora.desc1':'Con solo 875 kg, la microexcavadora JCB 8008 CTS es la incorporación más pequeña de la gama. Incorpora un motor de primera clase de 9 kW y un bastidor inferior extensible.',
+      'jcb.excavadora.desc2':'La miniexcavadora JCB 8025 ZTS cuenta con un motor Perkins de 20.9 kW y 1.5 litros y un motor de orugas de dos velocidades.',
+      'jcb.excavadora.desc3':'La novedosa miniexcavadora 8026 CTS es la primera miniexcavadora de cola convencional de JCB dentro de la categoría de 2.5 a 3.5 toneladas que se puede remolcar con un vehículo de 3.5 toneladas.',
+      'jcb.excavadora.desc4':'La excavadora de ruedas JS145W es el modelo de 14.5 toneladas dentro de nuestra gama. El sistema hidráulico avanzado y el motor Dieselmax proporcionan potencia, ahorro de combustible y productividad.',
+      'jcb.excavadora.desc5':'La JS160W es el modelo de 17 toneladas en nuestra gama de excavadoras de ruedas. Un diseño hidráulico avanzado y un motor Dieselmax proporcionan ahorro de combustible, productividad y una larga vida útil.',
+      'jcb.excavadora.desc6':'La excavadora de ruedas JS175W es el modelo de 17.5 toneladas dentro de nuestra gama. El sistema hidráulico avanzado y el motor Isuzu proporcionan potencia, ahorro de combustible y productividad.',
+      'jcb.excavadora.desc7':'La excavadora de ruedas JS200W es el modelo de 22 toneladas de nuestra gama. El sistema hidráulico avanzado y el motor Isuzu proporcionan potencia, ahorro de combustible y productividad.',
+      'jcb.excavadora.desc8':'El JCB JS20MH es un manipulador de materiales sobre ruedas diseñado para proporcionar la mayor productividad, eficiencia y rendimiento para su inversión, a la vez que protege rigurosamente a los operadores y transeúntes por igual.',
+      'jcb.excavadora.desc9':'La JS130 LC es una excavadora de orugas de 13 toneladas que ha sido diseñada, probada y fabricada sin condicionamientos. En su corazón está el nuevo motor JCB EcoMAX, la última palabra en eficiencia, rendimiento y productividad.',
+      'jcb.excavadora.desc10':'Descubra el nivel NXT de eficiencia con JCB 205 NXT',
+      'jcb.excavadora.desc11':'La JS220 es una excavadora de orugas de 22 toneladas que ha sido diseñada, probada y fabricada sin condicionamientos. En su corazón está el nuevo motor JCB DieselMAX, la última palabra en eficiencia, rendimiento y productividad.',
+      'jcb.excavadora.desc12':'La JCB JS300 está en el extremo superior de nuestra gama de excavadoras pesadas. Con un peso aproximado de 30 toneladas, está diseñada con una excepcional fuerza, productividad, eficiencia, confort, seguridad y facilidad de mantenimiento.',
+      'jcb.excavadora.desc13':'La más grande de nuestras excavadoras sobre orugas, la JCB JS370 de 37 toneladas, ofrece ahorros sustanciales de combustible en comparación con los modelos anteriores.',
+      'jcb.excavadora.categoryTitle':'Excavadoras JCB',
+      'jcb.excavadora.categoryDescription':'Explore nuestra gama de Excavadoras, líderes mundiales en su categoría.',
+
+      // Cargadores Frontales
+      'jcb.cargador.name':'Cargador Frontal',
+      'jcb.cargador.desc1':'La JCB 406 es una cargadora de ruedas compacta altamente productiva con una relación óptima de potencia a peso, lo que la convierte en una portadora de herramientas perfecta.',
+      'jcb.cargador.desc2':'La cargadora de ruedas JCB 422ZX está diseñada para soportar todo el trabajo duro que se le puede lanzar, con excelentes niveles de productividad y eficiencia.',
+      'jcb.cargador.desc3':'El cargador frontal JCB 426 pesa 13.3 toneladas y usa un motor Cummins QSB de 6.7 litros que cumple con la directiva Stage 2. Diseñado para ofrecer durabilidad y productividad.',
+      'jcb.cargador.desc4':'La nueva cargadora JCB 427ZX está diseñada con tecnología innovadora, equipada con un motor cummins de 6 cilindros, que la hace más potente, eficiente y productiva.',
+      'jcb.cargador.desc5':'El cargador frontal JCB 436 pesa 15.3 toneladas y usa un motor Cummins QSB de 6.7 litros que cumple con la directiva Stage 2. Diseñado para ofrecer durabilidad y productividad.',
+      'jcb.cargador.desc6':'La nueva cargadora JCB 437ZX está diseñada con tecnología innovadora, equipada con un motor cummins de 6 cilindros, que la hace más potente, eficiente y productiva"',
+      'jcb.cargador.desc7':'Con un peso de 18 toneladas, el nuevo cargador frontal JCB 455ZX está diseñado para ofrecer durabilidad, rendimiento y fácil mantenimiento para lograr una excelente productividad incluso en entornos de construcción remotos.',
+      'jcb.cargador.desc8':'Existen muchas razones para elegir el cargador JCB 456ZX. Es productiva, eficiente, fácil de mantener y extremadamente duradera.',
+      'jcb.cargador.desc9':'El cargador frontal JCB 467 ZX de alta gama pesa 24 toneladas y usa un motor Cummins QSM11 de 10,8 litros que cumple con las normativas Fase 3a/Tier 3. Está diseñado para controlar lo que sea.',
+      'jcb.cargador.categoryTitle':'Cargadores Frontales',
+      'jcb.cargador.categoryDescription':'Explore nuestra gama de Cargadores Frontales, líderes mundiales en su categoría.',
+
+      // mini cargadores jcb
+      'jcb.minic.name':'Mini Cargador',
+      'jcb.minic.desc1':'El minicargador de elevación radial JCB 135 con plataforma pequeña tiene una capacidad nominal operativa de 612 kg y cabina con acceso lateral. el minicargador más seguro de la industria.',
+      'jcb.minic.desc2':'El minicargador de elevación radial JCB 155 genera 44.7 kW de potencia, tiene una capacidad nominal operativa de 703 kg y ofrece un alto nivel de seguridad y productividad, lo que lo convierte en el minicargador más seguro de la industria.',
+      'jcb.minic.desc3':'El minicargador JCB 175, de elevación vertical, y plataforma pequeña tiene una capacidad nominal operativa de 794 kg e incorpora un exclusivo brazo único y cabina con acceso lateral. El motor Perkins de 54,4 Hp que posee este minicargador ofrece excelente desempeño',
+      'jcb.minic.desc4':'El nuevo minicargador JCB 190 de plataforma pequeña ,elevación vertical, y 862 kg de capacidad operativa nominal, incorpora nuestro exclusivo diseño de pluma única y entrada lateral.',
+      'jcb.minic.desc5':'El nuevo cargador de elevación vertical JCB 205 es el mayor de nuestros minicargadores de plataforma pequeña; tiene una capacidad nominal operativa de 930 kg y una potencia de 44.7 kW. el minicargador más seguro de la industria.',
+      'jcb.minic.desc6':'El minicargador 270 de plataforma grande Hi-Viz, es una máquina de elevación vertical con un motor JCB DieselMAX de 48,3 kW y una capacidad operativa nominal de 1235 kg.',
+      'jcb.minic.categoryTitle':'Mini Cargadores',
+      'jcb.minic.categoryDescription':'Explore nuestra gama de Mini Cargadores JCB, líderes mundiales en su categoría.',
+
+      // Rolos Compactadores JCB
+      'jcb.rolos.name':'Rolo Compactador',
+      'jcb.rolos.desc1':'La JCB 116D logra una excelente densidad con menor cantidad de pasadas, lo que se traduce en ahorro de dinero.',
+      'jcb.rolos.desc2':'La gama VM de compactadoras de suelo están diseñadas para hacer las cosas más fácil.',
+      'jcb.rolos.categoryTitle':'Rolos Compactadores JCB',
+      'jcb.rolos.categoryDescription':'Explore nuestra gama de Rolos Compactadores, líderes mundiales en su categoría.',
+
+      //RetroExcavadoras JCB
+
+      'jcb.retro.name':'Retroexcavadora',
+      'jcb.retro.desc1':'La ligera JCB 1CX es la retroexcavadora más pequeña de nuestra gama. Su huella compacta y estrecha la hace increíblemente versátil y le permite trabajar en los lugares más angostos.',
+      'jcb.retro.desc2':'La retroexcavadora 3CX está diseñada para proveer un óptimo retorno de la inversión a través de una amplia gama de aplicaciones.',
+      'jcb.retro.desc3':'La retroexcavadora JCB 4CX es el modelo más grande de nuestra gama, y ofrece un balde con capacidad de 1 m3 y 1.3 m3 opcional, 3 modos de dirección y nuestro potente motor Dieselmax de 74.2 kW.',
+      'jcb.retro.categoryTitle':'Retroexcavadoras JCB',
+      'jcb.retro.categoryDescription':'Explore nuestra gama de retroexcavadoras JCB, líderes mundiales en su categoría.',
+
+      // Manipuladores telescopicos
+
+      'jcb.mani.name':'Manipulador Telescopico',
+      'jcb.mani.desc1':'El Manipulador telescópico 530-70 es una máquina versatil y durable, diseñada para mover cualquier material de manera rápida y segura.',
+      'jcb.mani.desc2':'El manipulador telescópico JCB 531-70 está diseñado para afrontar las dificultades de cualquier trabajo de frente.',
+      'jcb.mani.desc3':'La JCB 535-125 Alta Visibilidad supone un gran paso en la visibilidad de los manipuladores telescópicos. Es un manipulador telescópico de 3 fases y tamaño normal con un gran alcance y movilidad mejorada.',
+      'jcb.mani.desc4':'El manipulador telescópico JCB 540-170 de 4 fases con motor Dieselmax tiene un gran alcance y carga útil para ofrecer una productividad y unos tiempos de ciclo excepcionales.',
+      'jcb.mani.desc5':'La 541-70 es un manipulador telescópico con motor Dieselmax altamente eficiente. Es potente, productivo, manejable, cómodo y seguro.',
+      'jcb.mani.categoryTitle':'Manipuladores Telescópicos',
+      'jcb.mani.categoryDescription':'Explore nuestra gama de Manipuladores Telescópicos, líderes mundiales en su categoría.',
 
     }
   },
@@ -1327,6 +1397,74 @@ const resources = {
       'case.afs.categoryTitle':'AFS Connect',
       'case.afs.categoryDescription':'Discover all the features that AFS Connect brings.',
 
+      // JCB - Equipment
+
+      'jcb.excavadora.name': 'Excavator',
+      'jcb.excavadora.desc1': 'At only 875 kg, the JCB 8008 CTS micro excavator is the smallest addition to the range. It features a class-leading 9 kW engine and an extendable undercarriage.',
+      'jcb.excavadora.desc2': 'The JCB 8025 ZTS mini excavator features a 1.5-liter Perkins engine with 20.9 kW and a two-speed track motor.',
+      'jcb.excavadora.desc3': 'The innovative JCB 8026 CTS mini excavator is the first conventional tail mini excavator from JCB in the 2.5 to 3.5 ton category that can be towed by a 3.5-ton vehicle.',
+      'jcb.excavadora.desc4': 'The JS145W wheeled excavator is the 14.5-ton model in our range. Its advanced hydraulic system and Dieselmax engine deliver power, fuel efficiency, and productivity.',
+      'jcb.excavadora.desc5': 'The JS160W is the 17-ton model in our wheeled excavator range. Its advanced hydraulic design and Dieselmax engine ensure fuel efficiency, productivity, and long service life.',
+      'jcb.excavadora.desc6': 'The JS175W wheeled excavator is the 17.5-ton model in our range. Its advanced hydraulic system and Isuzu engine provide power, fuel savings, and productivity.',
+      'jcb.excavadora.desc7': 'The JS200W wheeled excavator is the 22-ton model in our range. The advanced hydraulic system and Isuzu engine deliver power, fuel efficiency, and productivity.',
+      'jcb.excavadora.desc8': 'The JCB JS20MH is a wheeled material handler designed to deliver maximum productivity, efficiency, and performance for your investment while rigorously protecting both operators and bystanders.',
+      'jcb.excavadora.desc9': 'The JS130 LC is a 13-ton tracked excavator designed, tested, and built without compromise. At its heart lies the new JCB EcoMAX engine — the ultimate in efficiency, performance, and productivity.',
+      'jcb.excavadora.desc10': 'Discover the NXT level of efficiency with the JCB 205 NXT.',
+      'jcb.excavadora.desc11': 'The JS220 is a 22-ton tracked excavator designed, tested, and built without compromise. At its heart is the new JCB DieselMAX engine — the ultimate in efficiency, performance, and productivity.',
+      'jcb.excavadora.desc12': 'The JCB JS300 sits at the top end of our heavy excavator range. Weighing around 30 tons, it’s designed for exceptional strength, productivity, efficiency, comfort, safety, and ease of maintenance.',
+      'jcb.excavadora.desc13': 'The largest in our tracked excavator range, the 37-ton JCB JS370 delivers substantial fuel savings compared to previous models.',
+      'jcb.excavadora.categoryTitle': 'JCB Excavators',
+      'jcb.excavadora.categoryDescription': 'Explore our range of Excavators, world leaders in their category.',
+
+      // Front Loaders
+      'jcb.cargador.name': 'Front Loader',
+      'jcb.cargador.desc1': 'The JCB 406 is a highly productive compact wheel loader with an optimal power-to-weight ratio, making it the perfect tool carrier.',
+      'jcb.cargador.desc2': 'The JCB 422ZX wheel loader is built to handle the toughest workloads, offering excellent levels of productivity and efficiency.',
+      'jcb.cargador.desc3': 'The JCB 426 front loader weighs 13.3 tons and uses a 6.7-liter Cummins QSB engine compliant with Stage 2 regulations. Designed for durability and productivity.',
+      'jcb.cargador.desc4': 'The new JCB 427ZX loader is built with innovative technology and equipped with a 6-cylinder Cummins engine, making it more powerful, efficient, and productive.',
+      'jcb.cargador.desc5': 'The JCB 436 front loader weighs 15.3 tons and features a 6.7-liter Cummins QSB engine that meets Stage 2 standards. Designed for durability and performance.',
+      'jcb.cargador.desc6': 'The new JCB 437ZX loader is built with innovative technology and equipped with a 6-cylinder Cummins engine, making it more powerful, efficient, and productive.',
+      'jcb.cargador.desc7': 'Weighing 18 tons, the new JCB 455ZX front loader is designed for durability, performance, and easy maintenance to achieve excellent productivity even in remote construction environments.',
+      'jcb.cargador.desc8': 'There are many reasons to choose the JCB 456ZX loader. It’s productive, efficient, easy to maintain, and extremely durable.',
+      'jcb.cargador.desc9': 'The top-of-the-line JCB 467 ZX front loader weighs 24 tons and uses a 10.8-liter Cummins QSM11 engine compliant with Stage 3a/Tier 3 standards. It’s designed to handle anything.',
+      'jcb.cargador.categoryTitle': 'Front Loaders',
+      'jcb.cargador.categoryDescription': 'Explore our range of Front Loaders, world leaders in their category.',
+
+      // Mini Loaders
+      'jcb.minic.name': 'Mini Loader',
+      'jcb.minic.desc1': 'The JCB 135 radial lift skid steer loader with a small platform has an operating capacity of 612 kg and a side-entry cab — the safest skid steer in the industry.',
+      'jcb.minic.desc2': 'The JCB 155 radial lift skid steer generates 44.7 kW of power, has a rated operating capacity of 703 kg, and offers high levels of safety and productivity, making it the safest in the industry.',
+      'jcb.minic.desc3': 'The JCB 175 vertical lift skid steer with a small platform has a rated operating capacity of 794 kg and features a unique single-arm design and side-entry cab. Its 54.4 Hp Perkins engine delivers excellent performance.',
+      'jcb.minic.desc4': 'The new JCB 190 mini loader, with a small platform and vertical lift, has a rated operating capacity of 862 kg and features our exclusive single-boom design and side entry.',
+      'jcb.minic.desc5': 'The new JCB 205 vertical lift loader is the largest of our small platform skid steers, with a rated operating capacity of 930 kg and 44.7 kW of power — the safest skid steer in the industry.',
+      'jcb.minic.desc6': 'The large platform Hi-Viz JCB 270 skid steer is a vertical lift machine powered by a 48.3 kW JCB DieselMAX engine and has a rated operating capacity of 1235 kg.',
+      'jcb.minic.categoryTitle': 'Mini Loaders',
+      'jcb.minic.categoryDescription': 'Explore our range of JCB Mini Loaders, world leaders in their category.',
+
+      // Compactors
+      'jcb.rolos.name': 'Soil Compactor',
+      'jcb.rolos.desc1': 'The JCB 116D achieves excellent compaction density with fewer passes, saving both time and money.',
+      'jcb.rolos.desc2': 'The VM range of soil compactors is designed to make your work easier.',
+      'jcb.rolos.categoryTitle': 'JCB Soil Compactors',
+      'jcb.rolos.categoryDescription': 'Explore our range of JCB Soil Compactors, world leaders in their category.',
+
+      // Backhoe Loaders
+      'jcb.retro.name': 'Backhoe Loader',
+      'jcb.retro.desc1': 'The lightweight JCB 1CX is the smallest backhoe in our range. Its compact and narrow footprint makes it incredibly versatile and allows it to work in tight spaces.',
+      'jcb.retro.desc2': 'The JCB 3CX backhoe loader is designed to deliver the best return on investment across a wide range of applications.',
+      'jcb.retro.desc3': 'The JCB 4CX backhoe loader is the largest model in our range, offering a 1 m³ bucket (optional 1.3 m³), 3 steering modes, and our powerful 74.2 kW Dieselmax engine.',
+      'jcb.retro.categoryTitle': 'JCB Backhoe Loaders',
+      'jcb.retro.categoryDescription': 'Explore our range of JCB Backhoe Loaders, world leaders in their category.',
+
+      // Telescopic Handlers
+      'jcb.mani.name': 'Telescopic Handler',
+      'jcb.mani.desc1': 'The JCB 530-70 telescopic handler is a versatile and durable machine designed to move materials quickly and safely.',
+      'jcb.mani.desc2': 'The JCB 531-70 telescopic handler is designed to handle the toughest jobs head-on.',
+      'jcb.mani.desc3': 'The JCB 535-125 Hi-Viz marks a major step forward in visibility for telescopic handlers. It’s a 3-stage, full-size handler with great reach and enhanced maneuverability.',
+      'jcb.mani.desc4': 'The JCB 540-170 telescopic handler with a 4-stage Dieselmax engine delivers exceptional productivity and cycle times.',
+      'jcb.mani.desc5': 'The 541-70 is a highly efficient Dieselmax-powered telescopic handler. It’s powerful, productive, comfortable, and safe.',
+      'jcb.mani.categoryTitle': 'Telescopic Handlers',
+      'jcb.mani.categoryDescription': 'Explore our range of JCB Telescopic Handlers, world leaders in their category.'
 
     },
   },

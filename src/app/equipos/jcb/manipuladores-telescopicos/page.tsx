@@ -1,12 +1,16 @@
 // app/equipos/jcb/retroexcavadoras/page.tsx
+"use client"
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
+import { useTranslation } from "react-i18next";
 
+const ManipuladorestelescopicosPage = () => {
+    const { t } = useTranslation();
 const manipuladorestelescopicosProducts = [
   {
     id: 1,
-    name: "530-70",
-    category: "Manipuladores Telescópicos",
-    description: "El Manipulador telescópico 530-70 es una máquina versatil y durable, diseñada para mover cualquier material de manera rápida y segura.",
+    name: `${t('jcb.mani.name')} | 530-70`,
+    category: t('page.equipos.jcb.categories6'),
+    description: t('jcb.mani.desc1'),
     image: "/imagenes/equipment/jcb/manipuladorestelescopicos/530.webp",
     specs: {
       power: "",
@@ -17,9 +21,9 @@ const manipuladorestelescopicosProducts = [
   },
   {
     id: 2,
-    name: "531-70",
-    category: "Manipuladores Telescópicos",
-    description: "El manipulador telescópico JCB 531-70 está diseñado para afrontar las dificultades de cualquier trabajo de frente.",
+    name: `${t('jcb.mani.name')} | 531-70`,
+    category: t('page.equipos.jcb.categories6'),
+    description: t('jcb.mani.desc2'),
     image: "/imagenes/equipment/jcb/manipuladorestelescopicos/531.webp",
     specs: {
       power: "",
@@ -30,9 +34,9 @@ const manipuladorestelescopicosProducts = [
   },
   {
     id: 3,
-    name: "535-125",
-    category: "Manipuladores Telescópicos",
-    description: "La JCB 535-125 Alta Visibilidad supone un gran paso en la visibilidad de los manipuladores telescópicos. Es un manipulador telescópico de 3 fases y tamaño normal con un gran alcance y movilidad mejorada.",
+    name: `${t('jcb.mani.name')} | 535-125`,
+    category: t('page.equipos.jcb.categories6'),
+    description: t('jcb.mani.desc3'),
     image: "/imagenes/equipment/jcb/manipuladorestelescopicos/535.webp",
     specs: {
       power: "",
@@ -43,9 +47,9 @@ const manipuladorestelescopicosProducts = [
   },
   {
     id: 4,
-    name: "540-170",
-    category: "Manipuladores Telescópicos",
-    description: "El manipulador telescópico JCB 540-170 de 4 fases con motor Dieselmax tiene un gran alcance y carga útil para ofrecer una productividad y unos tiempos de ciclo excepcionales.",
+    name: `${t('jcb.mani.name')} | 540-170`,
+    category: t('page.equipos.jcb.categories6'),
+    description: t('jcb.mani.desc4'),
     image: "/imagenes/equipment/jcb/manipuladorestelescopicos/540.webp",
     specs: {
       power: "",
@@ -56,9 +60,9 @@ const manipuladorestelescopicosProducts = [
   },
   {
     id: 5,
-    name: "541-70",
-    category: "Manipuladores Telescópicos",
-    description: "La 541-70 es un manipulador telescópico con motor Dieselmax altamente eficiente. Es potente, productivo, manejable, cómodo y seguro.",
+    name: `${t('jcb.mani.name')} | 541-70`,
+    category: t('page.equipos.jcb.categories6'),
+    description: t('jcb.mani.desc5'),
     image: "/imagenes/equipment/jcb/manipuladorestelescopicos/541.webp",
     specs: {
       power: "",
@@ -69,13 +73,13 @@ const manipuladorestelescopicosProducts = [
   },
 ];
 
-const manipuladorestelescopicosPage = () => {
+
   return <EquipmentBrandPage 
     brand="JCB" 
     products={manipuladorestelescopicosProducts}
-    categoryTitle="Manipuladores Telescópicos JCB"
-    categoryDescription="Explore nuestra gama de Manipuladores Telescópicos, líderes mundiales en su categoría."
+    categoryTitle={t('jcb.mani.categoryTitle')}
+    categoryDescription={t('jcb.mani.categoryDescription')}
   />;
 };
 
-export default manipuladorestelescopicosPage;
+export default ManipuladorestelescopicosPage;

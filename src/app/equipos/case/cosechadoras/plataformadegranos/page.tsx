@@ -3,7 +3,7 @@
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
 import { useTranslation } from 'react-i18next';
 
-const plataformadegranosLinePage = () => {
+const PlataformadegranosLinePage = () => {
 const { t } = useTranslation();
 const plataformadegranosproducts = [
   {
@@ -45,4 +45,4 @@ const plataformadegranosproducts = [
   );
 };
 
-export default plataformadegranosLinePage;
+export default PlataformadegranosLinePage;

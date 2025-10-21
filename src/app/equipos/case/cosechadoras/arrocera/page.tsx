@@ -3,7 +3,7 @@
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
 import { useTranslation } from 'react-i18next';
 
-const arroceraLinePage = () => {
+const ArroceraLinePage = () => {
 const { t } = useTranslation();
 const arroceraproducts = [
   {
@@ -45,4 +45,4 @@ const arroceraproducts = [
   );
 };
 
-export default arroceraLinePage;
+export default ArroceraLinePage;

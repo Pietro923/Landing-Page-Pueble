@@ -1,11 +1,15 @@
+"use client"
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
+import { useTranslation } from "react-i18next";
 
+const CargadoresPage = () => {
+const { t } = useTranslation();
 const cargadoresProducts = [
   {
     id: 1,
-    name: "406",
-    category: "Cargadores Frontales",
-    description: "La JCB 406 es una cargadora de ruedas compacta altamente productiva con una relación óptima de potencia a peso, lo que la convierte en una portadora de herramientas perfecta.",
+    name: `${t('jcb.cargador.name')} | 406`,
+    category: t('page.equipos.jcb.categories2'),
+    description: t('jcb.cargador.desc1'),
     image: "/imagenes/equipment/jcb/cargadores-frontales/406.webp",
     specs: {
       power: "",
@@ -16,9 +20,9 @@ const cargadoresProducts = [
   },
   {
     id: 2,
-    name: "422ZX",
-    category: "Cargadores Frontales",
-    description: "La cargadora de ruedas JCB 422ZX está diseñada para soportar todo el trabajo duro que se le puede lanzar, con excelentes niveles de productividad y eficiencia.",
+    name: `${t('jcb.cargador.name')} | 422ZX`,
+    category: t('page.equipos.jcb.categories2'),
+    description: t('jcb.cargador.desc2'),
     image: "/imagenes/equipment/jcb/cargadores-frontales/422.webp",
     specs: {
       power: "",
@@ -29,9 +33,9 @@ const cargadoresProducts = [
   },
   {
     id: 3,
-    name: "426",
-    category: "Cargadores Frontales",
-    description: "El cargador frontal JCB 426 pesa 13.3 toneladas y usa un motor Cummins QSB de 6.7 litros que cumple con la directiva Stage 2. Diseñado para ofrecer durabilidad y productividad.",
+    name: `${t('jcb.cargador.name')} | 426`,
+    category: t('page.equipos.jcb.categories2'),
+    description: t('jcb.cargador.desc3'),
     image: "/imagenes/equipment/jcb/cargadores-frontales/426.webp",
     specs: {
       power: "",
@@ -42,9 +46,9 @@ const cargadoresProducts = [
   },
   {
     id: 4,
-    name: "427ZX",
-    category: "Cargadores Frontales",
-    description: "La nueva cargadora JCB 427ZX está diseñada con tecnología innovadora, equipada con un motor cummins de 6 cilindros, que la hace más potente, eficiente y productiva.",
+    name: `${t('jcb.cargador.name')} | 427ZX`,
+    category: t('page.equipos.jcb.categories2'),
+    description: t('jcb.cargador.desc4'),
     image: "/imagenes/equipment/jcb/cargadores-frontales/427.webp",
     specs: {
       power: "",
@@ -55,9 +59,9 @@ const cargadoresProducts = [
   },
   {
     id: 5,
-    name: "436",
-    category: "Cargadores Frontales",
-    description: "El cargador frontal JCB 436 pesa 15.3 toneladas y usa un motor Cummins QSB de 6.7 litros que cumple con la directiva Stage 2. Diseñado para ofrecer durabilidad y productividad.",
+    name: `${t('jcb.cargador.name')} | 436`,
+    category: t('page.equipos.jcb.categories2'),
+    description: t('jcb.cargador.desc5'),
     image: "/imagenes/equipment/jcb/cargadores-frontales/436.webp",
     specs: {
       power: "",
@@ -68,9 +72,9 @@ const cargadoresProducts = [
   },
   {
     id: 6,
-    name: "437ZX",
-    category: "Cargadores Frontales",
-    description: "La nueva cargadora JCB 437ZX está diseñada con tecnología innovadora, equipada con un motor cummins de 6 cilindros, que la hace más potente, eficiente y productiva",
+    name: `${t('jcb.cargador.name')} | 437ZX`,
+    category: t('page.equipos.jcb.categories2'),
+    description: t('jcb.cargador.desc6'),
     image: "/imagenes/equipment/jcb/cargadores-frontales/437.webp",
     specs: {
       power: "",
@@ -81,9 +85,9 @@ const cargadoresProducts = [
   },
   {
     id: 7,
-    name: "455ZX",
-    category: "Cargadores Frontales",
-    description: "Con un peso de 18 toneladas, el nuevo cargador frontal JCB 455ZX está diseñado para ofrecer durabilidad, rendimiento y fácil mantenimiento para lograr una excelente productividad incluso en entornos de construcción remotos.",
+    name: `${t('jcb.cargador.name')} | 455ZX`,
+    category: t('page.equipos.jcb.categories2'),
+    description: t('jcb.cargador.desc7'),
     image: "/imagenes/equipment/jcb/cargadores-frontales/455.webp",
     specs: {
       power: "",
@@ -94,9 +98,9 @@ const cargadoresProducts = [
   },
   {
     id: 8,
-    name: "456ZX",
-    category: "Cargadores Frontales",
-    description: "Existen muchas razones para elegir el cargador JCB 456ZX. Es productiva, eficiente, fácil de mantener y extremadamente duradera.",
+    name: `${t('jcb.cargador.name')} | 456ZX`,
+    category: t('page.equipos.jcb.categories2'),
+    description: t('jcb.cargador.desc8'),
     image: "/imagenes/equipment/jcb/cargadores-frontales/456.webp",
     specs: {
       power: "",
@@ -107,9 +111,9 @@ const cargadoresProducts = [
   },
   {
     id: 9,
-    name: "467ZX",
-    category: "Cargadores Frontales",
-    description: "El cargador frontal JCB 467 ZX de alta gama pesa 24 toneladas y usa un motor Cummins QSM11 de 10,8 litros que cumple con las normativas Fase 3a/Tier 3. Está diseñado para controlar lo que sea.",
+    name: `${t('jcb.cargador.name')} | 467ZX`,
+    category: t('page.equipos.jcb.categories2'),
+    description: t('jcb.cargador.desc9'),
     image: "/imagenes/equipment/jcb/cargadores-frontales/467.webp",
     specs: {
       power: "",
@@ -120,13 +124,13 @@ const cargadoresProducts = [
   },
 ];
 
-const cargadoresPage = () => {
+
   return <EquipmentBrandPage 
     brand="JCB" 
     products={cargadoresProducts}
-    categoryTitle="Cargadores Frontales JCB"
-    categoryDescription="Explore nuestra gama de Cargadores Frontales, líderes mundiales en su categoría."
+    categoryTitle={t('jcb.cargador.categoryTitle')}
+    categoryDescription={t('jcb.cargador.categoryDescription')}
   />;
 };
 
-export default cargadoresPage;
+export default CargadoresPage;

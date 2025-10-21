@@ -1,12 +1,16 @@
 // app/equipos/jcb/retroexcavadoras/page.tsx
+"use client"
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
+import { useTranslation } from "react-i18next";
 
+const RoloscompactadoresPage = () => {
+const { t } = useTranslation();
 const roloscompactadoresProducts = [
   {
     id: 1,
-    name: "JCB 116D",
-    category: "Rodillo Compactador",
-    description: "La JCB 116D logra una excelente densidad con menor cantidad de pasadas, lo que se traduce en ahorro de dinero.",
+    name: `${t('jcb.rolos.name')} | JCB 116D`,
+    category: t('page.equipos.jcb.categories4'),
+    description: t('jcb.rolos.desc1'),
     image: "/imagenes/equipment/jcb/roloscompactadores/116.webp",
     specs: {
       power: "",
@@ -17,9 +21,9 @@ const roloscompactadoresProducts = [
   },
   {
     id: 2,
-    name: "VM75/166/200",
-    category: "Rodillo Compactador",
-    description: "La gama VM de compactadoras de suelo están diseñadas para hacer las cosas más fácil.",
+    name: `${t('jcb.rolos.name')} | VM75/166/200`,
+    category: t('page.equipos.jcb.categories4'),
+    description: t('jcb.rolos.desc2'),
     image: "/imagenes/equipment/jcb/roloscompactadores/75.webp",
     specs: {
       power: "",
@@ -30,13 +34,13 @@ const roloscompactadoresProducts = [
   },
 ];
 
-const roloscompactadoresPage = () => {
+
   return <EquipmentBrandPage 
     brand="JCB" 
     products={roloscompactadoresProducts}
-    categoryTitle="Rolos Compactadores JCB"
-    categoryDescription="Explore nuestra gama de Rolos Compactadores, líderes mundiales en su categoría."
+    categoryTitle={t('jcb.rolos.categoryTitle')}
+    categoryDescription={t('jcb.rolos.categoryDescription')}
   />;
 };
 
-export default roloscompactadoresPage;
+export default RoloscompactadoresPage;

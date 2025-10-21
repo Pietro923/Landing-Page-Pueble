@@ -3,7 +3,7 @@
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
 import { useTranslation } from 'react-i18next';
 
-const afscproductsLinePage = () => {
+const AfscproductsLinePage = () => {
 const { t } = useTranslation();
 const afscproducts = [
   {
@@ -32,4 +32,4 @@ const afscproducts = [
   );
 };
 
-export default afscproductsLinePage;
+export default AfscproductsLinePage;

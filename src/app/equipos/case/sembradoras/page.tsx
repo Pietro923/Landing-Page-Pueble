@@ -3,7 +3,7 @@
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
 import { useTranslation } from 'react-i18next';
 
-const precisiondiskLinePage = () => {
+const PrecisiondiskLinePage = () => {
 const { t } = useTranslation();
 const precisiondiskProducts = [
   {
@@ -32,4 +32,4 @@ const precisiondiskProducts = [
   );
 };
 
-export default precisiondiskLinePage;
+export default PrecisiondiskLinePage;

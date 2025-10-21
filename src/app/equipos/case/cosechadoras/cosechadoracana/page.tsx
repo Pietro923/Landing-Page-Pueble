@@ -3,7 +3,7 @@
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
 import { useTranslation } from 'react-i18next';
 
-const cosechadoracanaLinePage = () => {
+const CosechadoracanaLinePage = () => {
 const { t } = useTranslation();
 const cosechadoracanaproducts = [
   {
@@ -32,4 +32,4 @@ const cosechadoracanaproducts = [
   );
 };
 
-export default cosechadoracanaLinePage;
+export default CosechadoracanaLinePage;

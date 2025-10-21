@@ -3,7 +3,7 @@
 import EquipmentBrandPage from '@/components/equipo/EquipmentBrandPage';
 import { useTranslation } from 'react-i18next';
 
-const pantallasLinePage = () => {
+const PantallasLinePage = () => {
 const { t } = useTranslation();
 const pantallasproducts = [
   {
@@ -72,4 +72,4 @@ const pantallasproducts = [
   );
 };
 
-export default pantallasLinePage;
+export default PantallasLinePage;
