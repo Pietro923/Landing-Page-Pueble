@@ -20,13 +20,13 @@ export default function Servicios() {
       icon: Wrench,
       title: t('page.servicios.case.service.items2'),
       description: t('page.servicios.case.service.items2.desc'),
-      contact: "https://wa.me/3815821998?text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta%20sobre%20la%20guardia%20de%20Repuestos!"
+      contact: "https://wa.me/3815821998?text=Hola%20REPUESTOS%20PUEBLE%2C%20c%C3%B3mo%20est%C3%A1n%3F%0AEstoy%20revisando%20la%20p%C3%A1gina%20web%20del%20concesionario%20ya%20que%20necesito%20averiguar%20por%20algunos%20repuestos%20para%20mi%20unidad%20Marca%20CASE."
     },
     {
       icon: PhoneCall,
       title: t('page.servicios.case.service.items3'),
       description: t('page.servicios.case.service.items3.desc'),
-      contact: "https://wa.me/3814901111?text=Hola%20estoy%20en%20la%20pagina%20web%20y%20quiero%20hacer%20una%20consulta%20sobre%20la%20guardia%20de%20Servicios!"
+      contact: "https://wa.me/3814901111?text=Hola%20SERVICIOS%20PUEBLE%2C%20c%C3%B3mo%20est%C3%A1n%3F%0AEstoy%20revisando%20la%20p%C3%A1gina%20web%20del%20concesionario%20ya%20que%20tengo%20un%20problema%20t%C3%A9cnico%20con%20mi%20unidad%20Marca%20CASE.%0AMe%20gustar%C3%ADa%20ponerme%20en%20contacto%20con%20ustedes%20para%20coordinar%20un%20turno%20de%20revisi%C3%B3n."
     },
     {
       icon: Smartphone,
