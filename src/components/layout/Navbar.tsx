@@ -10,6 +10,7 @@ import { Facebook, Instagram, Linkedin } from "lucide-react"
 import Image from 'next/image'
 import { useTranslation } from "react-i18next"
 import { useTheme } from "next-themes"
+import ReactCountryFlag from "react-country-flag"
 
 const Navbar = () => {
   const { t, i18n } = useTranslation()
@@ -88,7 +89,7 @@ const Navbar = () => {
   }
 
   const toggleLanguage = () => {
-    const newLang = i18n.language === 'es' ? 'en' : 'es'
+    const newLang = i18n.language === 'es' ? 'en' : i18n.language === 'en' ? 'pt' : 'es'
     i18n.changeLanguage(newLang)
   }
 
@@ -321,14 +322,21 @@ const Navbar = () => {
                 {/* Toggle Idioma */}
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button
-                    variant="ghost"
-                    size="icon"
-                    className="h-8 w-8 rounded-md bg-zinc-800/50 hover:bg-zinc-700 text-white border border-zinc-700/50"
-                    onClick={toggleLanguage}
-                    aria-label={`Cambiar idioma a ${i18n.language === 'es' ? 'inglés' : 'español'}`}
-                  >
-                    <span className="text-xs font-bold">{i18n.language.toUpperCase()}</span>
-                  </Button>
+  onClick={toggleLanguage}
+  variant="ghost"
+  size="icon"
+  aria-label="Cambiar idioma"
+>
+  {i18n.language === "es" && (
+    <ReactCountryFlag countryCode="AR" svg style={{ width: '1.5em', height: '1.5em' }} />
+  )}
+  {i18n.language === "en" && (
+    <ReactCountryFlag countryCode="US" svg style={{ width: '1.5em', height: '1.5em' }} />
+  )}
+  {i18n.language === "pt" && (
+    <ReactCountryFlag countryCode="BR" svg style={{ width: '1.5em', height: '1.5em' }} />
+  )}
+</Button>
                 </motion.div>
 
                 {/* Toggle Tema */}
