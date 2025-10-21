@@ -1,125 +1,172 @@
-// src/components/home/GrupoPueble.tsx
 'use client';
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useMemo, useCallback, memo } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { useTranslation } from "react-i18next";
 import Image from 'next/image';
-// Componente de tarjeta individual
-const EmpresaCard = ({ empresa, index, active, handleClick }: any) => {
+
+// ============================================
+// 🎯 TIPOS
+// ============================================
+interface Brand {
+  name: string;
+  logo: string;
+  image: string;
+  color: string;
+}
+
+interface Empresa {
+  id: string;
+  title: string;
+  brands: Brand[];
+  link: string;
+}
+
+interface EmpresaCardProps {
+  empresa: Empresa;
+  index: number;
+  active: string;
+  handleClick: (id: string) => void;
+  isMobile: boolean;
+}
+
+// ============================================
+// 🚀 COMPONENTE MEMOIZADO - TARJETA INDIVIDUAL
+// ============================================
+const EmpresaCard = memo(({ empresa, index, active, handleClick, isMobile }: EmpresaCardProps) => {
   const { t } = useTranslation();
+  const shouldReduceMotion = useReducedMotion();
   const isActive = active === empresa.id;
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
-  // Alternar imágenes automáticamente cuando hay múltiples brands
+  // Obtener marca actual
+  const currentBrand = useMemo(
+    () => empresa.brands[currentImageIndex],
+    [empresa.brands, currentImageIndex]
+  );
+
+  // Alternar imágenes solo si está activo y tiene múltiples marcas
   useEffect(() => {
-  if (empresa.brands.length <= 1 || !isActive) {
-    setCurrentImageIndex(0) // Reset cuando no esté activo
-    return
-  }
-  
-  const interval = setInterval(() => {
-    setCurrentImageIndex((prev) => (prev + 1) % empresa.brands.length)
-  }, 4000)
-  
-  return () => clearInterval(interval)
-}, [empresa.brands.length, isActive])
+    if (empresa.brands.length <= 1 || !isActive || isMobile) {
+      setCurrentImageIndex(0);
+      return;
+    }
 
-  const currentBrand = empresa.brands[currentImageIndex];
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % empresa.brands.length);
+    }, 5000); // Aumentado a 5s para mejor performance
+
+    return () => clearInterval(interval);
+  }, [empresa.brands.length, isActive, isMobile]);
+
+  // Handler para cambiar imagen (memoizado)
+  const handleImageChange = useCallback((idx: number, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentImageIndex(idx);
+  }, []);
+
+  // Handler para click en tarjeta (memoizado)
+  const handleCardClick = useCallback(() => {
+    handleClick(empresa.id);
+  }, [handleClick, empresa.id]);
+
+  // Variantes de animación optimizadas
+  const cardVariants = useMemo(() => ({
+    hover: shouldReduceMotion ? {} : { scale: isActive ? 1 : 1.02 },
+  }), [shouldReduceMotion, isActive]);
+
+  const contentVariants = useMemo(() => ({
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: shouldReduceMotion ? 0 : 0.5, delay: 0.3 }
+    },
+  }), [shouldReduceMotion]);
 
   return (
     <motion.div
       className={`relative ${
         isActive ? 'lg:flex-[3.5] flex-[10]' : 'lg:flex-[0.5] flex-[2]'
-      } flex items-center justify-center min-w-[170px] h-[700px] transition-all duration-700 ease-out-flex cursor-pointer overflow-hidden rounded-3xl`}
-      onClick={() => handleClick(empresa.id)}
-      whileHover={{ scale: isActive ? 1 : 1.02 }}
+      } flex items-center justify-center min-w-[170px] h-[700px] transition-all duration-700 cursor-pointer overflow-hidden rounded-3xl`}
+      onClick={handleCardClick}
+      variants={cardVariants}
+      whileHover="hover"
     >
-      {/* Imágenes de fondo con transición */}
-      <AnimatePresence mode="wait">
-        <motion.img
-          key={currentImageIndex}
+      {/* ===== IMAGEN DE FONDO (optimizada con Next Image) ===== */}
+      <div className="absolute inset-0">
+        {/* Placeholder mientras carga */}
+        {!imageLoaded && (
+          <div className={`absolute inset-0 bg-gradient-to-b ${currentBrand.color} animate-pulse`} />
+        )}
+        
+        <Image
           src={currentBrand.image}
           alt={currentBrand.name}
-          className="absolute w-full h-full object-cover"
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.7 }}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className={`object-cover transition-opacity duration-700 ${
+            imageLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onLoadingComplete={() => setImageLoaded(true)}
+          priority={index === 0} // Solo primera imagen con priority
+          quality={isMobile ? 75 : 85} // Menor calidad en móvil
         />
-      </AnimatePresence>
-      
-      {/* Overlay con gradiente - CAMBIA según la marca activa */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={`gradient-${currentImageIndex}`}
-          className={`absolute inset-0 bg-gradient-to-b ${currentBrand.color} opacity-70`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.7 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.7 }}
-        />
-      </AnimatePresence>
-      
-      {/* Contenido */}
+      </div>
+
+      {/* Overlay con gradiente */}
+      <div className={`absolute inset-0 bg-gradient-to-b ${currentBrand.color} opacity-70`} />
+
+      {/* ===== CONTENIDO ===== */}
       <div className="relative z-10 w-full h-full flex flex-col justify-end p-6">
-        {/* Título visible siempre (versión colapsada) */}
+        {/* Título colapsado */}
         {!isActive && (
-          <motion.h3
-            className="font-bold text-white text-2xl lg:text-xl lg:-rotate-90 lg:origin-bottom-left lg:absolute lg:bottom-6 transition-all duration-500"
-            style={{ whiteSpace: 'nowrap' }}
-          >
+          <h3 className="font-bold text-white text-2xl lg:text-xl lg:-rotate-90 lg:origin-bottom-left lg:absolute lg:bottom-6 transition-all duration-500 whitespace-nowrap">
             {empresa.title}
-          </motion.h3>
+          </h3>
         )}
 
-        {/* Contenido expandido (solo visible cuando está activo) */}
+        {/* Contenido expandido */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: isActive ? 0.3 : 0 }}
-          className={`${isActive ? 'flex flex-col' : 'hidden'} space-y-6`}
+          initial="hidden"
+          animate={isActive ? "visible" : "hidden"}
+          variants={contentVariants}
+          className={`${isActive ? 'flex flex-col' : 'hidden'} space-y-4`}
         >
-          {/* Logos de las marcas */}
-          <div className="flex items-center gap-4 flex-wrap">
-            {empresa.brands.map((brand: any, idx: number) => (
-              <motion.button
-                key={idx}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setCurrentImageIndex(idx);
-                }}
-                className={`bg-white/90 backdrop-blur-sm rounded-xl p-4 flex items-center justify-center min-w-[120px] h-[80px] border-2 transition-all duration-300 ${
-                  idx === currentImageIndex 
-                    ? 'border-white shadow-lg shadow-white/50 scale-105' 
-                    : 'border-white/30 hover:border-white/50 hover:scale-102'
-                }`}
-                whileHover={{ scale: idx === currentImageIndex ? 1.05 : 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <img
-                  src={brand.logo}
-                  alt={brand.name}
-                  className="max-h-[50px] max-w-[100px] object-contain"
-                />
-              </motion.button>
-            ))}
-          </div>
-
-          {/* Indicadores de imagen (si hay múltiples) */}
+          {/* Logos de marcas */}
           {empresa.brands.length > 1 && (
-            <div className="flex gap-2 justify-start">
-              {empresa.brands.map((brand: any, idx: number) => (
+            <div className="flex items-center gap-3 flex-wrap">
+              {empresa.brands.map((brand, idx) => (
                 <button
                   key={idx}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setCurrentImageIndex(idx);
-                  }}
+                  onClick={(e) => handleImageChange(idx, e)}
+                  className={`bg-white/90 backdrop-blur-sm rounded-xl p-3 flex items-center justify-center min-w-[100px] h-[70px] border-2 transition-all duration-300 ${
+                    idx === currentImageIndex
+                      ? 'border-white shadow-lg scale-105'
+                      : 'border-white/30 hover:border-white/50'
+                  }`}
+                >
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    loading="lazy"
+                    className="max-h-[40px] max-w-[80px] object-contain"
+                  />
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Indicadores */}
+          {empresa.brands.length > 1 && (
+            <div className="flex gap-2">
+              {empresa.brands.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={(e) => handleImageChange(idx, e)}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    idx === currentImageIndex 
-                      ? 'w-8 bg-white' 
-                      : 'w-2 bg-white/40 hover:bg-white/60'
+                    idx === currentImageIndex ? 'w-8 bg-white' : 'w-2 bg-white/40'
                   }`}
                   aria-label={`Ver ${empresa.brands[idx].name}`}
                 />
@@ -127,22 +174,22 @@ const EmpresaCard = ({ empresa, index, active, handleClick }: any) => {
             </div>
           )}
 
-          {/* Nombre de la empresa */}
-          <h3 className="font-bold text-white text-4xl">
+          {/* Nombre empresa */}
+          <h3 className="font-bold text-white text-3xl lg:text-4xl">
             {empresa.title}
           </h3>
 
           {/* Descripción */}
-          <p className="text-white/90 text-lg max-w-lg leading-relaxed">
+          <p className="text-white/90 text-base lg:text-lg max-w-lg leading-relaxed">
             {t(`grupoPueble.${empresa.id}`)}
           </p>
-          
+
           {/* Botón */}
           <a
             href={empresa.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 shadow-lg w-fit"
+            className="inline-flex items-center justify-center gap-2 bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-all duration-300 shadow-lg w-fit"
             onClick={(e) => e.stopPropagation()}
           >
             {t("grupoPueble.learnMore")}
@@ -151,13 +198,12 @@ const EmpresaCard = ({ empresa, index, active, handleClick }: any) => {
         </motion.div>
       </div>
 
-      {/* Indicador de "click para expandir" cuando no está activo */}
-      {!isActive && (
+      {/* Indicador de click (solo desktop) */}
+      {!isActive && !isMobile && (
         <motion.div
-          className="absolute inset-0 flex items-center justify-center"
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
         >
           <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
             <motion.div
@@ -170,15 +216,36 @@ const EmpresaCard = ({ empresa, index, active, handleClick }: any) => {
       )}
     </motion.div>
   );
-};
+});
 
-// Componente principal
+EmpresaCard.displayName = 'EmpresaCard';
+
+// ============================================
+// 🎨 COMPONENTE PRINCIPAL
+// ============================================
 export default function GrupoPueble() {
   const [active, setActive] = useState('pueble-sa');
+  const [isMobile, setIsMobile] = useState(false);
   const { t } = useTranslation();
 
-  // Define las empresas del Grupo Pueble DENTRO del componente para poder usar t()
-  const empresasGrupo = [
+  // Detectar móvil
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Handler memoizado para cambiar empresa activa
+  const handleSetActive = useCallback((id: string) => {
+    setActive(id);
+  }, []);
+
+  // Datos de empresas (memoizados)
+  const empresasGrupo = useMemo<Empresa[]>(() => [
     {
       id: 'pueble-sa',
       title: 'Pueble S.A.',
@@ -250,58 +317,48 @@ export default function GrupoPueble() {
       ],
       link: 'https://www.instagram.com/semage_unimil/',
     }
-  ];
+  ], []);
 
   return (
-    <section id="grupo-pueble" className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24">
+    <section id="grupo-pueble" className="relative min-h-screen flex flex-col justify-center overflow-hidden py-12 lg:py-24">
       <div className="container mx-auto px-4">
         {/* Título y descripción */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center mb-8 lg:mb-16"
         >
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-red-400 text-lg uppercase tracking-wider mb-4"
-          >
+          <p className="text-red-400 text-base lg:text-lg uppercase tracking-wider mb-4">
             | {t("grupoPueble.badge")}
-          </motion.p>
-          
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-white">
+          </p>
+
+          <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 text-white">
             {t("grupoPueble.title")}
             <br className="hidden md:block" />
-            <Image 
-              src="/imagenes/logos/LogoPueble.webp" 
+            <Image
+              src="/imagenes/logos/LogoPueble.webp"
               alt="Logo de Pueble S.A."
               width={184}
               height={164}
               priority
-              className="mx-auto"
+              className="mx-auto mt-4"
             />
           </h2>
-          
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-gray-300 text-xl max-w-3xl mx-auto"
-          >
+
+          <p className="text-gray-300 text-base lg:text-xl max-w-3xl mx-auto">
             {t("grupoPueble.description")}
-          </motion.p>
+          </p>
         </motion.div>
 
         {/* Galería de empresas */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="flex lg:flex-row flex-col min-h-[700px] gap-5"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="flex lg:flex-row flex-col min-h-[600px] lg:min-h-[700px] gap-3 lg:gap-5"
         >
           {empresasGrupo.map((empresa, index) => (
             <EmpresaCard
@@ -309,7 +366,8 @@ export default function GrupoPueble() {
               empresa={empresa}
               index={index}
               active={active}
-              handleClick={setActive}
+              handleClick={handleSetActive}
+              isMobile={isMobile}
             />
           ))}
         </motion.div>
@@ -318,11 +376,11 @@ export default function GrupoPueble() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mt-8"
+          className="text-center mt-6 lg:mt-8"
         >
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-400 text-xs lg:text-sm">
             {t("grupoPueble.detail")}
           </p>
         </motion.div>
