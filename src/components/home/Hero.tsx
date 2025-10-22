@@ -51,7 +51,7 @@ export default function HeroPreview() {
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             {t('hero.welcome')}
             <br />
-            <span className="text-red-500 italic">Pueble S.A</span>
+            <span className="text-red-600 italic">Pueble S.A.</span>
           </h1>
 
           {/* Título Secundario */}

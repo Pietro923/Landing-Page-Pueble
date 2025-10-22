@@ -36,9 +36,9 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: t('page.contacto.items1'),
-      content: "+54 381 589-7858",
+      content: "381-453-0680",
       description: t('page.contacto.items1.desc'),
-      link: "tel:+543815897858"
+      link: "tel:3814530680"
     },
     {
       icon: Mail,

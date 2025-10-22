@@ -24,8 +24,8 @@ export default function Contact() {
     {
       icon: Phone,
       title: t('contacto.phone'),
-      content: "+54 381 589-7858",
-      link: "tel:+543815897858"
+      content: "381-453-0680",
+      link: "tel:3814530680"
     },
     {
       icon: Mail,

@@ -68,7 +68,7 @@ export default function Footer() {
                   >
                     <Button 
                       size="icon" 
-                      className="border-3 cursor-pointer border-white shadow-[3px_3px_0px_0px_white] hover:shadow-[5px_5px_0px_0px_white] transition-all bg-red-700 hover:bg-red-800"
+                      className="border-3 cursor-pointer border-white shadow-[3px_3px_0px_0px_white] hover:shadow-[5px_5px_0px_0px_white] transition-all bg-red-700 hover:bg-red-800 text-white"
                     >
                       <Icon className="h-5 w-5" />
                     </Button>
@@ -83,10 +83,10 @@ export default function Footer() {
             <h3 className="font-black text-xl mb-6 text-white border-b-2 border-red-500 inline-block">{t('footer.contact')}</h3>
             <ul className="space-y-4 text-gray-300 font-medium flex flex-col items-center md:items-start">
               <li className="flex items-center justify-center md:justify-start space-x-3">
-                <a href="tel:+543815897858" 
+                <a href="tel:3814530680" 
                 className="text-white hover:underline flex gap-3 items-center">
                   <Phone className="w-5 h-5 text-red-500" />
-                  +54 381 589-7858
+                  381-453-0680
                 </a>
               </li>
               <li className="flex items-center justify-center md:justify-start space-x-3">
@@ -122,7 +122,7 @@ export default function Footer() {
 
             <Link href="/trabaja-con-nosotros">
               <Button 
-                className="mt-3 w-full font-black border-2 border-white shadow-[2px_2px_0px_0px_white] hover:shadow-[4px_4px_0px_0px_white] transition-all bg-red-600 hover:bg-red-700"
+                className="mt-3 w-full font-black border-2 border-white shadow-[2px_2px_0px_0px_white] hover:shadow-[4px_4px_0px_0px_white] transition-all bg-red-600 hover:bg-red-700 text-white"
                 size="sm"
               >
                 {t('footer.job.button')}

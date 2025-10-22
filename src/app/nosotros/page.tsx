@@ -59,6 +59,13 @@ export default function About() {
       imageAlt: t('page.nosotros.timeline.m4.alt'),
     },
     {
+      year: t('page.nosotros.timeline.m7.year'),
+      title: t('page.nosotros.timeline.m7.title'),
+      description: t('page.nosotros.timeline.m7.desc'),
+      image: '/imagenes/inauguracion/veinteaños.jpeg',
+      imageAlt: t('page.nosotros.timeline.m7.alt'),
+    },
+    {
       year: t('page.nosotros.timeline.m6.year'),
       title: t('page.nosotros.timeline.m6.title'),
       description: t('page.nosotros.timeline.m6.desc'),
@@ -476,7 +483,7 @@ export default function About() {
                     </div>
 
                     {/* Contenido */}
-                    <div className={`lg:w-5/12 ${idx % 6 === 0 ? 'lg:text-right' : 'lg:text-left'} w-full`}>
+                    <div className={`lg:w-5/12 ${idx % 7 === 7 ? 'lg:text-right' : 'lg:text-left'} w-full`}>
                       <div className="bg-gradient-to-br from-white/10 to-white/5 border border-white/10 hover:border-red-500/30 rounded-lg p-4 sm:p-6 transition-all duration-300 group">
                         <div className="flex items-start justify-between gap-3 mb-2 sm:mb-3">
                           <div>

@@ -210,6 +210,12 @@ const resources = {
       "page.nosotros.timeline.m6.desc": "PUEBLE S.A. traslada su concesionaria a una nueva sede, reafirmando su compromiso con la innovación.",
       "page.nosotros.timeline.m6.alt": "Nueva expansión y crecimiento 2025",
 
+      "page.nosotros.timeline.m7.year": "2023",
+      "page.nosotros.timeline.m7.title": "20 Años Mejorando la Tierra",
+      "page.nosotros.timeline.m7.desc": "PUEBLE S.A. celebra su vigésimo aniversario reafirmando su compromiso con el trabajo, la innovación y el servicio al productor.",
+      "page.nosotros.timeline.m7.alt": "Celebración del 20° aniversario de PUEBLE S.A.",
+
+
       // Empresa.tsx
 
       'page.empresa.badge':'Conoce Nuestras Instalaciones',
@@ -937,6 +943,11 @@ const resources = {
     'page.nosotros.timeline.m6.title': 'Expansão e Crescimento',
     'page.nosotros.timeline.m6.desc': 'PUEBLE S.A. transfere sua concessionária para uma nova sede, reafirmando seu compromisso com a inovação.',
     'page.nosotros.timeline.m6.alt': 'Nova expansão e crescimento 2025',
+    "page.nosotros.timeline.m7.year": "2023",
+    "page.nosotros.timeline.m7.title": "20 Anos Melhorando a Terra",
+    "page.nosotros.timeline.m7.desc": "A PUEBLE S.A. celebra seu vigésimo aniversário reafirmando seu compromisso com o trabalho, a inovação e o serviço ao produtor.",
+    "page.nosotros.timeline.m7.alt": "Celebração do 20º aniversário da PUEBLE S.A.",
+
     
     // Empresa.tsx
     'page.empresa.badge': 'Conheça Nossas Instalações',
@@ -1643,6 +1654,12 @@ const resources = {
       "page.nosotros.timeline.m6.title": "Expansion and Growth",
       "page.nosotros.timeline.m6.desc": "PUEBLE S.A. relocates its dealership to a new headquarters, reaffirming its commitment to innovation.",
       "page.nosotros.timeline.m6.alt": "New expansion and growth 2025",
+
+      "page.nosotros.timeline.m7.year": "2023",
+      "page.nosotros.timeline.m7.title": "20 Years Improving the Land",
+      "page.nosotros.timeline.m7.desc": "PUEBLE S.A. celebrates its 20th anniversary, reaffirming its commitment to hard work, innovation, and service to producers.",
+      "page.nosotros.timeline.m7.alt": "Celebration of PUEBLE S.A.’s 20th anniversary.",
+
 
       // Empresa.tsx
 

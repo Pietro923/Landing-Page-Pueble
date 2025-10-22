@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ChevronRight, Info, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import BackButton from '../layout/backButton';
 
 interface ProductLine {
   id: string;
@@ -310,6 +311,7 @@ const ProductLinesPage: React.FC<ProductLinesPageProps> = ({
           </div>
         </motion.div>
       </section>
+      <BackButton />
     </div>
   );
 };

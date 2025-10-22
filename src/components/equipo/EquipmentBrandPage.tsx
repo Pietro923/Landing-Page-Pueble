@@ -7,6 +7,7 @@ import { FileDown, Phone, Info, Zap, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { t } from "i18next";
+import BackButton from "../layout/backButton";
 
 interface Product {
   id: number;
@@ -369,6 +370,7 @@ const EquipmentBrandPage: React.FC<EquipmentBrandPageProps> = ({
           </div>
         </motion.div>
       </section>
+      <BackButton />
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import BackButton from '@/components/layout/backButton';
 
 export default function JCBEquipmentPage() {
 const { t } = useTranslation();
@@ -231,6 +232,7 @@ const itemVariants = {
             </div>
           </div>
         </motion.div>
+        <BackButton />
       </div>
     </section>
   );
