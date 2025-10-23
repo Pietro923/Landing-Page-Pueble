@@ -13,6 +13,7 @@ interface Brand {
   logo: string;
   image: string;
   color: string;
+  link?: string;
 }
 
 interface Empresa {
@@ -230,7 +231,7 @@ const EmpresaCard = memo(({ empresa, index, active, handleClick, isMobile }: Emp
 
           {/* Botón */}
           <a
-            href={empresa.link}
+            href={currentBrand.link}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-all duration-300 shadow-lg w-fit"
@@ -298,13 +299,15 @@ export default function GrupoPueble() {
           name: 'Case IH',
           logo: '/imagenes/equipment/case/case.webp',
           image: '/imagenes/inicio/carousel3.webp',
-          color: 'from-red-600 to-red-800'
+          color: 'from-red-600 to-red-800',
+          link: 'https://www.instagram.com/pueblesa/'
         },
         {
           name: 'JCB',
           logo: '/imagenes/equipment/jcb/jcb.svg',
           image: '/imagenes/grupo_Pueble/vehiculos/jcb-construccion.webp',
-          color: 'from-yellow-600 to-yellow-800'
+          color: 'from-yellow-600 to-yellow-800',
+          link: 'https://www.instagram.com/jcbpueblesa/',
         }
       ],
       link: 'https://www.instagram.com/pueblesa/',
