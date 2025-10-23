@@ -61,10 +61,10 @@ export default function HeroPreview() {
             <Image 
               src="/imagenes/logos/LogoPueble.webp" 
               alt="Logo de Pueble S.A."
-              width={184}
-              height={164}
+              width={230}  // antes 184
+              height={200} // antes 164
               priority
-              className="mx-auto"
+              className="mx-auto scale-110 md:scale-125 lg:scale-150 transition-transform duration-500"
             />
           </p>
           
@@ -78,7 +78,7 @@ export default function HeroPreview() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
             <Button 
               size="lg" 
-              className="bg-red-600 hover:bg-red-700 shadow-2xl hover:shadow-red-500/50 transition-all duration-300 transform hover:scale-105 text-lg px-8 py-7 font-semibold"
+              className="text-white bg-red-600 hover:bg-red-700 shadow-2xl hover:shadow-red-500/50 transition-all duration-300 transform hover:scale-105 text-lg px-8 py-7 font-semibold"
               onClick={() => scrollToSection("marcas")}
             >
               {t('hero.explore')}

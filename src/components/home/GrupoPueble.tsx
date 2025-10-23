@@ -121,11 +121,55 @@ const EmpresaCard = memo(({ empresa, index, active, handleClick, isMobile }: Emp
       {/* ===== CONTENIDO ===== */}
       <div className="relative z-10 w-full h-full flex flex-col justify-end p-6">
         {/* Título colapsado */}
-        {!isActive && (
-          <h3 className="font-bold text-white text-2xl lg:text-xl lg:-rotate-90 lg:origin-bottom-left lg:absolute lg:bottom-6 transition-all duration-500 whitespace-nowrap">
-            {empresa.title}
-          </h3>
-        )}
+  {!isActive && (
+  <div className="w-full h-full flex items-center justify-center p-4">
+    {/* Mobile: Vertical (logos arriba, título abajo) */}
+    <div className="flex lg:hidden flex-col items-center justify-center gap-3">
+      {/* Logos de las marcas */}
+      <div className="flex items-center gap-2 flex-wrap justify-center">
+        {empresa.brands.map((brand, idx) => (
+          <div 
+            key={idx}
+            className="bg-white/95 backdrop-blur-sm rounded-xl p-2 flex items-center justify-center min-w-[80px] h-[70px]"
+          >
+            <img
+              src={brand.logo}
+              alt={brand.name}
+              loading="lazy"
+              className="max-h-[50px] max-w-[70px] object-contain"
+            />
+          </div>
+        ))}
+      </div>
+      <h3 className="font-bold text-white text-xl text-center">
+        {empresa.title}
+      </h3>
+    </div>
+    
+    {/* Desktop: Vertical con todos los logos */}
+    <div className="hidden lg:flex lg:flex-col items-center justify-center gap-4">
+      <h3 className="font-bold text-white text-xl whitespace-nowrap italic">
+        {empresa.title}
+      </h3>
+      {/* Logos de las marcas */}
+      <div className="flex items-center gap-2 flex-wrap justify-center">
+        {empresa.brands.map((brand, idx) => (
+          <div 
+            key={idx}
+            className="bg-white/95 backdrop-blur-sm rounded-xl p-3 flex items-center justify-center min-w-[100px] h-[70px]"
+          >
+            <img
+              src={brand.logo}
+              alt={brand.name}
+              loading="lazy"
+              className="max-h-[50px] max-w-[80px] object-contain"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+)}
 
         {/* Contenido expandido */}
         <motion.div
@@ -135,7 +179,7 @@ const EmpresaCard = memo(({ empresa, index, active, handleClick, isMobile }: Emp
           className={`${isActive ? 'flex flex-col' : 'hidden'} space-y-4`}
         >
           {/* Logos de marcas */}
-          {empresa.brands.length > 1 && (
+          {empresa.brands.length > 0 && (
             <div className="flex items-center gap-3 flex-wrap">
               {empresa.brands.map((brand, idx) => (
                 <button
@@ -175,7 +219,7 @@ const EmpresaCard = memo(({ empresa, index, active, handleClick, isMobile }: Emp
           )}
 
           {/* Nombre empresa */}
-          <h3 className="font-bold text-white text-3xl lg:text-4xl">
+          <h3 className="font-bold text-white text-3xl lg:text-4xl italic">
             {empresa.title}
           </h3>
 
@@ -263,7 +307,7 @@ export default function GrupoPueble() {
           color: 'from-yellow-600 to-yellow-800'
         }
       ],
-      link: 'https://landing-page-pueble.vercel.app/',
+      link: 'https://www.instagram.com/pueblesa/',
     },
     {
       id: 'kia',
@@ -340,8 +384,8 @@ export default function GrupoPueble() {
             <Image
               src="/imagenes/logos/LogoPueble.webp"
               alt="Logo de Pueble S.A."
-              width={184}
-              height={164}
+              width={230}
+              height={200}
               priority
               className="mx-auto mt-4"
             />
