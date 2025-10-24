@@ -4,23 +4,74 @@ import { ChevronRight, Play } from 'lucide-react'
 import { motion } from "framer-motion"
 import { useTranslation } from "react-i18next";
 import Image from 'next/image'
+import { useEffect, useRef } from 'react'
 
 export default function HeroPreview() {
   const { t } = useTranslation();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
+
+  // Solución 1: Forzar reproducción del video
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      // Intentar reproducir el video
+      const playPromise = video.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log("Error al reproducir video:", error);
+          // Intentar reproducir nuevamente después de un breve delay
+          setTimeout(() => video.play(), 100);
+        });
+      }
+
+      // Reiniciar video cuando termine (por si loop falla)
+      const handleEnded = () => {
+        video.currentTime = 0;
+        video.play();
+      };
+
+      video.addEventListener('ended', handleEnded);
+      
+      // Cleanup
+      return () => {
+        video.removeEventListener('ended', handleEnded);
+      };
+    }
+  }, []);
+
+  // Solución 2: Reconectar video cuando la pestaña vuelve a estar visible
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (!document.hidden && videoRef.current) {
+        videoRef.current.play().catch(console.error);
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video de fondo */}
       <div className="absolute inset-0 z-0">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
           className="w-full h-full object-cover"
+          onError={(e) => console.error("Error cargando video:", e)}
         >
           <source src="/imagenes/inauguracion/conse5.mp4" type="video/mp4" />
         </video>
@@ -61,14 +112,13 @@ export default function HeroPreview() {
             <Image 
               src="/imagenes/logos/LogoPueble.webp" 
               alt="Logo de Pueble S.A."
-              width={230}  // antes 184
-              height={200} // antes 164
+              width={230}
+              height={200}
               priority
               className="mx-auto scale-110 md:scale-125 lg:scale-150 transition-transform duration-500"
             />
           </p>
           
-
           {/* Descripción */}
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {t('hero.description')}
