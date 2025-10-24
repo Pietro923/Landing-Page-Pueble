@@ -318,7 +318,8 @@ export default function GrupoPueble() {
           name: 'KIA',
           logo: '/imagenes/grupo_Pueble/logos_empresas/kia_logo.jpg',
           image: '/imagenes/grupo_Pueble/vehiculos/kia_vehiculo.webp',
-          color: 'from-red-100 to-red-300'
+          color: 'from-red-100 to-red-300',
+          link: 'https://www.instagram.com/kia.tucuman/?hl=es',
         }
       ],
       link: 'https://www.instagram.com/kia.tucuman/?hl=es',
@@ -331,7 +332,8 @@ export default function GrupoPueble() {
           name: 'Ducati',
           logo: '/imagenes/grupo_Pueble/logos_empresas/ducati_logo2.png',
           image: '/imagenes/grupo_Pueble/vehiculos/ducati_vehiculo.webp',
-          color: 'from-red-600 to-red-700'
+          color: 'from-red-600 to-red-700',
+          link: 'https://www.instagram.com/ducatitucuman/?hl=es-la',
         }
       ],
       link: 'https://www.instagram.com/ducatitucuman/?hl=es-la',
@@ -344,10 +346,11 @@ export default function GrupoPueble() {
           name: 'Audi',
           logo: '/imagenes/grupo_Pueble/logos_empresas/audi_logo.png',
           image: '/imagenes/grupo_Pueble/vehiculos/a5_audi.webp',
-          color: 'from-gray-800 to-gray-900'
+          color: 'from-gray-800 to-gray-900',
+          link: 'https://www.instagram.com/audiubmotors/',
         }
       ],
-      link: 'https://ubmotors.com.ar/',
+      link: 'https://www.instagram.com/audiubmotors/',
     },
     {
       id: 'semage-sa',
@@ -357,10 +360,11 @@ export default function GrupoPueble() {
           name: 'Acogra',
           logo: '/imagenes/grupo_Pueble/logos_empresas/acogra_logo.png',
           image: '/imagenes/grupo_Pueble/vehiculos/semage_vehiculo.webp',
-          color: 'from-blue-700 to-blue-800'
+          color: 'from-blue-700 to-blue-800',
+          link: 'https://www.instagram.com/SemageGp/',
         }
       ],
-      link: 'https://www.instagram.com/semage_unimil/',
+      link: 'https://www.instagram.com/SemageGp/',
     }
   ], []);
 
