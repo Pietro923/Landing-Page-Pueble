@@ -43,7 +43,7 @@ export default function Footer() {
           {/* ─── SOBRE NOSOTROS ─────────────────────────────── */}
           <div className="space-y-6 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start space-x-3">
-              <div className="w-12 h-12 rounded-2xl flex items-center justify-center border-3 border-white shadow-[4px_4px_0px_0px_white] bg-red-600">
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center border-3 border-white shadow-[4px_4px_0px_0px_white] bg-red-700">
                 <Building2 className="w-6 h-6 text-white" />
               </div>
               <span className="font-black text-2xl font-titillium">PUEBLE S.A</span>
@@ -122,7 +122,7 @@ export default function Footer() {
 
             <Link href="/trabaja-con-nosotros">
               <Button 
-                className="mt-3 w-full font-black border-2 border-white shadow-[2px_2px_0px_0px_white] hover:shadow-[4px_4px_0px_0px_white] transition-all bg-red-600 hover:bg-red-700 text-white"
+                className="mt-3 w-full font-black border-2 border-white shadow-[2px_2px_0px_0px_white] hover:shadow-[4px_4px_0px_0px_white] transition-all bg-red-700 hover:bg-red-800 text-white"
                 size="sm"
               >
                 {t('footer.job.button')}
@@ -130,14 +130,14 @@ export default function Footer() {
               </Button>
             </Link>
             {/* CTA WhatsApp */}
-            <div className="mt-8 p-5 border-3 border-white shadow-[4px_4px_0px_0px_white] bg-red-600">
+            <div className="mt-8 p-5 border-3 border-white shadow-[4px_4px_0px_0px_white] bg-red-700">
               <h5 className="font-black mb-3 text-white text-lg">{t('footer.info')}</h5>
               <p className="text-sm font-medium mb-4">
                 {t('footer.info.description')}
               </p>
               <Button 
                 onClick={handleWhatsApp}
-                className="w-full font-black border-2 border-white shadow-[2px_2px_0px_0px_white] hover:shadow-[4px_4px_0px_0px_white] transition-all bg-white text-red-600 hover:bg-gray-100"
+                className="w-full font-black border-2 border-white shadow-[2px_2px_0px_0px_white] hover:shadow-[4px_4px_0px_0px_white] transition-all bg-white text-red-700 hover:bg-gray-100"
                 size="sm"
               >
                 <MessageCircle className="h-4 w-4 mr-2" />
