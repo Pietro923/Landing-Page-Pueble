@@ -126,51 +126,49 @@ const EmpresaCard = memo(({ empresa, index, active, handleClick, isMobile }: Emp
   <div className="w-full h-full flex items-center justify-center p-4">
     {/* Mobile: Vertical (logos arriba, título abajo) */}
     <div className="flex lg:hidden flex-col items-center justify-center gap-3">
-      {/* Logos de las marcas */}
-      <div className="flex items-center gap-2 flex-wrap justify-center">
-        {empresa.brands.map((brand, idx) => (
-          <div 
-            key={idx}
-            className="bg-white/95 backdrop-blur-sm rounded-xl p-2 flex items-center justify-center min-w-[80px] h-[70px]"
-          >
-            <img
-              src={brand.logo}
-              alt={brand.name}
-              loading="lazy"
-              className="max-h-[50px] max-w-[70px] object-contain"
-            />
-          </div>
-        ))}
+  <div className="flex items-center gap-2 flex-wrap justify-center">
+    {empresa.brands.map((brand, idx) => (
+      <div 
+        key={idx}
+        className="bg-white rounded-xl shadow-md border border-gray-200 p-2 flex items-center justify-center min-w-[80px] h-[70px]"
+      >
+        <img
+          src={brand.logo}
+          alt={brand.name}
+          loading="lazy"
+          className="max-h-[50px] max-w-[70px] object-contain"
+        />
       </div>
-      <h3 className="font-bold text-white text-xl text-center">
-        {empresa.title}
-      </h3>
-    </div>
-    
-    {/* Desktop: Vertical con todos los logos */}
-    <div className="hidden lg:flex lg:flex-col items-center justify-center gap-4">
-      <h3 className="font-bold text-white text-xl whitespace-nowrap italic">
-        {empresa.title}
-      </h3>
-      {/* Logos de las marcas */}
-      <div className="flex items-center gap-2 flex-wrap justify-center">
-        {empresa.brands.map((brand, idx) => (
-          <div 
-            key={idx}
-            className="bg-white/95 backdrop-blur-sm rounded-xl p-3 flex items-center justify-center min-w-[100px] h-[70px]"
-          >
-            <img
-              src={brand.logo}
-              alt={brand.name}
-              loading="lazy"
-              className="max-h-[50px] max-w-[80px] object-contain"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
+    ))}
   </div>
-)}
+  <h3 className="font-bold text-white text-xl text-center">
+    {empresa.title}
+  </h3>
+</div>
+    
+            {/* Desktop: Vertical con todos los logos */}
+            <div className="hidden lg:flex lg:flex-col items-center justify-center gap-4">
+  <h3 className="font-bold text-white text-xl whitespace-nowrap italic">
+    {empresa.title}
+  </h3>
+  <div className="flex items-center gap-2 flex-wrap justify-center">
+    {empresa.brands.map((brand, idx) => (
+      <div 
+        key={idx}
+        className="bg-white rounded-xl shadow-md border border-gray-200 p-3 flex items-center justify-center min-w-[100px] h-[70px]"
+      >
+        <img
+          src={brand.logo}
+          alt={brand.name}
+          loading="lazy"
+          className="max-h-[50px] max-w-[80px] object-contain"
+        />
+      </div>
+    ))}
+  </div>
+</div>
+          </div>
+        )}
 
         {/* Contenido expandido */}
         <motion.div
@@ -356,8 +354,8 @@ export default function GrupoPueble() {
       title: 'Semage S.A',
       brands: [
         {
-          name: 'Acobra',
-          logo: '/imagenes/grupo_Pueble/logos_empresas/Semage.PNG',
+          name: 'Acogra',
+          logo: '/imagenes/grupo_Pueble/logos_empresas/acogra_logo.png',
           image: '/imagenes/grupo_Pueble/vehiculos/semage_vehiculo.webp',
           color: 'from-blue-700 to-blue-800'
         }
