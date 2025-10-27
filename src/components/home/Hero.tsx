@@ -4,51 +4,87 @@ import { ChevronRight, Play } from 'lucide-react'
 import { motion } from "framer-motion"
 import { useTranslation } from "react-i18next";
 import Image from 'next/image'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function HeroPreview() {
   const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const retryCountRef = useRef(0);
+  const maxRetries = 3;
   
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Solución 1: Forzar reproducción del video
+  // Función para intentar reproducir el video de forma segura
+  const tryPlayVideo = async () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    try {
+      await video.play();
+      retryCountRef.current = 0; // Resetear contador si reproduce correctamente
+    } catch (error) {
+      // Solo loguear si es un error real, no una interrupción esperada
+      if (error instanceof Error && error.name !== 'AbortError') {
+        console.warn('Error reproduciendo video:', error.message);
+        
+        // Reintentar solo si no hemos excedido el límite
+        if (retryCountRef.current < maxRetries) {
+          retryCountRef.current++;
+          setTimeout(() => tryPlayVideo(), 500);
+        }
+      }
+      // Si es AbortError, simplemente lo ignoramos (es comportamiento normal del navegador)
+    }
+  };
+
+  // Efecto principal para manejar el video
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
-      // Intentar reproducir el video
-      const playPromise = video.play();
-      
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          console.log("Error al reproducir video:", error);
-          // Intentar reproducir nuevamente después de un breve delay
-          setTimeout(() => video.play(), 100);
-        });
-      }
+    if (!video) return;
 
-      // Reiniciar video cuando termine (por si loop falla)
-      const handleEnded = () => {
-        video.currentTime = 0;
-        video.play();
-      };
+    // Handler para cuando el video está listo
+    const handleCanPlay = () => {
+      setIsVideoLoaded(true);
+      tryPlayVideo();
+    };
 
-      video.addEventListener('ended', handleEnded);
-      
-      // Cleanup
-      return () => {
-        video.removeEventListener('ended', handleEnded);
-      };
-    }
+    // Handler para cuando el video termina (backup del loop)
+    const handleEnded = () => {
+      video.currentTime = 0;
+      tryPlayVideo();
+    };
+
+    // Handler para errores de carga
+    const handleError = (e: Event) => {
+      console.error("Error cargando video:", e);
+      setIsVideoLoaded(false);
+    };
+
+    // Agregar event listeners
+    video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('ended', handleEnded);
+    video.addEventListener('error', handleError);
+
+    // Intentar cargar el video
+    video.load();
+
+    // Cleanup
+    return () => {
+      video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('ended', handleEnded);
+      video.removeEventListener('error', handleError);
+    };
   }, []);
 
-  // Solución 2: Reconectar video cuando la pestaña vuelve a estar visible
+  // Manejar visibilidad de la pestaña
   useEffect(() => {
     const handleVisibilityChange = () => {
-      if (!document.hidden && videoRef.current) {
-        videoRef.current.play().catch(console.error);
+      if (!document.hidden && videoRef.current && isVideoLoaded) {
+        // Solo intentar reproducir si el video ya estaba cargado
+        tryPlayVideo();
       }
     };
 
@@ -57,24 +93,49 @@ export default function HeroPreview() {
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, []);
+  }, [isVideoLoaded]);
+
+  // Manejar cuando el usuario interactúa con la página (para navegadores que requieren interacción)
+  useEffect(() => {
+    const handleUserInteraction = () => {
+      if (videoRef.current && isVideoLoaded) {
+        tryPlayVideo();
+      }
+    };
+
+    // Agregar listeners para diferentes tipos de interacción
+    document.addEventListener('click', handleUserInteraction, { once: true });
+    document.addEventListener('touchstart', handleUserInteraction, { once: true });
+    
+    return () => {
+      document.removeEventListener('click', handleUserInteraction);
+      document.removeEventListener('touchstart', handleUserInteraction);
+    };
+  }, [isVideoLoaded]);
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video de fondo */}
       <div className="absolute inset-0 z-0">
+        {/* Imagen de poster como fallback */}
+        {!isVideoLoaded && (
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800 animate-pulse" />
+        )}
+        
         <video
           ref={videoRef}
-          autoPlay
           loop
           muted
           playsInline
           preload="auto"
-          className="w-full h-full object-cover"
-          onError={(e) => console.error("Error cargando video:", e)}
+          className={`w-full h-full object-cover transition-opacity duration-700 ${
+            isVideoLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
         >
           <source src="/imagenes/inauguracion/conse5.mp4" type="video/mp4" />
+          Tu navegador no soporta videos HTML5.
         </video>
+        
         {/* Overlay oscuro para mejor legibilidad */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
       </div>
@@ -167,22 +228,6 @@ export default function HeroPreview() {
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Indicador de scroll */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="flex flex-col items-center gap-2 cursor-pointer"
-          onClick={() => scrollToSection("marcas")}
-        >
-        </motion.div>
-      </motion.div>
     </div>
   );
 }
