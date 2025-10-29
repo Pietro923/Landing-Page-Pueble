@@ -183,7 +183,7 @@ export default function Company() {
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-red-500 flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-gray-300 text-xs sm:text-sm">{t('page.empresa.ubi')}</p>
-                  <p className="text-white font-semibold text-sm sm:text-base">Ruta Nacional 9 KM 1301, Tucumán</p>
+                  <p className="text-white font-semibold text-sm sm:text-base">Ruta Nacional 9 KM 1301, Tafí Viejo, Tucumán</p>
                 </div>
               </div>
                 </a>

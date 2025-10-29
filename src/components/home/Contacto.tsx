@@ -36,7 +36,7 @@ export default function Contact() {
     {
       icon: MapPin,
       title: t('contacto.address'),
-      content: "Ruta Nacional 9 KM 1301, Tucumán",
+      content: "Ruta Nacional 9 KM 1301, Tafí Viejo, Tucumán",
       link: "https://maps.app.goo.gl/Q8uDt7ZbTKY8JFeN7"
     }
   ]

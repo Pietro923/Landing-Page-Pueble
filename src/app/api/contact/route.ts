@@ -171,7 +171,7 @@ export async function POST(request: NextRequest) {
                   timeStyle: 'long'
                 })}</p>
                 <p>Este mensaje fue enviado desde el formulario de contacto en <strong>pueblemaquinarias.com.ar</strong></p>
-                <p style="color: #999; margin-top: 15px;">Pueble S.A - Ruta Nacional 9 KM 1301 - Tucumán, Argentina</p>
+                <p style="color: #999; margin-top: 15px;">Pueble S.A - Ruta Nacional 9 KM 1301 - Tafí Viejo, Tucumán, Argentina</p>
               </div>
             </div>
           </body>

@@ -50,7 +50,7 @@ export default function ContactPage() {
     {
       icon: MapPin,
       title: t('page.contacto.items3'),
-      content: "Ruta Nacional 9 KM 1301, Tucumán",
+      content: "Ruta Nacional 9 KM 1301, Tafí Viejo, Tucumán",
       description: "San Miguel de Tucumán",
       link: "https://maps.app.goo.gl/Q8uDt7ZbTKY8JFeN7"
     }

@@ -104,7 +104,7 @@ export default function Footer() {
                   className="text-white hover:underline flex gap-3 items-center"
                 >
                   <MapPin className="w-5 h-5 text-red-500 flex-shrink-0" />
-                  <span className="text-center md:text-left">Ruta Nacional 9 KM 1301, Tucumán</span>
+                  <span className="text-center md:text-left">Ruta Nacional 9 KM 1301, Tafí Viejo, Tucumán</span>
                 </a>
               </li>
             </ul>
