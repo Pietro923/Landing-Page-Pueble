@@ -58,7 +58,7 @@ export default function ContactPage() {
 
   const socialLinks = [
     { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/Pueblemaquinarias" },
-    { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/casepueblesa/" },
+    { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/pueblesa/" },
     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/grupo-pueble/" },
   ]
 
