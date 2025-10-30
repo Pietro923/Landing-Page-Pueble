@@ -10,7 +10,7 @@ import { ThemeProvider } from "@/components/layout/themeProvider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pueblemaquinarias.com.ar/"),
+  metadataBase: new URL("https://www.pueblemaquinarias.com.ar"),
   title: "Pueble S.A. | Maquinaria Agrícola y de construcción de Alta Calidad",
   description: "Tu socio confiable en maquinaria agrícola y de construcción de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
   keywords: [
@@ -46,17 +46,17 @@ export const metadata: Metadata = {
     },
   },
   
-  // Open Graph
+  // Open Graph - CON URL ABSOLUTA
   openGraph: {
     type: "website",
     locale: "es_ES",
-    url: "https://pueblemaquinarias.com.ar/",
+    url: "https://www.pueblemaquinarias.com.ar/",
     siteName: "Pueble S.A.",
     title: "Pueble S.A. | Maquinaria Agrícola y de construcción de Alta Calidad",
     description: "Tu socio confiable en maquinaria agrícola y de construcción de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
     images: [
       {
-        url: "/og_image.png",
+        url: "https://www.pueblemaquinarias.com.ar/pueblemeta.jpg", // ✅ URL ABSOLUTA
         width: 1200,
         height: 630,
         alt: "Pueble S.A. Maquinaria Agrícola",
@@ -64,12 +64,12 @@ export const metadata: Metadata = {
     ],
   },
   
-  // Twitter
+  // Twitter - CON URL ABSOLUTA
   twitter: {
     card: "summary_large_image",
     title: "Pueble S.A. | Maquinaria Agrícola y de construcción de Alta Calidad",
     description: "Tu socio confiable en maquinaria agrícola y de construcción de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
-    images: ["/og_image.png"],
+    images: ["https://www.pueblemaquinarias.com.ar/pueblemeta.jpg"], // ✅ URL ABSOLUTA
     creator: "@pueblesa",
   },
 }
