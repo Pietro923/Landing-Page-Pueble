@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     description: "Tu socio confiable en maquinaria agrícola y de construcción de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
     images: [
       {
-        url: "https://www.pueblemaquinarias.com.ar/pueblemeta.jpg", // ✅ URL ABSOLUTA
+        url: "https://www.pueblemaquinarias.com.ar/og_image.png", // ✅ URL ABSOLUTA
         width: 1200,
         height: 630,
         alt: "Pueble S.A. Maquinaria Agrícola",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pueble S.A. | Maquinaria Agrícola y de construcción de Alta Calidad",
     description: "Tu socio confiable en maquinaria agrícola y de construcción de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
-    images: ["https://www.pueblemaquinarias.com.ar/pueblemeta.jpg"], // ✅ URL ABSOLUTA
+    images: ["https://www.pueblemaquinarias.com.ar/og_image.png"], // ✅ URL ABSOLUTA
     creator: "@pueblesa",
   },
 }
