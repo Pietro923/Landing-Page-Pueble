@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useMemo, useCallback, memo } from 'react';
+import { useState, useEffect, useMemo, useCallback, memo, useRef } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { useTranslation } from "react-i18next";
@@ -29,6 +29,7 @@ interface EmpresaCardProps {
   active: string;
   handleClick: (id: string) => void;
   isMobile: boolean;
+  isInView: boolean;
   translations: {
     description: string;
     learnMore: string;
@@ -49,9 +50,9 @@ function debounce<T extends (...args: any[]) => any>(
   };
 }
 
-// Placeholder blur para imágenes (base64 SVG pequeño)
+// Placeholder blur optimizado
 const shimmer = (w: number, h: number) => `
-<svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="g">
       <stop stop-color="#333" offset="20%" />
@@ -78,6 +79,7 @@ const EmpresaCard = memo(({
   active, 
   handleClick, 
   isMobile,
+  isInView,
   translations 
 }: EmpresaCardProps) => {
   const shouldReduceMotion = useReducedMotion();
@@ -91,19 +93,19 @@ const EmpresaCard = memo(({
     [empresa.brands, currentImageIndex]
   );
 
-  // Alternar imágenes solo si está activo y tiene múltiples marcas
+  // Alternar imágenes solo si está activo, visible y tiene múltiples marcas
   useEffect(() => {
-    if (empresa.brands.length <= 1 || !isActive || isMobile) {
+    if (empresa.brands.length <= 1 || !isActive || isMobile || !isInView) {
       setCurrentImageIndex(0);
       return;
     }
 
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % empresa.brands.length);
-    }, 6000); // 6 segundos para mejor performance
+    }, 6000);
 
     return () => clearInterval(interval);
-  }, [empresa.brands.length, isActive, isMobile]);
+  }, [empresa.brands.length, isActive, isMobile, isInView]);
 
   // Handler para cambiar imagen (memoizado)
   const handleImageChange = useCallback((idx: number, e: React.MouseEvent) => {
@@ -151,29 +153,35 @@ const EmpresaCard = memo(({
       whileHover="hover"
       style={{ willChange: 'transform' }}
     >
-      {/* ===== IMAGEN DE FONDO (optimizada con Next Image) ===== */}
+      {/* ===== IMAGEN DE FONDO (con lazy loading condicional) ===== */}
       <div className="absolute inset-0">
         {/* Placeholder mientras carga */}
         {!imageLoaded && (
           <div 
-            className={`absolute inset-0 bg-gradient-to-b ${currentBrand.color} animate-pulse`} 
+            className={`absolute inset-0 bg-gradient-to-b ${currentBrand.color}`} 
           />
         )}
         
-        <Image
-          src={currentBrand.image}
-          alt={currentBrand.name}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className={`object-cover transition-opacity duration-500 ${ 
-            imageLoaded ? 'opacity-100' : 'opacity-0' 
-          }`}
-          onLoad={() => setImageLoaded(true)}
-          priority={index === 0}
-          quality={isMobile ? 60 : 75}
-          placeholder="blur"
-          blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-        />
+        {/* Solo cargar imagen si está en viewport o es la primera */}
+        {(isInView || index === 0) ? (
+          <Image
+            src={currentBrand.image}
+            alt={currentBrand.name}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className={`object-cover transition-opacity duration-500 ${ 
+              imageLoaded ? 'opacity-100' : 'opacity-0' 
+            }`}
+            onLoad={() => setImageLoaded(true)}
+            priority={index === 0}
+            quality={isMobile ? 50 : 65}
+            placeholder="blur"
+            blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+            loading={index === 0 ? 'eager' : 'lazy'}
+          />
+        ) : (
+          <div className={`absolute inset-0 bg-gradient-to-b ${currentBrand.color}`} />
+        )}
       </div>
 
       {/* Overlay con gradiente */}
@@ -307,8 +315,8 @@ const EmpresaCard = memo(({
         </motion.div>
       </div>
 
-      {/* Indicador de click (solo desktop) */}
-      {!isActive && !isMobile && (
+      {/* Indicador de click (solo desktop, sin animación si reduce motion) */}
+      {!isActive && !isMobile && isInView && (
         <motion.div
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
           initial={{ opacity: 0 }}
@@ -316,15 +324,17 @@ const EmpresaCard = memo(({
           transition={{ duration: 0.3 }}
         >
           <div className="bg-white/20 backdrop-blur-sm rounded-full p-4">
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ 
-                duration: 2, 
-                repeat: Infinity,
-                ease: 'easeInOut'
-              }}
-              className="w-3 h-3 bg-white rounded-full"
-            />
+            {!shouldReduceMotion && (
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: Infinity,
+                  ease: 'easeInOut'
+                }}
+                className="w-3 h-3 bg-white rounded-full"
+              />
+            )}
           </div>
         </motion.div>
       )}
@@ -340,6 +350,8 @@ EmpresaCard.displayName = 'EmpresaCard';
 export default function GrupoPueble() {
   const [active, setActive] = useState('pueble-sa');
   const [isMobile, setIsMobile] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
   const { t } = useTranslation();
 
   // Detectar móvil con debounce
@@ -351,6 +363,30 @@ export default function GrupoPueble() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Intersection Observer para detectar cuando está en viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Solo activar cuando esté al menos 20% visible
+        setIsInView(entry.isIntersecting && entry.intersectionRatio > 0.2);
+      },
+      {
+        threshold: [0, 0.2, 0.5],
+        rootMargin: '50px' // Empezar a cargar un poco antes
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
   }, []);
 
   // Handler memoizado para cambiar empresa activa
@@ -441,6 +477,7 @@ export default function GrupoPueble() {
 
   return (
     <section 
+      ref={sectionRef}
       id="grupo-pueble" 
       className="relative min-h-screen flex flex-col justify-center overflow-hidden py-12 lg:py-24"
     >
@@ -474,29 +511,41 @@ export default function GrupoPueble() {
           </p>
         </motion.div>
 
-        {/* Galería de empresas */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="flex lg:flex-row flex-col min-h-[600px] lg:min-h-[700px] gap-3 lg:gap-5"
-        >
-          {empresasGrupo.map((empresa, index) => (
-            <EmpresaCard
-              key={empresa.id}
-              empresa={empresa}
-              index={index}
-              active={active}
-              handleClick={handleSetActive}
-              isMobile={isMobile}
-              translations={{
-                description: t(`grupoPueble.${empresa.id}`),
-                learnMore: t("grupoPueble.learnMore")
-              }}
-            />
-          ))}
-        </motion.div>
+        {/* Galería de empresas - solo renderizar si está en viewport */}
+        {isInView ? (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="flex lg:flex-row flex-col min-h-[600px] lg:min-h-[700px] gap-3 lg:gap-5"
+          >
+            {empresasGrupo.map((empresa, index) => (
+              <EmpresaCard
+                key={empresa.id}
+                empresa={empresa}
+                index={index}
+                active={active}
+                handleClick={handleSetActive}
+                isMobile={isMobile}
+                isInView={isInView}
+                translations={{
+                  description: t(`grupoPueble.${empresa.id}`),
+                  learnMore: t("grupoPueble.learnMore")
+                }}
+              />
+            ))}
+          </motion.div>
+        ) : (
+          // Placeholder mientras no está en viewport
+          <div className="flex lg:flex-row flex-col min-h-[600px] lg:min-h-[700px] gap-3 lg:gap-5">
+            {empresasGrupo.map((empresa) => (
+              <div
+                key={empresa.id}
+                className="relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] rounded-3xl bg-gradient-to-b from-gray-800 to-gray-900 animate-pulse"
+              />
+            ))}
+          </div>
+        )}
 
         {/* Indicador de interacción */}
         <motion.div
