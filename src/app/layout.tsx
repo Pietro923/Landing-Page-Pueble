@@ -6,44 +6,71 @@ import Footer from "@/components/layout/Footer"
 import { Toaster } from "@/components/ui/toaster"
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton"
 import { ThemeProvider } from "@/components/layout/themeProvider"
-import ThemeLanguageControls from "@/components/layout/themeLanguageControls"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://pueblemaquinarias.com.ar/"),
+  metadataBase: new URL("https://pueblemaquinarias.com.ar/"),
   title: "Pueble S.A. | Maquinaria Agrícola y de construcción de Alta Calidad",
   description: "Tu socio confiable en maquinaria agrícola y de construcción de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
-  keywords: ["maquinaria agrícola","maquinaria de construcción", "construcción","agricultura", "equipos agrícolas", "Pueble SA", "implementos agrícolas", "repuestos agrícolas", "venta maquinaria", "servicio técnico agrícola"],
+  keywords: [
+    "maquinaria agrícola",
+    "maquinaria de construcción",
+    "construcción",
+    "agricultura",
+    "equipos agrícolas",
+    "Pueble SA",
+    "implementos agrícolas",
+    "repuestos agrícolas",
+    "venta maquinaria",
+    "servicio técnico agrícola"
+  ],
   authors: [{ name: "Pueble S.A." }],
-  icons: {
-    icon: "/favicon.ico",
+  
+  // Apple Web App
+  appleWebApp: {
+    title: "Pueble S.A",
+    statusBarStyle: "default",
   },
+  
+  // Robots
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
+  
+  // Open Graph
   openGraph: {
     type: "website",
     locale: "es_ES",
-    url: "http://pueblemaquinarias.com.ar/",
+    url: "https://pueblemaquinarias.com.ar/",
+    siteName: "Pueble S.A.",
     title: "Pueble S.A. | Maquinaria Agrícola y de construcción de Alta Calidad",
     description: "Tu socio confiable en maquinaria agrícola y de construcción de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
     images: [
       {
-        url: "/pueblemeta.jpg", 
+        url: "/og_image.png",
         width: 1200,
         height: 630,
         alt: "Pueble S.A. Maquinaria Agrícola",
       },
     ],
   },
+  
+  // Twitter
   twitter: {
     card: "summary_large_image",
     title: "Pueble S.A. | Maquinaria Agrícola y de construcción de Alta Calidad",
     description: "Tu socio confiable en maquinaria agrícola y de construcción de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
-    images: ["/pueblemeta.jpg"], 
-    creator: "@pueblesa", 
+    images: ["/og_image.png"],
+    creator: "@pueblesa",
   },
 }
 
@@ -61,11 +88,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          {/*<ThemeLanguageControls />*/}
-
-          {/* Patrón SVG global */}
-          <div className="absolute inset-0 opacity-10">
+          {/* Patrón SVG global - Fixed para evitar problemas de superposición */}
+          <div className="fixed inset-0 opacity-10 pointer-events-none -z-10">
             <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <pattern
@@ -86,10 +110,13 @@ export default function RootLayout({
               <rect width="100%" height="100%" fill="url(#global-pattern)" />
             </svg>
           </div>
+
+          <Navbar />
           
-          <main className="min-h-screen pt-20 font-titillium">
+          <main className="relative min-h-screen pt-20 font-titillium">
             {children}
           </main>
+          
           <Footer />
           <WhatsAppButton />
           <Toaster />
