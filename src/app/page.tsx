@@ -1,11 +1,26 @@
 'use client'
 
 import Hero from '@/components/home/Hero'
-import GrupoPueble from '@/components/home/GrupoPueble'
 import Marcas from '@/components/home/Marcas'
 import Nosotros from '@/components/home/Nosotros'
 import Contacto from '@/components/home/Contacto'
 import Novedades from '@/components/home/Novedades'
+import dynamic from 'next/dynamic';
+import GrupoPuebleSkeleton from '@/components/GrupoPuebleSkeleton'
+
+
+const GrupoPueble = dynamic(
+  () => import('@/components/home/GrupoPueble'),
+  {
+    // Esto es clave:
+    // 1. Muestra el skeleton mientras el JS real se descarga
+    loading: () => <GrupoPuebleSkeleton />,
+    
+    // 2. Tu componente es 'use client' y usa 'window' (para isMobile)
+    //    así que lo deshabilitamos del renderizado en servidor.
+    ssr: false, 
+  }
+);
 
 export default function Home() {
   return (

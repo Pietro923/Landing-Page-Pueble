@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect, useMemo, useCallback, memo, useRef } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { useTranslation } from "react-i18next";
 import Image from 'next/image';
@@ -73,14 +73,14 @@ const toBase64 = (str: string) =>
 // ============================================
 // 🚀 COMPONENTE MEMOIZADO - TARJETA INDIVIDUAL
 // ============================================
-const EmpresaCard = memo(({ 
-  empresa, 
-  index, 
-  active, 
-  handleClick, 
+const EmpresaCard = memo(({
+  empresa,
+  index,
+  active,
+  handleClick,
   isMobile,
   isInView,
-  translations 
+  translations
 }: EmpresaCardProps) => {
   const shouldReduceMotion = useReducedMotion();
   const isActive = active === empresa.id;
@@ -118,50 +118,57 @@ const EmpresaCard = memo(({
     handleClick(empresa.id);
   }, [handleClick, empresa.id]);
 
-  // Variantes de animación optimizadas
-  const cardVariants = useMemo(() => ({
-    hover: shouldReduceMotion ? {} : { 
-      scale: isActive ? 1 : 1.01,
-      transition: { duration: 0.2, ease: 'easeOut' }
-    },
-  }), [shouldReduceMotion, isActive]);
+  // Variantes de animación optimizadas (SOLO para el contenido interno)
+  // ⛔ ELIMINADO 'cardVariants'. Ya no se necesita.
 
   const contentVariants = useMemo(() => ({
-    hidden: { 
-      opacity: 0, 
-      y: shouldReduceMotion ? 0 : 20 
+    hidden: {
+      opacity: 0,
+      y: shouldReduceMotion ? 0 : 20
     },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
         duration: shouldReduceMotion ? 0 : 0.4,
         delay: 0.2,
         ease: 'easeOut'
-      } 
+      }
     },
   }), [shouldReduceMotion]);
 
   return (
     <motion.div
-      className={`relative ${ 
-        isActive ? 'lg:flex-[3.5] flex-[10]' : 'lg:flex-[0.5] flex-[2]' 
+      // ✅ AÑADIDO: Esta es la optimización clave.
+      // Anima el cambio de layout (tamaño) usando 'transform' (GPU)
+      // en lugar de 'flex' (CPU).
+      layout
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+
+      className={`relative ${
+        // Las clases de flex ahora solo definen el estado final
+        isActive ? 'lg:flex-[3.5] flex-[10]' : 'lg:flex-[0.5] flex-[2]'
       } flex items-center justify-center min-w-[170px] h-[700px] 
-      transition-[flex] duration-500 ease-out cursor-pointer overflow-hidden rounded-3xl`}
+      cursor-pointer overflow-hidden rounded-3xl`}
+      
+      // ⛔ ELIMINADO 'transition-[flex]' de las clases
+
       onClick={handleCardClick}
-      variants={cardVariants}
-      whileHover="hover"
-      style={{ willChange: 'transform' }}
+      
+      // ✅ CAMBIADO: 'whileHover' ahora es más simple
+      whileHover={isActive || shouldReduceMotion ? {} : { scale: 1.01 }}
+
+      // ⛔ ELIMINADO: 'variants', 'style'
     >
       {/* ===== IMAGEN DE FONDO (con lazy loading condicional) ===== */}
       <div className="absolute inset-0">
         {/* Placeholder mientras carga */}
         {!imageLoaded && (
-          <div 
-            className={`absolute inset-0 bg-gradient-to-b ${currentBrand.color}`} 
+          <div
+            className={`absolute inset-0 bg-gradient-to-b ${currentBrand.color}`}
           />
         )}
-        
+
         {/* Solo cargar imagen si está en viewport o es la primera */}
         {(isInView || index === 0) ? (
           <Image
@@ -169,8 +176,8 @@ const EmpresaCard = memo(({
             alt={currentBrand.name}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className={`object-cover transition-opacity duration-500 ${ 
-              imageLoaded ? 'opacity-100' : 'opacity-0' 
+            className={`object-cover transition-opacity duration-500 ${
+              imageLoaded ? 'opacity-100' : 'opacity-0'
             }`}
             onLoad={() => setImageLoaded(true)}
             priority={index === 0}
@@ -185,17 +192,17 @@ const EmpresaCard = memo(({
       </div>
 
       {/* Overlay con gradiente */}
-      <div 
-        className={`absolute inset-0 bg-gradient-to-b ${currentBrand.color} opacity-70`} 
+      <div
+        className={`absolute inset-0 bg-gradient-to-b ${currentBrand.color} opacity-70`}
       />
 
       {/* ===== CONTENIDO ===== */}
       <div className="relative z-10 w-full h-full flex flex-col justify-end p-6">
-        
+
         {/* Título colapsado */}
         {!isActive && (
           <div className="w-full h-full flex items-center justify-center p-4">
-            
+
             {/* Mobile: Vertical (logos arriba, título abajo) */}
             <div className="flex lg:hidden flex-col items-center justify-center gap-3">
               <div className="flex items-center gap-2 flex-wrap justify-center">
@@ -256,10 +263,10 @@ const EmpresaCard = memo(({
                 <button
                   key={idx}
                   onClick={(e) => handleImageChange(idx, e)}
-                  className={`bg-white/90 backdrop-blur-sm rounded-xl p-3 flex items-center justify-center min-w-[100px] h-[70px] border-2 transition-all duration-200 ${ 
-                    idx === currentImageIndex 
-                      ? 'border-white shadow-lg scale-105' 
-                      : 'border-white/30 hover:border-white/50' 
+                  className={`bg-white/90 backdrop-blur-sm rounded-xl p-3 flex items-center justify-center min-w-[100px] h-[70px] border-2 transition-all duration-200 ${
+                    idx === currentImageIndex
+                      ? 'border-white shadow-lg scale-105'
+                      : 'border-white/30 hover:border-white/50'
                   }`}
                 >
                   <img
@@ -280,10 +287,10 @@ const EmpresaCard = memo(({
                 <button
                   key={idx}
                   onClick={(e) => handleImageChange(idx, e)}
-                  className={`h-2 rounded-full transition-all duration-200 ${ 
-                    idx === currentImageIndex 
-                      ? 'w-8 bg-white' 
-                      : 'w-2 bg-white/40' 
+                  className={`h-2 rounded-full transition-all duration-200 ${
+                    idx === currentImageIndex
+                      ? 'w-8 bg-white'
+                      : 'w-2 bg-white/40'
                   }`}
                   aria-label={`Ver ${empresa.brands[idx].name}`}
                 />
@@ -327,8 +334,8 @@ const EmpresaCard = memo(({
             {!shouldReduceMotion && (
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
-                transition={{ 
-                  duration: 2, 
+                transition={{
+                  duration: 2,
                   repeat: Infinity,
                   ease: 'easeInOut'
                 }}
@@ -476,13 +483,13 @@ export default function GrupoPueble() {
   ], []);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      id="grupo-pueble" 
+      id="grupo-pueble"
       className="relative min-h-screen flex flex-col justify-center overflow-hidden py-12 lg:py-24"
     >
       <div className="container mx-auto px-4">
-        
+
         {/* Título y descripción */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
