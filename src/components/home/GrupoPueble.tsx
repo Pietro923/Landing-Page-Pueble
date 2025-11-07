@@ -425,7 +425,7 @@ export default function GrupoPueble() {
       brands: [
         {
           name: 'KIA',
-          logo: '/imagenes/grupo_Pueble/logos_empresas/kia_logo.jpg',
+          logo: '/imagenes/grupo_Pueble/logos_empresas/kia.webp',
           image: '/imagenes/grupo_Pueble/vehiculos/kia_vehiculo.webp',
           color: 'from-red-100 to-red-300',
           link: 'https://www.instagram.com/kia.tucuman/?hl=es',
@@ -439,7 +439,7 @@ export default function GrupoPueble() {
       brands: [
         {
           name: 'Ducati',
-          logo: '/imagenes/grupo_Pueble/logos_empresas/ducati_logo2.png',
+          logo: '/imagenes/grupo_Pueble/logos_empresas/ducati_logo2.webp',
           image: '/imagenes/grupo_Pueble/vehiculos/ducati_vehiculo.webp',
           color: 'from-red-600 to-red-700',
           link: 'https://www.instagram.com/ducatitucuman/?hl=es-la',
@@ -453,7 +453,7 @@ export default function GrupoPueble() {
       brands: [
         {
           name: 'Audi',
-          logo: '/imagenes/grupo_Pueble/logos_empresas/audi_logo.png',
+          logo: '/imagenes/grupo_Pueble/logos_empresas/audi.webp',
           image: '/imagenes/grupo_Pueble/vehiculos/a5_audi.webp',
           color: 'from-gray-800 to-gray-900',
           link: 'https://www.instagram.com/audiubmotors/',
