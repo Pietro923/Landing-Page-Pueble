@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { useTranslation } from "react-i18next";
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
+import { usePreloadGrupoPueble } from '@/hooks/usePreloadGrupoPueble'
 
 export default function HeroPreview() {
   const { t } = useTranslation();
@@ -12,6 +13,9 @@ export default function HeroPreview() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const retryCountRef = useRef(0);
   const maxRetries = 3;
+  
+  // ✅ OPTIMIZACIÓN: Precarga GrupoPueble mientras el usuario ve el Hero
+  usePreloadGrupoPueble();
   
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });

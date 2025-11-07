@@ -118,9 +118,7 @@ const EmpresaCard = memo(({
     handleClick(empresa.id);
   }, [handleClick, empresa.id]);
 
-  // Variantes de animación optimizadas (SOLO para el contenido interno)
-  // ⛔ ELIMINADO 'cardVariants'. Ya no se necesita.
-
+  // Variantes de animación optimizadas
   const contentVariants = useMemo(() => ({
     hidden: {
       opacity: 0,
@@ -139,26 +137,19 @@ const EmpresaCard = memo(({
 
   return (
     <motion.div
-      // ✅ AÑADIDO: Esta es la optimización clave.
-      // Anima el cambio de layout (tamaño) usando 'transform' (GPU)
-      // en lugar de 'flex' (CPU).
+      // ✅ Optimización clave: layout animation con GPU
       layout
       transition={{ duration: 0.5, ease: 'easeOut' }}
-
       className={`relative ${
-        // Las clases de flex ahora solo definen el estado final
         isActive ? 'lg:flex-[3.5] flex-[10]' : 'lg:flex-[0.5] flex-[2]'
       } flex items-center justify-center min-w-[170px] h-[700px] 
       cursor-pointer overflow-hidden rounded-3xl`}
-      
-      // ⛔ ELIMINADO 'transition-[flex]' de las clases
-
+      style={{
+        // ✅ Añadir will-change para optimización GPU
+        willChange: isActive ? 'transform' : 'auto'
+      }}
       onClick={handleCardClick}
-      
-      // ✅ CAMBIADO: 'whileHover' ahora es más simple
       whileHover={isActive || shouldReduceMotion ? {} : { scale: 1.01 }}
-
-      // ⛔ ELIMINADO: 'variants', 'style'
     >
       {/* ===== IMAGEN DE FONDO (con lazy loading condicional) ===== */}
       <div className="absolute inset-0">
@@ -179,6 +170,10 @@ const EmpresaCard = memo(({
             className={`object-cover transition-opacity duration-500 ${
               imageLoaded ? 'opacity-100' : 'opacity-0'
             }`}
+            style={{
+              // ✅ Optimización GPU para transiciones
+              willChange: 'opacity'
+            }}
             onLoad={() => setImageLoaded(true)}
             priority={index === 0}
             quality={isMobile ? 50 : 65}
@@ -372,16 +367,16 @@ export default function GrupoPueble() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Intersection Observer para detectar cuando está en viewport
+  // Intersection Observer con threshold más bajo para precarga
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Solo activar cuando esté al menos 20% visible
-        setIsInView(entry.isIntersecting && entry.intersectionRatio > 0.2);
+        // ✅ Reducir threshold a 0.1 para cargar antes
+        setIsInView(entry.isIntersecting && entry.intersectionRatio > 0.1);
       },
       {
-        threshold: [0, 0.2, 0.5],
-        rootMargin: '50px' // Empezar a cargar un poco antes
+        threshold: [0, 0.1, 0.2, 0.5],
+        rootMargin: '100px' // ✅ Aumentar rootMargin para cargar más temprano
       }
     );
 
@@ -489,7 +484,6 @@ export default function GrupoPueble() {
       className="relative min-h-screen flex flex-col justify-center overflow-hidden py-12 lg:py-24"
     >
       <div className="container mx-auto px-4">
-
         {/* Título y descripción */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -518,41 +512,29 @@ export default function GrupoPueble() {
           </p>
         </motion.div>
 
-        {/* Galería de empresas - solo renderizar si está en viewport */}
-        {isInView ? (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="flex lg:flex-row flex-col min-h-[600px] lg:min-h-[700px] gap-3 lg:gap-5"
-          >
-            {empresasGrupo.map((empresa, index) => (
-              <EmpresaCard
-                key={empresa.id}
-                empresa={empresa}
-                index={index}
-                active={active}
-                handleClick={handleSetActive}
-                isMobile={isMobile}
-                isInView={isInView}
-                translations={{
-                  description: t(`grupoPueble.${empresa.id}`),
-                  learnMore: t("grupoPueble.learnMore")
-                }}
-              />
-            ))}
-          </motion.div>
-        ) : (
-          // Placeholder mientras no está en viewport
-          <div className="flex lg:flex-row flex-col min-h-[600px] lg:min-h-[700px] gap-3 lg:gap-5">
-            {empresasGrupo.map((empresa) => (
-              <div
-                key={empresa.id}
-                className="relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] rounded-3xl bg-gradient-to-b from-gray-800 to-gray-900 animate-pulse"
-              />
-            ))}
-          </div>
-        )}
+        {/* Galería de empresas - renderizar siempre pero con placeholder */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="flex lg:flex-row flex-col min-h-[600px] lg:min-h-[700px] gap-3 lg:gap-5"
+        >
+          {empresasGrupo.map((empresa, index) => (
+            <EmpresaCard
+              key={empresa.id}
+              empresa={empresa}
+              index={index}
+              active={active}
+              handleClick={handleSetActive}
+              isMobile={isMobile}
+              isInView={isInView}
+              translations={{
+                description: t(`grupoPueble.${empresa.id}`),
+                learnMore: t("grupoPueble.learnMore")
+              }}
+            />
+          ))}
+        </motion.div>
 
         {/* Indicador de interacción */}
         <motion.div
