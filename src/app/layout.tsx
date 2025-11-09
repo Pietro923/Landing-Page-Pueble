@@ -14,6 +14,17 @@ export const metadata: Metadata = {
   title: "Pueble S.A. | Maquinaria Agrícola y de construcción de Alta Calidad",
   description: "Tu socio confiable en maquinaria agrícola y de construcción de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
   keywords: [
+    "grupo pueble",
+    "gp",
+    "jcb",
+    "jcb maquinaria",
+    "distribuidor case",
+    "distribuidor jcb",
+    "pueble sa",
+    "case",
+    "maquinaria case",
+    "Maquinaria",
+    "Maquinaria vial",
     "maquinaria agrícola",
     "maquinaria de construcción",
     "construcción",
@@ -26,6 +37,20 @@ export const metadata: Metadata = {
     "servicio técnico agrícola"
   ],
   authors: [{ name: "Pueble S.A." }],
+  
+  // ICONOS - ESTO ES LO NUEVO
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  
+  manifest: '/manifest.json',
   
   // Apple Web App
   appleWebApp: {
@@ -56,7 +81,7 @@ export const metadata: Metadata = {
     description: "Tu socio confiable en maquinaria agrícola y de construcción de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
     images: [
       {
-        url: "https://www.pueblemaquinarias.com.ar/og_image.jpg", // ✅ URL ABSOLUTA
+        url: "https://www.pueblemaquinarias.com.ar/og_image.jpg",
         width: 1200,
         height: 630,
         alt: "Pueble S.A. Maquinaria Agrícola",
@@ -69,7 +94,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pueble S.A. | Maquinaria Agrícola y de construcción de Alta Calidad",
     description: "Tu socio confiable en maquinaria agrícola y de construcción de alta calidad. Venta, servicio técnico y repuestos para equipos agrícolas.",
-    images: ["https://www.pueblemaquinarias.com.ar/og_image.jpg"], // ✅ URL ABSOLUTA
+    images: ["https://www.pueblemaquinarias.com.ar/og_image.jpg"],
     creator: "@pueblesa",
   },
 }
@@ -110,7 +135,6 @@ export default function RootLayout({
               <rect width="100%" height="100%" fill="url(#global-pattern)" />
             </svg>
           </div>
-
           <Navbar />
           
           <main className="relative min-h-screen pt-20 font-titillium">
