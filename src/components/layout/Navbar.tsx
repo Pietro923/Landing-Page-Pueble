@@ -115,6 +115,8 @@ const Navbar = () => {
                 width={152}
                 height={150}
                 priority
+                aria-hidden="true"         
+                data-nosnippet             
               />
             </motion.div>
           </Link>

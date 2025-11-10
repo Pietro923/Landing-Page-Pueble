@@ -181,6 +181,8 @@ export default function HeroPreview() {
               height={200}
               priority
               className="mx-auto scale-110 md:scale-125 lg:scale-150 transition-transform duration-500"
+              aria-hidden="true"          // <- Esto le dice a Google que no lo use para snippets
+              data-nosnippet              // <- Otra capa de seguridad
             />
           </p>
           
