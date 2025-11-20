@@ -15,7 +15,8 @@ import {
   Image as ImageIcon,
   Calendar,
   Lightbulb,
-  ArrowRight
+  ArrowRight,
+  Play
 } from 'lucide-react'
 import { useTranslation } from "react-i18next";
 import Link from "next/link"
@@ -205,6 +206,79 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-xl sm:rounded-2xl" />
             </motion.div>
           </motion.div>
+{/* Nueva Sección: Video del Nuevo Concesionario */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+  className="mb-12 lg:mb-20"
+>
+  <div className="text-center mb-8 sm:mb-12">
+    <motion.p
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.2 }}
+      className="text-red-500 font-semibold uppercase tracking-wider mb-2 sm:mb-3 text-xs sm:text-sm"
+    >
+      | {t('page.nosotros.video.badge')}
+    </motion.p>
+    <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white px-2">
+      {t('page.nosotros.video.title')} <span className="text-red-500">{t('page.nosotros.video.title2')}</span>
+    </h2>
+    <p className="text-gray-300 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto mt-4">
+      {t('page.nosotros.video.subtitle')}
+    </p>
+  </div>
+
+  <motion.div
+    initial={{ opacity: 0, scale: 0.95 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    transition={{ delay: 0.3 }}
+    viewport={{ once: true }}
+    className="relative group max-w-4xl mx-auto" // Contenedor más pequeño
+  >
+    <div className="absolute -inset-4 bg-gradient-to-r from-red-600/20 to-red-900/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-700" />
+    <div className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-xl sm:rounded-2xl p-2 sm:p-4 border border-white/10 hover:border-red-500/30 transition-all duration-300 overflow-hidden">
+      <div className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden max-w-3xl mx-auto"> {/* Video más pequeño */}
+        <video
+          className="w-full h-full object-cover cursor-pointer"
+          controls
+          poster="/imagenes/inauguracion/conse4.webp" // Thumbnail agregado
+          preload="metadata"
+        >
+          <source src="/videos/PUEBLE_Nuevo_Concesionario_final.mp4" type="video/mp4" />
+          {t('page.nosotros.video.fallback')}
+        </video>
+        
+        {/* Overlay de gradiente sutil */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+        
+        {/* Botón de play overlay para mejor UX
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-16 h-16 bg-red-600/90 rounded-full flex items-center justify-center transform transition-transform group-hover:scale-110 pointer-events-auto cursor-pointer">
+            <Play className="w-8 h-8 text-white ml-1" />
+          </div>
+        </div> */}
+      </div>
+      
+      {/* Información del video - más compacta */}
+      <div className="p-4 sm:p-6 text-center"> {/* Centrado el contenido */}
+        <div className="flex items-center justify-center gap-3 mb-3"> {/* Centrado */}
+          <div className="p-2 bg-red-600 rounded-lg">
+            <Play className="w-4 h-4 text-white" />
+          </div>
+          <h3 className="text-lg sm:text-xl font-bold text-white">
+            {t('page.nosotros.video.caption')}
+          </h3>
+        </div>
+        <p className="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto"> {/* Texto más compacto */}
+          {t('page.nosotros.video.description')}
+        </p>
+      </div>
+    </div>
+  </motion.div>
+</motion.div>
 
           {/* Cita del CEO */}
           <motion.div

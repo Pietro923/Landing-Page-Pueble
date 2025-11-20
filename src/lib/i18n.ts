@@ -215,6 +215,13 @@ const resources = {
       "page.nosotros.timeline.m7.desc": "PUEBLE S.A. celebra su vigésimo aniversario reafirmando su compromiso con el trabajo, la innovación y el servicio al productor.",
       "page.nosotros.timeline.m7.alt": "Celebración del 20° aniversario de PUEBLE S.A.",
 
+      "page.nosotros.video.badge": "Nuevas Instalaciones",
+      "page.nosotros.video.title":"Descubre Nuestro",
+      "page.nosotros.video.title2":"Nuevo Concesionario",
+      "page.nosotros.video.subtitle":"Un espacio moderno diseñado para ofrecerte la mejor experiencia en maquinaria agrícola y construcción",
+      "page.nosotros.video.fallback":"Tu navegador no soporta el elemento de video.",
+      "page.nosotros.video.caption": "Tour Virtual - Nuevo Concesionario Pueble S.A.",
+      "page.nosotros.video.description":"Conoce nuestras nuevas instalaciones de última generación, equipadas con tecnología de punta para brindarte un servicio excepcional en la comercialización y mantenimiento de equipos CASE IH y JCB.",
 
       // Empresa.tsx
 
@@ -947,6 +954,13 @@ const resources = {
     "page.nosotros.timeline.m7.title": "20 Anos Melhorando a Terra",
     "page.nosotros.timeline.m7.desc": "A PUEBLE S.A. celebra seu vigésimo aniversário reafirmando seu compromisso com o trabalho, a inovação e o serviço ao produtor.",
     "page.nosotros.timeline.m7.alt": "Celebração do 20º aniversário da PUEBLE S.A.",
+    "page.nosotros.video.badge": "Novas Instalações",
+    "page.nosotros.video.title": "Descubra Nossa",
+    "page.nosotros.video.title2": "Nova Concessionária",
+    "page.nosotros.video.subtitle": "Um espaço moderno projetado para oferecer a melhor experiência em maquinário agrícola e de construção",
+    "page.nosotros.video.fallback": "Seu navegador não suporta o elemento de vídeo.",
+    "page.nosotros.video.caption": "Tour Virtual - Nova Concessionária Pueble S.A.",
+    "page.nosotros.video.description": "Conheça nossas novas instalações de última geração, equipadas com tecnologia de ponta para oferecer um serviço excepcional na comercialização e manutenção de equipamentos CASE IH e JCB.",
 
     
     // Empresa.tsx
@@ -1659,7 +1673,13 @@ const resources = {
       "page.nosotros.timeline.m7.title": "20 Years Improving the Land",
       "page.nosotros.timeline.m7.desc": "PUEBLE S.A. celebrates its 20th anniversary, reaffirming its commitment to hard work, innovation, and service to producers.",
       "page.nosotros.timeline.m7.alt": "Celebration of PUEBLE S.A.’s 20th anniversary.",
-
+      "page.nosotros.video.badge": "New Facilities",
+      "page.nosotros.video.title": "Discover Our",
+      "page.nosotros.video.title2": "New Dealership", 
+      "page.nosotros.video.subtitle": "A modern space designed to offer you the best experience in agricultural and construction machinery",
+      "page.nosotros.video.fallback": "Your browser does not support the video element.",
+      "page.nosotros.video.caption": "Virtual Tour - New Pueble S.A. Dealership",
+      "page.nosotros.video.description": "Get to know our new state-of-the-art facilities, equipped with cutting-edge technology to provide you with exceptional service in the commercialization and maintenance of CASE IH and JCB equipment.",
 
       // Empresa.tsx
 
