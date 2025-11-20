@@ -216,7 +216,7 @@ const resources = {
       "page.nosotros.timeline.m7.alt": "Celebración del 20° aniversario de PUEBLE S.A.",
 
       "page.nosotros.video.badge": "Nuevas Instalaciones",
-      "page.nosotros.video.title":"Descubre Nuestro",
+      "page.nosotros.video.title":"Descubrí Nuestro",
       "page.nosotros.video.title2":"Nuevo Concesionario",
       "page.nosotros.video.subtitle":"Un espacio moderno diseñado para ofrecerte la mejor experiencia en maquinaria agrícola y construcción",
       "page.nosotros.video.fallback":"Tu navegador no soporta el elemento de video.",

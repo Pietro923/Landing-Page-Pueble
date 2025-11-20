@@ -206,6 +206,7 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-xl sm:rounded-2xl" />
             </motion.div>
           </motion.div>
+
 {/* Nueva Sección: Video del Nuevo Concesionario */}
 <motion.div
   initial={{ opacity: 0, y: 20 }}
@@ -236,35 +237,26 @@ export default function About() {
     whileInView={{ opacity: 1, scale: 1 }}
     transition={{ delay: 0.3 }}
     viewport={{ once: true }}
-    className="relative group max-w-4xl mx-auto" // Contenedor más pequeño
+    className="relative group max-w-4xl mx-auto"
   >
     <div className="absolute -inset-4 bg-gradient-to-r from-red-600/20 to-red-900/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-700" />
     <div className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-xl sm:rounded-2xl p-2 sm:p-4 border border-white/10 hover:border-red-500/30 transition-all duration-300 overflow-hidden">
-      <div className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden max-w-3xl mx-auto"> {/* Video más pequeño */}
-        <video
-          className="w-full h-full object-cover cursor-pointer"
-          controls
-          poster="/imagenes/inauguracion/conse4.webp" // Thumbnail agregado
-          preload="metadata"
-        >
-          <source src="/videos/PUEBLE_Nuevo_Concesionario_final.mp4" type="video/mp4" />
-          {t('page.nosotros.video.fallback')}
-        </video>
+      <div className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden max-w-3xl mx-auto">
+        <iframe 
+          src="https://player.vimeo.com/video/1138960961?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+          className="w-full h-full rounded-lg sm:rounded-xl"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+          referrerPolicy="strict-origin-when-cross-origin"
+          title="PUEBLE_Nuevo_Concesionario_final"
+        />
         
         {/* Overlay de gradiente sutil */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-        
-        {/* Botón de play overlay para mejor UX
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-16 h-16 bg-red-600/90 rounded-full flex items-center justify-center transform transition-transform group-hover:scale-110 pointer-events-auto cursor-pointer">
-            <Play className="w-8 h-8 text-white ml-1" />
-          </div>
-        </div> */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none rounded-lg sm:rounded-xl" />
       </div>
       
-      {/* Información del video - más compacta */}
-      <div className="p-4 sm:p-6 text-center"> {/* Centrado el contenido */}
-        <div className="flex items-center justify-center gap-3 mb-3"> {/* Centrado */}
+      {/* Información del video */}
+      <div className="p-4 sm:p-6 text-center">
+        <div className="flex items-center justify-center gap-3 mb-3">
           <div className="p-2 bg-red-600 rounded-lg">
             <Play className="w-4 h-4 text-white" />
           </div>
@@ -272,7 +264,7 @@ export default function About() {
             {t('page.nosotros.video.caption')}
           </h3>
         </div>
-        <p className="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto"> {/* Texto más compacto */}
+        <p className="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto">
           {t('page.nosotros.video.description')}
         </p>
       </div>
